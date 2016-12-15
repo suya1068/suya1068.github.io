@@ -5,7 +5,8 @@ self.addEventListener('install', function(event) {
     event.waitUntil (
         caches.open('cache-name').then(function(cache) {
             return cache.addAll([
-                '/'
+                '/',
+                '/src/images/testImg.jpg'
             ]);
         }).then(function() {
             console.log('설치완료');
