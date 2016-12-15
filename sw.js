@@ -5,9 +5,7 @@ self.addEventListener('install', function(event) {
     event.waitUntil (
         caches.open('cache-name').then(function(cache) {
             return cache.addAll([
-                '/fsdevtest/',
-                '/fsdevtest/assets/js/scripts.min.js',
-                '/fsdevtest/images/nhnent.png'
+                '/'
             ]);
         }).then(function() {
             console.log('설치완료');
