@@ -1,8 +1,10 @@
+let self = this;
+
 self.addEventListener('push', function(event) {
     debugger;
     console.log('Received a push message', event);
 
-    var title = 'Notification';
+    var title = 'Notification-modi';
     var body = 'There is newly updated content available on the site. Click to see more.';
     var icon = 'https://raw.githubusercontent.com/deanhume/typography/gh-pages/icons/typography.png';
     var tag = 'simple-push-demo-notification-tag';
@@ -36,8 +38,9 @@ self.addEventListener('notificationclick', function(event) {
                         return client.focus();
                 }
                 if (clients.openWindow) {
-                    return clients.openWindow('https://deanhume.github.io/typography');
+                    return clients.openWindow('https://suya1068.github.io');
                 }
             })
     );
 });
+
