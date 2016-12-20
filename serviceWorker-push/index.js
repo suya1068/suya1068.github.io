@@ -17,3 +17,8 @@ if ('serviceWorker' in navigator) {
         console.log('ServiceWorker registration failed: ', err);
     });
 }
+
+// send subscription id to server
+function sendSubscriptionToServer(subscription) {
+    console.log(subscription);
+}
