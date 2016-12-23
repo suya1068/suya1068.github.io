@@ -7,7 +7,7 @@ self.addEventListener('sync', function (event) {
 function fetchDogImage () {
     fetch('./cat.jpg')
         .then(function (response){
-            returnresponse;
+            return response;
         })
         .then(function (text){
             console.log('Request successful', text);
@@ -16,3 +16,4 @@ function fetchDogImage () {
             console.log('Request failed', error);
         });
 }
+

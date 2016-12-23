@@ -15,3 +15,18 @@ if ('serviceWorker' in navigator) {
         console.log('Fallback to fetch the image as usual');
     });
 }
+
+// Connection Status
+function isOnline (){
+    varconnectionStatus =document.getElementById('connectionStatus');
+
+    if (navigator.onLine){
+        connectionStatus.innerHTML ='You are currently online!';
+    } else {
+        connectionStatus.innerHTML ='You are currently offline. Any requests made will be queued and synced as soon as you are connected again.';
+    }
+}
+
+window.addEventListener('online', isOnline);
+window.addEventListener('offline', isOnline);
+isOnline();
