@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>worker 사용 안할때....</h1>
+    <input type="text" id="num">
+    <button onclick="calculate()">계산</button>
+    <button onclick="stopCalculate()">중지</button><br/>
+    <p id="sum">Sum :</p>
+</body>
+<script>
+    function calculate() {
+        let num = document.getElementById("num").value;
+        let sum = document.getElementById("sum");
+        let result = 0;
+        for(let i = 1; i <= num; i++)
+        {
+            result += i;
+        }
+        sum.innerHTML = "Sum : " + result;
+    }
+    function stopCalculate() {
+        alert("그만둘수 없어");
+    }
+</script>
+</html>

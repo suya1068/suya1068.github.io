@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" id="num">
+    <button onclick="calculate()">계산</button>
+    <button onclick="stopCalculate()">중지</button><br/>
+    <p id="sum">Sum :</p>
+<script>
+    if(!!window.Worker){
+        let worker;
+        function calculate() {
+            if(worker) {                // 만약 worker가 있다면
+                worker.terminate();     // 종료
+            }
+            let num = document.getElementById("num").value;
+
+            worker = new Worker("worker.js");
+
+            worker.onmessage = function(evt) {
+                document.getElementById("sum").innerHTML = "Sum : " + evt.data;
+            };
+            worker.onerror = function(evt) {
+                alert("Error : " + evt.message + " (" + evt.filename + ":" + evt.lineno + ")");
+            };
+
+            worker.postMessage(num);
+        }
+        function stopCalculate() {
+            if(worker) {
+                worker.terminate();
+            }
+            alert("Worker is Stopped");
+        }
+    }
+    else{
+        alert("이 브라우저는 웹 워커를 지원하지 않습니다")
+    }
+</script>
+</body>
+</html>
