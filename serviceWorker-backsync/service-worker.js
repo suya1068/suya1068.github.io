@@ -1,5 +1,5 @@
 self.addEventListener('sync', function (event) {
-    if(event.tag ==='image-fetch') {
+    if(event.tag == 'image-fetch') {
         event.waitUntil(fetchDogImage());
     }
 });
