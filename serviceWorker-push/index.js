@@ -1,6 +1,6 @@
 if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('service-worker.js')
-        .then(function(registration) {
+        .then(registration => {
         // 서비스워커 등록 성공
         console.log('service worker 등록 성공: ', registration.scope);
         registration.pushManager.subscribe({userVisibleOnly: true})

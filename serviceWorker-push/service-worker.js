@@ -1,5 +1,3 @@
-let self = this;
-
 // 푸시 메시지 이벤트
 self.addEventListener('push', function(event) {
     // debugger;
