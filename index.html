@@ -3,11 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="manifest" href="./manifest.json">
+    <style>
+        #token {
+            border: 1px solid #e1e1e1;
+            display: block;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-<div id="testImg">
-    <img src="src/images/testImg.jpg" />
-</div>
-<script src="main.js"></script>
+    <button id="testButton" onclick="testHTTP()">보내기</button>
+    <div>
+        <h5>token</h5>
+        <textarea name="" id="token" cols="30" rows="10"></textarea>
+    </div>
 </body>
+<script src="https://www.gstatic.com/firebasejs/4.6.1/firebase.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js"></script>
+<script src="./app.js"></script>
 </html>
