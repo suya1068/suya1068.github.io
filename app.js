@@ -1,5 +1,6 @@
 (function (global, func) {
     if ('serviceWorker' in navigator) {
+        alert('use service worker.');
         func();
     } else {
         alert('not use service worker.');
