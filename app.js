@@ -1,17 +1,23 @@
-// Initialize Firebase
-var config = {
-    apiKey: "AIzaSyBaWpWO4ClA0yUprIvhIQNqpnVko0o8cvQ",
-    authDomain: "push-notification-152502.firebaseapp.com",
-    databaseURL: "https://push-notification-152502.firebaseio.com",
-    projectId: "push-notification-152502",
-    storageBucket: "push-notification-152502.appspot.com",
-    messagingSenderId: "695645857567"
-};
-firebase.initializeApp(config);
+(function (global, func) {
+    if ('serviceWorker' in navigator) {
+        func();
+    } else {
+        alert('not use service worker.');
+    }
+})(window || self, function () {
+    var config = {
+        apiKey: "AIzaSyBaWpWO4ClA0yUprIvhIQNqpnVko0o8cvQ",
+        authDomain: "push-notification-152502.firebaseapp.com",
+        databaseURL: "https://push-notification-152502.firebaseio.com",
+        projectId: "push-notification-152502",
+        storageBucket: "push-notification-152502.appspot.com",
+        messagingSenderId: "695645857567"
+    };
+    firebase.initializeApp(config);
 
-const messaging = firebase.messaging();
+    const messaging = firebase.messaging();
 
-let testToken;
+    let testToken;
 
 // const instance = axios.create({
 //     baseURL: 'https://fcm.googleapis.com/fcm/send',
@@ -23,39 +29,39 @@ let testToken;
 // });
 
 //사용자가 메시지를 열람할 것인지 물어봐야 함.
-messaging.requestPermission().then(function () {
-    //사용자가 허용했다면 별도의 알람 없이 진행하고..
-    console.log("Have permissiong");
-    //토큰을 얻고 promise를 리턴.
-    return messaging.getToken();
-})
-.then(function (token) {
-    console.log("token", token);
-    const node = document.getElementById('token');
-    node.innerHTML = token;
-    node.addEventListener('click', function () {
-        this.select();
+    messaging.requestPermission().then(function () {
+        //사용자가 허용했다면 별도의 알람 없이 진행하고..
+        console.log("Have permissiong");
+        //토큰을 얻고 promise를 리턴.
+        return messaging.getToken();
+    })
+        .then(function (token) {
+            console.log("token", token);
+            const node = document.getElementById('token');
+            node.innerHTML = token;
+            node.addEventListener('click', function () {
+                this.select();
+            });
+
+            testToken = token;
+        })
+        .catch(function (error) {
+            //사용자가 허용하지 않았다면 메시지를 더이상 보내지 못한다는 사실을 알려줘야 함.
+            console.log("error occured");        //테스트를 위해 그냥 콘솔만.
+        });
+    /*
+     data : {
+     "to": token,
+     "notification": {
+     "title": "Hello",
+     "body": "world"
+     }
+     }
+     */
+
+    messaging.onMessage(function(payload) {
+        console.log("onMessage: ", payload);
     });
-
-    testToken = token;
-})
-.catch(function (error) {
-    //사용자가 허용하지 않았다면 메시지를 더이상 보내지 못한다는 사실을 알려줘야 함.
-    console.log("error occured");        //테스트를 위해 그냥 콘솔만.
-});
-/*
- data : {
- "to": token,
- "notification": {
- "title": "Hello",
- "body": "world"
- }
- }
- */
-
-messaging.onMessage(function(payload) {
-    console.log("onMessage: ", payload);
-});
 
 // function testHTTP() {
 //     instance.post("", {
@@ -117,3 +123,5 @@ messaging.onMessage(function(payload) {
 //         }
 //     }
 // };
+
+});
