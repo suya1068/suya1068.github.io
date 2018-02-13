@@ -1,0 +1,8 @@
+{
+    "to": "dKBmUcMbUC0:APA91bHYsXyN7uK8WZk-YTb2nWPWA-p1Sfmy9qg3mGD1ZLka-DfZHoKY8QALKkT6F-zCnsdxxBi08RKuzAtJ7ARuMFWphjhmaLA278gkEvKUAL849qbdtzdagdfwgUI5spF8jlRVzD30",
+    "data": {
+        "status": "woohoo it works.",
+    }
+}
+
+curl --header "Authorization: key=AAAAofe5Zx8:APA91bF2d2zdRqZIkzXTfqdIDKqL4N592QyIro2Ahcjdf7vuKMWuSzVdiFCQ9SvXhdZQ-eUuCnnMk7O2nQsrjDEZI0aAmoH2981Ggq7T63wXpYMEjezi9U8fzmyfk-0XNlDatf7mXx9d" --header "Content-Type:application/json" -d '{"to": "dsuW46mfAEs:APA91bGLGL7814LmZMZZlGi8H92_NDAN9b-24t9RgBksntdkMAtNrCdrbctR8UpHVfc2JOntqe2gVqc8CZ3OBa2-_wgTzr8nTmsC-thB7lFSMtaUfiqj5QczDE8UlXsUsalYKshxni-M", "data": {"status": "whoohoo it works"}}' https://fcm.googleapis.com/fcm/send

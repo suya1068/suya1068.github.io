@@ -1,128 +1,129 @@
-(function (global, func) {
-    if ('serviceWorker' in navigator) {
-        alert('use service worker.');
-        func();
-    } else {
-        alert('not use service worker.');
+import axios from "axios";
+import init from "./init";
+
+init();
+const test_checkbox = document.querySelector("input[id='push-test']");
+let messaging;
+
+const instance = axios.create({
+    baseURL: "http://0.0.0.0:30000",
+    timeout: 0
+});
+
+/* ================================================
+ Header Config
+ ================================================ */
+Object.assign(instance.defaults, {
+    headers: {
+        common: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        post: {
+            "Content-Type": "application/x-www-form-urlencoded"
+        }
     }
-})(window || self, function () {
-    var config = {
-        apiKey: "AIzaSyBaWpWO4ClA0yUprIvhIQNqpnVko0o8cvQ",
-        authDomain: "push-notification-152502.firebaseapp.com",
-        databaseURL: "https://push-notification-152502.firebaseio.com",
-        projectId: "push-notification-152502",
-        storageBucket: "push-notification-152502.appspot.com",
-        messagingSenderId: "695645857567"
-    };
-    firebase.initializeApp(config);
+});
 
-    const messaging = firebase.messaging();
+/* ================================================
+ Interceptors - Request
+ ================================================ */
+instance.interceptors.request.use(config => {
+    const result = config;
+    return result;
+}, error => {
+    return console.log("axios request fail");
+});
 
-    let testToken;
-
-// const instance = axios.create({
-//     baseURL: 'https://fcm.googleapis.com/fcm/send',
-//     timeout: 1000,
-//     headers: {
-//         "Content-Type": "application/json",
-//         "Authorization": "key=AAAAofe5Zx8:APA91bFN5BYn34PhZHqTxsTAK-8jKUjwSqps4NqlSIXL4PozUDpk_HFq_djSPmrTAtr_4QWinpQ42hxKXEOKf002IzvWHmtNKsJixKt4pYM9FSUMXsnUg8-Cy4GUsyU6uvaHChEU63Xt"
-//     }
-// });
-
-//사용자가 메시지를 열람할 것인지 물어봐야 함.
-    messaging.requestPermission().then(function () {
-        //사용자가 허용했다면 별도의 알람 없이 진행하고..
-        console.log("Have permissiong");
-        //토큰을 얻고 promise를 리턴.
-        return messaging.getToken();
-    })
-        .then(function (token) {
-            console.log("token", token);
-            const node = document.getElementById('token');
-            node.innerHTML = token;
-            node.addEventListener('click', function () {
-                this.select();
-            });
-
-            testToken = token;
-        })
-        .catch(function (error) {
-            //사용자가 허용하지 않았다면 메시지를 더이상 보내지 못한다는 사실을 알려줘야 함.
-            console.log("error occured");        //테스트를 위해 그냥 콘솔만.
+test_checkbox.addEventListener("click", function(e) {
+    const checked = e.target.checked;
+    if (checked) {
+        messaging = firebase.messaging();
+        // const that = this;
+        messaging.requestPermission()
+            .then(function () {
+                messaging.getToken()
+                    .then(function(currentToken) {
+                        if (currentToken) {
+                            sendTokenToServer({ token: currentToken }).then(response => {
+                                console.log("response", response);
+                            }).catch(error => {
+                                console.log("toServer error");
+                            });
+                            // updateUIForPushEnabled(currentToken);
+                        }
+                        // else {
+                        //     // Show permission request.
+                        //     console.log('No Instance ID token available. Request permission to generate one.');
+                        //     // Show permission UI.
+                        //     updateUIForPushPermissionRequired();
+                        //     setTokenSentToServer(false);
+                        // }
+                    }).catch(function(err) {
+                    console.log('An error occurred while retrieving token. ', err);
+                    // showToken('Error retrieving Instance ID token. ', err);
+                    // setTokenSentToServer(false);
+                });
+            }).catch(function(err) {
+            console.log("error occured.");
         });
-    /*
-     data : {
-     "to": token,
-     "notification": {
-     "title": "Hello",
-     "body": "world"
-     }
-     }
-     */
 
-    messaging.onMessage(function(payload) {
-        console.log("onMessage: ", payload);
+        messaging.onMessage(function(payload) {
+            console.log("Message received. ", payload);
+            console.log(Notification);
+            // const notiTitle = payload.notification.title;
+            // const notiOptions = {
+            //     body: payload.notification.body,
+            //     icon: payload.notification.icon
+            // };
+            //
+            // if (Notification.permission === "granted") {
+            //     let notification = new Notification(notiTitle, notiOptions);
+            // }
+            // [START_EXCLUDE]
+            // Update the UI to include the received message.
+            // [END_EXCLUDE]
+        });
+    }
+});
+
+function sendTokenToServer(token) {
+    return instance.post("/test", stringify(token));
+}
+
+/**
+ * json data를 query string으로 변환한다.
+ * @name query.stringify
+ * @param {object|string} [data = ""]
+ * @returns {string}
+ */
+function stringify(data = "") {
+    if (typeof data === "string") { return data; }
+    if (!({}.toString.call(data) === "[object Object]")) { throw new TypeError("The type is incorrect."); }
+
+    const result = [];
+
+    function add(key, value) {
+        result.push(`${encodeURIComponent(key)}=${encodeURIComponent(value === null ? "" : value)}`);
+    }
+
+    function param(prefix, value, root = false) {
+        if (Array.isArray(value)) {
+            value.forEach((subData, idx) => {
+                param(`${prefix}[${idx}]`, subData);
+            });
+        } else if ({}.toString.call(value) === "[object Object]") {
+            Object.entries(value).forEach(subData => {
+                param(`${prefix}[${subData[0]}]`, subData[1]);
+            });
+        } else {
+            add(prefix, value);
+        }
+    }
+
+    Object.entries(data).forEach(subData => {
+        param(subData[0], subData[1], true);
     });
 
-// function testHTTP() {
-//     instance.post("", {
-//         "to": testToken,
-//         "notification": {
-//             "title": "Hello",
-//             "body": "world"
-//         }
-//     }).then(function (response) {
-//         console.log(response);
-//     }).catch(function (error) {
-//         console.log(error);
-//     });
-// }
-
-// axios({
-//     method: 'post',
-//     url: 'https://fcm.googleapis.com/fcm/send',
-//     data: {
-//         notification: {
-//             "title": "Hello",
-//             "body": "world"
-//         }
-//     }
-// });
-// var bigOne = document.getElementById("bigOne");
-// var dbRef = firebase.database().ref().child("text");
-// dbRef.on("value", snap => bigOne.innerText = snap.val());
-// var httpRequest;
-// document.getElementById("testButton").onclick = function() {
-//     if (window.XMLHttpRequest) {
-//         httpRequest = new XMLHttpRequest();
-//     } else if (window.ActiveXObject) {
-//         try {
-//             httpRequest = new ActiveXObject("Msxml2.XMLHTTP");
-//         } catch (e) {
-//             try {
-//                 httpRequest = new ActiveXObject("Microsoft.XMLHTTP");
-//             } catch (e) {}
-//         }
-//     }
-//
-//     if (!httpRequest) {
-//         alert("Giving up : ( Cannot create an XMLHTTP instance");
-//         return false;
-//     }
-//
-//     httpRequest.onreadystatechange = alertContents;
-//     httpRequest.open("GET", "https://fcm.googleapis.com/fcm/send");
-//     httpRequest.send();
-//
-//     function alertContents() {
-//         if (httpRequest.readyState === 4) {
-//             if (httpRequest.status === 200) {
-//                 alert(httpRequest.responseText);
-//             } else {
-//                 alert('There was a problem with the request.');
-//             }
-//         }
-//     }
-// };
-
-});
+    return result.join("&");
+}
