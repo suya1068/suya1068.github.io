@@ -949,7 +949,7 @@ const test_checkbox = document.querySelector("input[id='push-test']");
 let messaging;
 
 const instance = __WEBPACK_IMPORTED_MODULE_0_axios___default.a.create({
-    baseURL: "http://0.0.0.0:30000",
+    baseURL: "http://127.0.0.1:3000",
     timeout: 0
 });
 
@@ -990,6 +990,7 @@ test_checkbox.addEventListener("click", function(e) {
                         if (currentToken) {
                             sendTokenToServer({ token: currentToken }).then(response => {
                                 console.log("response", response);
+                                document.getElementById("token").innerText = "browser token: " + response.data.token;
                             }).catch(error => {
                                 console.log("toServer error");
                             });
