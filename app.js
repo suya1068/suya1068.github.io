@@ -45,9 +45,10 @@ test_checkbox.addEventListener("click", function(e) {
                 messaging.getToken()
                     .then(function(currentToken) {
                         if (currentToken) {
+                            document.getElementById("token").innerText = "browser token: " + currentToken;
                             sendTokenToServer({ token: currentToken }).then(response => {
                                 console.log("response", response);
-                                document.getElementById("token").innerText = "browser token: " + response.data.token;
+                                // document.getElementById("token").innerText = "browser token: " + response.data.token;
                             }).catch(error => {
                                 console.log("toServer error");
                             });
