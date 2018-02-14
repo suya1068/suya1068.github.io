@@ -17,6 +17,7 @@ const messaging = firebase.messaging();
 // 백그라운드 메시지는 서비스 워커 안에서 이뤄져야 함.
 // 웹 페이지가 열려있지 않을때에만 동작
 messaging.setBackgroundMessageHandler(function (payload) {
+    window.alert("background: " + payload);
     const title = payload.data.title;
     const options = {
         body: payload.data.body,

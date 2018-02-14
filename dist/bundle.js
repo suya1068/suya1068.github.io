@@ -60,45 +60,22 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ 28:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-// Initialize Firebase
-function init () {
-    const config = {
-        apiKey: "AIzaSyBaWpWO4ClA0yUprIvhIQNqpnVko0o8cvQ",
-        authDomain: "push-notification-152502.firebaseapp.com",
-        databaseURL: "https://push-notification-152502.firebaseio.com",
-        projectId: "push-notification-152502",
-        storageBucket: "push-notification-152502.appspot.com",
-        messagingSenderId: "695645857567"
-    };
-    firebase.initializeApp(config);
-}
-
-/* harmony default export */ __webpack_exports__["a"] = (init);
-
-
-/***/ }),
-
-/***/ 8:
+/******/ ([
+/* 0 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__init__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__init__ = __webpack_require__(1);
 // import axios from "axios";
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__init__["a" /* default */])();
 const test_checkbox = document.querySelector("input[id='push-test']");
-let messaging;
+const messaging = firebase.messaging();
 
 // const instance = axios.create({
 //     baseURL: "http://127.0.0.1:3000",
@@ -133,8 +110,6 @@ let messaging;
 test_checkbox.addEventListener("click", function(e) {
     const checked = e.target.checked;
     if (checked) {
-        messaging = firebase.messaging();
-        // const that = this;
         messaging.requestPermission()
             .then(function () {
                 messaging.getToken()
@@ -166,8 +141,9 @@ test_checkbox.addEventListener("click", function(e) {
         });
 
         messaging.onMessage(function(payload) {
-            console.log("Message received. ", payload);
-            console.log(Notification);
+            // console.log("Message received. ", payload);
+            window.alert("foreground: " + payload);
+
             // const notiTitle = payload.notification.title;
             // const notiOptions = {
             //     body: payload.notification.body,
@@ -177,9 +153,6 @@ test_checkbox.addEventListener("click", function(e) {
             // if (Notification.permission === "granted") {
             //     let notification = new Notification(notiTitle, notiOptions);
             // }
-            // [START_EXCLUDE]
-            // Update the UI to include the received message.
-            // [END_EXCLUDE]
         });
     }
 });
@@ -225,6 +198,26 @@ test_checkbox.addEventListener("click", function(e) {
 //     return result.join("&");
 // }
 
-/***/ })
+/***/ }),
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-/******/ });
+"use strict";
+// Initialize Firebase
+function init () {
+    const config = {
+        apiKey: "AIzaSyBaWpWO4ClA0yUprIvhIQNqpnVko0o8cvQ",
+        authDomain: "push-notification-152502.firebaseapp.com",
+        databaseURL: "https://push-notification-152502.firebaseio.com",
+        projectId: "push-notification-152502",
+        storageBucket: "push-notification-152502.appspot.com",
+        messagingSenderId: "695645857567"
+    };
+    firebase.initializeApp(config);
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (init);
+
+
+/***/ })
+/******/ ]);

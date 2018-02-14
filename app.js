@@ -3,7 +3,7 @@ import init from "./init";
 
 init();
 const test_checkbox = document.querySelector("input[id='push-test']");
-let messaging;
+const messaging = firebase.messaging();
 
 // const instance = axios.create({
 //     baseURL: "http://127.0.0.1:3000",
@@ -38,14 +38,12 @@ let messaging;
 test_checkbox.addEventListener("click", function(e) {
     const checked = e.target.checked;
     if (checked) {
-        messaging = firebase.messaging();
-        // const that = this;
         messaging.requestPermission()
             .then(function () {
                 messaging.getToken()
                     .then(function(currentToken) {
+                        document.getElementById("token").innerText = "browser token: " + currentToken;
                         if (currentToken) {
-                            document.getElementById("token").innerText = "browser token: " + currentToken;
                             // sendTokenToServer({ token: currentToken }).then(response => {
                             //     console.log("response", response);
                             //     document.getElementById("token").innerText = "browser token: " + response.data.token;
@@ -71,8 +69,9 @@ test_checkbox.addEventListener("click", function(e) {
         });
 
         messaging.onMessage(function(payload) {
-            console.log("Message received. ", payload);
-            console.log(Notification);
+            // console.log("Message received. ", payload);
+            window.alert("foreground: " + payload);
+
             // const notiTitle = payload.notification.title;
             // const notiOptions = {
             //     body: payload.notification.body,
@@ -82,9 +81,6 @@ test_checkbox.addEventListener("click", function(e) {
             // if (Notification.permission === "granted") {
             //     let notification = new Notification(notiTitle, notiOptions);
             // }
-            // [START_EXCLUDE]
-            // Update the UI to include the received message.
-            // [END_EXCLUDE]
         });
     }
 });
