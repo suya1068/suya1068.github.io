@@ -35,6 +35,12 @@ const messaging = firebase.messaging();
 //     return console.log("axios request fail");
 // });
 
+if ('serviceWorker' in navigator) {
+    alert('use service worker.');
+} else {
+    alert('not use service worker.');
+}
+
 test_checkbox.addEventListener("click", function(e) {
     const checked = e.target.checked;
     if (checked) {
