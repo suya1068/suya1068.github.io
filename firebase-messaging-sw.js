@@ -29,7 +29,9 @@ messaging.setBackgroundMessageHandler(function (payload) {
 var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
     '/',
-    '/image'
+    '/image/logo.png',
+    '/image/logo_144.png',
+    '/image/logo_192.png'
 ];
 
 self.addEventListener('install', function(event) {
@@ -49,6 +51,7 @@ self.addEventListener('fetch', function(event) {
     event.respondWith(
         caches.match(event.request)
             .then(function(response) {
+                console.log(response);
                     // Cache hit - return response
                     if (response) {
                         return response;
