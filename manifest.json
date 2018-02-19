@@ -3,12 +3,12 @@
   "name": "푸쉬 notification 테스트",
   "icons": [
     {
-      "src": "/image/logo.png",
+      "src": "https://suya1068.github.io/image/logo.png",
       "sizes": "144x144",
       "type": "image/png"
     }
   ],
-  "start_url": "https://suya1068.github.io",
+  "start_url": "/",
   "display": "standalone",
   "theme_color": "#e3b42c",
   "background_color": "#ffffff",
