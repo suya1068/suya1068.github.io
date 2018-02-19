@@ -4,11 +4,11 @@
   "icons": [
     {
       "src": "/image/logo.png",
-      "sizes": "48x48",
+      "sizes": "144x144",
       "type": "image/png"
     }
   ],
-//  "start_url": "index.html",
+  "start_url": "https://suya1068.github.io",
   "display": "standalone",
   "theme_color": "#e3b42c",
   "background_color": "#ffffff",
