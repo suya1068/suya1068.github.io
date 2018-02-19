@@ -25,3 +25,36 @@ messaging.setBackgroundMessageHandler(function (payload) {
     };
     return self.registration.showNotification(title, options);
 });
+
+var CACHE_NAME = 'my-site-cache-v1';
+var urlsToCache = [
+    '/',
+    '/image'
+];
+
+self.addEventListener('install', function(event) {
+    // Perform install steps
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then(function(cache) {
+                console.log('Opened cache');
+                return cache.addAll(urlsToCache);
+            }).catch(function (error) {
+            console.log("cache faile", error);
+        })
+    );
+});
+
+self.addEventListener('fetch', function(event) {
+    event.respondWith(
+        caches.match(event.request)
+            .then(function(response) {
+                    // Cache hit - return response
+                    if (response) {
+                        return response;
+                    }
+                    return fetch(event.request);
+                }
+            )
+    );
+});
