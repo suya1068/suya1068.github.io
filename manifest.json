@@ -3,12 +3,12 @@
   "name": "푸쉬 notification 테스트",
   "icons": [
     {
-      "src": "./image/logo.png",
-      "sizes": "30x30",
+      "src": "/image/logo.png",
+      "sizes": "48x48",
       "type": "image/png"
     }
   ],
-  "start_url": "/",
+//  "start_url": "index.html",
   "display": "standalone",
   "theme_color": "#e3b42c",
   "background_color": "#ffffff",
