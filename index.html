@@ -1,16 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="manifest" href="https://suya1068.github.io/manifest.json">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css" />
+  <title>push test</title>
 </head>
+
 <body>
-<h1>푸쉬 테스트</h1>
-<input type="checkbox" name="push_check_test" id="push-test" />
-<label for="push-test"><span>푸쉬 받아보기</span></label>
-<p id="token"></p>
-<script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
-<script src="/dist/bundle.js"></script>
+  <button id="push-test">알림 테스트</button>
+  <!--<button id="subscribe-test">구독 테스트</button>-->
+  <!--<input id="push-input-message" type="text" oninput="setMessage()" />-->
+  <!--<button id="button-message-push">푸쉬 날리기</button>-->
+  <p class="subscription-object"></p>
+  <div class="site-main">
+    <div class="notification-options">
+      <h3 class="alarm-title">알림 옵션</h3>
+      <div class="option-block">
+        <h4>Push Sender</h4>
+        <form name="sender_form">
+          <label><input type="radio" name="sender" value="customer" onclick="setSenderData(this, 'customer')">고객</label>
+          <label><input type="radio" name="sender" value="artist" onclick="setSenderData(this, 'artist')">작가</label>
+          <label><input type="radio" name="sender" value="customercenter" onclick="setSenderData(this, 'customercenter')">고객센터</label>
+        </form>
+      </div>
+      <div class="option-block">
+        <h4>Push Receiver</h4>
+        <form name="receiver_form">
+          <label><input type="radio" name="receiver" value="customer" onclick="setReceiverData(this, 'customer')">고객</label>
+          <label><input type="radio" name="receiver" value="artist" onclick="setReceiverData(this, 'artist')">작가</label>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+  <script src="https://npmcdn.com/axios/dist/axios.min.js"></script>
 </body>
 </html>

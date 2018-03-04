@@ -1,86 +1,74 @@
 var express = require("express");
+var cors = require('cors');
+var webPush = require('web-push');
 var bodyParser = require("body-parser");
-var cors = require("cors");
-var request = require("request");
+
 var app = express();
 var port = 3000;
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(cors());
+var serverKey = "AAAAofe5Zx8:APA91bF2d2zdRqZIkzXTfqdIDKqL4N592QyIro2Ahcjdf7vuKMWuSzVdiFCQ9SvXhdZQ-eUuCnnMk7O2nQsrjDEZI0aAmoH2981Ggq7T63wXpYMEjezi9U8fzmyfk-0XNlDatf7mXx9d";
+var endpoint = "";
+var keys = "";
+var vapidKeys = webPush.generateVAPIDKeys();
 
-var test_token_save = {};
-var Authorization = "AAAAofe5Zx8:APA91bF2d2zdRqZIkzXTfqdIDKqL4N592QyIro2Ahcjdf7vuKMWuSzVdiFCQ9SvXhdZQ-eUuCnnMk7O2nQsrjDEZI0aAmoH2981Ggq7T63wXpYMEjezi9U8fzmyfk-0XNlDatf7mXx9d";
-var CONTENT_TYPE = "application/json";
-var FCM_END_POINT = "https://fcm.googleapis.com/fcm/send";
+console.log(vapidKeys);
+webPush.setGCMAPIKey(serverKey);
 
-app.use("/test", function(req, res) {
-    var token = req.body.token || "";
-    if (token) {
-        test_token_save.token = token;
-        res.status(201).json(test_token_save);
+app.get("/", function (req,res) {
+    res.send("테스트");
+});
+
+app.post("/push", function(req, res) {
+    console.log(req.body, req.body.pushSubscription);
+    if (!req.body.pushSubscription) {
+        return res.status(400).json({ error: "no_data" });
     } else {
-        res.status(404).json({ error: "token is empty" });
+        endpoint = req.body.pushSubscription.endpoint;
+        keys = req.body.pushSubscription.keys;
+        // var pushSubscription = {
+        //     endpoint: req.body.pushSubscription.endpoint,
+        //     keys: req.body.pushSubscription.keys
+        // };
+        res.status(201).json("OK");
     }
-
-    console.log("test_token_save", test_token_save);
 });
 
-app.use("/fore", function (req, res) {
-    var token = test_token_save.token;
-    request({
-        url: FCM_END_POINT,
-        method: "POST",
-        headers: {
-            Authorization: "key=" + Authorization,
-            "Content-Type": CONTENT_TYPE
-        },
-        body: JSON.stringify({
-            "notification": {
-                "title": "푸쉬 테스트",
-                "body": "푸쉬 메시지가 보내지고 있습니다.",
-                "icon": "./image/logo.png"
-            },
-            "to": token
-        })
-    }, function (error, response, body) {
-        if (response.statusCode >= 400) {
-            console.log("HTTP ERROR", response)
-        } else {
-            console.log("on Success");
-        }
-    });
-// app.use("/pushsend", function (req, res) {
-});
-app.use("/back", function (req, res) {
-    var token = test_token_save.token;
-    request({
-        url: FCM_END_POINT,
-        method: "POST",
-        headers: {
-            Authorization: "key=" + Authorization,
-            "Content-Type": CONTENT_TYPE
-        },
-        body: JSON.stringify({
-            "data": {
-                "title": "백그라운드 메시지",
-                "body": "닫힌상태에서도 메시지가 보내지네요",
-                "icon": "./image/logo.png"
-            },
-            "to": token
-        })
-    }, function (error, response, body) {
-        if (response.statusCode >= 400) {
-            console.log("HTTP ERROR", response)
-        } else {
-            console.log("on Success");
-            console.log(response);
-        }
-    });
-// app.use("/pushsend", function (req, res) {
+app.post("/send", function (req, res) {
+    if (req.body.message) {
+        var payload = JSON.stringify({
+            body: req.body.message
+        });
+        var options = {
+            TTL: 60
+        };
+
+        var pushSubscription = {
+            endpoint: endpoint,
+            keys: keys
+        };
+
+        console.log("test", pushSubscription);
+        webPush.sendNotification(
+            pushSubscription,
+            payload,
+            options
+        ).then(function (data) {
+            console.log("then", data);
+        }).catch(function (err) {
+            console.log("err", err);
+        });
+        res.status(201).json("send OK");
+    } else {
+        res.status(400).json("err");
+    }
+    console.log(req.body);
+
 });
 
-app.listen(port, function() {
-    console.log("server on port 3000");
-});
 
+app.listen(port, function () {
+    console.log("Example app listening on port " + port);
+});
