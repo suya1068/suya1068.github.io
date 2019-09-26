@@ -1,0 +1,127 @@
+%fors-dropdown-base {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    border: 1px solid #e1e1e1;
+    background-color: #fff;
+    width: 100%;
+    height: 50px;
+    outline: none;
+    padding: 0 1.125em;
+    text-align: left;
+    font-size: 15px;
+}
+
+.fors-dropdown {
+    position: relative;
+
+    &.disabled {
+        pointer-events: none;
+        .fors-select-view {
+            background: #e1e1e1;
+        }
+    }
+
+    .fors-select-view {
+        @extend %fors-dropdown-base;
+        flex-direction: row;
+        align-items: center;
+        box-shadow: 2px 2px 7px -5px #666;
+
+        .icon {
+            flex: 0 0 auto;
+            transform: scale(1.23);
+            margin-left: 1.125em;
+        }
+
+        .fors-select {
+            flex: 1 1 auto;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    .fors-select-box {
+        position: absolute;
+        left: 0;
+        top: 100%;
+        transition: all 0.6s ease;
+        width: 100%;
+        max-height: 0;
+        list-style: none;
+        margin: 10px 0 0 0;
+        padding: 0;
+        border: 2px solid #969696;
+        background-color: #fff;
+        border-radius: 7px;
+        box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.04);
+        overflow-y: auto;
+        opacity: 0;
+        z-index: 200;
+
+        &.relative {
+            position: relative;
+            top: 10px;
+            margin: 0;
+        }
+
+        &.show {
+            max-height: 204px;
+            opacity: 1;
+        }
+
+        .fors-select-option {
+            height: 34px;
+            font-weight: normal;
+            text-align: left;
+
+            &.select {
+                color: #ffba00;
+            }
+
+            &.active {
+                font-weight: bold;
+                color: #000;
+            }
+
+            .caption {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    &.dropdown-small {
+        font-size: 13px;
+
+        > .icon {
+            right: 18px;
+            transform: translateY(-50%) scale(1);
+        }
+
+        .fors-select-view {
+            height: 34px;
+        }
+        .fors-select-option {
+            height: 34px;
+        }
+    }
+    &.dropdown-large {
+        font-size: 19px;
+
+        > .icon {
+            right: 35px;
+            transform: translateY(-50%) scale(1.45);
+        }
+
+        .fors-select-view {
+            height: 62px;
+        }
+        .fors-select-option {
+            height: 34px;
+        }
+    }
+}

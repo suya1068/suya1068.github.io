@@ -1,0 +1,64 @@
+@import "mobile/resources/scss/mixins";
+
+.main__estimate {
+    //padding: 8px 0 24px;
+
+    .main-section__title {
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: normal;
+        text-align: center;
+    }
+
+    &__box {
+        background-color: #fff;
+        margin: 15px;
+        border: 1px solid #dedede;
+    }
+
+    .tab-box {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+
+        flex-wrap: wrap;
+        border-bottom: 1px solid #dedede;
+    }
+
+    .estimate-content {
+        background-color: #f9f9f9;
+        padding: 15px 20px 20px;
+    }
+
+    .tab-category {
+        position: relative;
+        width: calc(100% / 4);
+        font-size: 14px;
+        font-weight: 500;
+        padding: 10px 0;
+
+        cursor: pointer;
+        color: #666666;
+
+        @include ellipsis;
+
+        &:nth-child(n + 5) {
+            border-top: 1px solid #dedede;
+        }
+
+        &:nth-child(n + 2) {
+            border-left: 1px solid #dedede;
+        }
+
+        &:nth-child(1),
+        &:nth-child(5) {
+            border-left: none;
+        }
+
+        &.active {
+            color: #fff;
+            background-color: #000;
+        }
+    }
+}

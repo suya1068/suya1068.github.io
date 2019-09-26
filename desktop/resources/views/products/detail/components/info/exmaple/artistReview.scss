@@ -1,0 +1,126 @@
+@import "../../../business/scss/variable";
+
+.product__artist-review {
+	padding: 24px 20px 30px;
+	background-color: #fff;
+}
+
+.artist-review {
+	border-bottom: $base-border;
+	&__content {
+
+	}
+
+	&__box {
+
+	}
+
+	&__box__head {
+		margin-bottom: 17px;
+	}
+
+	&__title {
+		font-size: 16px;
+		font-weight: bold;
+		letter-spacing: normal;
+	}
+
+	&__list {
+		@include base-flex;
+		flex-wrap: wrap;
+	}
+
+	&__item {
+		width: 193px;
+		height: 219px;
+		border: $base-border;
+
+		&:nth-child(3n),
+		&:nth-child(3n - 1) {
+			margin-left: 9px;
+		}
+
+		&:nth-child(n + 4) {
+			margin-top: 10px;
+		}
+
+		.thumb-bg {
+			width: 100%;
+			height: 100%;
+			position: relative;
+
+			cursor: pointer;
+
+			&:hover {
+				.review-bottom {
+					height: 100%;
+					background-color: rgba(0,0,0, 0.7);
+				}
+			}
+		}
+
+		.review-bottom {
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 70px;
+			background-color: #fff;
+
+			border-top: $base-border;
+
+			transition: height 0.2s, background-color 0.2s ease-in-out;
+
+			@include base-flex;
+			justify-content: center;
+
+			&.show-content {
+				padding: 20px 10px;
+
+				overflow: hidden;
+				align-items: flex-start;
+				justify-content: flex-start;
+
+				border-top: none;
+
+				.content-box {
+					overflow: hidden;
+					width: 100%;
+					height: 100%;
+				}
+			}
+
+			.review-title {
+				font-size: 14px;
+				font-weight: normal;
+				line-height: 1.29;
+				letter-spacing: normal;
+				text-align: center;
+			}
+
+			.review-content {
+				font-size: 12px;
+				font-weight: normal;
+				//line-height: 3;
+				line-height: 1.33;
+				letter-spacing: normal;
+				color: #ffffff;
+
+			}
+		}
+
+		&.none-list {
+			@include base-flex;
+			justify-content: center;
+			flex-direction: column;
+
+			.none-list__title {
+				font-size: 14px;
+				font-weight: bold;
+				letter-spacing: normal;
+				color: #999999;
+
+				margin-top: 5px;
+			}
+		}
+	}
+}

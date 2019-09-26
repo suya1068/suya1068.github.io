@@ -1,0 +1,82 @@
+@import "desktop/resources/scss/variables";
+
+.products-page.none-list {
+    height: 100%;
+
+    .none-container {
+        width: 100%;
+    }
+
+    #site-header {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: map_get($z-index, "fixed");
+        background-color: transparent;
+        border: none;
+    }
+
+    #site-main {
+        height: calc(100% - #{$site-footer-height});
+        min-height: 600px;
+        text-align: center;
+
+        .tag-title {
+            color: #fff;
+        }
+
+        .lead {
+            margin-top: 15px;
+
+            color: #fff;
+            font-weight: 300;
+            font-size: 15px;
+            letter-spacing: -1px;
+        }
+
+        .step-container {
+            display: flex;
+            position: relative;
+            flex-direction: row;
+            padding: 40px 0 50px 0;
+
+            .middle-line {
+                position: absolute;
+                border: 1px solid #fff;
+                height: 1px;
+                width: 70%;
+                top: 47%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+
+            .step {
+                color: #fff;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                flex: 1 1 auto;
+                .step-no {
+                    padding-bottom: 10px;
+                }
+                .title {
+                    padding-top: 20px;
+                }
+            }
+        }
+    }
+
+    .auth-sign {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.8rem;
+        letter-spacing: -0.4px;
+    }
+
+    #site-footer {
+        margin-top: 0;
+    }
+}

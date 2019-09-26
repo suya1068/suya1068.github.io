@@ -1,0 +1,55 @@
+.pop-question {
+	width: 500px;
+	border-radius: 15px;
+
+	&__head {
+		position: relative;
+		margin-bottom: 18px;
+		.forsnap-logo {
+			position: relative;
+			width: 100px;
+			height: 29px;
+			margin: 0 auto;
+		}
+		.close-button {
+			position: absolute;
+			cursor: pointer;
+			top: 0;
+			right: 0;
+		}
+	}
+
+	&__content {
+		.nick_name {
+			font-size: 20px;
+			font-weight: bold;
+			margin-bottom: 16px;
+		}
+
+		.yellow-text {
+			color: #f7b500;
+			margin-right: 5px;
+		}
+
+		.question__message {
+			margin-bottom: 16px;
+
+			.f__textarea {
+				font-size: initial;
+			}
+		}
+	}
+
+	&__button {
+		._button {
+			background-color: #f7b500;
+			border-color: #f7b500;
+			padding: 18px;
+			height: auto;
+			width: 360px;
+			color: #fff;
+			font-size: 18px;
+			font-weight: bold;
+		}
+	}
+}

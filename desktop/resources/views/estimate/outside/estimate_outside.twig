@@ -1,0 +1,13 @@
+{% extends "template/public.twig" %}
+
+{% block head_assets %}
+    <link rel="stylesheet" href="{{ manifest['estimate/outside.css'] }}" />
+{% endblock %}
+
+{% block contents %}
+    <meta id="estimate_url" content={{ estimate_url }}>
+{% endblock %}
+
+{% block body_assets %}
+    <script src="{{ manifest['estimate/outside.js'] }}"></script>
+{% endblock %}

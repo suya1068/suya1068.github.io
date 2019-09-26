@@ -1,0 +1,12 @@
+{% extends "template/private.twig" %}
+
+{% block head %}
+    <title>본인인증</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="data" content="{{ data }}" id="fsc_data">
+{% endblock %}
+
+{% block body_assets %}
+    <script src="{{ manifest['users/auth/auth_result.js'] }}"></script>
+{% endblock %}
+

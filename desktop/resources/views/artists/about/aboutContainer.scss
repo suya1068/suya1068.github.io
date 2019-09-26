@@ -1,0 +1,6 @@
+@import "desktop/resources/scss/variables";
+
+.artist-about-container {
+	background-color: #fafafa;
+	min-height: calc(100vh - #{$site-footer-height});
+}

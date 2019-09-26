@@ -1,0 +1,148 @@
+@import "desktop/resources/scss/variables";
+.users-page {
+    //height: 100%;
+    padding-top: $site-header-height - 10px;
+    .users-container-center {
+        position: relative;
+        display: inline-block;
+        background-color: #fafafa;
+        min-height: calc(100vh - #{$site-footer-height + ($site-header-height * 2)});
+        width: 100%;
+        //min-height: 100%;
+
+        .container {
+            height: inherit;
+            padding: 50px 20px 20px 20px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 50px;
+
+            .desktop-estimate {
+                font-size: 110%;
+
+                .wrap-quotation-button {
+                    margin-top: 10px;
+                    width: 25%;
+                }
+            }
+
+            .caption {
+                display: inline-block;
+                font-size: 12.9px;
+                font-weight: normal;
+                line-height: 1.27;
+                letter-spacing: -0.6px;
+                color: #969696;
+                text-align: right;
+                float: right;
+            }
+
+            > .title {
+                display: inline-block;
+                font-size: 16.3px;
+                font-weight: 500;
+                letter-spacing: -0.8px;
+                text-align: left;
+                vertical-align: middle;
+            }
+
+            .users-content-row {
+                &:last-child {
+                    padding: 50px 0 0 0;
+                    background-color: transparent;
+                    margin-bottom: 10px;
+
+                    > a {
+                        color: #969696;
+                        line-height: 60px;
+                        > p {
+                            text-decoration: underline;
+                        }
+                    }
+
+                    > button {
+                        margin-left: 10px;
+
+                        &:first-child {
+                            margin-left: 0;
+                        }
+                    }
+                }
+
+                .content-columns {
+                    position: relative;
+                    display: inline-block;
+                    width: 100%;
+                    margin-bottom: 15px;
+
+                    > div {
+                        display: inline-block;
+                    }
+
+                    > :nth-child(n+3):not(.caption) {
+                        margin-left: 10px;
+                    }
+
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+
+                    .title {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        line-height: 34px;
+
+                        &:nth-child(n+2) {
+                            position: relative;
+                            min-width: initial;
+                            margin-left: 25px;
+                            margin-right: 15px;
+                            float: none;
+                        }
+                    }
+                }
+
+                //.title {
+                //    display: inline-block;
+                //    font-size: 16.3px;
+                //    font-weight: 500;
+                //    letter-spacing: -0.8px;
+                //    text-align: left;
+                //    vertical-align: middle;
+                //}
+                //
+                //.caption {
+                //    display: inline-block;
+                //    font-size: 12.9px;
+                //    font-weight: normal;
+                //    line-height: 1.27;
+                //    letter-spacing: -0.6px;
+                //    color: #969696;
+                //    text-align: right;
+                //    float: right;
+                //}
+
+                //.caption {
+                //    text-align: right;
+                //    float: right;
+                //}
+            }
+        }
+    }
+
+    .quotation__request {
+        padding: 0;
+        border: 1px solid #e1e1e1;
+        background-color: #fff;
+        //font-size: 110%;
+
+        .quotation__request__body {
+            background-color: #fafafa;
+        }
+    }
+}
+
+.users-chat {
+    height: calc(100vh - #{(50 * 2) + ($site-header-height * 2)});
+}

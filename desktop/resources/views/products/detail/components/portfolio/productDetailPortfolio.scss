@@ -1,0 +1,171 @@
+@import "../../business/scss/variable";
+
+.product__portfolio {
+	padding: 60px 0 40px;
+	background-color: #fff;
+
+	&.no-more {
+		padding-bottom: 60px;
+	}
+
+	&__box {
+		border: $base-border;
+	}
+
+	&__head {
+		height: 60px;
+		@include base-flex;
+		justify-content: space-between;
+
+		.popdown-container {
+			height: 23px;
+		}
+
+		.head__left {
+			padding: 0 20px;
+		}
+
+		.head__title {
+			font-size: 20px;
+			font-weight: normal;
+			letter-spacing: normal;
+		}
+
+		.head__right {
+			@include base-flex;
+			justify-content: space-between;
+		}
+
+		.head__button {
+			width: 60px;
+			height: 60px;
+			border-left: $base-border;
+
+			@include base-flex;
+			justify-content: center;
+
+			cursor: pointer;
+
+			.share__button {
+				cursor: pointer;
+			}
+
+			.popdown-arrow {
+				right: 77px !important;
+			}
+
+			.share__social {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				justify-content: center;
+				width: 250px;
+				padding: 15px 0;
+
+				.share__brand {
+					display: inline-block;
+					text-align: center;
+					cursor: pointer;
+
+					&__icon {}
+					&__text {
+						padding-top: 10px;
+					}
+				}
+			}
+
+			.share__social__copy {
+				display: flex;
+				flex-direction: row;
+				padding: 0 15px 15px;
+
+				:nth-child(n+2) {
+					margin-left: 10px;
+				}
+
+				input {
+					font-size: 11px;
+				}
+			}
+
+			//.share__button,
+			//.heart__button {
+			//	display: flex;
+			//	flex-direction: row;
+			//	align-items: center;
+			//	justify-content: center;
+			//	cursor: pointer;
+			//}
+
+			//> :nth-child(n+2) {
+			//	margin-left: 10px;
+			//}
+		}
+	}
+
+	&__thumbs {
+		display: flex;
+		flex-wrap: wrap;
+
+		min-height: 412px;
+		border-top: $base-border;
+
+		.video_run-time {
+			position: absolute;
+			bottom: 5px;
+			right: 5px;
+			background-color: rgba(0,0,0,0.5);
+			min-width: 30px;
+			min-height: 15px;
+
+			> p {
+				padding: 1px 4px;
+				color: #fff;
+				font-size: 12px;
+			}
+		}
+
+		.portfolio__thumb {
+			flex: 0 0 206px;
+			width: 206px;
+			height: 206px;
+
+			cursor: pointer;
+			position: relative;
+
+			&:hover {
+				.overlay {
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+
+			img {
+				max-width: 100%;
+				max-height: 100%;
+			}
+
+			.overlay {
+				position: absolute;
+				z-index: 1;
+				left: 0;
+				top: 0;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0, 0, 0, 0.5);
+				color: #fff;
+				opacity: 0;
+				visibility: hidden;
+				transition: opacity 0.4s, visibility 0.4s;
+
+				.title {
+					margin-top: 15px;
+				}
+			}
+		}
+	}
+}

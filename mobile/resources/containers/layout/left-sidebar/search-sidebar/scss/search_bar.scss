@@ -1,0 +1,29 @@
+.header__search__bar {
+    display: flex;
+    flex-direction: column;
+    min-height: 75px;
+    background-color: #ffba00;
+
+    .search__keyword__input {
+        display: flex;
+        flex-direction: row;
+        flex: 0 0 auto;
+        align-items: center;
+        padding: 2em 1em;
+
+        .search__keyword__form {
+            flex: 1 1 auto;
+
+            .f__input {
+                border: 0;
+                font-size: 1.238em;
+                line-height: normal;
+            }
+        }
+
+        .f__button__close {
+            flex: 0 0 auto;
+            margin-left: 1em;
+        }
+    }
+}

@@ -1,0 +1,134 @@
+/// 완료화면
+.complete {
+	.progress-title {
+		margin-bottom: 10px;
+	}
+	.complete_layout {
+		width: 770px;
+		margin: 0 auto;
+	}
+	// 후기 이용동의 start
+	.regist-review-agree {
+		border: 1px solid #e1e1e1;
+		padding: 16px;
+		margin-bottom: 20px;
+		text-align: left;
+		overflow: hidden;
+		&-row {
+			display: flex;
+			flex: 1 1 auto;
+			align-items: center;
+			justify-content: space-between;
+		}
+		.static-box {
+			display: flex;
+			align-items: center;
+
+			> span .icon {
+				margin-left: 5px;
+			}
+
+			> span {
+				align-items: center;
+				display: flex;
+				cursor: pointer;
+			}
+		}
+		&-heading {
+			//margin-bottom: 10px;
+			margin-right: 30px;
+		}
+		&-content {
+			line-height: 1.4;
+			position: relative;
+			height: 0;
+			top: 20px;
+		}
+		&-button {
+			text-align: center;
+		}
+	}
+
+	// 후기 이용동의 end
+	&__sharePhoto {
+		//transform: translateX(6%);
+		text-align: left;
+	}
+	&__comment {
+		position: relative;
+		display: inline-block;
+		//width: 770px;
+		min-height: 98px;
+		//padding: 30px 0;
+		//left: 12%;
+		.text-count {
+			//display: block;
+			float: right;
+			font-size: 12.9px;
+			font-weight: normal;
+			line-height: 1.27;
+			letter-spacing: -0.6px;
+			color: #969696;
+		}
+		.comment-textarea {
+			border-radius: 10px;
+			display: inline-block;
+			width: 770px;
+			height: 220px;
+			border: 1px solid #e5e5e5;
+			resize: none;
+			font-size: 14.6px;
+			font-weight: 300;
+			letter-spacing: -0.7px;
+			line-height: normal;
+		}
+	}
+	&__summary {
+		text-align: center;
+		padding-right: 30px;
+		padding-left: 30px;
+		margin-left: 30px;
+		margin-bottom: 20px;
+		//width: 770px;
+		//transform: translateX(12%);
+		.summary-circle {
+			margin: 20px 35px 20px 0;
+			transform: translateX(55%);
+			height: inherit;
+			width: 55px;
+			border-radius: 50%;
+			border: 2px solid black;
+			p {
+				line-height: 50px;
+				font-weight: bold;
+				font-size: 15px;
+			}
+		}
+		.summary-table {
+			width: 100%;
+			.com-table {
+				margin: 0 auto;
+				width: 80%;
+				.heart-count {
+					display: none;
+				}
+				.heart-box {
+					transform: translate(-5%, 15%);
+				}
+				td {
+					&:nth-child(1),
+					&:nth-child(3),
+					&:nth-child(5) {
+						font-weight: bold;
+						text-align: left;
+					}
+					padding: 10px 0;
+					font-size: 15px;
+				}
+			}
+		}
+	}
+	&__checkBtn {
+		text-align: center;
+	}
+}

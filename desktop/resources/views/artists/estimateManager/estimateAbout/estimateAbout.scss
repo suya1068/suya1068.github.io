@@ -1,0 +1,74 @@
+$base-color: #333;
+
+.estimate-about {
+    padding: 30px 10px;
+    text-align: center;
+    background-color: #fafafa;
+    color: $base-color;
+
+    &__header,
+    &__step {
+        .title {
+            font-size: 24px;
+            padding-bottom: 15px;
+            font-weight: bold;
+        }
+        .describe {
+            font-size: 16px;
+            word-break: keep-all;
+            line-height: 1.18;
+        }
+    }
+
+    &__header {
+        padding-bottom: 50px;
+    }
+
+    &__step {
+        padding-bottom: 40px;
+        .wrap-steps {
+            display: inline-block;
+            width: 100%;
+            padding-top: 27px;
+        }
+        .step {
+            padding: 10px 0;
+            float: left;
+            width: 25%;
+        }
+        .step-text {
+            padding-top: .8rem;
+            font-size: 18px;
+        }
+    }
+    &__tip {
+        padding: 25px 35px;
+        border-radius: 5px;
+        background-color: #f1f1f1;
+        text-align: left;
+        .title {
+            padding-bottom: 15px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .tip {
+            .text {
+                word-break: keep-all;
+                font-weight: 500;
+                padding-bottom: 5px;
+                line-height: 1.63;
+            }
+            .caption {
+                font-weight: normal;
+                word-break: keep-all;
+                padding-bottom: 10px;
+                line-height: 1.63;
+            }
+
+            .strong {
+                color: #d0021b;
+            }
+        }
+    }
+}

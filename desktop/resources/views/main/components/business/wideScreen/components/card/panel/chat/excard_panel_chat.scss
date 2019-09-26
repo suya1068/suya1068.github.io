@@ -1,0 +1,77 @@
+.ex_card__panel__type {
+	// =========== chat type ==============
+	&.chat {
+		display: flex;
+		flex-direction: row;
+		position: absolute;
+		height: 100%;
+	}
+
+	.chat__title {
+		//font-family: "Nanum Myeongjo", Helvetica, AppleSDGothicNeo, Arial, sans-serif;
+		position: relative;
+		flex: 0 0 400px;
+		font-size: 32px;
+		font-weight: bold;
+		line-height: 1.41;
+		letter-spacing: -2px;
+		padding: 30px;
+		color: #fff;
+
+		&:after {
+			content: "";
+			display: inline-block;
+			height: 3px;
+			width: 60px;
+			background-color: #fff;
+			position: relative;
+			margin-left: 20px;
+			top: -12px;
+		}
+	}
+
+	.chat__content {
+		flex: 0 1 auto;
+		padding-left: 45px;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+
+		&-key {
+			display: flex;
+			flex-direction: row;
+		}
+
+		&-key.end {
+			margin-top: 65px;
+
+			.desc {
+				font-size: 18px;
+				font-weight: bold;
+				letter-spacing: -0.5px;
+				text-align: center;
+				word-break: keep-all;
+			}
+		}
+
+		&-key .user {
+			flex: 0 0 90px;
+			font-weight: 500;
+		}
+
+		&-key .desc-box {
+			word-break: keep-all;
+			margin-bottom: 25px;
+
+			.desc {
+				line-height: 1.56;
+				letter-spacing: -0.4px;
+			}
+
+			.desc:nth-child(n + 2) {
+				margin-top: 10px;
+			}
+		}
+	}
+	// =========== chat type ./end ==============
+}

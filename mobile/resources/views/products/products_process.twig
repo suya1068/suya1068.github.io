@@ -1,0 +1,14 @@
+{% extends "template/public.twig" %}
+
+{% block head_assets %}
+    <link rel="stylesheet" href="{{ manifest['products/products-process.css'] }}" />
+{% endblock %}
+
+{% block meta_data %}
+    <meta id="product-data" content="{{ product['no'] }}">
+    <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion_async.js"></script>
+{% endblock %}
+
+{% block body_assets %}
+    <script src="{{ manifest['products/products-process.js'] }}"></script>
+{% endblock %}

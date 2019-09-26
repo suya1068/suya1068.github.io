@@ -1,0 +1,133 @@
+@import "mobile/resources/scss/variables";
+@import "mobile/resources/scss/mixins";
+
+$ticket-card-border             : 1px solid #e1e1e1;
+$ticket-card-v-gutter           : 0.5rem;
+$ticket-card-h-gutter           : 0.8rem;
+$ticket-card__header-bg         : #f1f1f1;
+$ticket-card__image-dimenstion  : 55px;
+
+.ticket-card {
+    position: relative;
+    margin-bottom: 20px;
+    border-top: $ticket-card-border;
+    border-bottom: $ticket-card-border;
+
+    &__header {
+        position: relative;
+        padding: $ticket-card-v-gutter $ticket-card-h-gutter;
+        background-color: $ticket-card__header-bg;
+        border-bottom: $ticket-card-border;
+    }
+
+    &__body {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        padding-left: $ticket-card-h-gutter;
+        padding-right: $ticket-card-h-gutter;
+        background-color: #fff;
+    }
+
+    &-row {
+        position: relative;
+        display: flex;
+        flex-flow: nowrap row;
+        align-items: center;
+        padding-top: $ticket-card-v-gutter;
+        padding-bottom: $ticket-card-v-gutter;
+
+        &-divider {
+            border-top: $ticket-card-border;
+        }
+
+        &-space-between {
+            justify-content: space-between;
+        }
+    }
+
+    &__image {
+        flex: 0 0 $ticket-card__image-dimenstion;
+        width: $ticket-card__image-dimenstion;
+        height: $ticket-card__image-dimenstion;
+        border-radius: 100%;
+        overflow: hidden;
+        z-index: 0;
+    }
+
+    &__content {
+        position: relative;
+        flex: 1 1 auto;
+        padding-left: $ticket-card-h-gutter;
+        padding-right: $ticket-card-h-gutter;
+        overflow: hidden;
+    }
+
+    &__aside {
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    &-title {
+        position: relative;
+        margin-bottom: 5px;
+        @include ellipsis();
+    }
+
+    &-option {
+        display: flex;
+        font-size: 0.85rem;
+
+        &__label {
+            display: inline-block;
+            flex: 0 0 40px;
+            width: 40px;
+            color: #969696;
+        }
+
+        &__text {
+            display: inline-block;
+            flex: 1 1 auto;
+            color: #969696;
+            @include ellipsis();
+        }
+    }
+
+    &-price {
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: #ff326c;
+        letter-spacing: -0.9px;
+    }
+
+    &-status {
+        font-size: 1.1rem;
+        color: #ff326c;
+        letter-spacing: -1px;
+    }
+
+    &-expire {
+        padding-left: 0.8rem;
+        padding-right: 0.8rem;
+        color: #000;
+        font-size: 0.8rem;
+    }
+
+    &-datetime {
+        color: #000;
+        font-size: 0.85rem;
+        letter-spacing: -0.7px;
+    }
+}
+
+.ticket-card--disabled {
+    .ticket-card {
+        &-status {
+            color: #969696;
+        }
+
+        &-price {
+            color: #969696;
+        }
+    }
+}

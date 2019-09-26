@@ -1,0 +1,21 @@
+{% extends "template/private.twig" %}
+
+{% block head_assets %}
+    <link rel="stylesheet" href="{{ manifest['users/user.css'] }}" />
+{% endblock %}
+
+{% block contents %}
+    <div class="sr-only">
+        <form name="user_check" method="post">
+            <input type="hidden" name="m" value="checkplusSerivce">
+            <input type="hidden" name="EncodeData" value="{{ encode_data }}">
+            <input type="hidden" name="param_r1" value="{{ req_seq }}">
+            <input type="hidden" name="param_r2" value="{{ api_token }}">
+        </form>
+    </div>
+{% endblock %}
+
+{% block body_assets %}
+    <script src="{{ manifest['users/user.js'] }}"></script>
+{% endblock %}
+

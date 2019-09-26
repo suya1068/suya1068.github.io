@@ -1,0 +1,96 @@
+@import "desktop/resources/scss/mixins";
+
+.charge-artist {
+	padding-top: 20px;
+	padding-bottom: 50px;
+	//background-color: #f9f9f9;
+	&__head {
+		text-align: center;
+		margin-bottom: 24px;
+
+		.caption {
+			margin-top: 5px;
+			font-size: 18px;
+			letter-spacing: normal;
+			color: #666666;
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		flex-wrap: wrap;
+		.portfolio_item {
+			width: 242px;
+			display: flex;
+			flex-direction: column;
+			margin-right: 20px;
+			margin-bottom: 20px;
+
+			&:nth-child(4n) {
+				margin-right: 0;
+			}
+		}
+
+		.portfolio_item__thumb {
+			height: 180px;
+			border: 1px solid #e1e1e1;
+			border-bottom: none;
+		}
+
+		.portfolio_item__info {
+			height: 100px;
+			padding: 15px 12px;
+			border: 1px solid #dedede;
+			background-color: #fff;
+
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+
+			&-title {
+				color: #000;
+				line-height: 1.38;
+				word-break: break-word;
+
+				&.te {
+					@include ellipsis();
+				}
+			}
+
+			&-artist {
+				color: #666;
+				font-size: 12px;
+			}
+
+			&-price {
+				font-weight: normal;
+				letter-spacing: normal;
+				text-align: right;
+				@include ellipsis();
+				.price-before {
+					color: #666;
+					font-size: 12px;
+				}
+
+				.price {
+					color: #e02020;
+					margin: 0 3px;
+					font-size: 16px;
+				}
+
+				.plus-alpha {
+					color: #000;
+					margin-right: 3px;
+					font-size: 16px;
+				}
+
+				.won {
+					font-size: 12px;
+					color: #000;
+				}
+			}
+		}
+	}
+}

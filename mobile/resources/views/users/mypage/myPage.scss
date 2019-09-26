@@ -1,0 +1,113 @@
+.users-myPage {
+    padding-bottom: 1.35rem;
+    background-color: #fafafa;
+
+    .progress__top__container {
+        margin-top: 20px;
+        background-color: #fff;
+        border-top: 1px solid #e0e0e0;
+        border-bottom: 1px solid #e0e0e0;
+
+        > .title {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-size: 0.929em;
+            font-weight: bold;
+            padding: 13px;
+            border-bottom: 1px solid #e0e0e0;
+
+            p {
+                flex: 1 1 auto;
+            }
+
+            button {
+                flex: 0 0 auto;
+                color: #959595;
+            }
+        }
+
+        .progress__breadcrumb {
+            padding: 20px 0;
+
+            .breadcrumb__list > .item {
+                color: #000;
+
+                > .count {
+                    color: #fe306a;
+                }
+            }
+        }
+    }
+}
+
+%inquire-button-base {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 0;
+    color: #000;
+    > span {
+        padding-left: 0.3rem;
+    }
+}
+
+a {
+    &:active,
+    &:link,
+    &:visited,
+    &:hover {
+        color: #000;
+    }
+}
+
+.users-myPage-pages {
+    background-color: #fff;
+
+    .pages-list {
+        display: flex;
+        flex-wrap: wrap;
+
+        .list-unit {
+            display: flex;
+            width: calc(100vw / 3);
+            //width: 25vw;
+            height: 5rem;
+            border-bottom: 1px solid #e1e1e1;
+            align-items: center;
+            justify-content: center;
+
+            > a {
+                text-align: center;
+                > p {
+                    font-size: 0.9rem;
+                    margin-top: 1vh;
+                }
+            }
+
+            &:nth-child(n+2) {
+                border-left: 1px solid #e1e1e1;
+            }
+        }
+    }
+}
+
+.users-inquire-chat {
+    background-color: #fff;
+    margin-top: 1.35rem;
+    //margin-bottom: 1.35rem;
+    border-bottom: 1px solid #e1e1e1;
+    a {
+        width: 100%;
+        height: 100%;
+    }
+    .chat-btn {
+        @extend %inquire-button-base;
+    }
+
+    .estimate-btn {
+        @extend %inquire-button-base;
+        border-bottom: 1px solid #e1e1e1;
+        border-top: 1px solid #e1e1e1;
+    }
+}

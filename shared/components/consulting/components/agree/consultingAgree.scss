@@ -1,0 +1,63 @@
+@import "../../scss/consult.var";
+
+.consulting-rule {
+	border-top: $consult_article_border;
+	//margin-top: 10px;
+	margin-bottom: 20px;
+	padding: $consult_default_padding;
+	.consulting-rule-heading {
+		display: flex;
+		justify-content: space-between;
+		//margin-bottom: 1rem;
+		&__title {
+			border-bottom: 1px solid #000;
+			cursor: pointer;
+		}
+	}
+	.consulting-rule-heading__agree-button .agree-button {
+		display: inline-flex;
+		align-items: center;
+		cursor: pointer;
+
+		&::before {
+			content: "";
+			display: inline-block;
+			width: 15px;
+			height: 15px;
+			vertical-align: middle;
+			border-radius: 100%;
+			background-color: #fff;
+			border: 1px solid #e1e1e1;
+			margin-right: 5px;
+		}
+
+		&.is-active {
+			&::before {
+				background-color: #ffba00;
+				border-color: #ffba00;
+			}
+		}
+	}
+
+	.consulting-rule-content {
+		visibility: hidden;
+		height: 0;
+		opacity: 0;
+		transition: height 0.1s, opacity 0.1s;
+		color: #969696;
+		text-align: left;
+
+		&__description {
+			margin-top: 1rem;
+			border: $consult_article_border;
+			padding: 0.5rem;
+			background-color: $consult_article_heading_color;
+			text-align: left;
+		}
+
+		&.show {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}

@@ -1,0 +1,140 @@
+.myAccount-page {
+	.isRequired {
+		color: #ff326c;
+	}
+
+	.btn {
+		font-weight: bold;
+	}
+
+	.account-thumb {
+		position: relative;
+		width: 100%;
+		text-align: center;
+		padding-bottom: 20px;
+
+		.users-profile-image {
+			display: none;
+		}
+
+		.title {
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+
+		> div {
+			display: inline-block;
+			text-align: center;
+
+			> div {
+				margin-bottom: 15px;
+			}
+		}
+
+		.caption {
+			position: absolute;
+			right: 0;
+			bottom: 20px;
+		}
+	}
+
+	.users-content-row {
+		padding: 30px 0;
+		border-bottom: 1px solid #e1e1e1;
+		position: relative;
+
+		.user-leave-box {
+			position: absolute;
+			right: 0;
+			bottom: 10px;
+			padding-left: 0;
+			border-bottom: 1px solid #e1e1e1;
+
+			.users-leave {
+				font-size: 17.3px;
+				font-weight: 500;
+				font-style: normal;
+				letter-spacing: -0.9px;
+				color: #969696;
+			}
+		}
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		> div {
+			padding-left: 90px;
+		}
+
+		.content-columns {
+			.address-list {
+				width: 412px;
+				border: 1px solid #e1e1e1;
+				background-color: #fff;
+				//padding: 0 0 0 0;
+				.list-wrap {
+					margin: 15px 19px;
+				}
+				.address-box {
+					border: 1px solid #e1e1e1;
+					display: inline-flex;
+					padding: 10px 20px;
+					border-radius: 12px;
+					margin-top: 5px;
+					margin-right: 5px;
+					transition: all 0.6s ease;
+					cursor: pointer;
+
+					&.selected {
+						color: #fff;
+						background-color: #ff326c;
+						border: 1px solid #ff326c;
+					}
+
+					&:nth-child(5n) {
+						margin-right: 0;
+					}
+					&:nth-child(1),
+					&:nth-child(2),
+					&:nth-child(3),
+					&:nth-child(4),
+					&:nth-child(5) {
+						margin-top: 0;
+					}
+				}
+			}
+			.caption {
+				line-height: 17px;
+			}
+		}
+
+		&.social {
+			height: auto;
+
+			.content-columns {
+				.social-button {
+					display: inline-block;
+					width: 412px;
+
+					> div {
+						margin-bottom: 20px;
+
+						&:last-child {
+							margin-bottom: 0;
+						}
+					}
+
+					.btn {
+						float: right;
+					}
+				}
+
+				.caption.social {
+					line-height: normal;
+				}
+			}
+		}
+	}
+}

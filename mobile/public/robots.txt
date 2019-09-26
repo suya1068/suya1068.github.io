@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /users
+Disallow: /artists
+Disallow: /auth
+Disallow: /main_test

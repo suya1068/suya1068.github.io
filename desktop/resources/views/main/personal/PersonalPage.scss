@@ -1,0 +1,32 @@
+@import "desktop/resources/scss/variables";
+
+$row_padding: 60px;
+
+.personal__page {
+    overflow: hidden;
+
+    .section-title {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .main__row {
+        padding: $row_padding 0;
+
+        .main-reserve-complete,
+        .main-review,
+        .main-information {
+            padding: $row_padding 0;
+        }
+
+        .ma__itr {
+            padding: 0 $grid-gutter;
+        }
+
+        .ma__rcmd {
+            .rcmd__ct {
+                padding: 0 $grid-gutter;
+            }
+        }
+    }
+}

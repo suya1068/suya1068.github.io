@@ -1,0 +1,111 @@
+.consult_progress__step-advice__choice {
+	.choice-content {
+
+	}
+
+	.choice-content__content {
+		&-title {
+
+		}
+
+		&-desc {
+			color: #666;
+		}
+	}
+
+	.step-content__choice {
+		z-index: 1;
+		border: 1px solid #e1e1e1;
+		cursor: pointer;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&.select {
+			border: 2px solid #000;
+		}
+	}
+
+	.kakao {
+
+	}
+
+	.tel_or_sms {
+
+	}
+
+	.button_advice {
+		color: #666;
+		border: 1px solid #9b9b9b;
+		margin-top: 15px;
+
+		&.select {
+			color: #fff;
+			border-color: #000;
+			background-color: #000;
+		}
+	}
+}
+
+.pc {
+	.consult_progress__step-advice__choice {
+		.consult_progress__step-category-name {
+			padding-left: 30px;
+		}
+		.choice-content__content {
+			&-title {
+				font-size: 20px;
+			}
+		}
+		.step-content {
+			padding: 30px;
+		}
+
+		.step-content__choice {
+			height: 310px;
+		}
+
+		.choice-content__image {
+			padding-bottom: 20px;
+		}
+
+		.button_advice {
+			padding: 10px 30px;
+		}
+
+		.kakao {
+			margin-bottom: 30px;
+		}
+	}
+}
+
+.mobile {
+	.consult_progress__step-advice__choice {
+		.step-content {
+			padding: 1rem;
+		}
+		.step-content__choice {
+			min-height: 200px;
+			padding: 1.5rem;
+		}
+
+		.choice-content__content {
+			&-title {
+				font-size: 1.1rem;
+			}
+
+			&-desc {
+				font-size: 0.9rem;
+			}
+		}
+
+		.button_advice {
+			padding: 5px 20px;
+		}
+
+		.kakao {
+			margin-bottom: 1rem;
+		}
+	}
+}

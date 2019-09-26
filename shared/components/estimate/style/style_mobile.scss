@@ -1,0 +1,66 @@
+@import "./mobile/virtualEstimateProgressBar",
+		"./mobile/virtualEstimateResult",
+		"./mobile/virtualEstimateSteps";
+
+.virtual-estimate__container {
+	padding: 30px 15px;
+	background-color: #f9f9f9;
+
+	.section__title {
+		font-size: 18px;
+		font-weight: bold;
+		letter-spacing: normal;
+		text-align: center;
+	}
+
+	.virtual-estimate__content {
+		margin-top: 24px;
+	}
+
+	.virtual-estimate__button {
+		margin-top: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.estimate-btn {
+			width: calc(100% / 2 - 3px);
+			font-size: 14px;
+			font-weight: bold;
+			padding: 15px 0;
+			background-color: #dddddd;
+			color: #000;
+			transition: color 0.2s, border 0.2s ease-in-out;
+
+			&.active {
+				cursor: pointer;
+				color: #000;
+				//border-color: #000;
+			}
+
+			//&:nth-child(n + 2) {
+			//	margin-left: 10px;
+			//}
+		}
+
+		.send-email {
+			&.active {
+				background-color: #f7b500;
+			}
+		}
+	}
+
+	.estimate-overlay {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 700px;
+		height: 60px;
+		background-color: rgba(0, 0, 0, 0.5);
+		color: #fff;
+		border-radius: 9px;
+		text-align: center;
+		padding: 18px;
+		transform: translate(-50%, -50%);
+	}
+}

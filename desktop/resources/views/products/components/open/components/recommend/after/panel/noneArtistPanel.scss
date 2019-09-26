@@ -1,0 +1,153 @@
+.none__recommend-artist {
+	height: 880px;
+	border-radius: 15px;
+	background-color: #efefef;
+	padding: 10px;
+	position: relative;
+
+	&__flag {
+		position: absolute;
+		top: -2px;
+		left: 73px;
+		width: 58px;
+		height: 90px;
+	}
+
+	&__head {
+		text-align: center;
+		padding-bottom: 35px;
+		position: relative;
+
+		&-content {
+			position: relative;
+
+			.arrow-left,
+			.arrow-right {
+				position: absolute;
+				top: 30%;
+				transform: translateY(-50%);
+				z-index: 1;
+
+				//padding: 0 50px;
+			}
+
+			.arrow-left {
+				left: -45px;
+				padding-left: 0;
+			}
+
+			.arrow-right {
+				right: -45px;
+				padding-right: 0;
+			}
+		}
+
+		&-title {
+			font-size: 24px;
+			font-weight: bold;
+			letter-spacing: normal;
+			color: #666666;
+		}
+	}
+
+	&__inner {
+		border: 3px dashed #fff;
+		height: 100%;
+		border-radius: 10px;
+		padding: 40px 63px;
+
+		//display: flex;
+		//align-items: center;
+		//justify-content: center;
+		//flex-direction: column;
+
+		.dummy-artist-thumb {
+			width: 110px !important;
+			height: 110px !important;
+
+			.select {
+				width: 110px !important;
+				height: 11px !important;
+			}
+		}
+	}
+
+	&__portfolio {
+		margin-bottom: 21px !important;
+	}
+
+	&__thumb {
+		.thumb_image {
+			cursor: default !important;
+		}
+		.after-inquire-artist__content__box__thumb {
+			width: 110px !important;
+		}
+		&:nth-child(n + 2) {
+			margin-left: 44px;
+		}
+
+		.dummy_select {
+			position: absolute;
+			z-index: 1;
+			top: -1px;
+			left: -1px;
+			width: 103%;
+			height: 103%;
+			border-radius: 100%;
+			border: 3px solid #ffba00;
+			background-color: rgba(0, 0, 0, .5);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+	}
+
+	.none__recommend-portfolio__box {
+		width: 885px;
+		padding: 30px !important;
+	}
+
+	.dummy-portfolio {
+		width: 164px !important;
+		height: 164px !important;
+	}
+
+	.dummy-btn {
+		cursor: default;
+
+		.dummy-select-box {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.select-box {
+			> img {
+				width: 18px;
+				height: 18px;
+			}
+		}
+	}
+
+	&__dots {
+		margin-top: 30px;
+		display: flex;
+		justify-content: center;
+		.dot {
+			width: 10px;
+			height: 10px;
+			border-radius: 10px;
+			background-color: #d8d8d8;
+			&:nth-child(n + 2) {
+				margin-left: 8px;
+			}
+
+			&.active {
+				width: 20px;
+				background-color: #f7b500;
+				border-radius: 5px;
+			}
+		}
+	}
+}

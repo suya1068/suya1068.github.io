@@ -1,0 +1,10 @@
+import "mobile/resources/scss/mobile.scss";
+import "babel-polyfill";
+import "axios";
+import "react";
+import "react-dom";
+import "react-router";
+import "flux/utils";
+import "classnames";
+import "forsnap-utils";
+import "swiper";

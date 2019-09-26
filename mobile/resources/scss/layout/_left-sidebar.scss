@@ -1,0 +1,42 @@
+@import "../variables";
+
+.site-left-sidebar {
+    position: fixed;
+    width: 100%;
+    max-width: $site-left-sidebar-width;
+    height: $site-left-sidebar-height;
+    right: -$site-left-sidebar-width;
+    top: 0;
+    background-color: $site-left-sidebar-bg;
+    overflow-y: auto;
+    z-index: map-get($site-z-index, "sidebar");
+
+    transition: right 0.5s;
+
+    .top__login {
+        right: -$site-left-sidebar-width;
+        top: 0;
+        width: 100%;
+        max-width: $site-left-sidebar-width;
+    }
+
+    &--show {
+        right: 0;
+
+        .top__login {
+            position: fixed;
+            right: 0;
+            top: 0;
+        }
+
+        .side__left__top {
+            padding-top: 75px;
+        }
+    }
+}
+
+@media screen and (min-width: map_get($site-breakpoints, "sm")) {
+    .site-left-sidebar {
+        width: $site-left-sidebar-width;
+    }
+}

@@ -1,0 +1,149 @@
+{% extends "template/public.twig" %}
+
+{% block meta_data %}
+{% endblock %}
+
+{% block template %}
+    {% if products["data"] %}
+        <h1>상품 상세</h1>
+        <div>
+            <h2>작가소개</h2>
+            <p><a href="/@{{ products["data"]["nick_name"] }}">{{ products["data"]["nick_name"] }}</a></p>
+            <div>
+                <img alt="작가 프로필" src="{{ thumb_host }}/normal/crop/110x110{{ products["data"]["profile_img"] }}" />
+            </div>
+            <p>{{ products["data"]["intro"] }}</p>
+        </div>
+        <div>
+            <h2>상품설명</h2>
+            <p>{{ products["data"]["content"] }}</p>
+        </div>
+        <div>
+            <h2>예약확인</h2>
+            <p>세부사항 관련 조율은 1:1문의로 문의해주세요.</p>
+        </div>
+        <div>
+            <h2>태그</h2>
+            <p>
+                {% for tag in products["data"]["tag"] %}
+                    <span>#{{ tag }}</span>
+                {% endfor %}
+            </p>
+        </div>
+        <div>
+            <h2>포트폴리오</h2>
+            <div>
+                {% for o in products["data"]["portfolio"]["list"] %}
+                    <img alt="포트폴리오" src="{{ thumb_host }}/normal/crop/320x320{{ o.portfolio_img }}" />
+                {% endfor %}
+            </div>
+        </div>
+        <div>
+            <h2>가격정보</h2>
+            <div>
+                {% for o in products["data"]["package"] %}
+                    <div>
+                        <p>{{ o.title }}</p>
+                        <p>{{ o.content }}</p>
+                        <p>₩ {{ o.price }}</p>
+                        <p>이미지 {{ o.photo_cnt }} 장</p>
+                        <p>보정 {{ o.custom_cnt }} 장</p>
+                        <p>촬영시간 {{ o.photo_time }} 분</p>
+                        <p>작업일 {{ o.complete_period }} 일</p>
+                    </div>
+                {% endfor %}
+            </p>
+            <h2>추가옵션</h2>
+            <div>
+                {% for o in products["data"]["extra_option"] %}
+                    <div>
+                        <p>{{ o.title }}</p>
+                        <p>₩ {{ o.price }}</p>
+                    </div>
+                {% endfor %}
+                {% for o in products["data"]["custom_option"] %}
+                    <div>
+                        <p>{{ o.title }}</p>
+                        <p>{{ o.content }}</p>
+                        <p>₩ {{ o.price }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div>
+            <h2>작가의 다른상품</h2>
+            <div>
+                {% for o in products["data"]["artist_product_list"]["list"] %}
+                    {% if o.block == null %}
+                        <a href="/products/{{ o.product_no }}">
+                            <div>
+                                {% if o.thumb_img %}
+                                    <div>
+                                        <img alt="썸네일" src="{{ thumb_host }}/normal/crop/504x504{{ o.thumb_img }}" />
+                                    </div>
+                                {% endif %}
+                                <p>{{ o.title }}</p>
+                                <p>Artist by {{ o.nick_name }}</p>
+                                <div>
+                                    <img alt="작가 프로필" src="{{ thumb_host }}/normal/crop/110x110{{ o.profile_img }}" />
+                                </div>
+                                <p>{{ o.category_name }}</p>
+                                <p>₩ {{ o.price }}</p>
+                            </div>
+                        </a>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div>
+            <h2>추천상품</h2>
+            <div>
+                {% for o in products["data"]["recomm_list"]["list"] %}
+                    <a href="/products/{{ o.product_no }}">
+                        <div>
+                            {% if o.thumb_img %}
+                                <div>
+                                    <img alt="썸네일" src="{{ thumb_host }}/normal/crop/504x504{{ o.thumb_img }}" />
+                                </div>
+                            {% endif %}
+                            <p>{{ o.title }}</p>
+                            <p>Artist by {{ o.nick_name }}</p>
+                            <div>
+                                <img alt="작가 프로필" src="{{ thumb_host }}/normal/crop/110x110{{ o.profile_img }}" />
+                            </div>
+                            <p>{{ o.category_name }}</p>
+                            <p>₩ {{ o.price }}</p>
+                            <p>{{ o.tag }}</p>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+        <div>
+            <h2>촬영후기</h2>
+            <div>
+                {% for o in products["data"]["review"]["list"] %}
+                    {% if o.user_type == "U" %}
+                        {% if loop.index > 1 %}
+                    </div>
+                        {% endif %}
+                    <div>
+                        <p>{{ o.name }}</p>
+                        <p>점수 {{ o.rating_avg }}</p>
+                        <p>{{ o.reg_dt }}</p>
+                        <p>{{ o.comment }}</p>
+                        {% if loop.length == loop.index %}
+                    </div>
+                        {% endif %}
+                    {% elseif o.user_type == "A" %}
+                        <div>
+                            <p>{{ o.name }}</p>
+                            <p>{{ o.reg_dt }}</p>
+                            <p>{{ o.comment }}</p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

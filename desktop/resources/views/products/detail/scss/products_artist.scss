@@ -1,0 +1,165 @@
+$about-border: 1px solid #e1e1e1;
+$about-padding: 15px;
+$about-margin: 15px;
+
+.products__artist {
+    display: flex;
+    flex-direction: column;
+    border: $about-border;
+    background-color: #fff;
+
+    &__basic {
+        display: flex;
+        flex-direction: row;
+        flex: 0 0 auto;
+        align-items: center;
+        padding: $about-padding;
+
+        > .profile {
+            flex: 0 0 90px;
+            height: 90px;
+
+            .image-content {
+                border-radius: 100%;
+            }
+        }
+
+        > .info {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 180px;
+            //flex: 1 1 auto;       // ie에서 auto 속성이 안먹힘.
+            padding-left: $about-padding;
+
+            .badge__corp {
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 5px;
+
+                > span {
+                    flex: 0 0 auto;
+                    padding: 1px 3px;
+                    font-size: 50%;
+                    font-weight: normal;
+                    color: #969696;
+                    background-color: #ececec;
+                    border: 1px solid #e1e1e1;
+                }
+            }
+
+            .nickname {
+                flex: 0 0 auto;
+                font-size: 1.25em;
+                font-weight: bold;
+                word-wrap: break-word;
+                word-break: break-all;
+            }
+
+            .buttons {
+                display: flex;
+                flex-direction: row;
+                flex: 0 0 auto;
+                margin-top: 15px;
+            }
+        }
+    }
+
+    &__about {
+        flex: 0 0 auto;
+        padding: $about-padding;
+        font-size: 0.875em;
+
+        .about__title {
+        }
+
+        .about__content {
+            padding-bottom: 5px;
+            overflow: hidden;
+            transition: height 0.4s;
+
+            > .content {
+                color: #666;
+                word-wrap: break-word;
+                word-break: break-all;
+            }
+        }
+
+        .about__arrow {
+            margin-top: 10px;
+            text-align: right;
+
+            button {
+                border: 1px solid #e1e1e1;
+                border-radius: 5px;
+                padding: 3px 7px;
+                color: #969696;
+                font-size: 0.825em;
+                cursor: pointer;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    color: #000;
+                    border-color: #000;
+                }
+            }
+        }
+    }
+
+    &__message {
+        flex: 0 0 auto;
+        padding: $about-padding;
+
+        ._button {
+            border-radius: 5px;
+            font-size: 0.907em;
+        }
+
+        .simple__talk__buttons {
+            position: relative;
+            margin-top: 15px;
+            padding: 15px;
+            border: 1px solid #e1e1e1;
+            border-radius: 10px;
+
+            &:after {
+                content: " ";
+                position: absolute;
+                right: 25px;
+                top: -8px;
+                width: 15px;
+                height: 15px;
+                background-color: #fff;
+                transform: rotate(45deg);
+                border-top: 1px solid #e1e1e1;
+                border-left: 1px solid #e1e1e1;
+                transition: border 0.25s;
+                z-index: 0;
+            }
+
+            .buttons__list {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                &.disabled {
+                    ._button {
+                        background-color: #f1f1f1;
+                        color: #e1e1e1;
+                    }
+                }
+
+                ._button {
+                    position: relative;
+                    flex: 1 1 auto;
+                    padding: 0 0.5em;
+                    margin: 10px 0 0;
+
+                    &:nth-child(n+2) {
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

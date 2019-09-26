@@ -1,0 +1,1063 @@
+$m-dev-host: "#{$IMG_SERVER}/mobile/common/f_m_icon_v1.png?v=20190917_1712";
+
+$m-icon-url: url($m-dev-host);
+
+// ICON
+$m-icon-size: 23px;
+$m-icon-size2: 33px;
+$m-icon-size3: 52px;
+$m-icon-offset-x: 0;
+$m-icon-offset-y: 0;
+$m-icon-gutter-x: 10px;
+$m-icon-gutter-y: 10px;
+
+/// 아이콘 백그라운드 X 좌표를 구한다.
+/// @param {Number} $order
+/// @param {Length} $width
+/// @param {Length} $gutter
+/// @param {Length} $offset [0]
+/// @return {Length}
+@function getIconBgPositionX($order, $width, $gutter, $offset: 0) {
+    @return (($width + $gutter) * -$order) + $offset;
+}
+
+/// 아이콘 백그라운드 Y 좌표를 구한다.
+/// @param {Number} $order
+/// @param {Length} $height
+/// @param {Length} $gutter
+/// @param {Length} $offset [0]
+/// @return {Length}
+@function getIconBgPositionY($order, $height, $gutter, $offset: 0) {
+    @return (($height + $gutter) * -$order) + $offset;
+}
+
+.m-icon {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+// LINE - 1 -------------------------------------------------------------------------
+// 햄버거 바
+.m-icon-bars {
+    width: $m-icon-size - 1;
+    height: $m-icon-size - 1;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(0, $m-icon-size, $m-icon-gutter-x) getIconBgPositionY(0, $m-icon-size, $m-icon-gutter-y);
+}
+
+// 검색
+.m-icon-search {
+    width: $m-icon-size;
+    height: $m-icon-size;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(1, $m-icon-size, $m-icon-gutter-x, 3) getIconBgPositionY(0, $m-icon-size, $m-icon-gutter-y);
+}
+
+// 페이퍼
+.m-icon-page {
+    width: $m-icon-size;
+    height: 22px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(2, $m-icon-size, $m-icon-gutter-x, 5) getIconBgPositionY(0, $m-icon-size, $m-icon-gutter-y);
+}
+
+// 체크 페이퍼
+.m-icon-check-list {
+    width: $m-icon-size;
+    height: 22px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(3, $m-icon-size, $m-icon-gutter-x, 7) getIconBgPositionY(0, $m-icon-size, $m-icon-gutter-y);
+}
+
+// 체크 사람
+.m-icon-check-people {
+    width: 30px;
+    height: 22px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(4, $m-icon-size, $m-icon-gutter-x, 10) getIconBgPositionY(0, $m-icon-size, $m-icon-gutter-y);
+}
+
+// LINE - 2 -------------------------------------------------------------------------
+// 마이
+.m-icon-my {
+    width: $m-icon-size2;
+    height: $m-icon-size2;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(0, $m-icon-size2, $m-icon-gutter-x, 0) getIconBgPositionY(1, $m-icon-size2, 0, 3);
+}
+// 일정
+.m-icon-calendar {
+    width: $m-icon-size2;
+    height: $m-icon-size2;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(1, $m-icon-size2, $m-icon-gutter-x, 3) getIconBgPositionY(1, $m-icon-size2, 0, 3);
+}
+// 하트
+.m-icon-heart {
+    width: 37px;
+    height: $m-icon-size2;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(2, $m-icon-size2, $m-icon-gutter-x, 5) getIconBgPositionY(1, $m-icon-size2, 0, 3);
+}
+
+// 메세지
+.m-icon-message {
+    width: 30px;
+    height: 30px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(0, 0, 0) getIconBgPositionY(1, 72px, 0);
+}
+
+// 윗꺽쇠
+.m-icon-up {
+    width: 18px;
+    height: 11px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(1, 61px, 0) getIconBgPositionY(1, 111px, 0);
+}
+
+// 계정설정
+.m-icon-face {
+    width: $m-icon-size2 + 8;
+    height: $m-icon-size2;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(3, $m-icon-size2, $m-icon-gutter-x, 3) getIconBgPositionY(1, $m-icon-size2, 0, 3);
+}
+// 말풍선
+.m-icon-talk {
+    width: $m-icon-size2 + 6;
+    height: $m-icon-size2;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(4, $m-icon-size2, $m-icon-gutter-x, -3) getIconBgPositionY(1, $m-icon-size2, 0, 3);
+}
+// 사진기
+.m-icon-camera {
+    width: $m-icon-size2 + 1;
+    height: $m-icon-size2;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(5, $m-icon-size2, $m-icon-gutter-x, -7) getIconBgPositionY(1, $m-icon-size2, 0, 3);
+}
+// 집
+.m-icon-house {
+    width: $m-icon-size2 + 7;
+    height: $m-icon-size2;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(6, $m-icon-size2, $m-icon-gutter-x, -6) getIconBgPositionY(1, $m-icon-size2, 0, 3);
+}
+// 스피커
+.m-icon-speaker {
+    width: $m-icon-size2 + 5;
+    height: $m-icon-size2;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(7, $m-icon-size2, $m-icon-gutter-x, -11) getIconBgPositionY(1, $m-icon-size2, 0, 3);
+}
+// 물음표
+.m-icon-question {
+    width: $m-icon-size2;
+    height: $m-icon-size2;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(8, $m-icon-size2, $m-icon-gutter-x, -14) getIconBgPositionY(1, $m-icon-size2, 0, 3);
+}
+// 후기
+.m-icon-comment {
+    width: $m-icon-size2 + 8;
+    height: $m-icon-size2;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(9, $m-icon-size2, $m-icon-gutter-x, -12) getIconBgPositionY(1, $m-icon-size2, 0, 3);
+}
+// 티켓
+.m-icon-ticket {
+    width: 56px;
+    height: $m-icon-size2;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(10, $m-icon-size2, $m-icon-gutter-x, -19) getIconBgPositionY(1, $m-icon-size2, 0, 3);
+}
+
+// 하트 분홍 테두리
+.m-icon-heart-pink-surface {
+    width: 16px;
+    height: 17px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(12, $m-icon-size2, $m-icon-gutter-x, 1) getIconBgPositionY(1, $m-icon-size2, 0, 3);
+}
+
+// 하트 검정 테두리
+.m-icon-heart-black-surface {
+    width: 16px;
+    height: 17px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(12, $m-icon-size2, $m-icon-gutter-x, 1) getIconBgPositionY(2, $m-icon-size2, 0, 10);
+}
+
+.m-icon-more_product {
+    width: 16px;
+    height: 17px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(15, $m-icon-size2, $m-icon-gutter-x, 17) getIconBgPositionY(1, $m-icon-size2, 0, 3);
+}
+
+// 검정 x
+.m-icon-s_close {
+     width: 15px;
+     height: 15px;
+     background: $m-icon-url;
+     background-position: -774px -31px;
+}
+
+.m-icon-top {
+    width: 36px;
+    height: 36px;
+    background: $m-icon-url;
+    background-position: -799px -31px;
+}
+
+.m-icon-kakao_s {
+    width: 40px;
+    height: 40px;
+    background: $m-icon-url;
+    background-position: -845px -31px;
+}
+
+.m-icon-yellow_tel {
+    width: 40px;
+    height: 40px;
+    background: $m-icon-url;
+    background-position: -896px -30px;
+}
+
+// LINE - 3 -------------------------------------------------------------------------
+// 더블말풍선
+.m-icon-doubletalk {
+    width: $m-icon-size2 + 4;
+    height: $m-icon-size2;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(1, $m-icon-size2, $m-icon-gutter-x, 4) getIconBgPositionY(2, $m-icon-size2, 0, -4);
+}
+// 큰 햄버거바
+.m-icon-bars_b {
+    width: $m-icon-size2 - 1;
+    height: $m-icon-size2;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(2, $m-icon-size2, $m-icon-gutter-x, 0) getIconBgPositionY(2, $m-icon-size2, 0, -4);
+}
+// 큰 검색
+.m-icon-search_b {
+    width: $m-icon-size2 - 1;
+    height: $m-icon-size2;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(3, $m-icon-size2, $m-icon-gutter-x, 3) getIconBgPositionY(2, $m-icon-size2, 0, -4);
+}
+// 번개
+ .m-icon-thunder {
+     width: 16px;
+     height: 24px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(4, $m-icon-size2, $m-icon-gutter-x, 8) getIconBgPositionY(2, $m-icon-size2, 0, -6);
+}
+
+// 삼각형 위
+.m-icon-triangle-up {
+    width: 10px;
+    height: 7px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(8, $m-icon-size2, $m-icon-gutter-x, 25) getIconBgPositionY(2, $m-icon-size2, 0, -5);
+}
+
+.m-icon-triangle-down {
+    width: 10px;
+    height: 7px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(8, $m-icon-size2, $m-icon-gutter-x, 7) getIconBgPositionY(2, $m-icon-size2, 0, -5);
+}
+
+// 컬러 햄버거 바
+.m-icon-color-bars {
+    width: 36px;
+    height: 24px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(9, $m-icon-size2, $m-icon-gutter-x, 32) getIconBgPositionY(2, $m-icon-size2, 0, -6);
+}
+
+.m-icon-etc {
+    width: 5px;
+    height: 5px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(10, $m-icon-size2, $m-icon-gutter-x, 29) getIconBgPositionY(2, $m-icon-size2, 0, -6);
+}
+
+.m-icon__dt-black_s {
+    width: 18px;
+    height: 10px;
+    background: $m-icon-url;
+    background-position: -416px -72px;
+}
+
+// line - 4
+// 검고 큰 왼쪽 꺽쇠
+.m-icon-black-lt_b {
+    width: 15px;
+    height: 25px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(0, $m-icon-size, $m-icon-gutter-x, 1) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// 회색 큰 오른쪽 꺽쇠
+.m-icon-gray-gt_b {
+    width: 11px;
+    height: 25px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(1, $m-icon-size, 0, 1) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// 큰 오른쪽 꺽쇠
+.m-icon-gt_b {
+    width: 12px;
+    height: 19px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(2, $m-icon-size, 0, 5) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// 취소
+.m-icon-cancel {
+    width: 16px;
+    height: 16px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(4, $m-icon-size, 0, 5) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// 큰 취소 아이콘
+.m-icon-cancel_b {
+    width: 25px;
+    height: 25px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(5, $m-icon-size, 0, 4) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// 공유
+.m-icon-share {
+    width: 25px;
+    height: 25px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(6, $m-icon-size, 0, -6) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// 하얀색 아래 꺽쇠
+.m-icon-white-dt {
+    width: 18px;
+    height: 11px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(8, $m-icon-size, 0, 7) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// 하얀색 윗 꺽쇠
+.m-icon-white-up {
+    width: 18px;
+    height: 11px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(9, $m-icon-size, 0, 4) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// 왼 꺽쇠
+.m-icon-lt {
+    width: 15px;
+    height: 25px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(10, $m-icon-size, 0, 1) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// 빈 하트
+.m-icon-heart_em {
+    width: 25px;
+    height: 25px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(11, $m-icon-size, 0, 1) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// 하얀 테두리 빈 하트
+.m-icon-heart-white_em {
+    width: 25px;
+    height: 25px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(13, $m-icon-size, 0, 14) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// 체크
+.m-icon-check {
+    width: 14px;
+    height: 11px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(14, $m-icon-size, 0, 4) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// 하얀색 테두리 체크
+.m-icon-check-white {
+    width: 14px;
+    height: 11px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(15, $m-icon-size, 0, 5) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// 노랑색 체크
+.m-icon-check-yellow {
+    width: 14px;
+    height: 11px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(14, $m-icon-size, 0, 4) getIconBgPositionY(4, $m-icon-size2, 0, 2);
+}
+// 분홍색 체크
+.m-icon-check-pink {
+    width: 14px;
+    height: 11px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(15, $m-icon-size, 0, 5) getIconBgPositionY(4, $m-icon-size2, 0, 2);
+}
+// 작은 카메라
+.m-icon-camera_s {
+    width: 18px;
+    height: 18px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(16, $m-icon-size, 0, 6) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// 흰색 X
+.m-icon-white_cancel {
+    width: 16px;
+    height: 16px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(21, $m-icon-size, 0, 8) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// step dt
+.m-icon-step_dt {
+    width: 9px;
+    height: 8px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(22, $m-icon-size, 0, 6) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// 빈하트
+.m-icon-heart-blank {
+    width: 18px;
+    height: 18px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(24, $m-icon-size, 0, 0) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// 빈하트
+.m-icon-heart-white {
+    width: 18px;
+    height: 18px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(25, $m-icon-size, 0, -3) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+
+// 작은 공유 버튼
+.m-icon-share-small {
+    width: 18px;
+    height: 18px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(26, $m-icon-size, 0, -6) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+
+// 노란하트
+.m-icon-score-heart-full {
+    width: 18px;
+    height: 18px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(27, $m-icon-size, 0, -9) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+
+.m-icon-score-tiny-heart-full {
+    width: 10px;
+    height: 10px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(27, $m-icon-size, 0, -9) -137px;
+}
+
+// 회색하트
+.m-icon-score-heart {
+    width: 18px;
+    height: 18px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(28, $m-icon-size, 0, -12) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+
+.m-icon-score-tiny-heart {
+    width: 10px;
+    height: 10px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(28, $m-icon-size, 0, -12) -137px;
+}
+
+// 반쪽하트
+.m-icon-score-heart-half {
+    width: 18px;
+    height: 18px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(30, $m-icon-size, 0, 8) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+
+.m-icon-score-tiny-heart-half {
+    width: 10px;
+    height: 10px;
+    background: $m-icon-url;
+    background-position: -682px -137px;
+}
+
+// 필수 표시 (별)
+.m-icon-required {
+    width: 10px;
+    height: 10px;
+    background: $m-icon-url;
+    background-position: -606px -138px;
+}
+
+// 상담신청
+.m-icon-consulting {
+    width: 18px;
+    height: 18px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(31, $m-icon-size, 0, 5) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// step1
+.m-icon-process-step1 {
+    width: 25px;
+    height: 25px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(32, $m-icon-size, 0, 2) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// step2
+.m-icon-process-step2 {
+    width: 25px;
+    height: 25px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(33, $m-icon-size, 0, -8) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// step3
+.m-icon-process-step3 {
+    width: 25px;
+    height: 25px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(35, $m-icon-size, 0, 4) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+// step4
+.m-icon-process-step4 {
+    width: 25px;
+    height: 25px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(36, $m-icon-size, 0, -5) getIconBgPositionY(3, $m-icon-size2, 0, -12);
+}
+
+.m-icon-small-gray-gt {
+    width: 10px;
+    height: 18px;
+    background: $m-icon-url;
+    background-position: -868px getIconBgPositionY(3, $m-icon-size2, 0, -13);
+}
+.m-icon-small-black-gt {
+    width: 10px;
+    height: 18px;
+    background: $m-icon-url;
+    background-position: -888px getIconBgPositionY(3, $m-icon-size2, 0, -13);
+}
+.m-icon-small-black-lt {
+    width: 10px;
+    height: 18px;
+    background: $m-icon-url;
+    background-position: -908px getIconBgPositionY(3, $m-icon-size2, 0, -13);
+}
+
+////////////////////////// Line 5
+// 네이버
+.m-icon-naver {
+    width: $m-icon-size3;
+    height: $m-icon-size3;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(0, $m-icon-size2, 0, 1) getIconBgPositionY(4, $m-icon-size2, 0, -12);
+}
+// 카카오
+.m-icon-kakao {
+    width: $m-icon-size3;
+    height: $m-icon-size3;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(1, $m-icon-size3, $m-icon-gutter-x, 3) getIconBgPositionY(4, $m-icon-size2, 0, -12);
+}
+// 페이스북
+.m-icon-facebook {
+    width: $m-icon-size3;
+    height: $m-icon-size3;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(2, $m-icon-size3, $m-icon-gutter-x, 5) getIconBgPositionY(4, $m-icon-size2, 0, -12);
+}
+
+/////// line - 6
+// 마이너스
+.m-icon-minus {
+    width: 49px;
+    height: 49px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(0, $m-icon-size3, $m-icon-gutter-x, 1) getIconBgPositionY(6, $m-icon-size2, 0, -6);
+}
+// 플러스
+.m-icon-plus {
+    width: 49px;
+    height: 49px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(1, $m-icon-size3, $m-icon-gutter-x, 6) getIconBgPositionY(6, $m-icon-size2, 0, -6);
+}
+// 아주 큰 우 꺽쇠
+.m-icon-gt_bigger {
+    width: 14px;
+    height: 36px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(2, $m-icon-size3, $m-icon-gutter-x, 11) getIconBgPositionY(6, $m-icon-size2, 0, -6);
+}
+// 동영상 재생
+.m-icon-video_play {
+    width: 70px;
+    height: 40px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(2, $m-icon-size3, $m-icon-gutter-x, -12) getIconBgPositionY(6, $m-icon-size2, 0, -7);
+}
+
+.m-icon__lock__tt {
+    width: 32px;
+    height: 40px;
+    background: $m-icon-url;
+    background-position: -352px -197px;
+}
+
+.m-icon__camera__tt {
+    width: 32px;
+    height: 40px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(5, $m-icon-size3, $m-icon-gutter-x, -12) getIconBgPositionY(6, $m-icon-size2, 0, -15);
+}
+
+.m-icon__join__tt {
+    width: 40px;
+    height: 40px;
+    background: $m-icon-url;
+    background-position: -468px -197px;
+}
+
+    //&__talk__tt {
+    //    display: inline-block;
+    //    width: 58px;
+    //    height: 48px;
+    //    background: $icon-url-v2;
+    //    background-position: -149px 150px;
+    //}
+
+    //&__lock__tt {
+    //    width: 35px;
+    //    height: 47px;
+    //    background: $m-icon-url;
+    //    background-position: getIconBgPositionX(2, $m-icon-size3, $m-icon-gutter-x, -12) getIconBgPositionY(6, $m-icon-size2, 0, -7);
+    //}
+
+    //&__join__tt {
+    //    display: inline-block;
+    //    width: 58px;
+    //    height: 47px;
+    //    background: $icon-url-v2;
+    //    background-position: -153px 150px;
+    //}
+	//
+    //&__arrow__cr {
+    //    display: inline-block;
+    //    width: 20px;
+    //    height: 20px;
+    //    background: $icon-url-v2;
+    //    background-position: -32px 84px;
+	//
+    //    &.active,
+    //    &.action:active,
+    //    &.action:hover {
+    //        background-position: -60px 84px;
+    //    }
+    //}
+
+// line - 7
+// 하늘색 won
+.m-icon-won-sky {
+    width: 64px;
+    height: 64px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(0, $m-icon-size3, $m-icon-gutter-x, 1) getIconBgPositionY(8, $m-icon-size2, 0, 3);
+}
+// 회색 won
+.m-icon-won-gray {
+    width: 64px;
+    height: 64px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(1, $m-icon-size3, $m-icon-gutter-x, -9) getIconBgPositionY(8, $m-icon-size2, 0, 3);
+}
+// 하늘색 완료
+.m-icon-complete-sky {
+    width: 64px;
+    height: 64px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(2, $m-icon-size3, $m-icon-gutter-x, -19) getIconBgPositionY(8, $m-icon-size2, 0, 3);
+}
+// 회색 완료
+.m-icon-complete-gray {
+    width: 64px;
+    height: 64px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(3, $m-icon-size3, $m-icon-gutter-x, -29) getIconBgPositionY(8, $m-icon-size2, 0, 3);
+}
+
+// 클립
+.m-icon-clip {
+    width: 54px;
+    height: 54px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(5, $m-icon-size3, $m-icon-gutter-x, 24) getIconBgPositionY(8, $m-icon-size2, 0, 3);
+}
+// 리스트1
+.m-icon-list1 {
+    width: 54px;
+    height: 54px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(6, $m-icon-size3, $m-icon-gutter-x, 24) getIconBgPositionY(8, $m-icon-size2, 0, 3);
+}
+// 리스트2
+.m-icon-list2 {
+    width: 54px;
+    height: 54px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(7, $m-icon-size3, $m-icon-gutter-x, 24) getIconBgPositionY(8, $m-icon-size2, 0, 3);
+}
+// 맞춤&추가결제
+.m-icon-payment-custom {
+    width: 54px;
+    height: 54px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(8, $m-icon-size3, $m-icon-gutter-x, 24) getIconBgPositionY(8, $m-icon-size2, 0, 3);
+}
+
+// 대화하기
+.m-icon-circle-chat {
+    width: 54px;
+    height: 54px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(10, $m-icon-size3, $m-icon-gutter-x, 24) getIconBgPositionY(8, $m-icon-size2, 0, 3);
+}
+
+// 일정문의
+.m-icon-circle-calendar {
+    width: 54px;
+    height: 54px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(11, $m-icon-size3, $m-icon-gutter-x, 24) getIconBgPositionY(8, $m-icon-size2, 0, 3);
+}
+
+// 촬영문의
+.m-icon-circle-photo {
+    width: 54px;
+    height: 54px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(12, $m-icon-size3, $m-icon-gutter-x, 24) getIconBgPositionY(8, $m-icon-size2, 0, 3);
+}
+
+// 연락처 전달
+.m-icon-contact_res {
+    width: 54px;
+    height: 54px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(14, $m-icon-size3, $m-icon-gutter-x, 24) getIconBgPositionY(8, $m-icon-size2, 0, 3);
+}
+
+// 진행상황 입력
+.m-icon-contact_progress {
+    width: 54px;
+    height: 54px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(15, $m-icon-size3, $m-icon-gutter-x, 24) getIconBgPositionY(8, $m-icon-size2, 0, 3);
+}
+
+// 하얀원에 액자
+.m-icon-photo_frame {
+    width: 92px;
+    height: 92px;
+    background: $m-icon-url;
+    background-position: getIconBgPositionX(0, 0, 0, 0) getIconBgPositionY(10, $m-icon-size2, 0, -3);
+}
+// 하얀원에 클릭
+.m-icon-click {
+    width: 92px;
+    height: 92px;
+    background: $m-icon-url;
+    background-position: -101px getIconBgPositionY(10, $m-icon-size2, 0, -3);
+}
+// document
+.m-icon-document {
+    width: 92px;
+    height: 92px;
+    background: $m-icon-url;
+    background-position: -202px getIconBgPositionY(10, $m-icon-size2, 0, -3);
+}
+// document_check
+.m-icon-document_check {
+    width: 92px;
+    height: 92px;
+    background: $m-icon-url;
+    background-position: -303px getIconBgPositionY(10, $m-icon-size2, 0, -3);
+}
+// person_check
+.m-icon-person_check {
+    width: 92px;
+    height: 92px;
+    background: $m-icon-url;
+    background-position: -404px getIconBgPositionY(10, $m-icon-size2, 0, -3);
+}
+// person_check
+.m-icon-studio {
+    width: 92px;
+    height: 92px;
+    background: $m-icon-url;
+    background-position: -504px getIconBgPositionY(10, $m-icon-size2, 0, -3);
+}
+
+// enter_document
+.m-icon-enter_document {
+    width: 92px;
+    height: 92px;
+    background: $m-icon-url;
+    background-position: -606px getIconBgPositionY(10, $m-icon-size2, 0, -3);
+}
+// enter_studio
+.m-icon-enter_studio {
+    width: 92px;
+    height: 92px;
+    background: $m-icon-url;
+    background-position: -707px getIconBgPositionY(10, $m-icon-size2, 0, -3);
+}
+// enter-person_check
+.m-icon-enter_person_check {
+    width: 92px;
+    height: 92px;
+    background: $m-icon-url;
+    background-position: -808px getIconBgPositionY(10, $m-icon-size2, 0, -3);
+}
+
+// 메인 인포메이션 아이콘
+.m-icon_introduction {
+    width: 92px;
+    height: 92px;
+    background: $m-icon-url;
+    background-position: -908px getIconBgPositionY(10, $m-icon-size2, 0, -3);
+}
+.m-icon_photo-gray {
+    width: 92px;
+    height: 92px;
+    background: $m-icon-url;
+    background-position: -1010px getIconBgPositionY(10, $m-icon-size2, 0, -3);
+}
+.m-icon_operation-guide {
+    width: 92px;
+    height: 92px;
+    background: $m-icon-url;
+    background-position: -1111px getIconBgPositionY(10, $m-icon-size2, 0, -3);
+}
+.m-icon_policy-gray {
+    width: 92px;
+    height: 92px;
+    background: $m-icon-url;
+    background-position: -1212px getIconBgPositionY(10, $m-icon-size2, 0, -3);
+}
+// 카테고리 메뉴들
+.m-icon-category_wedding {
+    width: 33px;
+    height: 30px;
+    background: $m-icon-url; //-434
+    background-position: 0 getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+.m-icon-category_baby {
+    width: 37px;
+    height: 30px;
+    background: $m-icon-url;
+    background-position: -43px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+.m-icon-category_profile {
+    width: 38px;
+    height: 30px;
+    background: $m-icon-url;
+    background-position: -90px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+.m-icon-category_snap {
+    width: 32px;
+    height: 30px;
+    background: $m-icon-url;
+    background-position: -138px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+.m-icon-category_product {
+    width: 17px;
+    height: 30px;
+    background: $m-icon-url;
+    background-position: -178px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+.m-icon-category_food {
+    width: 37px;
+    height: 30px;
+    background: $m-icon-url;
+    background-position: -204px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+.m-icon-category_ad {
+    width: 35px;
+    height: 30px;
+    background: $m-icon-url;
+    background-position: -251px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+.m-icon-category_interior {
+    width: 30px;
+    height: 30px;
+    background: $m-icon-url;
+    background-position: -296px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+.m-icon-category_profile_biz {
+    width: 30px;
+    height: 30px;
+    background: $m-icon-url;
+    background-position: -336px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+
+.m-icon-category_dress_rent {
+    width: 30px;
+    height: 30px;
+    background: $m-icon-url;
+    background-position: -450px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+
+// 사이드바 메뉴
+.m-icon-outline-setting {
+    width: 31px;
+    height: 31px;
+    background: $m-icon-url;
+    background-position: -374px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+.m-icon-outline-people {
+    width: 28px;
+    height: 31px;
+    background: $m-icon-url;
+    background-position: -413px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+.m-icon-outline-heart {
+    width: 32px;
+    height: 31px;
+    background: $m-icon-url;
+    background-position: -449px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+.m-icon-outline-chat {
+    width: 31px;
+    height: 31px;
+    background: $m-icon-url;
+    background-position: -489px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+.m-icon-outline-calendar {
+    width: 30px;
+    height: 31px;
+    background: $m-icon-url;
+    background-position: -528px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+.m-icon-outline-clock {
+    width: 31px;
+    height: 31px;
+    background: $m-icon-url;
+    background-position: -565px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+.m-icon-outline-ticket {
+    width: 31px;
+    height: 31px;
+    background: $m-icon-url;
+    background-position: -604px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+.m-icon-outline-info {
+    width: 31px;
+    height: 31px;
+    background: $m-icon-url;
+    background-position: -643px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+.m-icon-outline-write {
+    width: 31px;
+    height: 31px;
+    background: $m-icon-url;
+    background-position: -682px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+
+.m-icon-category_fashion {
+    width: 18px;
+    height: 30px;
+    background: $m-icon-url;
+    background-position: -761px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+.m-icon-category_event {
+    width: 18px;
+    height: 30px;
+    background: $m-icon-url;
+    background-position: -789px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+// 기업영상
+.m-icon-category_video-biz {
+    width: 35px;
+    height: 30px;
+    background: $m-icon-url;
+    background-position: -858px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+// 개인영상
+.m-icon-category_video {
+    width: 35px;
+    height: 30px;
+    background: $m-icon-url;
+    background-position: -817px getIconBgPositionY(13, $m-icon-size2, 0, -5);
+}
+
+// 20190221 add icon
+.m-icon_yellow_face_mascote {
+    width: 24px;
+    height: 24px;
+    background: $m-icon-url;
+    background-position: -276px -145px;
+}
+
+.m-icon_heart_mascote {
+    width: 38px;
+    height: 45px;
+    background: $m-icon-url;
+    background-position: -180px -145px;
+}
+
+.m-icon_heart_mascote__white {
+    width: 38px;
+    height: 45px;
+    background: $m-icon-url;
+    background-position: -229px -145px;
+}
+
+.m-icon_folder_product {
+    width: 95px;
+    height: 70px;
+    background: $m-icon-url;
+    background-position: -511px -633px;
+}
+.m-icon_folder_food {
+    width: 95px;
+    height: 70px;
+    background: $m-icon-url;
+    background-position: -618px -633px;
+}
+.m-icon_folder_interior {
+    width: 95px;
+    height: 70px;
+    background: $m-icon-url;
+    background-position: -725px -633px;
+}
+.m-icon_folder_profile_biz {
+    width: 95px;
+    height: 70px;
+    background: $m-icon-url;
+    background-position: -832px -633px;
+}
+.m-icon_folder_fashion {
+    width: 95px;
+    height: 70px;
+    background: $m-icon-url;
+    background-position: -939px -633px;
+}
+.m-icon_folder_event {
+    width: 95px;
+    height: 70px;
+    background: $m-icon-url;
+    background-position: -1046px -633px;
+}
+.m-icon_folder_video_biz {
+    width: 95px;
+    height: 70px;
+    background: $m-icon-url;
+    background-position: -1153px -633px;
+}

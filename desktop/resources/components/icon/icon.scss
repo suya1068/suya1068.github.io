@@ -1,0 +1,1811 @@
+// Icon - social Part
+$icon-social-width: 36px;
+$icon-social-height: 36px;
+$icon-social-base-posy: -100px;
+$icon-social-hover-posy: -144px;
+$icon-social-besize-def-x: -43px;
+$icon-social-beside-posx: -44px;
+$icon-social-beside-posx2: -218px;
+
+// Icon - forsnap Part
+$icon-forsnap-width: 91px;
+$icon-forsnap-height: 91px;
+$icon-forsnap-beside-posx: -101px;
+
+$dev-host: "#{$IMG_SERVER}/common/f_icon_v1.png?v=20190806_0955";
+$dev-host-v2: "#{$IMG_SERVER}/common/f_icon_v2.png?v=20190221_0043";
+$icon-url: url($dev-host);
+$icon-url-v2: url($dev-host-v2);
+
+.icon {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+
+    &.hide {
+        display: none;
+    }
+    //
+    //&.show {
+    //    display: block;
+    //}
+
+    > icon {
+        float: left;
+    }
+
+    .icon-caption {
+        font-size: 13.7px;
+        font-weight: bold;
+        line-height: 36px;
+        letter-spacing: -0.7px;
+        margin-left: 10px;
+    }
+
+    /* Social Icon */
+    &-email {
+        display: inline-block;
+        width: $icon-social-width;
+        height: $icon-social-height;
+        background: $icon-url;
+        background-position: 1px $icon-social-base-posy;
+    }
+    &:active &-email,
+    &:focus &-email,
+    &:hover &-email,
+    &.active &-email {
+        background-position: 1px $icon-social-hover-posy;
+    }
+
+    &-facebook {
+        display: inline-block;
+        width: $icon-social-width;
+        height: $icon-social-height;
+        background: $icon-url;
+        background-position: $icon-social-besize-def-x $icon-social-base-posy;
+    }
+    &:active &-facebook,
+    &:focus &-facebook,
+    &:hover &-facebook,
+    &.active &-facebook{
+        background-position: $icon-social-besize-def-x $icon-social-hover-posy;
+    }
+
+    &-instargram {
+        display: inline-block;
+        width: $icon-social-width;
+        height: $icon-social-height;
+        background: $icon-url;
+        background-position: $icon-social-besize-def-x+$icon-social-beside-posx $icon-social-base-posy;
+    }
+    &:active &-instargram,
+    &:focus &-instargram,
+    &:hover &-instargram,
+    &.active &-instargram{
+        background-position: $icon-social-besize-def-x+$icon-social-beside-posx $icon-social-hover-posy;
+    }
+
+    &-calendar {
+        display: inline-block;
+        width: $icon-social-width;
+        height: $icon-social-height;
+        background: $icon-url;
+        background-position: $icon-social-besize-def-x+$icon-social-beside-posx*2 $icon-social-base-posy;
+    }
+    &:active &-calendar,
+    &:focus &-calendar,
+    &:hover &-calendar,
+    &.active &-calendar{
+        background-position: $icon-social-besize-def-x+$icon-social-beside-posx*2 $icon-social-hover-posy;
+    }
+
+    &-trash {
+        display: inline-block;
+        width: $icon-social-width;
+        height: $icon-social-height;
+        background: $icon-url;
+        background-position: $icon-social-besize-def-x+$icon-social-beside-posx*3 $icon-social-base-posy;
+    }
+    &:active &-trash,
+    &:focus &-trash,
+    &:hover &-trash,
+    &.active &-trash{
+        background-position: $icon-social-besize-def-x+$icon-social-beside-posx*3 $icon-social-hover-posy;
+    }
+
+    &-naver {
+        display: inline-block;
+        width: $icon-social-width;
+        height: $icon-social-height;
+        background: $icon-url;
+        background-position: $icon-social-beside-posx2 $icon-social-base-posy;
+    }
+    &:active &-naver,
+    &:focus &-naver,
+    &:hover &-naver,
+    &.active &-naver{
+        background-position: $icon-social-beside-posx2 $icon-social-hover-posy;
+    }
+
+    &-facebook_c {
+        display: inline-block;
+        width: $icon-social-width;
+        height: $icon-social-height;
+        background: $icon-url;
+        background-position: $icon-social-beside-posx2+$icon-social-beside-posx $icon-social-base-posy;
+    }
+    &:active &-facebook_c,
+    &:focus &-facebook_c,
+    &:hover &-facebook_c,
+    &.active &-facebook_c {
+        background-position: $icon-social-beside-posx2+$icon-social-beside-posx $icon-social-hover-posy;
+    }
+
+    &-kakao {
+        display: inline-block;
+        width: $icon-social-width;
+        height: $icon-social-height;
+        background: $icon-url;
+        background-position: $icon-social-beside-posx2+($icon-social-beside-posx*2) $icon-social-base-posy;
+    }
+    &:active &-kakao,
+    &:focus &-kakao,
+    &:hover &-kakao,
+    &.active &-kakao {
+        background-position: $icon-social-beside-posx2+($icon-social-beside-posx*2) $icon-social-hover-posy;
+    }
+
+    &-megaphone {
+        display: inline-block;
+        width: $icon-social-width;
+        height: $icon-social-height;
+        background: $icon-url;
+        background-position: $icon-social-beside-posx2+($icon-social-beside-posx*3) $icon-social-base-posy;
+    }
+
+    &-price {
+        display: inline-block;
+        width: $icon-social-width;
+        height: $icon-social-height;
+        background: $icon-url;
+        background-position: $icon-social-beside-posx2+($icon-social-beside-posx*3) $icon-social-hover-posy;
+    }
+
+    &-pholar {
+        display: inline-block;
+        width: $icon-social-width;
+        height: $icon-social-height;
+        background: $icon-url;
+        background-position: $icon-social-beside-posx2+($icon-social-beside-posx*4)-1 $icon-social-base-posy;
+    }
+    &:active &-pholar,
+    &:focus &-pholar,
+    &:hover &-pholar,
+    &.active &-pholar {
+        background-position: $icon-social-beside-posx2+($icon-social-beside-posx*4)-1 $icon-social-hover-posy;
+    }
+
+    &-twitter {
+        display: inline-block;
+        width: $icon-social-width;
+        height: $icon-social-height;
+        background: $icon-url;
+        background-position: $icon-social-beside-posx2+($icon-social-beside-posx*5)-1 $icon-social-base-posy;
+    }
+    &:active &-twitter,
+    &:focus &-twitter,
+    &:hover &-twitter,
+    &.active &-twitter {
+        background-position: $icon-social-beside-posx2+($icon-social-beside-posx*5)-1 $icon-social-hover-posy;
+    }
+
+    &-circle_minus {
+        display: inline-block;
+        width: $icon-social-width;
+        height: $icon-social-height;
+        background: $icon-url;
+        background-position: $icon-social-beside-posx2+($icon-social-beside-posx*6)-2 $icon-social-base-posy;
+    }
+    &:active &-circle_minus,
+    &:focus &-circle_minus,
+    &:hover &-circle_minus,
+    &.active &-circle_minus {
+        background-position: $icon-social-beside-posx2+($icon-social-beside-posx*6)-2 $icon-social-hover-posy;
+    }
+
+    &-circle_plus {
+        display: inline-block;
+        width: $icon-social-width;
+        height: $icon-social-height;
+        background: $icon-url;
+        background-position: $icon-social-beside-posx2+($icon-social-beside-posx*7)-2 $icon-social-base-posy;
+    }
+    &:active &-circle_plus,
+    &:focus &-circle_plus,
+    &:hover &-circle_plus,
+    &.active &-circle_plus {
+        background-position: $icon-social-beside-posx2+($icon-social-beside-posx*7)-2 $icon-social-hover-posy;
+    }
+
+    &-noti_customer {
+        display: inline-block;
+        width: 54px;
+        height: 54px;
+        background: $icon-url;
+        background-position: -572px $icon-social-base-posy;
+    }
+    &-upper {
+        display: inline-block;
+        width: 54px;
+        height: 54px;
+        background: $icon-url;
+        background-position: -634px $icon-social-base-posy;
+    }
+    &-noti_schedule {
+        display: inline-block;
+        width: 54px;
+        height: 54px;
+        background: $icon-url;
+        background-position: -696px $icon-social-base-posy;
+    }
+    &-noti_picture {
+        display: inline-block;
+        width: 54px;
+        height: 54px;
+        background: $icon-url;
+        background-position: -758px $icon-social-base-posy;
+    }
+    &-noti_receipt {
+        display: inline-block;
+        width: 54px;
+        height: 54px;
+        background: $icon-url;
+        background-position: -820px $icon-social-base-posy;
+    }
+
+    &-share_blog {
+        display: inline-block;
+        width: $icon-social-width;
+        height: $icon-social-height;
+        background: $icon-url;
+        background-position: -882px $icon-social-base-posy;
+    }
+    &:active &-share_blog,
+    &:focus &-share_blog,
+    &:hover &-share_blog,
+    &.active &-share_blog {
+        background-position: -882px $icon-social-hover-posy;
+    }
+
+    &-share_cafe {
+        display: inline-block;
+        width: $icon-social-width;
+        height: $icon-social-height;
+        background: $icon-url;
+        background-position: -926px $icon-social-base-posy;
+    }
+    &:active &-share_cafe,
+    &:focus &-share_cafe,
+    &:hover &-share_cafe,
+    &.active &-share_cafe {
+        background-position: -926px $icon-social-hover-posy;
+    }
+
+    &-home {
+        display: inline-block;
+        width: $icon-social-width;
+        height: $icon-social-height;
+        background: $icon-url;
+        background-position: -970px $icon-social-base-posy;
+    }
+    &:active &-home,
+    &:focus &-home,
+    &:hover &-home,
+    &.active &-home {
+        background-position: -970px $icon-social-hover-posy;
+    }
+
+    /* forsnap Icon */
+    &-join {
+        display: inline-block;
+        width: $icon-forsnap-width;
+        height: $icon-forsnap-height;
+        background: $icon-url;
+        background-position: 0 0;
+    }
+
+    &-introduction {
+        display: inline-block;
+        width: 93px;
+        height: 93px;
+        background: $icon-url-v2;
+        background-position: 0 0;
+    }
+
+    &-photo {
+        display: inline-block;
+        width: $icon-forsnap-width;
+        height: $icon-forsnap-height;
+        background: $icon-url;
+        background-position: $icon-forsnap-beside-posx 0;
+    }
+
+    &-photo-gray {
+        display: inline-block;
+        width: 93px;
+        height: 93px;
+        background: $icon-url-v2;
+        background-position: -100px 0;
+    }
+
+    &-policy {
+        display: inline-block;
+        width: $icon-forsnap-width;
+        height: $icon-forsnap-height;
+        background: $icon-url;
+        background-position: $icon-forsnap-beside-posx*2 0;
+    }
+
+    &-policy-gray {
+        display: inline-block;
+        width: 93px;
+        height: 93px;
+        background: $icon-url-v2;
+        background-position: -301px 0;
+    }
+
+    &-picture {
+        display: inline-block;
+        width: $icon-forsnap-width;
+        height: $icon-forsnap-height;
+        background: $icon-url;
+        background-position: $icon-forsnap-beside-posx*3 0;
+    }
+
+    &-operation-guide {
+        display: inline-block;
+        width: 93px;
+        height: 93px;
+        background: $icon-url-v2;
+        background-position: -201px 0;
+    }
+
+    &-profit {
+        display: inline-block;
+        width: $icon-forsnap-width;
+        height: $icon-forsnap-height;
+        background: $icon-url;
+        background-position: $icon-forsnap-beside-posx*4 0;
+    }
+
+    &-profit-gray {
+        display: inline-block;
+        width: 93px;
+        height: 93px;
+        background: $icon-url-v2;
+        background-position: -402px 0;
+    }
+
+    &-sign {
+        display: inline-block;
+        width: $icon-forsnap-width;
+        height: $icon-forsnap-height;
+        background: $icon-url;
+        background-position: $icon-forsnap-beside-posx*5 0;
+    }
+
+    &-comm {
+        display: inline-block;
+        width: $icon-forsnap-width;
+        height: $icon-forsnap-height;
+        background: $icon-url;
+        background-position: $icon-forsnap-beside-posx*6 0;
+    }
+    &-set {
+        display: inline-block;
+        width: $icon-forsnap-width;
+        height: $icon-forsnap-height;
+        background: $icon-url;
+        background-position: $icon-forsnap-beside-posx*7 0;
+    }
+    &-system {
+        display: inline-block;
+        width: $icon-forsnap-width;
+        height: $icon-forsnap-height;
+        background: $icon-url;
+        background-position: $icon-forsnap-beside-posx*8 0;
+    }
+    &-secure {
+        display: inline-block;
+        width: $icon-forsnap-width;
+        height: $icon-forsnap-height;
+        background: $icon-url;
+        background-position: $icon-forsnap-beside-posx*9 0;
+    }
+
+    // Icon - etc
+    &-share {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background: $icon-url;
+        background-position: 1px 311px;
+    }
+    &:active &-share,
+    &:focus &-share,
+    &:hover &-share,
+    &.active &-share {
+        background-position: 1px 285px;
+    }
+
+    &-heart_e {
+        display: inline-block;
+        width: 19px;
+        height: 18px;
+        background: $icon-url;
+        background-position: -25px 311px;
+    }
+
+    &:hover &-heart_e {
+        background-position: -25px 284px;
+    }
+
+    &:active &-heart_e,
+    &:focus &-heart_e,
+    &.active &-heart_e {
+        background-position: -25px 258px;
+    }
+
+    &-close {
+        display: inline-block;
+        width: 31px;
+        height: 31px;
+        background: $icon-url;
+        background-position: -52px 311px;
+    }
+    &:active &-close,
+    &:focus &-close,
+    &:hover &-close,
+    &.active &-close {
+        background-position: -52px 272px;
+    }
+
+    &-close_c {
+        display: inline-block;
+        width: 31px;
+        height: 31px;
+        background: $icon-url;
+        background-position: -91px 311px;
+    }
+    &:active &-close_c,
+    &:focus &-close_c,
+    &:hover &-close_c,
+    &.active &-close_c {
+        background-position: -91px 272px;
+    }
+
+    &-check {
+        display: inline-block;
+        width: 21px;
+        height: 16px;
+        background: $icon-url;
+        background-position: -130px 311px;
+    }
+    &:active &-check,
+    &:focus &-check,
+    &:hover &-check,
+    &.active &-check {
+        background-position: -130px 287px;
+    }
+
+    &-close_s {
+        display: inline-block;
+        width: 23px;
+        height: 23px;
+        background: $icon-url;
+        background-position: -159px 311px;
+    }
+    &:active &-close_s,
+    &:focus &-close_s,
+    &:hover &-close_s,
+    &.active &-close_s {
+        background-position: -159px 280px;
+    }
+
+    &-clip {
+        display: inline-block;
+        width: 24px;
+        height: 25px;
+        background: $icon-url;
+        background-position: -190px 311px;
+    }
+    &:active &-clip,
+    &:focus &-clip,
+    &:hover &-clip,
+    &.active &-clip {
+        background-position: -190px 278px;
+    }
+
+    &-heart {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background: $icon-url;
+        background-position: -222px 311px;
+    }
+    &:active &-heart,
+    &:focus &-heart,
+    &:hover &-heart,
+    &.active &-heart {
+        background-position: -222px 285px;
+    }
+
+    &-heart_s {
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+        background: $icon-url;
+        background-position: -248px 311px;
+    }
+    &:active &-heart_s,
+    &:focus &-heart_s,
+    &:hover &-heart_s,
+    &.active &-heart_s {
+        background-position: -248px 290px;
+    }
+
+	&-heart_s_full {
+		display: inline-block;
+		width: 13px;
+		height: 13px;
+		background: $icon-url;
+		background-position: -248px 290px;
+	}
+
+    &-lt_s {
+        display: inline-block;
+        width: 11px;
+        height: 18px;
+        background: $icon-url;
+        background-position: -269px 311px;
+    }
+    &:active &-lt_s,
+    &:focus &-lt_s,
+    &:hover &-lt_s,
+    &.active &-lt_s {
+        background-position: -269px 285px;
+    }
+
+    &-gt_s {
+        display: inline-block;
+        width: 11px;
+        height: 18px;
+        background: $icon-url;
+        background-position: -288px 311px;
+    }
+    &:active &-gt_s,
+    &:focus &-gt_s,
+    &:hover &-gt_s,
+    &.active &-gt_s {
+        background-position: -288px 285px;
+    }
+
+    &-gt_s_disabled {
+        display: inline-block;
+        width: 11px;
+        height: 18px;
+        background: $icon-url;
+        background-position: -288px 311px;
+    }
+
+    &-dt {
+        display: inline-block;
+        width: 18px;
+        height: 11px;
+        background: $icon-url;
+        background-position: -307px 311px;
+    }
+    &:focus &-dt,
+    &:active &-dt,
+    &:hover &-dt,
+    &.active &-dt {
+        background-position: -307px 291px;
+    }
+    //&:active &-dt,
+    //&:focus &-dt,
+    //&:hover &-dt {
+    //    background-position: -308px 290px;
+    //}
+
+    &-lt {
+        display: inline-block;
+        width: 15px;
+        height: 25px;
+        background: $icon-url;
+        background-position: -334px 311px;
+    }
+    &:active &-lt,
+    &:focus &-lt,
+    &:hover &-lt,
+    &.active &-lt {
+        background-position: -334px 278px;
+    }
+
+    &-gt {
+        display: inline-block;
+        width: 15px;
+        height: 25px;
+        background: $icon-url;
+        background-position: -357px 311px;
+    }
+    &:active &-gt,
+    &:focus &-gt,
+    &:hover &-gt,
+    &.active &-gt {
+        background-position: -357px 278px;
+    }
+
+    &-chat_s {
+        display: inline-block;
+        width: 12px;
+        height: 13px;
+        background: $icon-url;
+        background-position: -380px 311px;
+    }
+    &-chat_m {
+        display: inline-block;
+        width: 17px;
+        height: 18px;
+        background: $icon-url;
+        background-position: -400px 311px;
+    }
+    &-dot {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        background: $icon-url;
+        background-position: -425px 311px;
+    }
+    &-usb {
+        display: inline-block;
+        width: 24px;
+        height: 33px;
+        background: $icon-url;
+        background-position: -452px 311px;
+    }
+    &-frame {
+        display: inline-block;
+        width: 34px;
+        height: 34px;
+        background: $icon-url;
+        background-position: -484px 311px;
+    }
+    &-picture_s {
+        display: inline-block;
+        width: 33px;
+        height: 33px;
+        background: $icon-url;
+        background-position: -526px 311px;
+    }
+
+    &-picture_bg {
+        display: inline-block;
+        width: 27px;
+        height: 28px;
+        background: $icon-url;
+        background-position: -1475px 310px;
+    }
+
+    &-search {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background: $icon-url;
+        background-position: -567px 311px;
+    }
+    &:active &-search,
+    &:focus &-search,
+    &:hover &-search,
+    &.active &-search {
+        background-position: -567px 278px;
+    }
+
+    &-search-black {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background: $icon-url-v2;
+        background-position: 0 85px;
+    }
+
+    &-chat {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background: $icon-url;
+        background-position: -600px 311px;
+    }
+    &:active &-chat,
+    &:focus &-chat,
+    &:hover &-chat,
+    &.active &-chat {
+        background-position: -600px 278px;
+    }
+
+    &-chat-black {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background: $icon-url;
+        background-position: -1703px 311px;
+    }
+
+    &-alarm {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background: $icon-url;
+        background-position: -633px 311px;
+    }
+    &:active &-alarm,
+    &:focus &-alarm,
+    &:hover &-alarm,
+    &.active &-alarm {
+        background-position: -633px 278px;
+    }
+
+    &-calendar_s {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background: $icon-url;
+        background-position: -666px 311px;
+    }
+    &:active &-calendar_s,
+    &:focus &-calendar_s,
+    &:hover &-calendar_s,
+    &.active &-calendar_s {
+        background-position: -666px 285px;
+    }
+
+    &-check_s {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background: $icon-url;
+        background-position: -692px 311px;
+    }
+    &-check_s_gray {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background: $icon-url;
+        background-position: -692px 292px;
+    }
+
+    &-dt_a {
+        display: inline-block;
+        width: 15px;
+        height: 15px;
+        background: $icon-url;
+        background-position: -711px 294px;
+    }
+    &:active &-dt_a,
+    &:focus &-dt_a,
+    &:hover &-dt_a,
+    &.active &-dt_a {
+        background-position: -714px 314px;
+    }
+
+    &-close_w {
+        display: inline-block;
+        width: 22px;
+        height: 22px;
+        background: $icon-url;
+        background-position: -737px 311px;
+    }
+    &:active &-close_w,
+    &:focus &-close_w,
+    &:hover &-close_w,
+    &.active &-close_w {
+        background-position: -737px 281px;
+    }
+
+    &-people {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background: $icon-url;
+        background-position: -767px 311px;
+    }
+
+    &-question {
+        display: inline-block;
+        width: 32px;
+        height: 32px;
+        background: $icon-url;
+        background-position: -807px 311px;
+    }
+
+    &-opt_origin {
+        display: inline-block;
+        width: 16px;
+        height: 15px;
+        background: $icon-url;
+        background-position: -846px 311px;
+    }
+    &-opt_custom {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: $icon-url;
+        background-position: -870px 311px;
+    }
+    &-opt_print {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: $icon-url;
+        background-position: -894px 311px;
+    }
+    &-opt_direct {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: $icon-url;
+        background-position: -846px 288px;
+    }
+    &-big_dots {
+        display: inline-block;
+        width: 45px;
+        height: 10px;
+        background: $icon-url;
+        background-position: -1020px 310px;
+    }
+    &-small_dots {
+        display: inline-block;
+        width: 25px;
+        height: 5px;
+        background: $icon-url;
+        background-position: -1020px 290px;
+    }
+    &-normal_lt {
+        display: inline-block;
+        width: 15px;
+        height: 23px;
+        background: $icon-url;
+        background-position: -1098px 310px;
+    }
+    &-normal_gt {
+        display: inline-block;
+        width: 15px;
+        height: 23px;
+        background: $icon-url;
+        background-position: -1122px 310px;
+    }
+
+    &-pink_heart {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background: $icon-url;
+        background-position: -1071px 311px;
+    }
+    &:active &-pink_heart,
+    &:focus &-pink_heart,
+    &:hover &-pink_heart,
+    &.active &-pink_heart {
+        background-position: -1071px 285px;
+    }
+
+    &-lt_white {
+        display: inline-block;
+        width: 15px;
+        height: 25px;
+        background: $icon-url;
+        background-position: -1098px 311px;
+    }
+
+    &-gt_white {
+        display: inline-block;
+        width: 15px;
+        height: 25px;
+        background: $icon-url;
+        background-position: -1121px 311px;
+    }
+
+    &-triangle_ut {
+        display: inline-block;
+        width: 8px;
+        height: 7px;
+        background: $icon-url;
+        background-position: -1144px 311px;
+    }
+    &:active &-triangle_ut,
+    &:focus &-triangle_ut,
+    &:hover &-triangle_ut,
+    &.active &-triangle_ut {
+        background-position: -1144px 296px;
+    }
+
+    &-triangle_dt {
+        display: inline-block;
+        width: 8px;
+        height: 7px;
+        background: $icon-url;
+        background-position: -1162px 311px;
+    }
+    &:active &-triangle_dt,
+    &:focus &-triangle_dt,
+    &:hover &-triangle_dt,
+    &.active &-triangle_dt {
+        background-position: -1162px 296px;
+    }
+
+    &-lt_shadow {
+        display: inline-block;
+        width: 15px;
+        height: 28px;
+        background: $icon-url;
+        background-position: -1182px 311px;
+    }
+
+    &-gt_shadow {
+        display: inline-block;
+        width: 15px;
+        height: 28px;
+        background: $icon-url;
+        background-position: -1209px 311px;
+    }
+
+    &-gray_button {
+        display: inline-block;
+        width: 41px;
+        height: 90px;
+        background: $icon-url;
+        background-position: -1099px 277px;
+    }
+
+    &-dt_m {
+        display: inline-block;
+        width: 18px;
+        height: 11px;
+        background: $icon-url;
+        background-position: -918px 311px;
+    }
+    &:active &-dt_m,
+    &:focus &-dt_m,
+    &:hover &-dt_m,
+    &.active &-dt_m {
+        background-position: -918px 292px;
+    }
+    &-dt_l {
+        display: inline-block;
+        width: 25px;
+        height: 15px;
+        background: $icon-url;
+        background-position: -944px 311px;
+    }
+    &:active &-dt_l,
+    &:focus &-dt_l,
+    &:hover &-dt_l,
+    &.active &-dt_l {
+        background-position: -944px 288px;
+    }
+    &-serrate {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background: $icon-url;
+        background-position: -977px 311px;
+    }
+    &:active &-serrate,
+    &:focus &-serrate,
+    &:hover &-serrate,
+    &.active &-serrate {
+        background-position: -977px 285px;
+    }
+    &-close_tiny {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background: $icon-url;
+        background-position: -1003px 311px;
+    }
+    &:active &-close_tiny,
+    &:focus &-close_tiny,
+    &:hover &-close_tiny,
+    &.active &-close_tiny {
+        background-position: -1003px 293px;
+    }
+
+    &-arrow_l {
+        display: inline-block;
+        width: 40px;
+        height: 85px;
+        background: $icon-url;
+        background-position: 0px 132px;
+    }
+    &:active &-arrow_l,
+    &:focus &-arrow_l,
+    &:hover &-arrow_l,
+    &.active &-arrow_l {
+        background-position: 0px 232px;
+    }
+
+    &-arrow_r {
+        display: inline-block;
+        width: 40px;
+        height: 85px;
+        background: $icon-url;
+        background-position: -48px 132px;
+    }
+    &:active &-arrow_r,
+    &:focus &-arrow_r,
+    &:hover &-arrow_r,
+    &.active &-arrow_r {
+        background-position: -48px 232px;
+    }
+
+    &-people_list {
+        display: inline-block;
+        width: 47px;
+        height: 41px;
+        background: $icon-url;
+        background-position: -99px 233px;
+    }
+    &:active &-people_list,
+    &:focus &-people_list,
+    &:hover &-people_list,
+    &.active &-people_list {
+        background-position: -99px 184px;
+    }
+
+    &-heart_recycle {
+        display: inline-block;
+        width: 43px;
+        height: 41px;
+        background: $icon-url;
+        background-position: -155px 233px;
+    }
+    &:active &-heart_recycle,
+    &:focus &-heart_recycle,
+    &:hover &-heart_recycle,
+    &.active &-heart_recycle {
+        background-position: -155px 184px;
+    }
+
+    &-creditcard_s {
+        display: inline-block;
+        width: 57px;
+        height: 41px;
+        background: $icon-url;
+        background-position: -206px 233px;
+    }
+    &:active &-creditcard_s,
+    &:focus &-creditcard_s,
+    &:hover &-creditcard_s,
+    &.active &-creditcard_s {
+        background-position: -206px 184px;
+    }
+
+    &-monitor {
+         display: inline-block;
+         width: 42px;
+         height: 41px;
+         background: $icon-url;
+         background-position: -271px 233px;
+     }
+    &:active &-monitor,
+    &:focus &-monitor,
+    &:hover &-monitor,
+    &.active &-monitor {
+        background-position: -271px 184px;
+    }
+
+    &-paper {
+        display: inline-block;
+        width: 42px;
+        height: 41px;
+        background: $icon-url;
+        background-position: -321px 233px;
+    }
+    &:active &-paper,
+    &:focus &-paper,
+    &:hover &-paper,
+    &.active &-paper {
+        background-position: -321px 184px;
+    }
+
+    &-calendar_l {
+        display: inline-block;
+        width: 54px;
+        height: 54px;
+        background: $icon-url;
+        background-position: -371px 233px;
+    }
+    &:active &-calendar_l,
+    &:focus &-calendar_l,
+    &:hover &-calendar_l,
+    &.active &-calendar_l {
+        background-position: -371px 171px;
+    }
+
+    &-creditcard {
+        display: inline-block;
+        width: 65px;
+        height: 46px;
+        background: $icon-url;
+        background-position: -433px 233px;
+    }
+    &:active &-creditcard,
+    &:focus &-creditcard,
+    &:hover &-creditcard,
+    &.active &-creditcard {
+        background-position: -433px 179px;
+    }
+
+    &-market {
+        display: inline-block;
+        width: 57px;
+        height: 54px;
+        background: $icon-url;
+        background-position: -506px 233px;
+    }
+    &:active &-market,
+    &:focus &-market,
+    &:hover &-market,
+    &.active &-market {
+        background-position: -506px 171px;
+    }
+
+    &-camera {
+         display: inline-block;
+         width: 54px;
+         height: 54px;
+         background: $icon-url;
+         background-position: -571px 233px;
+     }
+    &:active &-camera,
+    &:focus &-camera,
+    &:hover &-camera,
+    &.active &-camera {
+        background-position: -571px 171px;
+    }
+
+    &-camera_disabled {
+        display: inline-block;
+        width: 54px;
+        height: 54px;
+        background: $icon-url;
+        background-position: -571px 233px;
+    }
+
+    &-heart_bag {
+        display: inline-block;
+        width: 52px;
+        height: 60px;
+        background: $icon-url;
+        background-position: -633px 233px;
+    }
+    &:active &-heart_bag,
+    &:focus &-heart_bag,
+    &:hover &-heart_bag,
+    &.active &-heart_bag {
+        background-position: -633px 165px;
+    }
+
+    &-heart_hand {
+        display: inline-block;
+        width: 53px;
+        height: 54px;
+        background: $icon-url;
+        background-position: -693px 233px;
+    }
+    &:active &-heart_hand,
+    &:focus &-heart_hand,
+    &:hover &-heart_hand,
+    &.active &-heart_hand {
+        background-position: -693px 171px;
+    }
+
+    &-receipt {
+        display: inline-block;
+        width: 56px;
+        height: 55px;
+        background: $icon-url;
+        background-position: -754px 233px;
+    }
+    &:active &-receipt,
+    &:focus &-receipt,
+    &:hover &-receipt,
+    &.active &-receipt {
+        background-position: -754px 170px;
+    }
+
+    &-receipt_disabled {
+        display: inline-block;
+        width: 56px;
+        height: 55px;
+        background: $icon-url;
+        background-position: -754px 233px;
+    }
+
+    &-face {
+        display: inline-block;
+        width: 52px;
+        height: 58px;
+        background: $icon-url;
+        background-position: -818px 233px;
+    }
+    &:active &-face,
+    &:focus &-face,
+    &:hover &-face,
+    &.active &-face {
+        background-position: -818px 167px;
+    }
+    &-grid_list {
+        display: inline-block;
+        width: 63px;
+        height: 51px;
+        background: $icon-url;
+        background-position: -878px 233px;
+    }
+    &:active &-grid_list,
+    &:focus &-grid_list,
+    &:hover &-grid_list,
+    &.active &-grid_list {
+        background-position: -878px 174px;
+    }
+    &-memo {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background: $icon-url;
+        background-position: -950px 233px;
+    }
+    &:active &-memo,
+    &:focus &-memo,
+    &:hover &-memo,
+    &.active &-memo {
+        background-position: -950px 184px;
+    }
+    &-thunder_white {
+        display: inline-block;
+        width: 14px;
+        height: 24px;
+        background: $icon-url;
+        background-position: -1252px 310px;
+    }
+    &-thunder_yellow {
+        display: inline-block;
+        width: 9px;
+        height: 14px;
+        background: $icon-url;
+        background-position: -1233px 311px;
+    }
+    &-thunder_yellow_big {
+        display: inline-block;
+        width: 14px;
+        height: 24px;
+        background: $icon-url;
+        background-position: -1275px 311px;
+    }
+    &-file_clip {
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        background: $icon-url;
+        background-position: -1138px 399px;
+    }
+
+    &-contact_res {
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        background: $icon-url;
+        background-position: -1138px 356px;
+    }
+
+    &-contact_progress {
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        background: $icon-url;
+        background-position: -1182px 356px;
+    }
+
+    &-list1 {
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        background: $icon-url;
+        background-position: -1182px 399px;
+    }
+    &-list2 {
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        background: $icon-url;
+        background-position: -1226px 399px;
+    }
+    &-circle-calendar {
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        background: $icon-url;
+        background-position: -1270px 399px;
+    }
+
+    &-payment-custom {
+        display: inline-block;
+        width: 36px;
+        height: 36px;
+        background: $icon-url;
+        background-position: -1402px 399px;
+    }
+
+    &-free {
+        display: inline-block;
+        width: 62px;
+        height: 65px;
+        background: $icon-url;
+        background-position: -1553px 399px;
+    }
+
+    &-photo_frame {
+        display: inline-block;
+        width: 93px;
+        height: 92px;
+        background: $icon-url;
+        background-position: -2018px 0px;
+    }
+    &-click {
+        display: inline-block;
+        width: 93px;
+        height: 92px;
+        background: $icon-url;
+        background-position: -1917px 0px;
+    }
+
+    &-consulting {
+        display: inline-block;
+        width: 17px;
+        height: 18px;
+        background: $icon-url;
+        background-position: -1512px 311px;
+    }
+    // 비즈 메인 진행단계
+    &-process-step1 {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background: $icon-url;
+        background-position: -1538px 311px;
+    }
+    &-process-step2 {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background: $icon-url;
+        background-position: -1571px 311px;
+    }
+    &-process-step3 {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background: $icon-url;
+        background-position: -1605px 311px;
+    }
+    &-process-step4 {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background: $icon-url;
+        background-position: -1638px 311px;
+    }
+
+    // heart
+    &-heart-black-surface {
+        display: inline-block;
+        width: 16px;
+        height: 17px;
+        background: $icon-url;
+        background-position: -1738px 284px;
+    }
+
+    &-heart-pink-surface {
+        display: inline-block;
+        width: 16px;
+        height: 17px;
+        background: $icon-url;
+        background-position: -1738px 311px;
+    }
+
+    &-more_product {
+        display: inline-block;
+        width: 16px;
+        height: 17px;
+        background: $icon-url;
+        background-position: -1826px 311px;
+    }
+
+    ////////////////-disabled
+    &-disable_heart_s {
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+        background: $icon-url;
+        background-position: -248px 311px;
+    }
+    &-disable_dt {
+        display: inline-block;
+        width: 18px;
+        height: 11px;
+        background: $icon-url;
+        background-position: -307px 291px;
+    }
+
+    &-document {
+        display: inline-block;
+        width: 94px;
+        height: 92px;
+        background: $icon-url;
+        background-position: -2119px 0px;
+    }
+
+    &-document_check {
+        display: inline-block;
+        width: 94px;
+        height: 92px;
+        background: $icon-url;
+        background-position: -2220px 0px;
+    }
+
+    &-person_check {
+        display: inline-block;
+        width: 92px;
+        height: 92px;
+        background: $icon-url;
+        background-position: -2322px 0px;
+    }
+
+    &-enter_document {
+        display: inline-block;
+        width: 94px;
+        height: 92px;
+        background: $icon-url;
+        background-position: -2220px -101px;
+    }
+
+    &-enter_studio {
+        display: inline-block;
+        width: 94px;
+        height: 92px;
+        background: $icon-url;
+        background-position: -2322px -101px;
+    }
+
+    &-enter_person_check {
+        display: inline-block;
+        width: 92px;
+        height: 92px;
+        background: $icon-url;
+        background-position: -2423px -101px;
+    }
+
+    &-studio {
+        display: inline-block;
+        width: 92px;
+        height: 92px;
+        background: $icon-url;
+        background-position: -2423px 0px;
+    }
+
+    &-video_play {
+        display: inline-block;
+        width: 70px;
+        height: 40px;
+        background: $icon-url;
+        background-position: -100px 132px;
+    }
+
+    &-mint_model {
+        display: inline-block;
+        width: 57px;
+        height: 60px;
+        background: $icon-url;
+        background-position: -1009px 173px;
+    }
+
+    &-mint_camera {
+        display: inline-block;
+        width: 63px;
+        height: 62px;
+        background: $icon-url;
+        background-position: -1077px 173px;
+    }
+
+    &-mint_makeup {
+        display: inline-block;
+        width: 52px;
+        height: 60px;
+        background: $icon-url;
+        background-position: -1151px 173px;
+    }
+
+    &-mint_edit {
+        display: inline-block;
+        width: 72px;
+        height: 54px;
+        background: $icon-url;
+        background-position: -1214px 173px;
+    }
+
+    &-mint_stylist {
+        display: inline-block;
+        width: 52px;
+        height: 49px;
+        background: $icon-url;
+        background-position: -1297px 173px;
+    }
+
+    &-mint_place {
+        display: inline-block;
+        width: 65px;
+        height: 54px;
+        background: $icon-url;
+        background-position: -1364px 173px;
+    }
+
+	&-main_enlarge {
+		display: inline-block;
+		width: 53px;
+		height: 53px;
+		background: $icon-url;
+		background-position: -1012px 230px;
+	}
+
+    &-arrow_l_off {
+        display: inline-block;
+        width: 6px;
+        height: 10px;
+        background: $icon-url;
+        background-position: -1852px -688px;
+    }
+    &-arrow_l_on {
+        display: inline-block;
+        width: 6px;
+        height: 10px;
+        background: $icon-url;
+        background-position: -1852px -701px;
+    }
+    &-arrow_r_off {
+        display: inline-block;
+        width: 6px;
+        height: 10px;
+        background: $icon-url;
+        background-position: -1864px -688px;
+    }
+    &-arrow_r_on {
+        display: inline-block;
+        width: 6px;
+        height: 10px;
+        background: $icon-url;
+        background-position: -1864px -701px;
+    }
+
+    &-left_bracket_gray {
+        display: inline-block;
+        width: 6px;
+        height: 11px;
+        background: $icon-url;
+        background-position: -1864px -714px;
+    }
+
+    &-arrow_r_yellow {
+        display: inline-block;
+        width: 4px;
+        height: 7px;
+        background: $icon-url;
+        background-position: -1876px -701px;
+    }
+    &-arrow_r_gray {
+        display: inline-block;
+        width: 4px;
+        height: 7px;
+        background: $icon-url;
+        background-position: -1876px -688px;
+    }
+
+    &-big_black_close {
+        display: inline-block;
+        width: 28px;
+        height: 28px;
+        background: $icon-url;
+        background-position: -1935px -688px;
+    }
+
+    &-black_dt {
+        display: inline-block;
+        width: 22px;
+        height: 13px;
+        background: $icon-url;
+        background-position: -1971px -688px;
+    }
+
+    &-left_bracket_big_white {
+        display: inline-block;
+        width: 24px;
+        height: 47px;
+        background: $icon-url;
+        background-position: -2058px -688px;
+    }
+
+    &-right_bracket_big_white {
+        display: inline-block;
+        width: 24px;
+        height: 47px;
+        background: $icon-url;
+        background-position: -2093px -688px;
+    }
+
+    &-left_bracket_big_gray {
+        display: inline-block;
+        width: 18px;
+        height: 36px;
+        background: $icon-url;
+        background-position: -2002px -688px;
+    }
+
+    &-right_bracket_big_gray {
+        display: inline-block;
+        width: 18px;
+        height: 36px;
+        background: $icon-url;
+        background-position: -2030px -688px;
+    }
+
+    &-share_gray {
+        display: inline-block;
+        width: 20px;
+        height: 23px;
+        background: $icon-url;
+        background-position: -2126px -687px;
+    }
+	//
+    //&:active &-black_dt,
+    //&:focus &-black_dt,
+    //&:hover &-black_dt,
+    //&.active &-black_dt {
+    //    background-position: -1971px -688px;
+    //}
+
+    &-more {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background: $icon-url;
+        background-position: -1915px -688px;
+    }
+
+    &-transparent_image {
+        display: inline-block;
+        width: 64px;
+        height: 64px;
+        background: $icon-url;
+        background-position: -1440px -825px;
+    }
+
+    &-transparent_folder {
+        display: inline-block;
+        width: 64px;
+        height: 64px;
+        background: $icon-url;
+        background-position: -1513px -825px;
+    }
+
+    &-transparent_shot {
+        display: inline-block;
+        width: 64px;
+        height: 48px;
+        background: $icon-url;
+        background-position: -1587px -825px;
+    }
+
+    &-shot_info_tip {
+        display: inline-block;
+        width: 54px;
+        height: 27px;
+        background: $icon-url;
+        background-position: -1658px -825px;
+    }
+
+    &-estimate_camera {
+        display: inline-block;
+        width: 80px;
+        height: 100px;
+        background: $icon-url;
+        background-position: -1826px -825px;
+    }
+
+    &-consult_schedule {
+        display: inline-block;
+        width: 94px;
+        height: 100px;
+        background: $icon-url;
+        background-position: -1722px -825px;
+    }
+
+    &-folder_product {
+        display: inline-block;
+        width: 130px;
+        height: 88px;
+        background: $icon-url;
+        background-position: -323px -895px;
+    }
+
+    &-folder_food {
+        display: inline-block;
+        width: 130px;
+        height: 88px;
+        background: $icon-url;
+        background-position: -465px -895px;
+    }
+
+    &-folder_interior {
+        display: inline-block;
+        width: 130px;
+        height: 88px;
+        background: $icon-url;
+        background-position: -607px -895px;
+    }
+
+    &-folder_profile_biz {
+        display: inline-block;
+        width: 130px;
+        height: 88px;
+        background: $icon-url;
+        background-position: -891px -895px;
+    }
+
+    &-folder_event {
+        display: inline-block;
+        width: 130px;
+        height: 88px;
+        background: $icon-url;
+        background-position: -749px -895px;
+    }
+
+    &-folder_fashion {
+        display: inline-block;
+        width: 130px;
+        height: 88px;
+        background: $icon-url;
+        background-position: -1033px -895px;
+    }
+
+    &-folder_video_biz {
+        display: inline-block;
+        width: 130px;
+        height: 88px;
+        background: $icon-url;
+        background-position: -182px -895px;
+    }
+
+    &-circle_arrow_left {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background: $icon-url;
+        background-position: -1921px -825px;
+    }
+
+    &-circle_arrow_right {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        background: $icon-url;
+        background-position: -2031px -824px;
+    }
+}

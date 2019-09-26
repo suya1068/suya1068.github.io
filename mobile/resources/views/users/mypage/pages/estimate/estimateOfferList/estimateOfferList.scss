@@ -1,0 +1,38 @@
+.users-estimate__offer-list {
+    padding-top: 0.7rem;
+    padding-bottom: 20px;
+
+    //.panel-unit {
+    //    position: relative;
+    //}
+    //.wrap-white-beam {
+    //    position: absolute;
+    //    z-index: 1;
+    //    top: 0;
+    //    left: 0;
+    //    width: 100%;
+    //    height: 100%;
+    //    background-color: rgba(255, 255, 255, 0.7);
+    //}
+
+    .estimate-artistsList-pagination {
+        margin-top: 10px;
+    }
+
+    &.complete {
+        .REQUEST {
+            button {
+                background-color: #fafafa;
+                border-color: #e1e1e1;
+                &:active {
+                    background-color: #fafafa;
+                    border-color: #e1e1e1;
+                    color: #e1e1e1;
+                }
+            }
+            span {
+                color: #e1e1e1;
+            }
+        }
+    }
+}

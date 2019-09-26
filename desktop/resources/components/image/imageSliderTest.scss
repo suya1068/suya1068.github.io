@@ -1,0 +1,113 @@
+@import "desktop/resources/scss/variables";
+
+.image-slider-box-test {
+  position: relative;
+  display: inline-block;
+  border-radius: 12px;
+
+  // 슬라이드 유형 : photo
+  &.photoSlider {
+    width: 590px;
+    height: 110px;
+    background-color: white;
+    border: 1px solid #e1e1e1;
+    //background-color: transparent;
+    .image-slider-test {
+      width: 470px;
+      left: 60px;
+      .image-list-test {
+        float: left;
+        transition: all 0.4s ease;
+
+        > div {
+          left: 0;
+          top: 0;
+          margin-right: 5px;
+          width: 90px;
+          height: 90px;
+          transform: translate(0%, 10%);
+          img {
+            //width: 90px;
+            //height: 90px;
+          }
+        }
+      }
+    }
+    .image-slider-arrow-test {
+      width: 590px;
+    }
+  }
+
+  // 슬라이드 유형 : comment
+  &.commentSlider {
+    //width: 900px;
+    height: 280px;
+    background-color: transparent;
+    .image-slider-test {
+      width: 775px;
+      //left: 60px;
+
+      .image-list-test {
+        cursor: pointer;
+        transition: all 0.4s ease;
+
+        //transition: left 0.4s ease;
+        > div {
+          left: 0;
+          top: 0;
+          margin-right: 12px;
+          width: 250px;
+          height: 250px;
+          transform: translate(0%, 5%);
+        }
+      }
+    }
+    .image-slider-arrow-test {
+      width: 900px;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .image-slider-test {
+    position: relative;
+    display: inline-block;
+    height: inherit;
+    overflow: hidden;
+    z-index: 1050;
+
+    .image-list-test {
+      position: relative;
+      display: inline-block;
+      height: inherit;
+
+      > div {
+        position: relative;
+        display: inline-block;
+        img {
+          position: relative;
+          border-radius: 12px;
+        }
+      }
+    }
+  }
+  .image-slider-arrow-test {
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    top: 50%;
+    cursor: pointer;
+    transform: translateY(-50%);
+    z-index: map_get($z-index, "middle");
+
+    .icon:first-child {
+      float: left;
+      transform: translateX(150%);
+    }
+    .icon:last-child {
+      float: right;
+      transform: translateX(-150%);
+    }
+  }
+}

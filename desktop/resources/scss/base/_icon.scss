@@ -1,0 +1,401 @@
+$dev-host: "#{$IMG_SERVER}/common/f_icon_v1.png?v=20190805_1533";
+$dev-host-v2: "#{$IMG_SERVER}/common/f_icon_v2.png?v=20190827_1628";
+$icon-url: url($dev-host);
+$icon-url-v2: url($dev-host-v2);
+
+.f__icon {
+    &__calendar_s {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background: transparent $icon-url -666px 311px;
+    }
+
+    &.action {
+        &.active &-calendar_s,
+        &:active &-calendar_s,
+        &:focus &-calendar_s,
+        &:hover &-calendar_s {
+            background-position: -666px 285px;
+        }
+    }
+
+    &__opt_origin {
+        display: inline-block;
+        width: 16px;
+        height: 15px;
+        background: transparent $icon-url -846px 311px;
+    }
+    &__opt_custom {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: transparent $icon-url -870px 311px;
+    }
+    &__opt_print {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: $icon-url;
+        background-position: -894px 311px;
+    }
+    &__opt_direct {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: $icon-url;
+        background-position: -846px 288px;
+    }
+
+    &__dt {
+        display: inline-block;
+        width: 18px;
+        height: 11px;
+        background: $icon-url;
+        background-position: -307px 311px;
+    }
+
+    &:focus &__dt,
+    &:active &__dt,
+    &:hover &__dt,
+    &.active &__dt {
+        background-position: -307px 291px;
+    }
+
+    &__loading-1 {
+        display: inline-block;
+        width: 51px;
+        height: 51px;
+        background: $icon-url;
+        background-position: -1150px 250px
+    }
+
+    &__loading-2 {
+        display: inline-block;
+        width: 51px;
+        height: 51px;
+        background: $icon-url;
+        background-position: -1210px 250px
+    }
+
+    &__loading-3 {
+        display: inline-block;
+        width: 51px;
+        height: 51px;
+        background: $icon-url;
+        background-position: -1271px 250px
+    }
+
+    &__loading-4 {
+        display: inline-block;
+        width: 51px;
+        height: 51px;
+        background: $icon-url;
+        background-position: -1332px 250px
+    }
+
+    &__loading-5 {
+        display: inline-block;
+        width: 51px;
+        height: 51px;
+        background: $icon-url;
+        background-position: -1393px 250px
+    }
+
+    &__loading-6 {
+        display: inline-block;
+        width: 51px;
+        height: 51px;
+        background: $icon-url;
+        background-position: -1454px 250px
+    }
+
+    &__loading-7 {
+        display: inline-block;
+        width: 51px;
+        height: 51px;
+        background: $icon-url;
+        background-position: -1515px 250px
+    }
+
+    &__loading-8 {
+        display: inline-block;
+        width: 51px;
+        height: 51px;
+        background: $icon-url;
+        background-position: -1576px 250px
+    }
+
+    &__loading-9 {
+        display: inline-block;
+        width: 51px;
+        height: 51px;
+        background: $icon-url;
+        background-position: -1637px 250px
+    }
+
+    &__loading-10 {
+        display: inline-block;
+        width: 51px;
+        height: 51px;
+        background: $icon-url;
+        background-position: -1697px 250px
+    }
+
+    &__loading-11 {
+        display: inline-block;
+        width: 51px;
+        height: 51px;
+        background: $icon-url;
+        background-position: -1758px 250px
+    }
+
+    &__loading-12 {
+        display: inline-block;
+        width: 51px;
+        height: 51px;
+        background: $icon-url;
+        background-position: -1819px 250px
+    }
+}
+
+._icon {
+    &__camera__tt {
+        display: inline-block;
+        width: 58px;
+        height: 47px;
+        background: $icon-url-v2;
+        background-position: -73px 150px;
+    }
+
+    &__talk__tt {
+        display: inline-block;
+        width: 58px;
+        height: 48px;
+        background: $icon-url-v2;
+        background-position: -149px 150px;
+    }
+
+    &__lock__tt {
+        display: inline-block;
+        width: 35px;
+        height: 47px;
+        background: $icon-url-v2;
+        background-position: -226px 150px;
+    }
+
+    &__join__tt {
+        display: inline-block;
+        width: 47px;
+        height: 47px;
+        background: $icon-url-v2;
+        background-position: -280px 150px;
+    }
+
+    &__arrow__cr {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: $icon-url-v2;
+        background-position: -32px 84px;
+
+        &.active,
+        &.action:active,
+        &.action:hover {
+            background-position: -60px 84px;
+        }
+    }
+
+    &__arrow__y_right {
+        display: inline-block;
+        width: 18px;
+        height: 17px;
+        background: $icon-url-v2;
+        background-position: -326px 150px;
+    }
+
+    &__arrow__ll {
+        display: inline-block;
+        width: 24px;
+        height: 44px;
+        background: $icon-url-v2;
+        background-position: -89px 84px;
+    }
+
+    &__arrow__lr {
+        display: inline-block;
+        width: 24px;
+        height: 44px;
+        background: $icon-url-v2;
+        background-position: -122px 84px;
+    }
+
+    &__arrow__ml {
+        display: inline-block;
+        width: 21px;
+        height: 36px;
+        background: $icon-url-v2;
+        background-position: -155px 84px;
+
+        &.active,
+        &.action:active,
+        &.action:hover {
+            background-position: -213px 84px;
+        }
+    }
+
+    &__arrow__mr {
+        display: inline-block;
+        width: 21px;
+        height: 36px;
+        background: $icon-url-v2;
+        background-position: -184px 84px;
+
+        &.active,
+        &.action:active,
+        &.action:hover {
+            background-position: -242px 84px;
+        }
+    }
+
+    &__arrow__w_r {
+        display: inline-block;
+        width: 22px;
+        height: 38px;
+        background: $icon-url-v2;
+        background-position: -304px 83px;
+    }
+
+    &__arrow__w_l {
+        display: inline-block;
+        width: 22px;
+        height: 38px;
+        background: $icon-url-v2;
+        background-position: -272px 83px;
+    }
+
+    &__arrow__b_l {
+        display: inline-block;
+        width: 21px;
+        height: 36px;
+        background: $icon-url-v2;
+        background-position: -213px 84px;
+    }
+
+    &__arrow__b_r {
+        display: inline-block;
+        width: 21px;
+        height: 36px;
+        background: $icon-url-v2;
+        background-position: -242px 84px;
+    }
+
+    &__yellow_face_mascote {
+        display: inline-block;
+        width: 23px;
+        height: 23px;
+        background: $icon-url-v2;
+        background-position: -396px 83px;
+    }
+
+    &__heart_mascote {
+        display: inline-block;
+        width: 50px;
+        height: 60px;
+        background: $icon-url-v2;
+        background-position: -337px 83px;
+    }
+
+    &__heart_mascote__white {
+        display: inline-block;
+        width: 50px;
+        height: 65px;
+        background: $icon-url-v2;
+        background-position: -430px 83px;
+    }
+
+    &__ext__black {
+        display: inline-block;
+        width: 17px;
+        height: 17px;
+        background: $icon-url-v2;
+        background-position: -353px -125px;
+        &:active,
+        &:focus,
+        &:hover,
+        &.active {
+            background-position: -353px -99px;
+        }
+    }
+
+    &__ext__gray {
+        display: inline-block;
+        width: 17px;
+        height: 17px;
+        background: $icon-url-v2;
+        background-position: -353px -125px;
+    }
+
+    &__yellow__check_s {
+        display: inline-block;
+        width: 16px;
+        height: 11px;
+        background: $icon-url-v2;
+        background-position: -380px -97px;
+    }
+
+    &__yellow__check {
+        display: inline-block;
+        width: 36px;
+        height: 24px;
+        background: $icon-url-v2;
+        background-position: -381px -119px
+    }
+
+    &__gray_lt {
+        display: inline-block;
+        width: 8px;
+        height: 12px;
+        background: $icon-url-v2;
+        background-position: -156px 40px;
+    }
+
+    &__gray_gt {
+        display: inline-block;
+        width: 8px;
+        height: 12px;
+        background: $icon-url-v2;
+        background-position: -174px 40px;
+    }
+
+    &__gray_lt_g {
+        display: inline-block;
+        width: 12px;
+        height: 22px;
+        background: $icon-url-v2;
+        background-position: -193px -211px;
+    }
+
+    &__gray_gt_g {
+        display: inline-block;
+        width: 12px;
+        height: 22px;
+        background: $icon-url-v2;
+        background-position: -215px -211px;
+    }
+
+    &__pencil {
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        background: $icon-url-v2;
+        background-position: -237px -211px;
+    }
+
+    //&:active &__ext__black,
+    //&:focus &__ext__black,
+    //&:hover &__ext__black,
+    //&.active &__ext__black {
+    //    background-position: -353px -99px;
+    //}
+}

@@ -1,0 +1,166 @@
+@import "mobile/resources/scss/mixins";
+.users-like {
+    display: flex;
+    flex-flow: column nowrap;
+    padding-bottom: 20px;
+    background-color: #fafafa;
+    .more-list {
+        //display: none;
+        padding: 0 1.25em;
+    }
+
+    /**
+        하트 목록 카운트 뷰
+     */
+    &__count {
+        background-color: #fff;
+        border: {
+            top: 1px solid #e1e1e1;
+            bottom: 1px solid #e1e1e1;
+        }
+        padding: 0.6rem 1rem;
+        margin-top: 1rem;
+        margin-bottom: 0.7rem;
+        text-align: center;
+        line-height: 1.15;
+        display: flex;
+        flex-direction: row;
+
+        .like-description {
+            display: flex;
+            flex: auto;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: -1px;
+        }
+        .like-count {
+            display: inline-block;
+            font-size: 2rem;
+            font-weight: 600;
+            color: #ff326c;
+            > span {
+                font-size: 1rem;
+                vertical-align: baseline;
+                padding-left: 0.2rem;
+            }
+        }
+    }
+
+    /**
+        하트 개별 아이템
+     */
+    &__item {
+        border-bottom : 1px solid #e1e1e1;
+        margin-bottom: 20px;
+        background-color: white;
+
+        &-product {
+            position: relative;
+            .category {
+                position: absolute;
+                z-index: 1;
+                top: 10px;
+                left: 10px;
+                background-color: #ececec;
+                border: 1px solid #e1e1e1;
+                color: #8b8b8e;
+                padding: 1px 3px;
+            }
+        }
+
+        &-info {
+            padding: 1rem;
+            border-bottom : 1px solid #e1e1e1;
+            position: relative;
+
+            .title {
+                font-size: 1.5rem;
+                font-weight: 500;
+                letter-spacing: -1.5px;
+                @include ellipsis();
+            }
+
+            .nick_name {
+                color: #8b8b8e;
+                @include ellipsis();
+            }
+
+            .price {
+                text-align: right;
+                font-size: 1.6rem;
+                font-weight: 900;
+            }
+
+            .info {
+                display: flex;
+                padding-top: 0.688em;
+                flex: 1 1 auto;
+                justify-content: space-between;
+            }
+
+            .info-left {
+                max-width: 80%;
+                margin-right: 20px;
+            }
+
+            .info-right {
+                width: 40px;
+                height: 40px;
+                background-color: #ff326c;
+                border-radius: 100%;
+                .heart {
+                    text-align: center;
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+
+                    font-size: 1.4rem;
+                    color: #fff;
+                }
+            }
+        }
+
+        &-button {
+            display: flex;
+            flex-direction: row;
+            padding: 0.5rem 1rem;
+            flex: 1 1 auto;
+            justify-content: flex-end;
+
+            .like-del {
+                font-size: 0.8rem;
+                font-weight: 500;
+                letter-spacing: -0.7px;
+            }
+        }
+    }
+
+    &__none-list {
+        .none-list {
+            display: flex;
+            height: 200px;
+            flex: 1 1 auto;
+            align-items: center;
+            justify-content: center;
+            .none-info {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: #969696;
+                .no-like-text {
+                    font-size: 1.48rem;
+                    font-weight: 500;
+                    letter-spacing: -1.5px;
+                }
+                .no-like-sub_text {
+                    font-size: 0.95rem;
+                    font-weight: 300;
+                    letter-spacing: -1px;
+                    padding-bottom: 20px;
+                }
+            }
+        }
+    }
+}

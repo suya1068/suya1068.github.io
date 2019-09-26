@@ -1,0 +1,54 @@
+.charge-manager {
+	.charge-artist__row {
+		background-color: #fff;
+		border-radius: 6px;
+		padding: 20px 18px;
+
+		&:nth-child(n + 2) {
+			margin-top: 10px;
+		}
+	}
+
+	.charge-artist__column {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.column__title {
+			font-size: 16px;
+			font-weight: bold;
+			letter-spacing: normal;
+			flex: 0 0 auto;
+
+            &.txt_period {
+                flex: 0 0 120px;
+            }
+		}
+
+		.column__content {
+			flex: 1 0 auto;
+		}
+
+		.column__caption {
+			font-size: 15px;
+			text-align: right;
+			display: flex;
+			flex-direction: column;
+
+			&__upper-title {
+				color: #e02020;
+				font-weight: bold;
+				margin-bottom: 3px;
+			}
+
+			&__title {
+				color: #666;
+			}
+		}
+	}
+
+	&-btn {
+		margin-top: 20px;
+		text-align: center;
+	}
+}

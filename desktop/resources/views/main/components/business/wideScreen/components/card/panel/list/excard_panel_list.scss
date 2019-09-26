@@ -1,0 +1,63 @@
+.ex_card__panel__type {
+	// =========== list type ==============
+	&.list {
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+		bottom: 0;
+	}
+
+	.list__title {
+		//font-family: "Nanum Myeongjo", Helvetica, AppleSDGothicNeo, Arial, sans-serif;
+		font-size: 32px;
+		font-weight: bold;
+		line-height: 1.44;
+		letter-spacing: -2px;
+		margin-bottom: 60px;
+		text-align: left;
+		position: relative;
+
+		&:after {
+			display: inline-block;
+			content: "";
+			height: 3px;
+			background-color: #000;
+		}
+	}
+
+	.list__title.right {
+		&:after {
+			width: 277px;
+			margin-left: 20px;
+			top: -12px;
+			position: relative;
+		}
+	}
+
+	.list__title.bottom {
+		&:after {
+			width: 100px;
+			position: absolute;
+			bottom: -20px;
+			left: 0;
+		}
+	}
+
+	.list__content {
+		text-align: left;
+		padding-left: 20px;
+		font-size: 18px;
+		line-height: 1.67;
+		letter-spacing: -0.5px;
+		//word-break: keep-all;
+		&-key {
+			margin-bottom: 20px;
+			list-style: decimal;
+		}
+
+		&-key .title {
+			font-weight: bold;
+		}
+	}
+	// =========== list type ./end ==============
+}

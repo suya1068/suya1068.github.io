@@ -1,0 +1,162 @@
+.pop_example {
+	//display: block !important;
+	//padding: 15px 0 !important;
+	.modal-content {
+		width: calc(100% - 30px);
+		height: auto;
+		background-color: #fff;
+		border-radius: 12px;
+		box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.5);
+
+		//padding: 45px !important;
+	}
+
+	&.example_video {
+		.modal-content {
+			//height: 500px;
+		}
+
+		.pop_example__content__info {
+			//width: 330px;
+		}
+
+		.pop_example__content__images {
+			height: calc(100vw - 164px);
+		}
+	}
+
+	.pop_example-container {
+		height: 100%;
+	}
+
+	.pop_example__head {
+		text-align: center;
+		position: relative;
+		padding: 18px 0 15px;
+
+		height: 57px;
+		//border-bottom: 1px solid #dedede;
+		.pop-title {
+			font-size: 18px;
+			font-weight: bold;
+			letter-spacing: normal;
+		}
+
+		.pop_example__close-btn {
+			position: absolute;
+			top: 50%;
+			right: 20px;
+			transform: translateY(-50%);
+			cursor: pointer;
+		}
+	}
+
+	.pop_example__content {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		//justify-content: space-between;
+		position: relative;
+
+		.wrap_video_box {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			//bottom: -13px;
+		}
+		&__info {
+			width: 100%;
+			height: 100%;
+			text-align: left;
+			position: relative;
+			padding: 20px 15px;
+
+			.info-title {
+				font-weight: bold;
+				border-bottom: 2px solid #000;
+				padding-bottom: 10px;
+			}
+		}
+
+		&__info__desc {
+			margin-bottom: 30px;
+			.info-desc {
+				padding: 10px 0;
+				border-bottom: 1px solid #dedede;
+				word-break: keep-all;
+				line-height: normal;
+			}
+		}
+
+		&__info__price {
+			.info-price__row {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				border-bottom: 1px solid #dedede;
+				padding: 10px 0;
+			}
+
+			.info-price__title {
+				color: #666;
+			}
+		}
+
+		&__info__consult-btn {
+			font-size: 15px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			margin: 20px 0 30px;
+
+			> button {
+				cursor: pointer;
+				color: #fff;
+				width: 210px;
+				height: 50px;
+				background-color: #f5a623;
+			}
+		}
+
+		&__images {
+			position: relative;
+			width: 100%;
+			height: calc(100vw - 30px);
+
+			.arrow {
+				position: absolute;
+				z-index: 1;
+				top: 50%;
+				transform: translateY(-50%);
+
+				display: flex;
+				justify-content: space-between;
+				width: 100%;
+				padding: 0 20px;
+
+				.left-arrow,
+				.right-arrow {
+					cursor: pointer;
+				}
+			}
+
+			.example-image {
+				width: 345px;
+				height: 345px;
+				> img {
+					position: absolute;
+					height: 100%;
+					width: 100%;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
+		}
+
+		&__info__desc {
+
+		}
+	}
+}

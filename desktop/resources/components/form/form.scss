@@ -1,0 +1,599 @@
+@import "desktop/resources/scss/variables";
+@import "desktop/resources/scss/mixins/clearfix";
+
+$dev-host: "#{$IMG_SERVER}/common/f_icon_v1.png";
+$icon-url: url($dev-host);
+
+// Typography
+
+input, textarea {
+    display: inline-block;
+    outline: none;
+    border: 2px solid #e1e1e1;
+    background-color: #fff;
+    padding: 0 1.104em;
+    font-size: 1.081em;
+    font-weight: 300;
+    letter-spacing: -0.6px;
+    color: #474747;
+}
+
+textarea {
+    padding: 1em;
+
+    &:focus {
+        border-color: #969696;
+    }
+}
+
+.w70 {
+    width: 70px;
+}
+
+.w98 {
+    width: 98px;
+}
+
+.w105 {
+    width: 105px;
+}
+
+.w119 {
+    width: 119px;
+}
+
+.w154 {
+    width: 154px;
+}
+
+.w175 {
+    width: 175px;
+}
+
+.w206 {
+    width: 206px;
+}
+
+.w267 {
+    width: 267px;
+}
+
+.w276 {
+    width: 276px;
+}
+
+.w296 {
+    width: 296px;
+}
+
+.w412 {
+    width: 412px;
+}
+
+.w520 {
+    width: 520px;
+}
+
+.w660 {
+    width: 660px;
+}
+
+.block {
+    width: 100%;
+}
+
+// 1. Inpout css
+// 2. Checkbox css
+// 3. Radio css
+// 4. Dropdown css
+// 5. Heart css
+// 7. Badge css
+
+////////////////////////
+// 1. Input css
+////////////////////////
+
+//input {
+//    &:disabled {
+//        background: #e1e1e1;
+//        color: #969696;
+//    }
+//}
+
+.input {
+    border-radius: 50px;
+    height: 50px;
+
+
+    &:disabled {
+        background: #f6f6f6;
+        color: #969696;
+    }
+
+    &:focus {
+        border-color: #969696;
+        box-shadow: 0 0 5px -2px #333;
+    }
+
+    // input 크기
+    &.size-small {
+        height: 34px;
+        border-radius: 34px;
+        border-width: 1px;
+        font-size: 1.019em;
+    }
+
+    &.size-large {
+        height: 62px;
+        border-radius: 62px;
+        font-size: 1.394em;
+    }
+
+    &.theme {
+        &-reverse {
+            color: #fff;
+            background-color: transparent;
+            border-color: #fff;
+
+            &:focus {
+                color: #000;
+                background-color: #fff;
+                border-color: #e1e1e1;
+            }
+        }
+        &-muted {
+            color: #969696;
+            background-color: #e1e1e1;
+            border-color: #e1e1e1;
+        }
+        &-opacity {
+            color: #fff;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-color: #fff;
+
+            &:focus,
+            &:active {
+                color: #000;
+                background-color: #fff;
+                border-color: #e1e1e1;
+            }
+        }
+    }
+}
+
+////////////////////////
+// 2. Checkbox css
+////////////////////////
+
+.checkbox {
+    position: relative;
+    display: inline-block;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+
+    .checkbox-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .check-icon {
+        display: flex;
+        flex-direction: row;
+        flex: 0 0 auto;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+        border: 1px solid #e1e1e1;
+        border-radius: 5px;
+    }
+
+    .check-text {
+        flex: 1 1 auto;
+        margin-left: 6px;
+    }
+
+    .icon {
+        flex: 0 0 auto;
+    }
+
+    &.checkbox-text {
+        width: 160px;
+        height: 50px;
+        text-align: left;
+        padding: 0 44px 0 19px;
+        font-size: 18px;
+        line-height: 50px;
+        letter-spacing: -0.9px;
+        background-color: #fff;
+        border: 1px solid #e1e1e1;
+        color: #969696;
+
+        > .icon {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: transparent;
+            border: none;
+        }
+    }
+
+    &.active {
+        &.check-yellow .check-icon {
+            background-color: #ffba00;
+            border-color: #ffba00;
+        }
+
+        &.checkbox-text {
+            background-color: #f1f1f1;
+            color: #000;
+        }
+    }
+
+    &.check-yellow {
+        &.check-small .check-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        &.check-circle .check-icon {
+            width: 15px;
+            height: 15px;
+            border-radius: 100%;
+
+            .icon {
+                display: none;
+            }
+        }
+    }
+
+    &.disabled {
+        color: #e1e1e1;
+
+        .check-icon {
+            background-color: #e1e1e1;
+        }
+
+        &.checkbox-text {
+            color: #969696;
+            background-color: #e1e1e1;
+        }
+    }
+
+    &.left {
+        text-align: left;
+        > div {
+            float: right;
+        }
+    }
+}
+
+////////////////////////
+// 3. Radio css
+////////////////////////
+.radio {
+    position: relative;
+    display: inline-block;
+    height: 15px;
+    background: none;
+    border: none;
+    outline: none;
+    margin: 0;
+    padding: 0;
+    text-indent: 22px;
+    font-size: 14.6px;
+
+    &:before {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-49%);
+        display: inline-block;
+        content: "";
+        width: 14px;
+        height: 14px;
+        background-color: #fff;
+        border: 1px solid #e1e1e1;
+        border-radius: 15px;
+    }
+
+    &.checked:before {
+        background-color: #ffba00;
+        border-color: #ffba00;
+    }
+
+    &.disabled:before {
+        background-color: #e1e1e1;
+        border-color: #e1e1e1;
+    }
+
+    &-group {
+        display: inline-block;
+        width: 100%;
+
+        .radio {
+            float: left;
+        }
+
+        .radio:nth-child(n+2) {
+            margin-left: 24px;
+        }
+    }
+}
+
+////////////////////////
+// 4. Dropdown css
+////////////////////////
+
+%fors-dropdown-base {
+    position: relative;
+    display: inline-block;
+    border-radius: 50px;
+    border: 1px solid #e1e1e1;
+    background-color: #fff;
+    width: 100%;
+    height: 50px;
+    outline: none;
+    padding: 0 2.5em 0 18px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.fors-dropdown-desktop {
+    position: relative;
+    display: inline-block;
+
+    &.disabled {
+        pointer-events: none;
+        .fors-select-view {
+            .fors-select {
+                background: #e1e1e1;
+            }
+        }
+    }
+
+    .fors-select-view {
+        position: relative;
+
+        .icon {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            z-index: 9;
+            transform: translateY(-50%) scale(1.23);
+        }
+
+        .fors-select {
+            @extend %fors-dropdown-base;
+            &.error_msg {
+                color: #d0021b;
+            }
+
+            &:focus {
+                border-color: #969696;
+                box-shadow: 0 0 5px -2px #333;
+            }
+        }
+    }
+
+    .fors-select-box {
+        position: absolute;
+        display: none;
+        left: 0;
+        top: 100%;
+        transition: max-height 0.6s ease;
+        width: 100%;
+        list-style: none;
+        margin: 15px 0 0 0;
+        //margin: 10px 0 0 0;
+        padding: 0;
+        border: 1px solid #000;
+        //border: 2px solid #969696;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.35);
+        //box-shadow: 1px 1px 5px -2px rgba(51, 51, 51, 0.8);
+        z-index: map_get($z-index, "middle");
+
+        &__inner {
+            overflow-y: auto;
+            max-height: 300px;
+            margin: 18px -20px 18px 20px;
+        }
+
+        .box-arrow {
+            width: 10px;
+            height: 10px;
+            position: absolute;
+            background-color: #fff;
+            transform: rotate(45deg);
+            right: 26px;
+            top: -6px;
+            border-top: 1px solid #000;
+            border-left: 1px solid #000;
+
+        }
+
+        .fors-select-option {
+            height: 50px;
+            font-weight: normal;
+            text-align: left;
+            padding-bottom: 10px;
+            color: #000;
+            font-size: 16px;
+
+            &.select {
+                color: #ffba00;
+            }
+
+            &.active {
+                font-weight: bold;
+                color: #000;
+            }
+
+            .caption {
+                position: absolute;
+                top: 50%;
+                right: 0;
+                transform: translateY(-50%);
+            }
+        }
+
+        &.show {
+            display: inline-block;
+            overflow: hidden;
+        }
+    }
+
+    &.dropdown-small {
+        > .icon {
+            right: 18px;
+            transform: translateY(-50%) scale(1);
+        }
+
+        .fors-select,
+        .fors-select-option {
+            height: 34px;
+        }
+
+        .fors-select-box {
+            max-height: 204px;
+        }
+    }
+    &.dropdown-large {
+        > .icon {
+            right: 35px;
+            transform: translateY(-50%) scale(1.45);
+        }
+
+        .fors-select,
+        .fors-select-option {
+            height: 62px;
+        }
+
+        .fors-select-box {
+            max-height: 372px;
+        }
+    }
+    &.dropdown-xlarge {
+        > .icon {
+            right: 35px;
+            transform: translateY(-50%) scale(1.45);
+        }
+
+        .fors-select,
+        .fors-select-option {
+            height: 82px;
+        }
+
+        .fors-select-box {
+            max-height: 372px;
+        }
+    }
+}
+
+////////////////////////
+// 5. Heart css
+////////////////////////
+
+.heart-box {
+    display: inline-block;
+    @include clearfix();
+
+    > button {
+        position: relative;
+        vertical-align: top;
+        float: left;
+
+        > icon {
+            float: left;
+        }
+
+        &:nth-child(5) {
+            margin-right: 0;
+        }
+
+        &.heart-full > icon {
+            background-position: -222px 285px;
+        }
+
+        &.heart-half:before {
+            content: "";
+            position: absolute;
+            display: inline-block;
+            left: 0;
+            width: 9px;
+            height: 18px;
+            background: $icon-url;
+            background-position: -222px 285px;
+        }
+    }
+
+    .heart-count {
+        display: inline-block;
+        height: 16px;
+        font-size: 18.9px;
+        line-height: 16px;
+        letter-spacing: -0.9px;
+        text-align: left;
+        margin-left: 10px;
+        color: #ffba00;
+        vertical-align: top;
+        width: 25px;
+        float: left;
+    }
+
+    &.heart-small {
+        > button {
+            &.heart-full > icon {
+                background-position: -248px 290px;
+            }
+
+            &.heart-half:before {
+                width: 6.5px;
+                background-position: -248px 290px;
+            }
+        }
+
+        .heart-count {
+            font-size: 14.6px;
+            height: 13px;
+            line-height: 13px;
+        }
+    }
+}
+
+//////////////////////////////////
+// 7. Badge css
+//////////////////////////////////
+
+.badge-box {
+    position: relative;
+    display: inline-block;
+
+    &.badge-hide {
+        .badge {
+            display: none;
+        }
+    }
+
+    .badge {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        left: 100%;
+        bottom: 100%;
+        transform: translate(-90%, 50%);
+        font-size: 11.2px;
+        line-height: 16px;
+        letter-spacing: -0.6px;
+        text-align: center;
+        color: #fff;
+        background-color: #ffba00;
+        border-radius: 100%;
+        z-index: map_get($z-index, "low");
+    }
+}

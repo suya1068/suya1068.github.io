@@ -1,0 +1,60 @@
+.offer-detail-footer-inquire {
+    border-radius: 10px;
+    .inquire-title {
+        text-align: center;
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+    .inquire-content {
+        padding-right: 1rem;
+        padding-left: 1rem;
+    }
+    .textarea {
+        border: 1px solid #e1e1e1;
+        border-radius: 5px;
+        padding: 1rem;
+        height: 100px;
+        font-size: .9rem;
+    }
+    .inquire-mode {
+        display: flex;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        .mode {
+            display: flex;
+            flex-direction: row;
+            width: 50%;
+            justify-content: center;
+
+            &.active {
+                .circle {
+                    background-color: #ffba00;
+                    border: none;
+                }
+            }
+
+            .circle {
+                display: flex;
+                width: 20px;
+                height: 20px;
+                border: 1px solid #e1e1e1;
+                border-radius: 100%;
+                align-items: center;
+                justify-content: center;
+                margin-right: 10px;
+            }
+        }
+    }
+    .inquire-buttons {
+        display: flex;
+        height: 50px;
+        .close {
+            background: #f1f1f1;
+            color: #000;
+        }
+        .submit {
+            background: #ffba00;
+            color: #fff;
+        }
+    }
+}

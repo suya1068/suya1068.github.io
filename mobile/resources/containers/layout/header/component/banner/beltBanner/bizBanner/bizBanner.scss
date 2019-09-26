@@ -1,0 +1,296 @@
+$opacity_white_color: rgba(255, 255, 255, 0.7);
+
+.m-banner-container {
+	.biz-banner-component {
+		position: relative;
+
+		.biz-banner {
+			position: relative;
+			color: #fff;
+			font-size: 30px;
+			transition: height 0.2s, font-size 0.4s;
+			overflow: hidden;
+			z-index: 1052;
+
+			&.multi {
+				//height: calc(80vh - 50px);
+			}
+			&.single {
+				min-height: 150px;
+				max-height: 230px;
+				.biz-banner-bgImage {
+					min-height: 150px;
+					max-height: 230px;
+					height: 230px;
+				}
+			}
+
+
+			&-title {
+				font-size: 1.3rem;
+				font-weight: normal;
+				font-style: normal;
+				font-stretch: normal;
+				letter-spacing: -1.3px;
+				color: rgba(255, 255, 255, .7);
+				margin-bottom: 10px;
+				word-break: keep-all;
+			}
+		}
+
+		.biz-banner-bgImage {
+			position: relative;
+			height: 100%;
+			img {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+			&-bg {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				//background-color: rgba(0, 0, 0, 0.5);
+			}
+		}
+		.biz-banner-bgWrap {
+			position: relative;
+			height: 100%;
+			width: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+
+			.container {
+				height: inherit;
+			}
+			&-heading {
+				text-align: center;
+			}
+		}
+
+		.flex-box {
+			position: relative;
+			height: inherit;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			padding: 2rem 1rem;
+			flex: 1 1 auto;
+
+			> div {
+				position: relative;
+				width: 100%;
+			}
+
+			.nick_name {
+				position: absolute;
+				right: 20px;
+				bottom: 10px;
+				font-size: 0.8rem;
+				color: $opacity_white_color;
+			}
+		}
+
+		.biz-banner-wideButtons {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+		}
+
+		.biz-banner-wideButton {
+			width: 100%;
+			min-height: 10px;
+			height: 100px;
+			//height: calc((100% / 3) - 1rem);
+			position: relative;
+			.nick_name {
+				bottom: -5px;
+				width: 100%;
+				right: 0;
+				text-align: center;
+			}
+			&__bgImage {
+				position: relative;
+				> img {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
+
+			&-title {
+				font-size: 1.2rem;
+				font-weight: normal;
+				font-style: normal;
+				font-stretch: normal;
+				letter-spacing: -1.3px;
+			}
+
+			&-description {
+				font-size: 0.9rem;
+				font-weight: normal;
+				font-style: normal;
+				font-stretch: normal;
+				letter-spacing: -1px;
+				color: rgba(255, 255, 255, 0.5);
+				word-break: keep-all;
+				width: 100%;
+				margin-bottom: 5px;
+			}
+
+			&:nth-child(n + 2) {
+				margin-top: 20px;
+			}
+
+			&__bgImage {
+				width: inherit;
+				//height: inherit;
+				height: 100%;
+			}
+
+			&__bgWrap {
+				width: inherit;
+				//height: inherit;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background-color: rgba(0, 0, 0, 0.5);
+				padding: 0.5rem;
+				box-sizing: border-box;
+
+				> div {
+					position: relative;
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: flex-start;
+					text-align: center;
+					width: 100%;
+					height: 100%;
+
+					> button {
+						//position: absolute;
+						width: 60%;
+						height: 30px;
+						line-height: 30px;
+						bottom: 0;
+						left: 0;
+					}
+				}
+			}
+		}
+		.p-button {
+			color: #fff;
+			font-size: 1rem;
+			cursor: pointer;
+		}
+		.p-button__round {
+			border-radius: 5px;
+		}
+		.p-button__block {
+			width: 100%;
+		}
+		.p-button__theme__mint {
+			background-color: #52c1a3;
+		}
+		.p-button__theme__purple {
+			background-color: #607cc5;
+		}
+		.p-button__theme__rose {
+			background-color: #b8ae8e;
+		}
+
+		.close-button {
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			top: 20px;
+			right: 20px;
+			cursor: pointer;
+			> img {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+	}
+}
+
+.biz-banner-component {
+	// 띠 배너 css
+	.biz-banner-singleButton {
+		position: relative;
+		width: 100%;
+		min-height: 70px;
+		height: auto;
+		display: inline-block;
+		margin: 0 auto;
+
+		&__image-side {
+			position: relative;
+			width: inherit;
+			//height: inherit;
+			min-height: inherit;
+			height: 100px;
+		}
+
+		&__image-side-wrapper {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-color: rgba(0, 0, 0, 0.5);
+			padding: 1rem;
+
+			.side {
+				width: 50%;
+				height: 100%;
+			}
+
+			.title {
+				font-size: 1.1rem;
+				color: #fff;
+				margin-bottom: 5px;
+			}
+			.describe {
+				font-size: 0.9rem;
+				word-break: keep-all;
+				color: $opacity_white_color;
+			}
+			.left-side {
+				float: left;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+			.right-side {
+				float: right;
+				display: flex;
+				align-items: center;
+				justify-content: flex-end;
+
+				.biz-button {
+					width: 130px;
+					height: 40px;
+					line-height: 40px;
+					word-break: keep-all;
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,47 @@
+.f__input {
+    width: 100%;
+    padding: 0.709em 0.9em;
+    margin: 0;
+    border: 1px solid #e1e1e1;
+    border-radius: 0;
+    font-size: 0.750em;
+    line-height: normal;
+
+    &:focus {
+        border-color: #666;
+    }
+
+    &__round {
+        border-radius: 5px;
+    }
+
+    &__length {
+        color: #969696;
+        font-size: 0.700em;
+    }
+}
+
+._input {
+    width: 100%;
+    height: 34px;
+    font-size: 0.887em;
+    font-weight: normal;
+    line-height: 1;
+    padding: 0 0.85em;
+    border: 1px solid #d8d8d8;
+
+    &.active,
+    &:focus {
+        border-color: #666;
+    }
+
+    &:disabled {
+        color: #666;
+        background-color: #efefef;
+    }
+
+    &._input__error {
+        color: #d0021b;
+        border-color: #d0021b;
+    }
+}

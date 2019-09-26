@@ -1,0 +1,99 @@
+.about-artist-leftside {
+	width: calc(100% * (1 / 3));
+	height: inherit;
+	//width: 240px;
+	float: left;
+	padding: 24px;
+
+	.title {
+		font-size: 13.7px;
+		padding-bottom: 10px;
+	}
+
+	.link-block {
+        > .btn {
+			height: auto;
+			padding: 0.75em 1.25em;
+			font-size: 15px;
+			font-weight: 400;
+		}
+	}
+
+	.top-info {
+		//display: table;
+		//border-bottom: 1px solid #e1e1e1;
+		//padding-bottom: 24px;
+		display: flex;
+		padding-bottom: 24px;
+		align-items: center;
+		.profile-img {
+			margin-right: 20px;
+			flex-basis: 110px;
+		}
+		.artist-id {
+			//display: table-cell;
+			//vertical-align: middle;
+			flex-basis: 170px;
+
+			.nick_name {
+				font-size: 19.8px;
+				font-weight: 500;
+				letter-spacing: -1px;
+				padding-bottom: 15px;
+				word-break: break-all
+			}
+			.text {
+				font-size: 13.7px;
+				font-weight: 300;
+			}
+
+			.text .col {
+				padding: 0 5px;
+				background-color: #ececec;
+				border: 1px solid #e1e1e1;
+				color: #969696;
+				font-size: 11.2px;
+				margin-right: 5px;
+			}
+		}
+	}
+
+	.intro-info {
+		padding: 24px 0;
+		border-bottom: 1px solid #e1e1e1;
+
+		.content {
+			font-size: 12px;
+			width: 100%;
+			font-weight: 300;
+			line-height: 1.64;
+			letter-spacing: -0.6px;
+			text-align: left;
+			color: #969696;
+			word-wrap: break-word;
+			word-break: keep-all;
+		}
+	}
+
+	.career-info {
+		padding: 24px 0;
+		border-bottom: 1px solid #e1e1e1;
+
+		.career {
+			font-size: 12px;
+			font-weight: 300;
+			line-height: 1.64;
+			color: #969696;
+			display: table;
+			.date {
+				display: table-cell;
+				vertical-align: top;
+			}
+
+			.content {
+				margin-left: 20px;
+				word-break: break-all;
+			}
+		}
+	}
+}

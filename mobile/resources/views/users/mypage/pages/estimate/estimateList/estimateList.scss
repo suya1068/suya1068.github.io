@@ -1,0 +1,157 @@
+@import "mobile/resources/scss/variables";
+.user-estimate-tab {
+    width: 100%;
+    border-bottom: 1px solid #e1e1e1;
+    background-color: #fff;
+    margin-bottom: 15px;
+
+    > button {
+        width: 50%;
+        padding: 1em;
+        color: #e1e1e1;
+        font-weight: bold;
+        &.active {
+            color: #fff;
+            background-color: #000;
+        }
+    }
+    .estimate-list {
+        cursor: pointer;
+        border-right: 1px solid #e1e1e1;
+    }
+    .estimate-complete {
+        cursor: pointer;
+    }
+}
+.desktop-estimate,
+.users-estimate {
+    .complete-msg {
+        text-align: center;
+        font-size: 1em;
+        word-break: keep-all;
+        color: #ff326c;
+        padding-bottom: 1em;
+    }
+    &__list {
+        .panel-unit {
+            position: relative;
+        }
+        .wrap-white-beam {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        padding-bottom: 1rem;
+        //padding-top: 1rem;
+        //margin-top: 20px;
+        > a {
+            &:visited,
+            &:link,
+            &:active,
+            &:hover {
+                color: black;
+            }
+        }
+
+        //&--none {
+        //    padding: 1rem;
+        //    display: flex;
+        //    flex-direction: column;
+        //    height: calc(100vh - (#{$site-header-height * 2} + #{$site-footer-height}));
+        //    min-height: 300px;
+        //    justify-content: center;
+        //    align-items: center;
+        //    color: #969696;
+        //}
+        .estimate__none__list {
+            height: calc(100vh - 100px);
+            min-height: 500px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+.wrap-quotation-button {
+    padding: 1rem;
+    .quotation-button {
+        //display: flex;
+        //align-items: center;
+        //justify-content: center;
+        //text-align: center;
+        cursor: pointer;
+        > i {
+            margin-right: 5px;
+        }
+        > span {
+            line-height: 2em;
+        }
+        //> * {
+        //    align-items: center;
+        //    justify-content: center;
+        //}
+    }
+}
+
+.estimate__none__list {
+    .wrap-img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        color: white;
+        text-align: center;
+        .inner-content {
+            padding: 0 20px;
+            .title {
+                font-size: 1.5em;
+                //font-size: 1.5rem;
+                padding: 20px;
+            }
+            .text {
+                font-size: 0.8em;
+                //font-size: 0.8rem;
+                font-weight: 300;
+                line-height: 3;
+                padding-bottom: 20px;
+            }
+            button {
+                //display: flex;
+                //align-items: center;
+                //justify-content: center;
+                cursor: pointer;
+                padding: .8rem;
+                i {
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}
+
+// 촬영내역 버튼 css
+.estimate-progress,
+.estimate-complete {
+    width: 50%;
+    padding: 0.5rem 0;
+
+    &:first-child {
+        border-right: none;
+    }
+
+    &.active {
+        background-color: #b7d2e3;
+        color: white;
+    }
+}
+
+.estimate-comment-pagination {
+    margin-top: 10px;
+}

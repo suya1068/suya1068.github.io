@@ -1,0 +1,14 @@
+.serviceHistory-page {
+    .empty-list {
+        display: inline-block;
+        width: 100%;
+        height: 490px;
+        padding-top: 124px;
+        background: url('#{$IMG_SERVER}/common/none_visual.png') center bottom no-repeat;
+        text-align: center;
+
+        .h5-caption {
+            margin-top: 15px;
+        }
+    }
+}

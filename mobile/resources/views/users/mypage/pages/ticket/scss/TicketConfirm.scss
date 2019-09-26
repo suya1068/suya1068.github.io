@@ -1,0 +1,142 @@
+$ticket-confirm-header-height       : 50px;
+$ticket-confirm-header-bg           : #494f59;
+
+$ticket-confirm-footer-height       : 40px;
+
+$form-bg--focus                     : #fcfcfc;
+$form-border--focus                 : #ccc;
+
+.ticket-confirm {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+
+    &__header {
+        display: flex;
+        flex-direction: row;
+        flex: 0 0 auto;
+        align-items: center;
+        height: $ticket-confirm-header-height;
+        padding: 0 20px;
+        background-color: $ticket-confirm-header-bg;
+        color: #fff;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+        background-color: #fafafa;
+        padding: 0.625em;
+        text-align: left;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    //&__footer {
+    //    position: relative;
+    //    height: $ticket-confirm-footer-height;
+    //
+    //    .button-group {
+    //        position: relative;
+    //        display: flex;
+    //        flex-direction: row;
+    //        height: 100%;
+    //
+    //        .button {
+    //            position: relative;
+    //            flex: 1 1 auto;
+    //            height: inherit;
+    //            border-radius: 0;
+    //            border: none;
+    //            font-weight: 300;
+    //        }
+    //
+    //        .button + .button {
+    //            margin-left: -1px;
+    //        }
+    //    }
+    //}
+
+    &-actions {
+        margin-top: 20px;
+    }
+}
+
+.ticket-confirm {
+    &-title {
+        flex: 1 1 auto;
+        padding: 0 20px;
+        font-size: 1.15rem;
+        font-weight: 500;
+        letter-spacing: -1.2px;
+        text-align: center;
+    }
+
+    &-close {
+        flex: 0 1 0;
+        font-size: 25px;
+        height: 16px;
+        line-height: 20px;
+    }
+
+    &-description {
+        padding: 0.5rem 0.75rem;
+        font-size: 1.23rem;
+    }
+
+    &-warn-message {
+        position: relative;
+        display: flex;
+        align-items: center;
+        color: #ff326c;
+
+        .ticket-confirm-icon {
+            flex: 0 0 auto;
+            display: inline-block;
+            width: 55px;
+            height: 55px;
+        }
+
+        &__text {
+            flex: 1 1 auto;
+        }
+    }
+}
+
+// Override
+#modal .ticket-confirm {
+    .modal-close {
+        width: 24px;
+        height: 24px;
+    }
+
+    .ticket-card {
+        border: 1px solid #e1e1e1;
+    }
+
+    //.form-label {
+    //    display: inline-block;
+    //    margin-bottom: 5px;
+    //    font-size: 1rem;
+    //}
+    //
+    //.form-control {
+    //    display: block;
+    //    width: 100%;
+    //    padding: 0.5rem 0.75rem;
+    //    background-color: #fff;
+    //    border: 1px solid #e1e1e1;
+    //
+    //    font-size: 1rem;
+    //    line-height: 1.25;
+    //
+    //    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    //
+    //    &:focus {
+    //        background-color: $form-bg--focus;
+    //        border-color: $form-border--focus;
+    //    }
+    //}
+}

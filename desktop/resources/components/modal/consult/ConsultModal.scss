@@ -1,0 +1,266 @@
+.consult__modal {
+    width: 100%;
+    max-width: 500px;
+
+    .consult__logo {
+        position: relative;
+        text-align: center;
+
+        ._button__close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 23px;
+            height: 23px;
+        }
+    }
+
+    .consult__title {
+        margin-top: 20px;
+        font-size: 1.25em;
+        font-weight: bold;
+
+        &__add-artist-info {
+            font-size: 18px;
+            font-weight: normal;
+            letter-spacing: normal;
+            color: #666666;
+            margin-top: 10px;
+        }
+    }
+
+    .consult__content {
+        margin-top: 20px;
+
+        .label {
+            position: relative;
+            flex: 0 0 45px;
+            //flex: 0 0 auto;
+            margin-right: 22px;
+            text-align: left;
+            &.required {
+                &:after {
+                    content: "*";
+                    position: absolute;
+                    right: -2px;
+                    top: 0;
+                    height: 0;
+                    width: 0;
+                    color: #d0021b;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        ._input {
+            flex: 1 1 auto;
+            height: 100%;
+            font-size: 16px;
+        }
+
+        .dropdown__container {
+            height: 100%;
+
+            .dropdown__list {
+                .dropdown__item {
+                    height: 55px;
+                }
+            }
+        }
+
+        .consult__phone {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 55px;
+
+            > :nth-child(n+3) {
+                margin-left: 12px;
+            }
+
+            ._input {
+                text-align: center;
+            }
+        }
+
+        .consult__email {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 55px;
+            margin-top: 10px;
+        }
+
+        .consult__name {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 55px;
+            margin-bottom: 10px;
+        }
+    }
+
+    .consult__agree__fa {
+        margin-top: 15px;
+        &__title {
+            font-size: 16px;
+            letter-spacing: normal;
+            color: #666;
+            cursor: pointer;
+        }
+    }
+
+    .consult__agree__fa__policy {
+        margin-top: 20px !important;
+        text-align: left;
+
+        &.agree__info {
+            background-color: transparent;
+            padding: 0;
+            color: #000;
+        }
+
+        .policy__info-box {
+            font-size: 14px;
+            letter-spacing: normal;
+            margin-bottom: 25px;
+
+            .box-title {
+                font-weight: bold;
+                margin-bottom: 5px;
+            }
+
+            .box-desc {
+                font-weight: normal;
+                color: #666666 !important;
+                margin-bottom: 10px;
+            }
+        }
+
+        .policy__agree__content {
+
+        }
+
+        .policy__row {
+            display: flex;
+            width: 100%;
+            text-align: center;
+
+            &:first-child {
+                border-top: 2px solid #000;
+            }
+
+            &:last-child {
+                border-bottom: 1px solid #dedede;
+            }
+
+            &.di-3 .policy__column {
+                width: calc(100% / 3);
+            }
+
+            &.di-4 .policy__column {
+                width: calc(100% / 4);
+            }
+        }
+
+        .policy__column {
+            font-size: 12px;
+            font-weight: normal;
+            letter-spacing: normal;
+            //padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            height: 38px;
+
+            &:nth-child(n + 2) {
+                border-left: 1px solid #dedede;
+            }
+
+            &.head {
+                background-color: #efefef;
+                color: #666666;
+            }
+        }
+    }
+
+    .consult__artist__agree {
+        font-size: 12px;
+        color: #999;
+        margin: 15px 0;
+    }
+
+    .consult__agree {
+        margin-top: 30px;
+
+        .check__box {
+            font-weight: bold;
+
+            &.checked {
+                a,
+                a:link,
+                a:active,
+                a:visited,
+                a:hover {
+                    color: #000;
+                }
+            }
+
+            a,
+            a:link,
+            a:active,
+            a:visited,
+            a:hover {
+                color: #666;
+            }
+
+            .check__icon {
+                border-width: 2px;
+            }
+        }
+
+        .agree__title {
+            cursor: pointer;
+        }
+    }
+
+    .agree__info {
+        display: none;
+        margin-top: 10px;
+        padding: 12px 16px;
+        background-color: #efefef;
+        border-radius: 5px;
+        color: #666;
+        font-size: 0.875em;
+        line-height: 1.57;
+        letter-spacing: normal;
+        text-align: start;
+        word-break: keep-all;
+
+        &.checked {
+            display: block;
+        }
+
+        > p {
+            position: relative;
+            padding-left: 10px;
+
+            &:before {
+                content: "-";
+                position: absolute;
+                left: 0;
+            }
+        }
+    }
+
+    .consult__button {
+        margin-top: 10px;
+
+        ._button {
+            width: 360px;
+            height: 60px;
+            font-size: 1.125em;
+        }
+    }
+}

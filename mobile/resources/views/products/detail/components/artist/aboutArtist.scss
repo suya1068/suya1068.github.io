@@ -1,0 +1,208 @@
+@import "../../business/scss/variable";
+
+.about-artist {
+    //margin-top: 30px;
+    background-color: #fff;
+    //margin-bottom: 20px;
+    padding: 0 15px 20px;
+    //position: sticky;
+    //top: 140px;
+
+    // sticky clearfix
+    //&:after,
+    //&:before {
+    //    content: "";
+    //    display: table;
+    //}
+
+    &__inner {
+        border: {
+            left: $base-border;
+            right: $base-border;
+            bottom: $base-border;
+        }
+        background-color: #fff;
+    }
+
+    &__content {
+        position: relative;
+
+        &__profile {
+            position: relative;
+            padding-bottom: 15px;
+            border-bottom: $base-border;
+
+            @include base-flex;
+            justify-content: center;
+            flex-direction: column;
+
+            .artist__profile {
+                width: 74px;
+                height: 74px;
+                border-radius: 74px;
+                overflow: hidden;
+
+                margin-top: 15px;
+            }
+
+            .photographer {
+                font-size: 11px;
+                font-weight: normal;
+                letter-spacing: normal;
+                color: #666666;
+                margin-top: 3px;
+            }
+
+            .artist__nickname {
+                font-size: 16px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+        }
+
+        &__region {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: $base-border;
+
+            .region-title {
+                color: #999;
+
+                flex: 0 0 90px;
+            }
+
+            .regions {
+                word-break: keep-all;
+            }
+
+            p {
+                font-size: 13px;
+                font-weight: normal;
+                letter-spacing: normal;
+            };
+        }
+
+        &__comment {
+            padding: 15px 0 0;
+            //min-height: 160px;
+
+            .comment {
+                font-size: 13px;
+                font-weight: normal;
+                line-height: 1.54;
+                letter-spacing: normal;
+                color: #666666;
+            }
+        }
+    }
+
+    &__content__inner {
+        padding: 16px 20px;
+        //border-bottom: $base-border;
+    }
+
+    &__content__outer {
+        padding: 20px;
+
+        > button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #000;
+        }
+
+        .artist__consult-btn {
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s ease-in-out;
+
+            &:hover {
+                background-color: #000;
+                color: #fff
+            }
+        }
+    }
+
+    &__iscorp {
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        font-size: 12px;
+        font-weight: normal;
+        letter-spacing: normal;
+        color: #999999;
+    }
+
+    &__outer {
+        margin-top: 16px;
+
+        .info-row {
+            display: flex;
+            align-items: baseline;
+
+            &:nth-child(n + 2) {
+                margin-top: 5px;
+            }
+        }
+
+        .dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 4px;
+            background-color: #f7b500;
+
+            flex: 0 0 4px;
+            margin-right: 5px;
+        }
+
+        .info-text {
+            font-size: 13px;
+            font-weight: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #666666;
+        }
+    }
+
+    .scroll-btn {
+        width: 100%;
+        cursor: default;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 12px 0;
+        color: #fff;
+        background-color: #fff;
+        visibility: hidden;
+        transition: all 0.2s ease-in-out;
+
+        &.show {
+            visibility: visible;
+            cursor: pointer;
+            background-color: #fcae2f;
+            color: #fff;
+        }
+    }
+
+    .fixed-bottom-btn-box {
+        display: flex;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 3;
+        height: 50px;
+        margin-top: 60px;
+        .move-btn {
+            width: 50%;
+            font-size: 15px;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px 5px;
+
+            > button {
+                color: #fff;
+            }
+        }
+    }
+}

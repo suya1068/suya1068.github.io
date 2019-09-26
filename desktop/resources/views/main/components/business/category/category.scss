@@ -1,0 +1,124 @@
+.biz-category {
+    &__box {
+        position: relative;
+        padding-top: 30px;
+
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__item {
+        position: relative;
+        width: 243px;
+        background-color: #fff;
+        box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.1);
+
+        &:nth-child(n + 2) {
+            margin-left: 19px;
+        }
+
+        &:nth-child(n + 5) {
+            margin-top: 19px;
+        }
+
+        &:nth-child(5) {
+            margin-left: 0;
+        }
+    }
+
+    &__item-box {
+        width: inherit;
+        display: inline-block;
+        //border: 1px solid #dedede;
+        overflow: hidden;
+
+        &__image {
+            display: inline-block;
+            position: relative;
+            width: inherit;
+            height: 180px;
+            overflow: hidden;
+
+            .image-wrap {
+                display: none;
+            }
+        }
+
+        &__image.on {
+            position: relative;
+            .biz-category__item-box__image-category {
+                display: none;
+            }
+
+            .image-wrap {
+                display: flex;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.6);
+                z-index: 1;
+                align-items: center;
+                justify-content: center;
+                flex: 1 1 auto;
+            }
+        }
+
+        &__image-category {
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            font-weight: 500;
+            width: 100%;
+            text-align: center;
+
+            .category-title {
+                border: 1px solid #fff;
+                border-radius: 20px;
+                padding: 6px 20px;
+                transition: background-color 0.1s;
+
+                &::before {
+                    content: attr(data-category);
+                }
+            }
+        }
+
+        &__image-nickname {
+            position: absolute;
+            font-size: 12px;
+            font-weight: 500;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+        }
+
+        &__tags {
+            height: 120px;
+
+            display: flex;
+            flex: 1 1 auto;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            text-align: center;
+            padding: 35px 24px;
+            color: #666;
+            > span {
+                cursor: pointer;
+                margin-right: 5px;
+            }
+        }
+    }
+}

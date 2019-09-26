@@ -1,0 +1,148 @@
+.centerInfoPanel {
+    width: 100%;
+    height: 200px;
+    //padding: 30px 60px;
+    //margin-bottom: 40px;
+    margin: 50px 0 40px 0;
+    .cs .cs-row {
+        display: flex;
+        flex-direction: row;
+        padding: 1rem 1rem 0 1rem;
+        width: 370px;
+        margin: 0 auto;
+        justify-content: left;
+    }
+
+    .cs .cs-row .cs-title {
+        flex-basis: 100px;
+        text-align: left;
+        > p {
+            font-size: 17px;
+        }
+    }
+
+    .cs .cs-row .cs-content {
+        > p {
+            color: #969696;
+            font-size: 12px;
+            font-weight: 500;
+        }
+    }
+    .panel {
+        position: relative;
+        display: table;
+        border: 4px solid #e1e1e1;
+        width: 506px;
+        height: inherit;
+
+        float: left;
+        background-color: white;
+        text-align: center;
+
+        .left-tri {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-top:35px solid #e1e1e1;
+            border-right: 35px solid transparent;
+            //border-left: 35px solid  transparent;
+        }
+
+        .co-op {
+            &_row {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-bottom: 10px;
+
+                .row-title {
+                    font-size: 12px;
+                    font-weight: 500;
+                    letter-spacing: -0.6px;
+                    color: #969696;
+                    //width: 215px;
+                    text-align: left;
+                    flex: 0 1 50px;
+                }
+
+                .row-content {
+                    flex: 0 1 180px;
+                    margin-left: 5px;
+                    text-align: left;
+
+                    &.phoneNumber {
+                        font-size: 25px;
+                        color: black;
+                        font-weight: 900;
+                    }
+
+                    &.email {
+                        color: black;
+                        font-size: 13px;
+                        > a {
+                            &:link,
+                            &:visited,
+                            &:active {
+                                color: black;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &:first-child {
+            margin-right: 20px;
+        }
+        .cs .text { width: 215px; }
+        .co-op .text { width: 275px; }
+        .cs,
+        .co-op {
+            display: table-cell;
+            vertical-align: middle;
+            .title {
+                font-size: 19px;
+                font-weight: 500;
+                padding-bottom: 20px;
+            }
+            .text {
+                font-size: 12px;
+                font-weight: 500;
+                letter-spacing: -0.6px;
+                color: #969696;
+                padding-bottom: 15px;
+                margin-right: auto;
+                margin-left: auto;
+                //width: 215px;
+                text-align: left;
+
+                &.flex {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .phoneNumber {
+                    font-size: 25px;
+                    color: black;
+                    font-weight: 900;
+                    margin-left: 5px;
+                }
+                .email {
+                    color: black;
+                    font-size: 13px;
+                    margin-left: 5px;
+                    margin-right: 10px;
+                    > a {
+                        &:link,
+                        &:visited,
+                        &:active {
+                            color: black;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

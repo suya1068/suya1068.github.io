@@ -1,0 +1,30 @@
+.m_main-estimate {
+    overflow: hidden;
+    //padding: 1rem;
+    .text-wrap {
+        padding: 1rem 1rem 0 1rem;
+
+        &.enter {
+            text-align: center;
+
+            .estimate-text {
+                font-size: 1.5rem;
+            }
+        }
+
+        .estimate-text {
+            font-size: 1rem;
+            padding-bottom: 10px;
+            font-weight: normal;
+        }
+
+        .estimate-description {
+            font-size: 0.9rem;
+            word-break: keep-all;
+            letter-spacing: -0.6px;
+            color: #969696;
+            margin-bottom: 15px;
+            font-weight: normal;
+        }
+    }
+}

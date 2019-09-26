@@ -1,0 +1,36 @@
+.check__box {
+    display: inline-block;
+
+    > div {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    &.checked {
+        .check__icon {
+            background-color: #ffba00;
+            border-color: #ffba00;
+        }
+    }
+
+    > :nth-child(n+2) {
+        margin-left: 6px;
+    }
+
+    .check__icon {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+        background-color: #fff;
+        border: 1px solid #e1e1e1;
+    }
+
+    .check__content {
+        margin-left: 5px;
+    }
+}

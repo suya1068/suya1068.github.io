@@ -1,0 +1,26 @@
+{% extends "template/public.twig" %}
+
+{% block head_assets %}
+    <link rel="stylesheet" href="{{ manifest['products/products-detail.css'] }}" />
+{% endblock %}
+
+{% block search_contents %}
+    <script type="application/ld+json">{{ search_structured_data|raw }} </script>
+{% endblock %}
+
+{% block meta_data %}
+    <meta id="product-data" content="{{ products['result'] }}">
+    <meta id="product-category" content="{{ category }}">
+    {#<meta id="event" content="{{ event }}">#}
+    {% if not env.bot %}
+        <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    {% endif %}
+
+    {% if env.analytics %}
+        <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion_async.js"></script>
+    {% endif %}
+{% endblock %}
+
+{% block body_assets %}
+    <script src="{{ manifest['products/products-detail.js'] }}"></script>
+{% endblock %}

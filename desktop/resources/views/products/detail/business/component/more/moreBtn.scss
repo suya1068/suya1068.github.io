@@ -1,0 +1,17 @@
+.section__more-btn {
+	text-align: center;
+	margin-top: 20px;
+	.more-btn {
+		cursor: pointer;
+
+		> p {
+			font-size: 16px;
+			font-weight: bold;
+			letter-spacing: normal;
+		}
+
+		.icon {
+			top: -5px;
+		}
+	}
+}

@@ -1,0 +1,18 @@
+.section__more-btn {
+	text-align: center;
+	margin-top: 15px;
+	.more-btn {
+		cursor: pointer;
+
+		> p {
+			font-size: 11px;
+			font-weight: bold;
+			letter-spacing: normal;
+		}
+
+		> img {
+            position: relative;
+			top: -5px;
+		}
+	}
+}

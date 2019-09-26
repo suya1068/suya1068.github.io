@@ -1,0 +1,372 @@
+$modal-box-shadow: 2px 2px 10px -2px #333;
+$z-index: 2000;
+
+@keyframes progress-move {
+    from { background-position-x: 0; }
+    to { background-position-x: 16px; }
+}
+
+#modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: $z-index;
+
+    .modal-close {
+        width: 30px;
+        height: 30px;
+        padding: 0;
+        z-index: $z-index;
+        transform: rotate(45deg);
+        cursor: pointer;
+
+        &:before,
+        &:after {
+            position: absolute;
+            display: inline-block;
+            content: "";
+            background-color: #fff;
+            transition: background-color 0.6s;
+        }
+
+        &:focus,
+        &:hover {
+            &:before,
+            &:after {
+                background-color: #969696;
+            }
+        }
+
+        &:before {
+            left: 50%;
+            top: 50%;
+            width: 2px;
+            height: 100%;
+            transform: translate(-50%, -50%);
+        }
+
+        &:after {
+            left: 50%;
+            top: 50%;
+            width: 100%;
+            height: 2px;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .modal-container {
+        position: fixed;
+        display: none;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: $z-index;
+
+        &.full_category {
+            height: calc(100% - 62px);
+            bottom: 62px;
+
+            .modal-bg {
+                position: absolute !important;
+            }
+        }
+
+        &.show {
+            display: inline-block;
+        }
+
+        .modal-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            opacity: 0.7;
+            z-index: 0;
+
+            &.bg-none {
+                display: none;
+            }
+        }
+
+        & .fullScreen-slider {
+            width: 0;
+            height: 0;
+        }
+
+        .modal-layer {
+            position: absolute;
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            z-index: $z-index;
+
+            .modal-wrap {
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+            }
+
+            .modal-box {
+                display: table;
+                width: 100%;
+                height: 100%;
+                table-layout: fixed;
+                overflow: hidden;
+
+                .modal-contents {
+                    position: relative;
+                    display: table-cell;
+                    vertical-align: middle;
+                    padding: 62px 0;
+
+                    .modal-content {
+                        position: relative;
+                        display: inline-block;
+
+                        .modal-btn {
+                            font-size: 15px;
+                            height: 34px;
+                            padding: 0 1.1em;
+                            font-weight: 500;
+                            color: #000;
+                            outline: 0;
+                            border: 1px solid #000;
+                            cursor: pointer;
+                            vertical-align: middle;
+                            text-decoration: none;
+                            letter-spacing: -0.9px;
+                            text-align: center;
+                            white-space: nowrap;
+                            transition: background-color 0.25s, border 0.25s, color 0.25s;
+                            line-height: 0.95;
+                            border-radius: 1.5em;
+
+                            &:hover,
+                            &:focus,
+                            &.active {
+                                color: #fff;
+                                background-color: #000;
+                            }
+
+                            &.disabled {
+                                background-color: #f1f1f1;
+                                border-color: #e1e1e1;
+                                color: #969696;
+                            }
+                        }
+
+                        .modal-text {
+                            display: inline-block;
+                            font-size: 12.7px;
+                            letter-spacing: -0.7px;
+                            text-align: center;
+                            color: #000000;
+                        }
+
+                        .modal-button-group {
+                            margin-top: 30px;
+
+                            :nth-child(n+2) {
+                                margin-left: 25px;
+                            }
+                        }
+                    }
+
+                    .modal-progress{
+                        width: 100px;
+                        height: 100px;
+                    }
+
+                    .modal-progress-count {
+                        position: relative;
+                        display: inline-block;
+                        width: 35%;
+                        height: 34px;
+                        text-align: left;
+                        background-color: #e1e1e1;
+                        border-radius: 10px;
+                        overflow: hidden;
+                        transition: all 2s ease;
+                        box-shadow: $modal-box-shadow;
+
+                        .progress-bar {
+                            display: inline-block;
+                            width: 0;
+                            height: 100%;
+                            animation: progress-move 1s linear infinite;
+                            background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.3) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.3) 50%,rgba(255, 255, 255, 0.3) 75%, transparent 75%, transparent);
+                            background-size: 1rem 1rem;
+                            background-color: #ffba00;
+                            transition: width 0.6s ease;
+                        }
+                    }
+
+                    // option - theme 정의
+                    &.modal-default {
+                        .modal-content {
+                            background-color: #fff;
+                            border-radius: 10px;
+                            box-shadow: $modal-box-shadow;
+                            padding: 30px;
+                        }
+
+                        .modal-close {
+                            position: absolute;
+                            top: -35px;
+                            right: 0;
+                        }
+                    }
+
+                    &.modal-normal {
+                        .modal-close {
+                            position: absolute;
+                            top: -35px;
+                            right: 0;
+                        }
+                    }
+
+                    &.modal-fullscreen {
+                        padding: 0;
+
+                        .modal-close {
+                            bottom: initial;
+                        }
+
+                        .modal-content {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    &.popup_send_chat {
+                        .modal-close {
+                            position: absolute;
+                            top: -35px;
+                            right: 0;
+                        }
+                    }
+
+                    &.slider {
+                        .modal-content {
+                            width: 100%;
+                            height: 100%;
+                            background-color: black;
+                        }
+                        .modal-close {
+                            position: absolute;
+                            top: 155px;
+                            right: 35px;
+                            border: none;
+                            box-shadow: none;
+                            background: none;
+                        }
+                    }
+
+                    // 상품 미리보기
+                    &.modal-product-preview {
+                        .modal-content {
+                            width: 95%;
+                            text-align: left;
+                            background-color: #fff;
+                        }
+
+                        .modal-close {
+                            position: fixed;
+                            bottom: initial;
+                            top: 30px;
+                            right: 4%;
+                            width: 36px;
+                            height: 36px;
+                            padding: 10px;
+                            background-color: rgba(0, 0, 0, 0.1);
+                            border: 2px solid #fff;
+                            border-radius: 100%;
+                            box-shadow: 0 0 3px -1px #333;
+
+                            &:before {
+                                height: 70%;
+                            }
+
+                            &:after {
+                                width: 70%;
+                            }
+                        }
+
+                        .productService {
+                            // 서비스내용 테이블 스타일 제거 (실제 상세에서 style-trans클래스가 추가됨)
+                            .table {
+                                white-space: nowrap;
+
+                                th {
+                                    height: 60px;
+                                }
+
+                                td {
+                                    padding: 0;
+                                }
+                            }
+                        }
+                    }
+
+                    &.modal-product-edit {
+                        .modal-content {
+                            background-color: #fafafa;
+                        }
+                    }
+
+                    &.modal-portfolio {
+                        .modal-content {
+                            width: 990px;
+                            height: 856px;
+                        }
+                    }
+                    &.modal-horizon {
+                        .modal-content {
+                            width: 100%;
+                            //height: 170px;
+                            background-color: black;
+                        }
+                        .modal-close {
+                            bottom: initial;
+                            top: 30px;
+                            right: 60px;
+                        }
+                    }
+
+                    &.modal-position {
+                        .modal-content {
+                            position: fixed;
+                            background-color: #fff;
+                            border: 1px solid #e1e1e1;
+                            box-shadow: $modal-box-shadow;
+                        }
+
+                        .modal-close {
+                            margin-left: 20px;
+                            padding: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.loading-progress {
+    position: relative;
+    overflow: hidden;
+
+    > img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 100%;
+        max-width: 100%;
+        max-height: 100%;
+    }
+}

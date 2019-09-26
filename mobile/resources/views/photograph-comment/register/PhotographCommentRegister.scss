@@ -1,0 +1,189 @@
+@import "mobile/resources/scss/variables";
+
+$form-color-error: #ff326c;
+
+.photograph-comment-register-page {
+    position: relative;
+    height: 100%;
+
+    .columns {
+        padding-left: $site-gutter / 2;
+        padding-right: $site-gutter / 2;
+
+        &:first-child {
+            padding-left: $site-gutter;
+        }
+
+        &:last-child {
+            padding-right: $site-gutter;
+        }
+    }
+
+    .mt-20 {
+        margin-top: 20px;
+    }
+
+    .mb-20 {
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: $site-gutter/2 $site-gutter;
+        border: 1px solid #e1e1e1;
+        color: #969696;
+        font-size: 1.05rem;
+        letter-spacing: -1px;
+
+        &.is-error {
+            border-color: $form-color-error;
+        }
+    }
+
+    .form-label {
+        display: inline-block;
+        margin-top: 12px;
+        font-size: 1.05rem;
+    }
+
+    .form-text {
+        display: block;
+        margin-top: 6px;
+        font-size: 0.8rem;
+        letter-spacing: -0.6px;
+        color: #969696;
+
+        &.is-error {
+            color: $form-color-error;
+        }
+    }
+
+    textarea.form-control {
+        height: auto;
+        resize: none;
+    }
+
+    #site-main {
+        min-height: calc(100vh - #{$site-footer-height + $site-header-height});
+        padding-top: 25px;
+        padding-bottom: 50px;
+        background-color: #fafafa;
+    }
+
+    .photograph-comment-card {
+        position: relative;
+        margin-bottom: $site-gutter;
+        background-color: #fff;
+        border-top: 1px solid #e1e1e1;
+        border-bottom: 1px solid #e1e1e1;
+        box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.04);
+
+        &__header {
+            position: relative;
+            display: flex;
+            flex-flow: row nowrap;
+            padding: 14px 20px;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f1f1f1;
+            border-bottom: 1px solid #e1e1e1;
+        }
+
+        &__body {
+            position: relative;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+        &-title {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: #000;
+            letter-spacing: -1px;
+        }
+    }
+
+    .photograph-comment-badge {
+        margin-right: 4px;
+        color: #979797;
+
+        &.is-require {
+            color: #ff326c;
+        }
+    }
+
+    .photograph-comment-agree {
+        position: relative;
+        font-size: 1rem;
+        overflow: hidden;
+        &-row {
+            display: flex;
+            flex: 1 1 auto;
+            align-items: center;
+            justify-content: space-between;
+
+            .static-box {
+                display: flex;
+                align-items: center;
+
+                > span {
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    margin-left: 10px;
+                }
+
+                > span .m-icon {
+                    margin-left: 5px;
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        &-heading {
+            //margin-bottom: 10px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        &-content {
+            position: relative;
+            height: 0;
+            top: 20px;
+
+            line-height: 1.58;
+            font-size: 0.75rem;
+            color: #969696;
+        }
+
+        &-button {
+            margin-top: 25px;
+            text-align: center;
+        }
+    }
+
+    .agree-button {
+        display: inline-flex;
+        align-items: center;
+        cursor: pointer;
+
+        &::before {
+            content: "";
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            vertical-align: middle;
+            border-radius: 100%;
+            background-color: #fff;
+            border: 1px solid #e1e1e1;
+            margin-right: 5px;
+        }
+
+        &.is-active {
+            &::before {
+                background-color: #ffba00;
+                border-color: #ffba00;
+            }
+        }
+    }
+}

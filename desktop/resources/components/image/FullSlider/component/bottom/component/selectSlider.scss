@@ -1,0 +1,99 @@
+.selectSlider-component {
+    position: relative;
+    display: inline-block;
+    .wrap-div {
+        margin: 0 auto;
+        overflow: hidden;
+        .testClass {
+            transition: left 0.3s ease;
+            position: relative;
+            //overflow: hidden;
+            //overflow-x: hidden;
+            //overflow-y: hidden;
+            white-space: nowrap;
+            z-index: 1050;
+            .photo-list {
+                overflow: hidden;
+            }
+        }
+    }
+    &.photo {
+        min-width: 590px;
+        height: 110px;
+        overflow: hidden;
+        padding: 10px 0;
+        .wrap-div {
+            width: 475px;
+            .photo-list {
+                ////overflow: hidden;
+                //overflow-x: scroll;
+                //overflow-y: hidden;
+                //white-space: nowrap;
+                .wrap-selectPhoto {
+                    display: inline-block;
+                    position: relative;
+                    .photo-bg {
+                        position: absolute;
+                        width: 90px;
+                        height: 90px;
+                        left: 0;
+                        top: 0;
+                        background-color: black;
+                        opacity: 0;
+                        z-index: 1050;
+
+                        &.hover {
+                            opacity: 0.5;
+                        }
+                    }
+                    .close {
+                        visibility: hidden;
+                        position: absolute;
+                        right: -10px;
+                        top: 0;
+
+                        &.active {
+                            visibility: visible;
+                            z-index: 1050;
+                        }
+                    }
+                    .selectPhoto {
+                        width: 90px;
+                        height: 90px;
+                        //display: inline-block;
+                        margin-right: 5px;
+                        z-index: 1050;
+                    }
+                }
+            }
+        }
+        .selectSlider-arrow {
+            width: 590px;
+        }
+    }
+
+    .selectSlider-arrow {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        display: inline-block;
+        z-index: 1000;
+
+        .icon:first-child {
+            float: left;
+            cursor: pointer;
+            transform: translateX(150%);
+        }
+        .icon:last-child {
+            float: right;
+            cursor: pointer;
+            transform: translateX(-150%);
+        }
+    }
+
+    &.comment {
+        min-width: 900px;
+        height: 280px;
+    }
+}

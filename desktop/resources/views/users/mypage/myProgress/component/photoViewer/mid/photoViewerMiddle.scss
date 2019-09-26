@@ -1,0 +1,51 @@
+.photo-viewer-middle {
+	position: relative;
+
+	&__images-box-container-outer {
+		width: 100%;
+		height: 100%;
+		position: relative;
+
+		.arrow-page-button-container {
+			position: absolute;
+			display: flex;
+			flex: 1 1 auto;
+			align-items: center;
+			justify-content: space-between;
+			width: 100%;
+			height: auto;
+			top: 50%;
+			transform: translateY(-50%);
+			//padding: 0 10px;
+			z-index: 1;
+		}
+
+		.slider-arrow-left {
+			cursor: pointer;
+
+		}
+		.slider-arrow-right {
+			cursor: pointer;
+		}
+	}
+
+	&__images-box-container {
+		width: 100%;
+		height: 100%;
+	}
+
+	&__images-box {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		transition: opacify 1s linear;
+	}
+	.select-button-container {
+		position: absolute;
+		cursor: pointer;
+		z-index: 1;
+		left: 50%;
+		top: 90%;
+		transform: translate(-50%, -50%);
+	}
+}

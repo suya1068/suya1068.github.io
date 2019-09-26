@@ -1,0 +1,19 @@
+{% extends "template/public.twig" %}
+
+{% block meta_data %}
+{% endblock %}
+
+{% block template %}
+    {% if portfolio %}
+        <h2>포트폴리오</h2>
+        <div>
+            <p>Artist by {{ portfolio["nick_name"] }}</p>
+            <p>{{ portfolio["title"] }}</p>
+            <p>포트폴리오 {{ portfolio["portfolio"]["total_cnt"] }} 장</p>
+            <a href="/?enter=indi">포스냅에서 더 많은 포트폴리오 보기</a>
+        </div>
+        {% for o in portfolio["portfolio"]["list"] %}
+            <img alt="포트폴리오" src="{{ thumb_host }}/normal/resize/1400x1000{{ o.portfolio_img }}" />
+        {% endfor %}
+    {% endif %}
+{% endblock %}

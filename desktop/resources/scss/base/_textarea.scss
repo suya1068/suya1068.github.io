@@ -1,0 +1,50 @@
+.f__textarea {
+    width: 100%;
+    padding: 0.709em 0.9em;
+    margin: 0;
+    border: 1px solid #e1e1e1;
+    border-radius: 0;
+    font-size: 0.750em;
+    line-height: normal;
+    resize: none;
+
+    &:focus {
+        border-color: #666;
+    }
+
+    &__readonly {
+        background-color: #e1e1e1;
+    }
+
+    &.textarea__round {
+        border-radius: 5px;
+    }
+
+    &__length {
+        color: #969696;
+        font-size: 0.700em;
+    }
+}
+
+._textarea {
+    width: 100%;
+    padding: 0.388em 0.85em;
+    border: 1px solid #d8d8d8;
+    font-size: 0.887em;
+    font-weight: normal;
+    line-height: 1.5em;
+    letter-spacing: -0.05em;
+    word-wrap: break-word;
+    word-break: break-all;
+    resize: none;
+
+    &.active,
+    &:focus {
+        border-color: #666;
+    }
+
+    &:disabled {
+        color: #666;
+        background-color: #efefef;
+    }
+}

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <url><loc>https://m.forsnap.com</loc><changefreq>daily</changefreq></url>
+    <url><loc>https://m.forsnap.com/?enter=indi</loc><changefreq>daily</changefreq></url>
+    <url><loc>https://m.forsnap.com/information/introduction</loc><changefreq>daily</changefreq></url>
+    <url><loc>https://m.forsnap.com/cs/qna</loc><changefreq>daily</changefreq></url>
+    <url><loc>https://m.forsnap.com/products?category=PRODUCT&amp;enter=Y&amp;sort=recomm&amp;page=100</loc><changefreq>daily</changefreq></url>
+    <url><loc>https://m.forsnap.com/products?category=BEAUTY&amp;enter=Y&amp;sort=recomm&amp;page=100</loc><changefreq>daily</changefreq></url>
+    <url><loc>https://m.forsnap.com/products?category=FASHION&amp;enter=Y&amp;sort=recomm&amp;page=100</loc><changefreq>daily</changefreq></url>
+    <url><loc>https://m.forsnap.com/products?category=FOOD&amp;enter=Y&amp;sort=recomm&amp;page=100</loc><changefreq>daily</changefreq></url>
+    <url><loc>https://m.forsnap.com/products?category=PROFILE_BIZ&amp;enter=Y&amp;sort=recomm&amp;page=100</loc><changefreq>daily</changefreq></url>
+    <url><loc>https://m.forsnap.com/products?category=INTERIOR&amp;enter=Y&amp;sort=recomm&amp;page=100</loc><changefreq>daily</changefreq></url>
+    <url><loc>https://m.forsnap.com/products?category=EVENT&amp;enter=Y&amp;sort=recomm&amp;page=100</loc><changefreq>daily</changefreq></url>
+    <url><loc>https://m.forsnap.com/products?category=VIDEO_BIZ&amp;enter=Y&amp;sort=recomm&amp;page=100</loc><changefreq>daily</changefreq></url>
+    <url><loc>https://m.forsnap.com/products?category=WEDDING&amp;enter=N&amp;sort=recomm&amp;page=100</loc><changefreq>daily</changefreq></url>
+    <url><loc>https://m.forsnap.com/products?category=BABY&amp;enter=N&amp;sort=recomm&amp;page=100</loc><changefreq>daily</changefreq></url>
+    <url><loc>https://m.forsnap.com/products?category=PROFILE&amp;enter=N&amp;sort=recomm&amp;page=100</loc><changefreq>daily</changefreq></url>
+    <url><loc>https://m.forsnap.com/products?category=SNAP&amp;enter=N&amp;sort=recomm&amp;page=100</loc><changefreq>daily</changefreq></url>
+    <url><loc>https://m.forsnap.com/products?category=DRESS_RENT&amp;enter=N&amp;sort=recomm&amp;page=100</loc><changefreq>daily</changefreq></url>
+    <url><loc>https://m.forsnap.com/products?category=VIDEO&amp;enter=N&amp;sort=recomm&amp;page=100</loc><changefreq>daily</changefreq></url>
+</urlset>

@@ -1,0 +1,14 @@
+{% extends "template/public.twig" %}
+
+{% block head_assets %}
+    <link rel="stylesheet" href="{{ manifest['products/concept.css'] }}" />
+{% endblock %}
+
+{% block contents %}
+    <meta id="category_code" content="{{ category_code }}">
+    <meta id="category_name" content="{{ category_name }}">
+{% endblock %}
+
+{% block body_assets %}
+    <script src="{{ manifest['products/concept.js'] }}"></script>
+{% endblock %}

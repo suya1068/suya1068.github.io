@@ -1,0 +1,48 @@
+.reg-review {
+  &-title {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    .title {
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: -0.7px;
+      padding-bottom: 10px;
+    }
+    .description {
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: -0.6px;
+      color: #969696;
+      word-break: keep-all;
+    }
+  }
+  &-address {
+    .title {
+      font-size: 16.3px;
+      font-weight: 300;
+      letter-spacing: -0.8px;
+      padding-bottom: 20px;
+    }
+    .address-row {
+      display: flex;
+      align-items: center;
+      &:nth-child(n + 3) {
+        margin-top: 10px;
+      }
+      .status {
+        display: inline-block;
+        padding: 10px;
+        width: 125px;
+        text-align: center;
+        background-color: #e1e1e1;
+        border-radius: 10px;
+        margin-right: 10px;
+      }
+      > input {
+        margin-right: 10px;
+      }
+    }
+  }
+}

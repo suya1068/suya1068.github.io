@@ -1,0 +1,48 @@
+@import "mobile/resources/scss/mixins";
+
+.site-search-sidebar {
+    display: flex;
+    flex-direction: column;
+    background-color: #fafafa;
+
+    .header__search {
+        &__bar {
+            flex: 0 0 auto;
+        }
+
+        &__recommend {
+            flex: 0 0 auto;
+        }
+
+        &__tab {
+            display: flex;
+            flex-direction: row;
+            flex: 0 0 auto;
+            align-items: center;
+            width: 100%;
+            font-weight: bold;
+            background-color: #fff;
+            border-bottom: 1px solid #e1e1e1;
+
+            > div {
+                flex: 0 0 auto;
+                padding: 1.2em 1em;
+
+                &.active {
+                    color: #ffba00;
+                    border-bottom: none;
+                }
+            }
+
+            > .hr {
+                color: #e1e1e1;
+                font-size: 0.8em;
+            }
+        }
+
+        &__content {
+            flex: 1 1 auto;
+            overflow: auto;
+        }
+    }
+}

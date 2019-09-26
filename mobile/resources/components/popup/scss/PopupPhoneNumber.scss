@@ -1,0 +1,75 @@
+.popup__phone {
+    font-size: 17px;
+    min-width: 320px;
+    background-color: #fff;
+    border-radius: 7px;
+    padding-top: 35px;
+    overflow: hidden;
+
+}
+
+.popup__phone__header {
+    margin-bottom: 15px;
+}
+
+.popup__phone__body {
+    margin-bottom: 15px;
+
+    .body__phone {
+        border-bottom: 3px solid #000;
+        background-color: #fff;
+        padding: 0.325em;
+        margin: 0 20px;
+
+        .input {
+            width: 100%;
+            height: 100%;
+            font-size: inherit;
+            font-weight: bold;
+            letter-spacing: 14px;
+            text-align: center;
+            border: 0;
+        }
+    }
+
+    .body__caption {
+        display: flex;
+        justify-content: center;
+        color: #969696;
+        font-size: 13px;
+        margin-top: 3px;
+
+        .icon {
+            display: flex;
+            align-items: center;
+            border-radius: 100%;
+            color: #ffba00;
+            border: 1px solid #ffba00;
+            padding: 7px;
+            margin-right: 3px;
+            height: 0;
+            width: 0;
+            line-height: 0;
+            font-size: 7px;
+            text-indent: -1px;
+        }
+    }
+}
+
+.popup__phone__footer {
+
+}
+
+.popup_phone_number {
+    .modal-close {
+        top: 5px !important;
+        right: 5px !important;
+        bottom: initial !important;
+        left: initial !important;
+
+        &:before,
+        &:after {
+            background-color: #000 !important;
+        }
+    }
+}

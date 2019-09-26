@@ -1,0 +1,194 @@
+.myHeart-page {
+	// 하트 목록 없을때 css
+	.myHeart-none {
+		margin-top: 100px;
+		&__text {
+			text-align: center;
+			.none-title {
+				letter-spacing: -1.8px;
+				margin-bottom: 15px;
+			}
+		}
+		&__image {
+			text-align: center;
+			height: 334px;
+			background: url('#{$IMG_SERVER}/common/none_visual.png') center center no-repeat;
+		}
+	}
+	.myHeart {
+		&__title {
+			text-align: center;
+			margin-bottom: 50px;
+			.listCnt {
+				color: #ffba00;
+			}
+		}
+		&__list {
+			//float: left;
+			display: inline-block;
+			.heart-unit {
+				position: relative;
+				float: left;
+				cursor: pointer;
+
+				&-check {
+					padding-top: 5px;
+					padding-left: 10px;
+
+					display: none;
+
+					&.active {
+						display: block;
+					}
+
+					&.checked {
+						display: block;
+					}
+				}
+
+				&-bg {
+					position: absolute;
+					width: 250px;
+					height: 250px;
+					z-index: 101;
+
+					.category {
+						display: inline-block;
+						margin: 10px 0 0 10px;
+						font-size: .75em;
+						padding: 1px 3px;
+						background-color: #ececec;
+						border: 1px solid #e1e1e1;
+						font-weight: 400;
+						color: #8b8b8e;
+					}
+
+					.redirectProduct {
+						position: absolute;
+						width: inherit;
+						height: inherit;
+					}
+
+					&_info {
+						.text {
+							color: white;
+							padding-left: 3px;
+						}
+						&.active {
+							display: block;
+						}
+						//&.checked {
+						//  display: block;
+						//}
+						position: absolute;
+						top: 50%;
+						left: 34%;
+						display: none;
+						.heart-unit-likeCount {
+							float: left;
+							padding-right: 30px;
+						}
+						.heart-unit-reviewCount {
+							float: left;
+						}
+					}
+
+					&_click {
+						width: inherit;
+						height: inherit;
+						position: absolute;
+					}
+
+					.close {
+						visibility: hidden;
+						position: absolute;
+						right: -10px;
+						top: 0;
+
+						&.active {
+							visibility: visible;
+						}
+					}
+				}
+			}
+			.product-box {
+				margin-right: 10px;
+				margin-bottom: 10px;
+			}
+			.image-box {
+
+				.checkbox {
+					position: absolute;
+				}
+			}
+			a {
+				&:hover,
+				&:visited,
+				&:link,
+				&:active {
+					color: black;
+				}
+			}
+		}
+		&__button {
+			margin-top: 30px;
+		}
+
+		/**
+		하트 정보
+		 */
+		&__reserve-info {
+			position: relative;
+			margin: 40px auto;
+			border: 4px solid black;
+			height: 130px;
+			.shoot {
+				height: inherit;
+				padding: 35px 60px;
+				&-day, &-service, &-person, &-price, .equal {
+					float: left;
+					height: 60px;
+					//border-right: 1px solid red;
+				}
+				&-day {
+					width: 17%;
+					.calendar {
+						.input {
+							font-size: 11px;
+							border-radius: 0;
+						}
+						.btn {
+							border: 1px solid #e1e1e1;
+							background-color: white;
+							height: 34px;
+							width: 35px;
+							padding: 0;
+						}
+					}
+				}
+				&-service {
+					width: 40%
+				}
+				&-person {
+					width: 19%;
+				}
+				.equal {
+					width: 6%;
+					line-height: 80px;
+					font-size: 30px;
+					color: #e1e1e1;
+				}
+				&-price {
+
+				}
+			}
+		}
+		&__reserve-button {
+			width: 100%;
+			margin-top: 50px;
+			margin-bottom: 10px;
+			text-align: center;
+		}
+	}
+
+}

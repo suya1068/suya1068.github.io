@@ -1,0 +1,177 @@
+$opacity_white_color: rgba(255, 255, 255, 0.7);
+
+.biz-wide-screen {
+	.nick_name {
+		position: absolute;
+		color: $opacity_white_color;
+		font-size: 0.7rem;
+	}
+	.personal-banner-wideButtons {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		width: 100%;
+		height: auto;
+
+		.banner-button {
+			color: #fff;
+			position: absolute;
+			right: 45px;
+		}
+
+		.p-button {
+			color: #fff;
+			padding: 0.6rem 0.8rem;
+			font-size: 0.9rem;
+			word-break: keep-all;
+			cursor: pointer;
+		}
+		.p-button__round {
+			border-radius: 5px;
+		}
+		.p-button__block {
+			width: 100%;
+		}
+	}
+
+	.personal-banner-wideButton {
+		width: 100%;
+		min-height: 85px;
+		height: auto;
+		position: relative;
+		color: #fff;
+
+		&__bgImage {
+			position: relative;
+		}
+
+		&-title {
+			font-size: 1.1rem;
+			font-weight: normal;
+			font-style: normal;
+			font-stretch: normal;
+			letter-spacing: -1.3px;
+			margin: 5px;
+		}
+
+		&-description {
+			font-size: 0.9rem;
+			font-weight: normal;
+			font-style: normal;
+			font-stretch: normal;
+			letter-spacing: -1px;
+			color: rgba(255, 255, 255, 0.5);
+			word-break: keep-all;
+			width: 100%;
+		}
+
+		&:nth-child(n + 2) {
+			margin-top: 5px;
+		}
+
+		&__bgImage {
+			width: inherit;
+			height: 100%;
+		}
+
+		&__bgWrap {
+			width: inherit;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: rgba(0, 0, 0, 0.5);
+			padding: 0.5rem;
+		}
+
+		&__bgWrap > div {
+			position: relative;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			text-align: center;
+			width: 100%;
+			height: 100%;
+
+			.test {
+				width: 50%;
+				text-align: left;
+			}
+		}
+
+		&__bgWrap > div .wideButton-button {
+			width: 120px;
+		}
+
+		&__bgWrap > div > .nick_name {
+			right: 0;
+			bottom: 0;
+		}
+	}
+}
+
+.top {
+	&-image-header {
+		position: relative;
+
+		> .nick_name {
+			right: 10px;
+			bottom: 50px;
+			z-index: 1;
+		}
+
+		&__image-container {
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.15);
+		}
+	}
+	&-image__content {
+		position: absolute;
+		width: 100%;
+		height: auto;
+		padding: 1rem;
+		//top: 25px;
+		top: 45%;
+		left: 50%;
+		//transform: translateX(-50%);
+		transform: translate(-50%, -50%);
+		color: #fff;
+		text-align: center;
+		z-index: 2;
+	}
+
+	&-image__content-text {
+		&__sup {
+			font-size: 1rem;
+			margin-bottom: 10px;
+		}
+
+		&__center {
+			font-size: 2rem;
+			line-height: 1.05;
+			margin-bottom: 15px;
+		}
+
+		&__sub {
+			font-size: 0.9rem;
+		}
+	}
+
+	// topScreen global
+	.text {
+		font-weight: 300;
+		letter-spacing: -1.3px;
+		text-shadow: 0 2px 3px rgba(0, 0, 0, 0.43);
+	}
+
+	.image-wrapper {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		background-color: rgba(0, 0,0, 0.5);
+		z-index: 1;
+	}
+}

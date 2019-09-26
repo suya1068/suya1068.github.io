@@ -1,0 +1,218 @@
+@import "desktop/resources/scss/variables";
+
+.site-main {
+    position: relative;
+    background-color: #fff;
+    font-family: "Noto Sans KR", Helvetica, AppleSDGothicNeo, Arial, sans-serif;
+
+    .forget__container {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+
+        .forget__content {
+            padding: 20px 20px 80px;
+        }
+
+        .forget__tab {
+            display: flex;
+            flex-direction: row;
+            font-size: 1.286em;
+
+            > div {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                flex: 1 1 50%;
+                height: 50px;
+                border-width: 1px;
+                border-style: solid;
+                border-color: #ddd transparent #000 #ddd;
+
+                &:last-child {
+                    border-right-color: #ddd;
+                }
+
+                &.active {
+                    border-color: #000 #000 transparent #000;
+
+                    &+div {
+                        border-left-color: transparent;
+                    }
+                }
+
+                > .title {
+                    font-weight: 500;
+                }
+            }
+        }
+
+        .forget__tab__content {
+            margin-top: 20px;
+        }
+
+        .forget__row__title {
+            margin-bottom: 14px;
+            font-size: 1em;
+            font-weight: 500;
+            line-height: 1;
+
+            &:nth-child(n+2) {
+                margin-top: 30px;
+            }
+        }
+
+        .forget__row {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+
+            &+.forget__row {
+                margin-top: 10px;
+            }
+
+            > .error__line {
+                color: #d0021b;
+                font-size: 0.938em;
+                line-height: 1;
+            }
+
+            > .at {
+                margin: 0 8px;
+            }
+
+            ._input {
+                flex: 1 1 auto;
+                height: 55px;
+                padding: 0 1.333em;
+                font-size: 0.938em;
+            }
+
+            ._button {
+                flex: 0 0 100px;
+                height: 55px;
+                margin-left: 10px;
+            }
+
+            .phone__number {
+                display: flex;
+                flex-flow: row nowrap;
+                flex: 1 1 auto;
+                border: 1px solid #d8d8d8;
+
+                &.error {
+                    border-color: #d0021b;
+                }
+
+                .dropdown__container {
+                    flex: 1 1 40%;
+                    height: 55px;
+
+                    .dropdown__select {
+                        border: 0;
+                        padding: 0 0.5em 0 1.333em;
+                    }
+
+                    .dropdown__list {
+                        .dropdown__item {
+                            padding-left: 1.333em;
+                            padding-right: 1.333em;
+                        }
+                    }
+                }
+
+                ._input {
+                    border: 0;
+                    padding: 0 1em;
+                }
+            }
+        }
+
+        .forget__notice {
+            margin-bottom: 30px;
+            font-size: 0.975em;
+            font-weight: 500;
+        }
+
+        .forget__confirm__email {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 80px;
+            font-size: 1.125em;
+            font-weight: 500;
+            background-color: #efefef;
+        }
+
+        .forget__buttons {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            margin-top: 40px;
+
+            a {
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: center;
+                align-items: center;
+            }
+
+            ._button {
+                width: 220px;
+                height: 60px;
+                font-size: 1.250em;
+            }
+        }
+    }
+}
+
+.forget__modal {
+    width: 90vw;
+    max-width: 320px;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+
+    .forget__title {
+        font-size: 1.143em;
+        font-weight: bold;
+        text-align: center;
+        padding: 50px 20px;
+    }
+
+    .forget__buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        a {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        ._button {
+            flex: 1 1 50%;
+            height: 70px;
+            font-size: 1.250em;
+
+            &__fill__yellow {
+                $color: #edb92c;
+                background-color: $color;
+                border-color: $color;
+
+                &.active,
+                &:active,
+                &:focus,
+                &:hover {
+                    background-color: darken($color, 10%);
+                    border-color: darken($color, 10%);
+                }
+            }
+        }
+    }
+}

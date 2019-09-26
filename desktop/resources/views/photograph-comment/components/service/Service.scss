@@ -1,0 +1,35 @@
+.photograph-comment-service {
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #e1e1e1;
+
+    &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-width: 0;
+    }
+
+    &__content {
+        position: relative;
+        flex: 1 1 auto;
+    }
+
+    &__aside {
+        position: relative;
+        flex: 0 0 100px;
+        width: 100px;
+    }
+
+    &-title {
+        margin-bottom: 3px;
+        color: #000;
+        font-size: 20px;
+        font-weight: 300;
+        letter-spacing: -1px;
+    }
+}

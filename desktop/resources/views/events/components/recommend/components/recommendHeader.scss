@@ -1,0 +1,28 @@
+.event-recommend-header {
+	height: 100px;
+	background-color: #000;
+
+	.category-list {
+		color: #fff;
+		display: flex;
+		flex: 1 1 auto;
+
+		.category-unit {
+			cursor: pointer;
+			height: 100px;
+			width: calc(100% / 9);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			&.active {
+				color: #ffe429;
+				border-bottom: 6px solid #ffe429;
+			}
+
+			> span {
+				font-size: 20px;
+			}
+		}
+	}
+}

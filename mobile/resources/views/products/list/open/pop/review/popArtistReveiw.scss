@@ -1,0 +1,108 @@
+.pop-review {
+	//vertical-align: top !important;
+	padding: 50px 0 !important;
+}
+
+.pop-artist-review {
+	background-color: #fff;
+	width: calc(100vw - 30px);
+	//max-height: calc(100vh - 30px);
+	border-radius: 9px;
+	//overflow: hidden;
+	&__head {
+		text-align: center;
+		padding: 15px 0;
+		border-bottom: 1px solid #000;
+		position: relative;
+
+		.nick-name {
+			font-size: 18px;
+			padding: 0 16px;
+			font-weight: bold;
+			letter-spacing: normal;
+			width: 90%;
+			overflow: hidden;
+			word-break: normal;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+		}
+
+		.close-btn {
+			position: absolute;
+			top: 50%;
+			right: 10px;
+			transform: translateY(-50%);
+		}
+
+		._button__close {
+			width: 20px;
+			height: 20px;
+
+			&:before,
+			&:after {
+				background-color: #000;
+			}
+		}
+	}
+
+	&__content {
+		max-height: 70vh;
+		overflow-y: auto;
+		text-align: left;
+
+		.content-wrap {
+			overflow: hidden;
+			height: 100%;
+		}
+	}
+
+	&__content__image {
+		position: relative;
+		height: 200px;
+		margin-bottom: 10px;
+	}
+
+	&__content__review {
+		padding: 10px 14px;
+		border-bottom: 1px solid #dedede;
+		font-size: 13px;
+		letter-spacing: normal;
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		.user-name {
+			color: #666666;
+			margin-bottom: 5px;
+		}
+
+		.comment {
+			word-break: break-word;
+			margin-bottom: 10px;
+		}
+	}
+
+	.review_slider_pages {
+		position: absolute;
+		bottom: 25px;
+		z-index: 1;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		.swiper-pagination-bullet {
+			background-color: #d8d8d8;
+			opacity: 1;
+		}
+
+		.swiper-pagination-bullet-active {
+			background-color: #f7b500;
+		}
+
+		.slide_page {
+
+		}
+	}
+}

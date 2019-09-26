@@ -1,0 +1,45 @@
+.ex_card {
+	width: 1030px;
+	padding: 0;
+
+	.counsel_box {
+		padding: 60px 0;
+	}
+
+	.modal-content {
+		background-color: #fff;
+	}
+
+	&__logo {
+		background-color: #fcae2f;
+		height: 60px;
+		display: flex;
+		flex: 1 1 auto;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__content {
+		padding: 60px;
+	}
+
+	&__content__caption {
+		font-size: 20px;
+		padding: 0 60px;
+		margin-bottom: 60px;
+		word-break: keep-all;
+	}
+
+	&__title {
+		//font-family: "Nanum Myeongjo", Helvetica, AppleSDGothicNeo, Arial, sans-serif;
+		padding-top: 70px;
+		font-size: 32px;
+		font-weight: bold;
+		text-align: center;
+		border-top: 1px solid #d3d3d3;
+	}
+
+	&__content__entity {
+		border-bottom: 2px solid #000;
+	}
+}

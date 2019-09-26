@@ -1,0 +1,150 @@
+@import "mobile/resources/scss/variables";
+
+#goToTop.mobile {
+    position: fixed;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+    //z-index: map_get($site-z-index, "fixed");
+
+	> :nth-child(n+2) {
+		margin-top: 10px;
+	}
+
+	bottom: 20px;
+	right: 20px;
+	cursor: pointer;
+
+	#top-button {
+		display: none;
+
+		//.scroll-top {
+		//	width: 36px;
+		//	height: 36px;
+		//	border: 1px solid #969696;
+		//	border-radius: 5px;
+		//	background-color: rgba(255, 255, 255, 0.85);
+		//	display: flex;
+		//	justify-content: center;
+		//	align-items: center;
+		//	text-align: center;
+		//}
+		//.scrollTop-text {
+		//	font-size: 12px;
+		//	color: #969696;
+		//}
+	}
+
+	.float__icon {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		width: 40px;
+		height: 40px;
+		margin: 0 auto;
+		border-radius: 100%;
+		overflow: hidden;
+
+		> img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.m_float__top {
+		width: 36px;
+		height: 36px;
+
+		> img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.float__button {
+		position: relative;
+		display: block;
+		width: 40px;
+		height: 40px;
+		opacity: 0.8;
+		cursor: pointer;
+	}
+
+	.scroll-top__inner-container {
+		> :nth-child(n+2) {
+			margin-top: 10px;
+		}
+	}
+
+	.consulting-text {
+		color: #000;
+	}
+
+	//.circle {
+	//	border-radius: 100%;
+	//	width: 45px;
+	//	height: 45px;
+	//	display: flex;
+	//	align-items: center;
+	//	justify-content: center;
+	//	margin: 0 auto 10px auto;
+	//
+	//	&.hide {
+	//		display: none;
+	//	}
+	//}
+	//
+	//.round {
+	//	display: flex;
+	//	flex-direction: column;
+	//	border-radius: 5px;
+	//	width: 45px;
+	//	height: 45px;
+	//	align-items: center;
+	//	justify-content: center;
+	//	margin: 0 auto 10px auto;
+	//
+	//	&.hide {
+	//		display: none;
+	//	}
+	//}
+
+	//.button-text {
+	//	color: #fff;
+	//	font-size: 0.8rem;
+	//}
+	//
+	//.request-consult {
+	//	background-image: linear-gradient(117deg, #d7d7d7, #a200ff, #23acfb 99%);
+	//}
+	//
+	//.request-chat {
+	//	background-image: linear-gradient(117deg, #faafed, #f17dff, #8923fb);
+	//	position: relative;
+	//}
+
+	.new-badge {
+		position: absolute;
+		width: 15px;
+		height: 15px;
+		top: -5px;
+		right: -5px;
+		background-color: #ffba00;
+		border-radius: 100%;
+
+		&:after {
+			display: flex;
+			content: "N";
+			font-size: 10px;
+			font-weight: bold;
+			color: #fff;
+			width: 100%;
+			height: 100%;
+			align-items: center;
+			justify-content: center;
+			flex: 1 1 auto;
+		}
+	}
+}

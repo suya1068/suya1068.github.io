@@ -1,0 +1,44 @@
+.cs-info {
+	&__heading {
+		background-color: #f1f1f1;
+		border-top: 1px solid #e1e1e1;
+		border-bottom: 1px solid #e1e1e1;
+		padding: 0.7rem;
+
+		&-p {
+			font-size: 1.1rem;
+			font-weight: normal;
+		}
+	}
+
+	&__content {
+		background-color: #fff;
+
+		&-row-box {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&-row {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			padding: 1rem;
+			border-bottom: 1px solid #e1e1e1;
+			p {
+				font-weight: normal;
+				letter-spacing: -0.7px;
+			}
+			&-title {
+				font-size: 1.1rem;
+				margin-bottom: 5px;
+			}
+
+			&-desc {
+				font-size: 0.8rem;
+				color: #969696;
+			}
+		}
+	}
+}

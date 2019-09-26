@@ -1,4 +1,23 @@
 .git/
-node_modules/
+
 # Editors
 .idea/
+
+# Projects
+dist/
+desktop/public/common/
+mobile/public/common/
+
+# Libraries & Modules
+node_modules/
+desktop/composer.lock
+desktop/vendor
+mobile/composer.lock
+mobile/vendor
+
+# OS
+.DS_Store
+
+# Log
+npm-debug.log
+log/

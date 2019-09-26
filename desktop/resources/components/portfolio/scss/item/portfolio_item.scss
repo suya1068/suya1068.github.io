@@ -1,0 +1,200 @@
+.portfolio-pc {
+    .forsnap-portfolio__unit {
+        //width: 380px;
+        //height: 380px;
+        flex: 0 1 auto;
+        position: relative;
+        overflow: hidden;
+        border: 0.5px solid #000;
+
+        &.hover {
+            .item_hover {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(254, 191, 22, 0.6);
+                z-index: 2;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .add-icon {
+                width: 50px;
+                height: 50px;
+                background-color: #febf16;
+                border-radius: 50px;
+
+                &:after {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    content: "+";
+                    font-size: 30px;
+                    color: #fff;
+                }
+            }
+        }
+
+        .video-icon {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            flex: 0 0 auto;
+            padding: 17px;
+            background-color: rgba(0, 0, 0, 0.65);
+            border-radius: 100%;
+            overflow: hidden;
+            //
+            z-index: 1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+
+            .play__button {
+                flex: 0 0 auto;
+                border-width: 8px;
+                border-style: solid;
+                border-color: #fff #fff transparent transparent;
+                transform: rotate(45deg) translate(-20%, 25%);
+            }
+        }
+
+        cursor: pointer;
+        //border: 1px solid #e1e1e1;
+        .item_active {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 10px solid #febf16;
+            z-index: 1;
+        }
+
+        > img {
+            //position: relative;
+            ////position: absolute;
+            ////top: 50%;
+            ////left: 50%;
+            ////transform: translate(-50%, -50%);
+            //width: 100%;
+            ////height: 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        .portfolio-image {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+
+    .forsnap-portfolio__list {
+        // x 축 타입
+        &.xAxis {
+            color: #fff;
+            .forsnap-portfolio__unit > img {
+                height: 101%;
+            }
+
+            .unique {
+                .forsnap-portfolio__unit {
+                    width: calc(100vw / 1);
+                    height: calc(100vw / 1)
+                }
+            }
+
+            .shot {
+                .forsnap-portfolio__unit {
+                    width: calc(100vw / 2);
+                    height: calc(100vw / 2)
+                }
+            }
+
+            .middle {
+                .forsnap-portfolio__unit {
+                    width: calc(100vw / 3);
+                    height: calc(100vw / 3)
+                }
+            }
+
+            .large {
+                .forsnap-portfolio__unit {
+                    width: calc(100vw / 4);
+                    height: calc(100vw / 4)
+                }
+            }
+
+            .full {
+                color: #000;
+                .forsnap-portfolio__unit {
+                    width: calc(100vw / 5);
+                    height: calc(100vw / 5)
+                }
+            }
+        }
+
+        // y 축 타입
+        &.yAxis {
+            .is_hor > img {
+                height: 101% !important;
+                width: auto !important;
+            }
+
+            .is_ver > img {
+                height: auto !important;
+                width: 101% !important;
+            }
+
+            .forsnap-portfolio__unit > img {
+                width: 100%;
+            }
+
+            .unique {
+                .forsnap-portfolio__unit {
+                    width: calc(100vw / 1);
+                    height: calc(100vw / 0.8)
+                }
+            }
+
+            .shot {
+                .forsnap-portfolio__unit {
+                    width: calc(100vw / 2);
+                    height: calc(100vw / 1.5)
+                }
+            }
+
+            .middle {
+                .forsnap-portfolio__unit {
+                    width: calc(100vw / 3);
+                    height: calc(100vw / 2.3)
+                }
+            }
+
+            .large {
+                .forsnap-portfolio__unit {
+                    width: calc(100vw / 4);
+                    height: calc(100vw / 3)
+                }
+            }
+
+            .full {
+                .forsnap-portfolio__unit {
+                    width: calc(100vw / 5);
+                    height: calc(100vw / 4)
+                }
+            }
+        }
+    }
+
+}

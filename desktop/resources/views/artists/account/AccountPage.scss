@@ -1,0 +1,24 @@
+.artists-page-account {
+    .artist-content-row {
+        .dropdown__container {
+            width: 412px;
+
+            .dropdown__select {
+                border-radius: 34px;
+            }
+
+            .dropdown__list {
+                border-radius: 5px;
+            }
+        }
+
+        ._input {
+            width: 267px;
+            border-radius: 34px;
+
+            &.w412 {
+                width: 412px;
+            }
+        }
+    }
+}

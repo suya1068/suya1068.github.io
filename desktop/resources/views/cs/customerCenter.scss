@@ -1,0 +1,20 @@
+@import "desktop/resources/scss/variables";
+
+.customerCenter-page {
+    background: #fafafa;
+    .site_main {
+        min-height: calc(100vh - #{$site-footer-height + ($site-header-height * 2)});
+        .board {
+            &__tabMenu {
+                margin-bottom: 50px;
+                .board_accor {
+                    //min-height: 300px;
+                }
+            }
+            &__notice {
+                margin-bottom: 50px;
+                margin-top: 30px;
+            }
+        }
+    }
+}

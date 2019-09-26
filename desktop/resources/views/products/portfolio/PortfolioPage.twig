@@ -1,0 +1,15 @@
+{% extends "template/public.twig" %}
+
+{% block head_assets %}
+    <link rel="stylesheet" href="{{ manifest['products/portfolio.css'] }}" />
+{% endblock %}
+
+{% block meta_data %}
+    <meta id="product-data" content="{{ product }}">
+    <meta id="time_flag" content="{{ time_flag }}">
+{% endblock %}
+
+{% block body_assets %}
+    <script src="{{ manifest['products/portfolio.js'] }}"></script>
+{% endblock %}
+

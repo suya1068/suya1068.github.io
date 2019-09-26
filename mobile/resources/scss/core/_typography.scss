@@ -1,0 +1,230 @@
+@import "../variables";
+@import "../mixins";
+
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    color: #000;
+}
+
+.h1 {
+    font-size: 60.2px;
+    line-height: 1.19;
+    letter-spacing: -3px;
+}
+
+.h2 {
+    font-size: 44.7px;
+    letter-spacing: -2.2px;
+}
+
+.h3 {
+    font-size: 40.4px;
+    line-height: 1.15;
+    letter-spacing: -2px;
+
+    &.numbering:before {
+        height: 43px;
+        line-height:43px;
+    }
+}
+
+.h4 {
+    font-size: 35.2px;
+    letter-spacing: -1.4px;
+
+    &-sub {
+        font-size: 30.2px;
+        letter-spacing: -1.5px;
+    }
+}
+
+.h5 {
+    font-size: 28.4px;
+    letter-spacing: -1.4px;
+}
+
+.h6 {
+    font-size: 19.8px;
+    letter-spacing: -1px;
+
+    &-sub {
+        font-size: 16.3px;
+        letter-spacing: -0.8px;
+    }
+
+    &-sub2 {
+        font-size: 18.9px;
+        letter-spacing: -0.9px;
+    }
+
+    &-sub3 {
+        font-size: 14.6px;
+        letter-spacing: -0.7px;
+    }
+}
+
+.cap {
+    &:before {
+        content: attr(title);
+        display: block;
+        width: 100%;
+        color: #ffba00;
+        font-size: inherit;
+    }
+
+    &-bar {
+        text-align: center;
+
+        &.bar-w20:before {
+            width: 20px;
+        }
+
+        &.bar-w10:before {
+            width: 10px;
+            height: 2px;
+        }
+
+        &:before {
+            content: "";
+            display: block;
+            width: 30px;
+            height: 3px;
+            margin: 0 auto 14px auto;
+            background-color: #ffba00;
+        }
+    }
+}
+
+.h1-caption {
+    font-size: 19.8px;
+    font-weight: lighter;
+    line-height: 1.43;
+    letter-spacing: -1px;
+    color: #000;
+}
+
+.h2-caption {
+
+}
+
+.h3-caption {
+    font-size: 16px;
+    font-weight: lighter;
+    line-height: 2.06;
+    letter-spacing: -0.8px;
+    color: #000;
+}
+
+.h4-caption {
+
+}
+
+.h5-caption {
+    font-size: 14.6px;
+    font-weight: lighter;
+    line-height: 1.17;
+    letter-spacing: -0.7px;
+    color: #000;
+}
+
+.h6-caption {
+    font-size: 16.3px;
+    font-weight: lighter;
+    line-height: 2.06;
+    letter-spacing: -0.8px;
+    color: #000;
+
+    &-sub {
+        font-size: 12.9px;
+        font-weight: 300;
+        letter-spacing: -0.6px;
+        color: #969696;
+    }
+}
+
+.lead {
+    font-size: 1.42rem;
+    font-weight: 500;
+}
+
+.text {
+    &-light {
+        font-weight: lighter !important;
+    }
+    &-normal {
+        font-weight: normal !important;
+    }
+    &-bold {
+        font-weight: bold !important;
+    }
+    &-left {
+        text-align: left !important;
+    }
+    &-right {
+        text-align: right !important;
+    }
+    &-center {
+        text-align: center !important;
+    }
+    &-justify {
+        text-align: justify !important;
+    }
+}
+
+del {
+    text-decoration: overline !important;
+}
+
+u {
+    text-decoration: underline !important;
+}
+
+a {
+    > u {
+        color: #000;
+    }
+}
+
+.underline {
+    border-bottom: 1px solid #e1e1e1;
+}
+
+small {
+    font-size: 80%;
+    vertical-align: middle;
+}
+
+.vertical {
+    &-middle {
+        vertical-align: middle;
+    }
+}
+
+.shape {
+    &-rect {
+        border-radius: 0 !important;
+    }
+
+    &-circle {
+        border-radius: 100% !important;
+    }
+
+    &-round {
+        border-radius: 7px !important;
+    }
+}
+
+.pink-text {
+    color: #ff326c;
+}
+
+.yellow-text {
+    color: #ffba00;
+}
+
+.gray-text {
+    color: #969696;
+}

@@ -1,0 +1,24 @@
+.popup__product__receipt {
+    min-width: 320px;
+
+    .layer {
+        .layer__row {
+            .text__header {
+                flex-basis: 100px;
+            }
+            
+            .text__content,
+            .caption__content {
+                text-align: right;
+
+                > span {
+                    font-size: 0.81em;
+                }
+            }
+        }
+
+        .layer__border {
+            border-radius: 0;
+        }
+    }
+}

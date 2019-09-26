@@ -1,0 +1,88 @@
+.pop-view-photos {
+  width: 970px;
+  .photos-list {
+    //height: inherit;
+    text-align: left;
+    overflow: auto;
+    > li {
+      position: relative;
+      display: inline-block;
+      width: 90px;
+      height: 90px;
+      margin-right: 5px;
+      border-radius: 12px;
+      overflow: hidden;
+
+      &:nth-child(10n) {
+        margin-right: 0;
+      }
+
+      > img {
+        width: 100%;
+      }
+    }
+  }
+  .drawPhoto-origin {
+    height: 550px;
+    .origin {
+      height: 465px;
+      margin-bottom: 30px;
+    }
+    .photos-list {
+
+    }
+  }
+  .drawPhoto-custom {
+    & > :nth-child(3) {
+      margin-top: 24px;
+    }
+    height: 620px;
+    .custom {
+      height: 95px;
+    }
+    .custom__origin {
+      height: 373px;
+      margin-bottom: 30px;
+    }
+    .photos-list {
+
+    }
+  }
+  .photos-title {
+    .circleCount {
+      display: inline-block;
+      background-color: black;
+      color: white;
+      border-radius: 10px;
+      font-size: 11px;
+      width: 50px;
+      height: 20px;
+      line-height: 20px;
+      transform: translateY(-15%);
+      margin-left: 5px;
+    }
+    .title {
+      font-size: 21px;
+      margin-bottom: 25px;
+      > span {
+
+      }
+    }
+  }
+
+  .photos-buttons {
+    &.is_custom {
+      .origin-down,
+      .custom-down {
+        width: 50%;
+        float: left;
+      }
+    }
+    .origin-down {
+      padding-right: 5px;
+    }
+    .custom-down {
+      padding-left: 5px;
+    }
+  }
+}

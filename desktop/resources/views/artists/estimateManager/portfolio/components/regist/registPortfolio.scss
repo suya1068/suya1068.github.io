@@ -1,0 +1,79 @@
+.regist-portfolio-page {
+    .portfolio-title {
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    .portfolio-list {
+        height: 368px;
+        text-align: left;
+        overflow: auto;
+
+        background-color: #fff;
+        padding: 2px;
+        border: 1px dashed #e1e1e1;
+        border-radius: 10px;
+        width: 101%;
+
+        &.empty-list {
+            width: 100%;
+            border-radius: 10px;
+            border: 2px dashed #e1e1e1;
+            text-align: center;
+            padding-top: 272px;
+            background: url('#{$IMG_SERVER}/common/none_visual.png') center 48px no-repeat #fff;
+
+            > li {
+                margin: 0;
+            }
+
+            .h6-caption-sub {
+                margin-top: 6px;
+            }
+
+            .empty-cpation {
+                width: 100%;
+            }
+        }
+
+        > li {
+            position: relative;
+            display: inline-block;
+            width: 90px;
+            height: 90px;
+            margin-right: 2px;
+            margin-bottom: 2px;
+            float: left;
+
+            &:nth-child(10n) {
+                margin-right: 0;
+            }
+        }
+    }
+    .portfolio-info {
+        position: relative;
+        height: 34px;
+        margin-top: 15px;
+        margin-bottom: 50px;
+        text-align: center;
+
+        > p {
+            height: 100%;
+            line-height: 34px;
+        }
+
+        .portfolio-buttons {
+            position: absolute;
+            right: 0;
+            top: 0;
+
+            > button:nth-child(n+2) {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .product-imagefile {
+        display: none;
+    }
+}

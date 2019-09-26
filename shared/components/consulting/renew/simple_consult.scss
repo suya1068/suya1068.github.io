@@ -1,0 +1,336 @@
+// simple consult val
+$require-color: #d0021b;
+$warning-color: #ffba02;
+$border-color: #979797;
+$week-text-color: #666;
+
+// base
+.simple__consult {
+	//._modal__wrap {
+	//	padding: 6% 3%;
+	//}
+}
+
+.simple-consult-container {
+	height: auto;
+	background-color: #fff;
+
+	// pc, mobile css 분리
+	&.pc {
+		width: 560px;
+
+		.simple-consult__body__pricetag {
+			padding: 30px 30px 0;
+		}
+
+		.simple-consult__body__pricetag .tag-box__content-tag__shot-pop {
+			.pop-image-content {
+				width: 120px;
+				height: 120px;
+				flex: 0 0 120px;
+			}
+		}
+	}
+
+	&.pc .simple-consult__head {
+		padding: 25px 27px;
+
+		.forsnap-logo {
+			width: 100px;
+		}
+	}
+
+	&.pc .simple-consult__body__info-img {
+		height: 167px;
+
+		.simple-consult__body__info-img__text-box {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			.check__desc .yellow_check {
+				margin-right: 5px;
+				&:after {
+					width: 9px;
+					height: 15px;
+					content: "";
+					display: flex;
+					justify-content: center;
+					border: solid $warning-color;
+					border-width: 0 3px 3px 0;
+					transform: rotate(45deg);
+				}
+			}
+
+			.simple-consult__body__info-img__text-box__title {
+				font-size: 30px;
+			}
+
+			.check__desc__row {
+				margin-right: 15px;
+				margin-bottom: 10px;
+			}
+
+			.check__desc__row span {
+				font-size: 20px;
+			}
+		}
+	}
+
+	&.pc .simple-consult__body__agree {
+		padding: 30px;
+
+		.simple-consult__body__agree-head .check-circle:after {
+			top: -4px;
+		}
+
+		.agree-info__row {
+			.desc {
+				font-size: 14px;
+			}
+		}
+	}
+
+	&.pc .simple-consult-button {
+		height: 70px;
+		width: 245px;
+		font-size: 20px;
+	}
+
+	&.mobile {
+		width: 95%;
+		margin: 0 auto;
+
+		.simple-consult__body__pricetag {
+			padding: 15px 15px 0;
+		}
+
+		.simple-consult__body__pricetag .tag-box__content-tag__shot-pop {
+			.pop-image-content {
+				width: 100px;
+				height: 100px;
+				flex: 0 0 100px;
+			}
+		}
+
+		.forsnap-logo {
+			width: 72px
+		}
+	}
+}
+
+.simple-consult {
+	&__head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		min-height: 30px;
+		padding: 15px 27px;
+	}
+
+	&__body {
+
+	}
+
+	&__body__info-img {
+		position: relative;
+		.test {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		&__text-box {
+			position: relative;
+			text-align: center;
+			padding: 30px 0;
+		}
+
+		.check__desc {
+			width: 85%;
+			color: #fff;
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			padding: 0 10px;
+			margin: 0 auto;
+		}
+
+		.check__desc__row {
+			display: flex;
+			align-items: center;
+			margin-left: 10px;
+			margin-bottom: 10px;
+
+			> span {
+				font-size: 13px;
+			}
+
+			&:nth-child(3),
+			&:nth-child(4) {
+				margin-bottom: 0 !important;
+			}
+		}
+
+		.check__desc .yellow_check {
+			margin-right: 5px;
+			&:after {
+				width: 7px;
+				height: 11px;
+				content: "";
+				display: flex;
+				justify-content: center;
+				border: solid $warning-color;
+				border-width: 0 3px 3px 0;
+				transform: rotate(45deg);
+			}
+		}
+
+		&__text-box__title {
+			color: $warning-color;
+			font-size: 1.4rem;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+	}
+
+	&__body__agree {
+		padding: 21px;
+	}
+
+	&__body__agree-head {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		margin-bottom: 10px;
+
+		> p {
+			font-weight: bold;
+		}
+
+		.agree_check {
+			display: flex;
+			align-items: center;
+			cursor: pointer;
+		}
+
+		.agree_check.agree {
+			.check-circle {
+				background-color: $warning-color;
+			}
+		}
+
+		.agree_check .check-circle {
+			position: relative;
+			width: 21px;
+			height: 21px;
+			background-color: #dedede;
+			border-radius: 100%;
+			margin-right: 5px;
+			text-align: center;
+
+			&:after {
+				position: relative;
+				top: -2px;
+				content: "";
+				display: inline-flex;
+				justify-content: center;
+				width: 7px;
+				height: 11px;
+				border: solid #fff;
+				border-width: 0 2px 2px 0;
+				transform: rotate(45deg);
+			}
+		}
+	}
+
+	&__body__agree-info {
+		padding: 10px;
+		border-radius: 5px;
+		background-color: #efefef;
+
+		.agree-info__row {
+			display: flex;
+			flex: 1 1 auto;
+			width: 100%;
+			align-items: baseline;
+			line-height: 1.57;
+
+			.dash {
+				flex: 0 0 10px;
+			}
+
+			.desc {
+				word-break: keep-all;
+				font-size: 12px;
+				color: $week-text-color;
+				text-align: left;
+			}
+		}
+	}
+
+	&__foot {
+		padding: 0 21px 21px;
+	}
+
+	&__foot-able-consult-time {
+		color: $week-text-color;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		.exc {
+			margin-right: 5px;
+			text-align: center;
+		}
+		.exc:after {
+			display: inline-block;
+			content: "!";
+			font-size: 12px;
+			width: 17px;
+			height: 17px;
+			border-radius: 100%;
+			border: 1px solid $require-color;
+			color: $require-color;
+		}
+	}
+
+	&__foot-button {
+		text-align: center;
+		margin: 10px 0;
+		position: relative;
+		.cover_button {
+			z-index: 1;
+			position: absolute;
+			height: 70px;
+			width: 100%;
+			//height: 100%;
+		}
+		.simple-consult-button {
+			padding: 10px;
+			text-align: center;
+			min-height: 50px;
+			//color: #969696;
+			//background-color: #f1f1f1;
+			//border: 1px solid #e1e1e1;
+			width: 50%;
+			transition: all 0.2s;
+			border: 1px solid #000;
+			background-color: #000;
+			color: #fff;
+			cursor: pointer;
+			//cursor: default;
+
+			&.active {
+				border: 1px solid #000 !important;
+				background-color: #000 !important;
+				color: #fff !important;
+				cursor: pointer !important;
+			}
+		}
+	}
+}

@@ -1,0 +1,36 @@
+.artists__estimate {
+    height: 100vh;
+}
+.artists-estimate__detail {
+    position: relative;
+    &--inner {
+        //padding-bottom: 50px;
+    }
+}
+
+.estimate-list__component {
+    padding-bottom: 1rem;
+}
+
+.estimate-list__head-button {
+    //margin-bottom: 15px;
+    .offerlist {
+        border-right: none;
+        border-top: none;
+        width: 50%;
+    }
+    .content {
+        border-top: none;
+        width: 50%;
+    }
+    .offerlist,
+    .content {
+        padding: 0.8rem;
+        &.active {
+            background-color: #000;
+            > a {
+                color: #fff;
+            }
+        }
+    }
+}

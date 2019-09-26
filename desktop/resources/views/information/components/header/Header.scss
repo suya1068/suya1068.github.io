@@ -1,0 +1,88 @@
+.information-header {
+    position: relative;
+    height: 360px;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    .information-extra {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+        margin: 0 auto;
+
+        .half {
+            width: 50%;
+        }
+
+        .counting {
+            color: #ffba00;
+            font-size: 50px;
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .description {
+            font-size: 14.5px;
+        }
+
+        .regist_artists {
+
+        }
+        .regist_products {
+
+        }
+    }
+
+    .information-inner {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+
+        > .container {
+            height: 100%;
+        }
+    }
+
+    .information-contents {
+        position: absolute;
+        //width: 100%;
+        width: calc(100% - 48px);
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+
+        color: white;
+        text-align: center;
+
+        margin: 0 24px;
+    }
+
+    .information-heading {
+        padding-bottom: 10px;
+
+        font-size: 50px;
+        font-weight: 300;
+        line-height: 1.05;
+        letter-spacing: -2.5px;
+        margin-bottom: 20px;
+    }
+
+    .information-description {
+        //font-size: 20px;
+        //letter-spacing: -1px;
+        font-size: 14.5px;
+        font-weight: 300;
+        letter-spacing: -1px;
+        line-height: 1.5;
+        margin-bottom: 20px;
+    }
+
+    .btn {
+        margin-top: 20px;
+    }
+}

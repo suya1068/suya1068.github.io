@@ -1,0 +1,186 @@
+.shot_info {
+	.modal-content {
+		padding: 40px;
+		background-color: #fff;
+		width: 920px;
+		height: auto;
+	}
+}
+
+.shot_info_popup {
+	position: relative;
+	&__header {
+		position: relative;
+
+		.close-button {
+			position: absolute;
+			top: 0;
+			right: 0;
+			cursor: pointer;
+		}
+	}
+
+	&__header__title {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		font-size: 30px;
+		font-weight: bold;
+		margin-bottom: 10px;
+
+		> span {
+			padding-right: 5px;
+		}
+	}
+
+	&__header__desc {
+		font-size: 18px;
+		color: #666;
+		line-height: 1.56;
+	}
+
+	&__body {
+		.artist {
+			position: absolute;
+			bottom: 10px;
+			left: 0;
+			text-align: center;
+			width: 100%;
+			font-size: 11px;
+		}
+	}
+
+	&__body-row {
+		padding-top: 30px;
+		&__title {
+			font-size: 22px;
+			font-weight: bold;
+			margin-bottom: 15px;
+		}
+		&__desc {
+			font-size: 15px;
+			line-height: 1.56;
+		}
+	}
+
+	&__body__info-basic {
+		&-box {
+			color: #fff;
+		}
+
+		&-box__row {
+			height: 214px;
+			padding: 20px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+
+			.text-box {
+				margin-top: 15px;
+			}
+
+			.text-box__title {
+				font-size: 18px;
+				font-weight: bold;
+				margin-bottom: 10px;
+			}
+
+			.text-box__desc {
+				color: rgba(255, 255, 255, 0.8);
+				line-height: 1.56;
+			}
+		}
+
+	}
+
+	&__body__shot-kind__box {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		.text-box-title {
+			font-size: 18px;
+			font-weight: bold;
+			margin-bottom: 5px;
+		}
+
+		.text-box-desc {
+			font-size: 15px;
+			margin-bottom: 20px;
+		}
+
+		&-item {
+			width: calc(100% / 2 - 17px);
+			margin-bottom: 35px;
+		}
+
+		&-item__text-box {
+
+		}
+
+		&-item__image-box {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			.image-box-image {
+				position: relative;
+				width: 197px;
+				height: 197px;
+			}
+		}
+
+		&__think-box {
+			padding: 30px;
+			border-radius: 5px;
+			background-color: #dedede;
+			overflow: hidden;
+			.text-box-title {
+				font-size: 18px;
+				font-weight: bold;
+				margin-bottom: 5px;
+			}
+
+			.text-box-desc {
+				font-size: 15px;
+				line-height: 1.56;
+			}
+		}
+	}
+
+	&__body__howshot-box {
+
+	}
+
+	&__body__howshot-box__images {
+		padding-top: 20px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__body__how-reference-box {
+		&__title-box {
+			height: 90px;
+			width: 436px;
+			border-radius: 15px;
+			color: #fff;
+			font-size: 18px;
+			font-weight: bold;
+
+			line-height: 90px;
+			margin: 30px auto 15px;
+		}
+
+		.text-box-desc {
+			font-weight: bold;
+		}
+
+		&__image {
+			margin-top: 35px;
+		}
+	}
+}

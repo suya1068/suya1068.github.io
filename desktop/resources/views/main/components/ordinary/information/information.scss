@@ -1,0 +1,43 @@
+@import "desktop/resources/scss/mixins";
+
+
+.main-information {
+    position: relative;
+    background-color: #fff;
+
+    &__heading {
+        position: relative;
+        margin-bottom: 35px;
+
+        font-size: 28px;
+        font-weight: 600;
+        color: #000;
+        text-align: center;
+    }
+
+    &__contents {
+        position: relative;
+        @include clearfix();
+    }
+
+    &-item {
+        position: relative;
+        display: block;
+        float: left;
+        width: percentage(1/4);
+
+        .poster__text__title {
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 1.25em;
+            letter-spacing: -0.6px;
+        }
+
+        .poster__text__caption {
+            font-size: 16px;
+            font-weight: normal;
+            line-height: 1.4em;
+            letter-spacing: -0.4px;
+        }
+    }
+}

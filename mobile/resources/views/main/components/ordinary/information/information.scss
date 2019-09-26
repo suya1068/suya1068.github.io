@@ -1,0 +1,36 @@
+.mobile-main-information {
+	padding: 28px 10px;
+	text-align: center;
+
+	&__heading {
+		font-size: 1.429rem;
+		margin-bottom: 15px;
+		font-weight: 600;
+	}
+
+	&__content {
+		display: flex;
+		flex: 1 1 auto;
+		flex-wrap: wrap;
+
+		&-icon {
+			flex-basis: 50%;
+			margin-bottom: 18px;
+		}
+
+		&-icon-link {
+			color: #000;
+
+			.title {
+				font-size: 1.093rem;
+				font-weight: 600;
+				margin: 8px 0;
+			}
+
+			.desc {
+				font-size: 0.929rem;
+				color: #969696;
+			}
+		}
+	}
+}

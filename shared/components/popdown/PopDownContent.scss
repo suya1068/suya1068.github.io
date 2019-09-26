@@ -1,0 +1,74 @@
+.popdown-container {
+    position: relative;
+    display: flex;
+
+    &.reverse {
+        .popdown-contents {
+            top: auto;
+            bottom: 100%;
+
+            .popdown-arrow {
+                top: auto;
+                bottom: -10px;
+            }
+        }
+    }
+
+    .popdown-target {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .popdown-contents {
+        position: absolute;
+        display: none;
+        top: 100%;
+        width: 0;
+        height: 0;
+        opacity: 0;
+        background-color: #fff;
+        border-radius: 10px;
+        border: 1px solid #e1e1e1;
+        box-shadow: 2px 2px 10px -6px #000;
+        z-index: 1;
+
+        &.show {
+            display: inline-block;
+            width: auto;
+            height: auto;
+            opacity: 1;
+        }
+
+        .popdown-arrow {
+            content: " ";
+            position: absolute;
+            top: -10px;
+            width: 10px;
+            height: 10px;
+            border-color: transparent transparent #e5e5e5 transparent;
+            border-style: solid;
+            border-width: 0 10px 10px 10px;
+            z-index:0;
+
+            .popdown-arrow {
+                left: -8px;
+                top: 2px;
+                width: 8px;
+                height: 8px;
+                border-width: 0 8px 8px 8px;
+                border-bottom-color: #fff;
+            }
+        }
+
+        // popdown-content 컨텐츠영역 css 정의
+        .popdown-content {
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .buttons-content {
+            padding: 8.5px 0;
+        }
+    }
+}

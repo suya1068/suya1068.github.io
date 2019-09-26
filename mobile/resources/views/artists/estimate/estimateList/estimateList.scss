@@ -1,0 +1,176 @@
+@import "mobile/resources/scss/variables";
+.artists-estimate-tab {
+    width: 100%;
+    border-bottom: 1px solid #e1e1e1;
+    background-color: #fff;
+    > button {
+        width: 50%;
+        padding: 1em;
+        color: #e1e1e1;
+        font-weight: bold;
+        &.active {
+            color: #fff;
+            background-color: #000;
+        }
+    }
+    .estimate-list {
+        border-right: 1px solid #e1e1e1;
+        cursor: pointer;
+    }
+    .estimate-complete {
+        cursor: pointer;
+    }
+}
+
+.artists-estimate-container {
+    .complete-msg {
+        text-align: center;
+        font-size: 1em;
+        word-break: keep-all;
+        color: #ff326c;
+        padding-bottom: 1em;
+    }
+
+    .artist-estimate-alert {
+        width: 100%;
+        text-align: right;
+        margin-top: 30px;
+        &.mobile {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .info-button {
+            width: auto;
+            //width: 205px;
+            border: 1px solid #cdcdcd;
+            border-radius: 5px;
+            background-color: #fff;
+
+            font-size: 14px;
+            font-weight: 500;
+            color: #666;
+
+            cursor: pointer;
+
+            padding: 10px;
+        }
+
+        .e {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 15px;
+            height: 15px;
+            border: 1px solid #ffba00;
+            border-radius: 100%;
+            background-color: #ffba00
+        ;
+            text-align: center;
+            margin-right: 5px;
+
+            &:after {
+                content: "!";
+                height: 0;
+                margin-bottom: 15px;
+                font-weight: bold;
+                font-size: 9px;
+                color: #fff;
+                text-indent: 0;
+            }
+        }
+    }
+}
+
+.artists-estimate__list {
+    background-color: #fafafa;
+    margin-top: 15px;
+
+    &--container {
+        font-size: 1rem;
+        padding-bottom: 0.7rem;
+        //padding-top: 1rem;
+        .panel-unit {
+            position: relative;
+        }
+        .wrap-white-beam {
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+    }
+    > a {
+        &:visited,
+        &:link,
+        &:active,
+        &:hover {
+            color: black;
+        }
+    }
+
+    .estimate__none__list {
+        height: calc(100vh - 100px);
+        min-height: 500px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.estimate__none__list {
+    .wrap-img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        color: white;
+        text-align: center;
+        width: 50vw;
+        .inner-content {
+            .title {
+                font-size: 1.5rem;
+                padding: 20px;
+            }
+            .text {
+                font-size: 0.8rem;
+                font-weight: 300;
+                line-height: 3;
+                padding-bottom: 20px;
+            }
+            button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: .8rem;
+                i {
+                    margin-right: 5px;
+                }
+            }
+        }
+    }
+}
+
+// 촬영내역 버튼 css
+.estimate-progress,
+.estimate-complete {
+    width: 50%;
+    padding: 0.5rem 0;
+
+    &:first-child {
+        border-right: none;
+    }
+
+    &.active {
+        background-color: #b7d2e3;
+        color: white;
+    }
+}
+
+.estimate-comment-pagination {
+    margin-top: 10px;
+}

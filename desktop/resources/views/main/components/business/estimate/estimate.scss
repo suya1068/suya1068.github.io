@@ -1,0 +1,163 @@
+.biz-estimate {
+	background: url('#{$IMG_SERVER}/biz/estimate/bg-estimate.jpg') center center / cover no-repeat;
+	.biz-panel__sub {
+		font-size: 22px;
+		margin-bottom: 15px;
+	}
+
+	.biz-panel__title {
+		font-size: 38px;
+	}
+
+	&__box {
+		position: relative;
+		&:before {
+			content: "";
+			height: 1px;
+			width: 80px;
+			background-color: #fff;
+			display: inline-block;
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+
+	&__desc {
+		padding: 24px 0;
+		text-align: center;
+		color: #fff;
+		font-size: 18px;
+		line-height: 1.56;
+	}
+
+	&__content {
+		overflow: hidden;
+		position: relative;
+		padding: 10px;
+		background-color: #fff;
+		width: 1050px;
+
+		.content_wrap {
+			position: relative;
+			height: 850px;
+			padding: 60px 60px 0 60px;
+			overflow-y: scroll;
+
+			&::-webkit-scrollbar {
+				width: 10px;
+				height: 80px;
+				border-radius: 5px;
+			}
+
+			&::-webkit-scrollbar-track {
+				//-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+				border-radius: 5px;
+			}
+
+			&::-webkit-scrollbar-thumb {
+				background-color: #d8d8d8;
+				border-radius: 5px;
+				//outline: 1px solid slategrey;
+			}
+		}
+		.example_st {
+			position: absolute;
+			top: 30px;
+			right: 60px;
+			border: 1px solid #000;
+			z-index: 10;
+			> p {
+				padding: 10px;
+				color: #000;
+				font-size: 14px;
+			}
+		}
+	}
+
+	.fake-estimate {
+		&__head {
+			text-align: center;
+			position: relative;
+			padding-bottom: 35px;
+		}
+
+		&__info,
+		&__detail {
+			text-align: left;
+			margin-bottom: 65px;
+			> p {
+				margin-bottom: 5px;
+			}
+		}
+
+		&__detail .description {
+			padding: 10px 0;
+		}
+
+		.font-bold {
+			font-weight: bold;
+		}
+
+		&__table {
+			width: 100%;
+			text-align: center;
+			.table-row {
+				display: flex;
+				flex: 1 1 auto;
+				height: 50px;
+				align-items: center;
+				border-bottom: 1px solid #e1e1e1;
+			}
+
+			.description {
+				line-height: 1.88;
+				text-align: left;
+			}
+
+			.table-row__c {
+				flex-basis: 25%;
+			}
+
+			.table__total_price {
+				background-color: #efefef;
+				font-weight: 500;
+			}
+
+			.table__pink-text {
+				color: #d0021b;
+			}
+
+			.table__head-border {
+				border-top: 3px solid #000;
+			}
+		}
+	}
+
+	.fake-estimate__portfolio {
+		margin-bottom: 50px;
+		> p {
+			margin-bottom: 5px;
+		}
+		.portfolio {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			padding: 20px 0;
+		}
+
+		.image-wrap {
+			width: 174px;
+			height: 174px;
+			margin-bottom: 6px;
+			position: relative;
+
+			.artist {
+				position: absolute;
+				bottom: 10px;
+				width: 100%;
+				text-align: center;
+			}
+		}
+	}
+}

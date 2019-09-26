@@ -1,0 +1,95 @@
+@import "desktop/resources/scss/variables";
+
+
+.policy {
+    h6 {
+        font-weight: bold;
+    }
+
+    li,
+    p {
+        line-height: 1.7;
+        color: #969696;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    ol {
+        list-style: decimal;
+        padding-left: 15px;
+        ul {
+            list-style: disc;
+            padding-left: 15px;
+        }
+        ol {
+            list-style: lower-alpha;
+            ol {
+                list-style: lower-roman;
+            }
+        }
+    }
+    padding-top: 60px;
+        /// table
+    .table {
+        text-align: center;
+        th,
+        td {
+            width: 20%;
+            padding: 10px;
+            letter-spacing: -0.6px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+    }
+    .content__body {
+        padding-top: 50px;
+    }
+    /// 본문
+    .site_main {
+        &__title {
+            color: #000;
+        }
+        &__index {
+            margin-top: 35px;
+            margin-bottom: 50px;
+        }
+        &__list {
+            padding-top: 30px;
+            padding-left: 25px;
+            > li {
+                font-weight: bold;
+                list-style: decimal;
+                font-size: 15px;
+            }
+        }
+    }
+    /// panel
+    .panel {
+        margin-top: 30px;
+        &__heading {
+            font-size: 15px;
+            font-weight: bold;
+        }
+        &__body {
+            color: #474747;
+            padding-top: 15px;
+            > p,
+            li {
+                font-size: 13px;
+            }
+            &__list {
+                padding-left: 0;
+                > li {
+                    font-size: 13px;
+                }
+                > li::before {
+                    content: "•";
+                    padding-right: 4px;
+                }
+            }
+        }
+    }
+}

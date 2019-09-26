@@ -1,0 +1,10 @@
+# Projects
+build/
+dist/
+docs/
+coverage/
+common/vendor/
+
+# Modules
+node_modules/
+

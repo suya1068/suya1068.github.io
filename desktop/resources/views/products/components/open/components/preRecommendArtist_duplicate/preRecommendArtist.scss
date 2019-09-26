@@ -1,0 +1,98 @@
+.product_list__pre-recommend-artist {
+	height: 800px;
+	min-height: 800px;
+	background-color: #f9f9f9;
+	overflow: hidden;
+}
+
+.pre-recommend-artist {
+	&__head {
+		padding-top: 50px;
+		margin-bottom: 25px;
+	}
+
+	&__head__text {
+		text-align: center;
+	}
+
+	&__content {
+		position: relative;
+	}
+
+	&__list {
+		overflow: visible;
+		.test {
+			width: 336px !important;
+			//height: 580px !important;
+		}
+
+		.pre-recommend-wrapper {
+			overflow: hidden;
+		}
+	}
+
+	&__pages {
+		text-align: center;
+		height: 24px;
+		margin-top: 20px;
+
+		.swiper-pagination-bullet {
+			background: transparent;
+			opacity: 1;
+			width: auto;
+			height: auto;
+			border-radius: 0;
+		}
+
+		.swiper-pagination-bullet-active {
+			&.slide_page {
+				color: #000;
+				line-height: 1.2;
+				border-bottom: 2px solid #000;
+			}
+		}
+
+		.slide_page {
+			position: relative;
+			color: #ccc;
+			font-weight: bold;
+			font-size: 12px;
+			transition: color 0.1s;
+			cursor: pointer;
+
+			&:nth-child(n + 2) {
+				margin-left: 20px;
+			}
+
+			&:hover,
+			&:active {
+				color: #000;
+				line-height: 1.2;
+				border-bottom: 2px solid #000;
+				//display: inline-block;
+			}
+		}
+	}
+
+	.pre-recommend-artist__arrow-left,
+	.pre-recommend-artist__arrow-right {
+		cursor: pointer;
+		position: absolute;
+		top: 50%;
+		//left: 50%;
+		transform: translateY(-50%);
+		z-index: 1;
+
+		//padding: 0 50px;
+	}
+
+	.pre-recommend-artist__arrow-left {
+		left: 0;
+		padding-left: 70px;
+	}
+
+	.pre-recommend-artist__arrow-right {
+		right: 0;
+		padding-right: 70px;
+	}
+}

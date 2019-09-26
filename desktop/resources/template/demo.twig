@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% block head %}
+        <title>{{ seo.title }}</title>
+    {% endblock %}
+    {% block head_assets %}{% endblock %}
+</head>
+<body>
+<div id="demo-root"></div>
+<div id="modal"></div>
+
+{% block contents %}{% endblock %}
+
+<script src="/common/vendor/react/react.js"></script>
+<script src="/common/vendor/react-dom/react-dom.js"></script>
+<script src="/common/vendor/react-router/ReactRouter.js"></script>
+<script src="{{ manifest['manifest.js'] }}"></script>
+<script src="{{ manifest['common.js'] }}"></script>
+{% block body_assets %}{% endblock %}
+</body>
+</html>
+

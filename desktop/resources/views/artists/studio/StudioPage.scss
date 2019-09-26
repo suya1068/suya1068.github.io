@@ -1,0 +1,125 @@
+.board__notice {
+    &__list {
+        &.studio__notice {
+            .list__item {
+                &__title {
+                    text-align: center;
+                    
+                    &.notice__column {
+                        color: #000;
+                        font-weight: bold;
+                    }
+
+                    > .number {
+                        flex: 0 0 90px;
+                    }
+
+                    > .nickname {
+                        color: #000;
+                        flex: 0 0 200px;
+                    }
+
+                    > .date {
+                        color: #000;
+                        flex: 0 0 120px;
+                    }
+
+                    > .category {
+                        flex: 1 1 auto;
+                    }
+
+                    > .price {
+                        flex: 0 0 150px;
+                    }
+
+                    > .status {
+                        flex: 0 0 100px;
+                    }
+
+                    > .empty {
+                        position: relative;
+                        width: 100%;
+                        padding: 50px 0;
+                        border-radius: 10px;
+                        text-align: center;
+                        height: 400px;
+                        background: url('#{$IMG_SERVER}/common/none_visual.png') center 150px no-repeat;
+
+                        > .empty__title {
+                            font-size: 2.202em;
+                            font-weight: bold;
+                        }
+
+                        > .empty__caption {
+                            margin-top: 15px;
+                            font-size: 0.912em;
+                            font-weight: 300;
+                            color: #969696;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .studio__comment {
+        margin-top: 30px;
+
+        &__title {
+            padding-bottom: 13px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #000;
+            font-size: 1.188em;
+            font-weight: 500;
+            letter-spacing: -0.95px;
+        }
+
+        &__list {
+
+        }
+
+        &__input {
+            display: flex;
+            flex-flow: row nowrap;
+            height: 74px;
+
+            > .comment__message {
+                flex: 1 1 auto;
+            }
+
+            > .comment__send {
+                flex: 0 0 auto;
+                min-width: 80px;
+                margin-left: 25px;
+            }
+
+            .f__textarea {
+                height: 100%;
+            }
+
+            .f__button {
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+            }
+        }
+    }
+
+    .studio__buttons {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        justify-content: center;
+        margin: 50px 0;
+        
+        .f__button {
+            width: 179px;
+            height: 50px;
+            color: #000;
+            font-size: 1.094em;
+            font-weight: 500;
+            border: 2px solid #000;
+            border-radius: 50px;
+        }
+    }
+}

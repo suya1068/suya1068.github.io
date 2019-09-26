@@ -1,0 +1,33 @@
+.poster {
+    position: relative;
+    text-align: center;
+
+    &-outer {
+        position: relative;
+        padding: 0.2rem 0.4rem;
+    }
+
+    &__easel {
+        margin-bottom: 20px;
+    }
+
+    &__text {
+        &__title {
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: 500;
+            color: #000;
+            letter-spacing: -1px;
+            text-align: center;
+        }
+
+        &__caption {
+            font-size: 12px;
+            font-weight: 300;
+            color: #969696;
+            letter-spacing: -0.6px;
+            text-align: center;
+
+        }
+    }
+}

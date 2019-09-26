@@ -1,0 +1,97 @@
+.estimate-about {
+    padding: 30px;
+    text-align: center;
+    background-color: #fafafa;
+
+    // estimate-about global start
+    .title {
+        font-size: 18px;
+        padding-bottom: 5px;
+        font-weight: 500;
+        color: #000;
+    }
+    .describe {
+        font-size: 16px;
+        word-break: keep-all;
+        line-height: 1.4;
+        color: #666;
+    }
+    // estimate-about global end
+
+    &__header {
+        padding-bottom: 40px;
+    }
+
+    &__step {
+        padding-bottom: 40px;
+        .wrap-steps {
+            display: flex;
+            flex: 1 1 auto;
+            flex-wrap: wrap;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        > .describe {
+            padding-bottom: 30px;
+        }
+
+        .step {
+            flex: 0 0 45%;
+            padding: 10px 0;
+
+            .step-inner {
+                width: 100%;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+        }
+        .step-text {
+            text-align: center;
+            padding-top: .8rem;
+            font-size: 16px;
+
+            .title {
+                color: #999;
+                padding-bottom: 20px;
+            }
+
+            .describe {
+                color: #333;
+                padding-bottom: 30px;
+            }
+        }
+    }
+
+    &__tip {
+        padding: 15px;
+        border-radius: 10px;
+        background-color: #f1f1f1;
+        text-align: left;
+        color: #333;
+        .tip {
+            padding-bottom: 10px;
+        }
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            padding-bottom: 10px;
+        }
+        .text {
+            word-break: keep-all;
+            font-weight: 500;
+            padding-bottom: 5px;
+        }
+        .caption {
+            word-break: keep-all;
+            line-height: 1.6;
+
+            &.strong {
+                color: #d0021b;
+            }
+        }
+    }
+}

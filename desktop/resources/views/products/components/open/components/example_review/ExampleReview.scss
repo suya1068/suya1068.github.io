@@ -1,0 +1,137 @@
+.example__review {
+
+    .example__title {
+
+    }
+
+    .example__list {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .example__item {
+        flex: 0 1 33.33%;
+        padding: 15px;
+        background-color: #fff;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 2px 2px 6px -4px #000;
+        color: #555;
+        cursor: pointer;
+
+        &:hover {
+            .thumb_img {
+                .image-content {
+                    transform: scale(1.1);
+                }
+            }
+        }
+
+        &:nth-child(n+2) {
+            margin-left: 30px;
+        }
+
+        &.coming_soon {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .example__row {
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            &.justify__center {
+                justify-content: center;
+            }
+
+            &:nth-child(n+2) {
+                margin-top: 15px;
+            }
+        }
+
+        .profile {
+            flex: 0 0 40px;
+            height: 40px;
+            border-radius: 100%;
+            overflow: hidden;
+        }
+
+        .artist_name {
+            flex: 0 1 auto;
+            font-size: 0.813em;
+            margin-left: 10px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .interpunct {
+            margin: 0 5px;
+            font-weight: bold;
+        }
+
+        .txt_click {
+            flex: 0 0 auto;
+            color: #ffba00;
+        }
+
+        .category {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 5px 7px;
+            background-color: #fff;
+            border-radius: 5px;
+            font-size: 0.688em;
+            line-height: 1;
+        }
+
+        .thumb_count {
+
+        }
+
+        .thumb_img {
+            flex: 1 1 100%;
+            border-radius: 5px;
+            overflow: hidden;
+
+            .image-content {
+                transition: transform 0.3s;
+            }
+        }
+
+        .button_count {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            span {
+                margin-left: 10px;
+                color: #aaa;
+                font-size: 0.813em;
+            }
+        }
+
+        .button_chat {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-left: 50px;
+        }
+
+        .content {
+            height: 105px;
+            font-size: 0.875em;
+            line-height: 1.5;
+            overflow: hidden;
+        }
+
+        .txt_coming_soon {
+            margin-top: 5px;
+        }
+    }
+}

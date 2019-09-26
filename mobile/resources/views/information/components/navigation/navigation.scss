@@ -1,0 +1,40 @@
+.mobile-information {
+	.information-navigation {
+		padding: {
+			left: 1rem;
+			right: 1rem;
+		}
+		background-color: #fff;
+		overflow: hidden;
+		border-bottom: 1px solid #e1e1e1;
+
+		.information-nav-group {
+			height: 50px;
+			display: flex;
+			align-items: center;
+			flex: 0;
+			.information-nav-item {
+				font-size: .9rem;
+
+				&:nth-child(n + 2) {
+					margin-left: 1rem;
+				}
+
+				&.active {
+					border-bottom: 2px solid #ffba00;
+				}
+
+				height: 100%;
+				line-height: 50px;
+			}
+
+			.information-nav-link--active {
+				color: #ffba00 !important;
+			}
+
+			.information-nav-link {
+				color: #000;
+			}
+		}
+	}
+}

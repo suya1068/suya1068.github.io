@@ -1,0 +1,14 @@
+.addition__date {
+    padding: 20px;
+
+    &__calendar {
+
+        &.disabled {
+            opacity: 0.35;
+        }
+
+        .slim-calendar__view {
+            min-height: 260px;
+        }
+    }
+}

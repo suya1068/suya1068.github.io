@@ -1,0 +1,23 @@
+.ex_card__panel__type {
+	// =========== normal type ==============
+	&.normal {
+		display: flex;
+		position: absolute;
+		bottom: 0;
+	}
+
+	.normal__title {
+		//font-family: "Nanum Myeongjo", Helvetica, AppleSDGothicNeo, Arial, sans-serif;
+		font-weight: bold;
+	}
+
+	.normal__content {
+		&-key {
+			font-size: 18px;
+			letter-spacing: -0.5px;
+			line-height: 1.67;
+			margin-bottom: 5px;
+		}
+	}
+	// =========== normal type ./end ==============
+}

@@ -1,0 +1,39 @@
+.tabMenu-box {
+    display: inline-block;
+    width: 100%;
+    //height: 110px;
+    padding: {
+        top: 50px;
+        bottom: 30px;
+    }
+
+    .tabMenu-child {
+        display: table;
+        cursor: pointer;
+        //height: inherit;
+        float: left;
+        width: 20%;
+
+        .tabMenu-content {
+            display: table-cell;
+            //vertical-align: middle;
+            text-align: center;
+
+            .tabMenu-icon {
+                text-align: center;
+            }
+            .tabMenu-text {
+                display: inline-block;
+                margin-top: 10px;
+                font-size: 15px;
+                letter-spacing: -0.6px;
+                color: #969696;
+            }
+            &.active {
+                .tabMenu-text {
+                    color: #000;
+                }
+            }
+        }
+    }
+}

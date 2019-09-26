@@ -1,0 +1,64 @@
+.users-history {
+
+}
+
+.history-search {
+    border: 1px solid #e1e1e1;
+    background-color: #fff;
+    margin-top: 15px;
+    .search-period,
+    .search-period-set {
+        display: flex;
+        padding: 0.975rem;
+        > p {
+            display: flex;
+            align-items: center;
+            width: 17vw;
+            font-weight: 500;
+            letter-spacing: -1px;
+        }
+    }
+}
+
+.search-period {
+    .period-buttons {
+        display: flex;
+        flex-direction: row;
+        flex: 1 1 auto;
+        border: 1px solid #e1e1e1;
+        > div:nth-child(n+2) {
+            border-left: 1px solid #e1e1e1;
+        }
+        color: #969696;
+
+        .latestMonth,
+        .aMonthAgo,
+        .twoMonthsAgo {
+            display: flex;
+            flex: 1;
+            justify-content: center;
+            padding: 0.8rem 0;
+
+            &.active {
+                background-color: #ff326c;
+                color: #fff;
+            }
+        }
+
+        .latestMonth {
+
+        }
+        .aMonthAgo {
+
+        }
+        .twoMonthsAgo {
+
+        }
+    }
+}
+
+.search-period-set {
+    .search-btn {
+        border-radius: 6px;
+    }
+}

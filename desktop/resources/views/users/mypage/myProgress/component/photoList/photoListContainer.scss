@@ -1,0 +1,52 @@
+.photo-list-container-component {
+	.shower-photo-viewer {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: 2000;
+		visibility: visible;
+
+		&.hide {
+			z-index: 0;
+			visibility: hidden;
+		}
+
+		.viewer-close-button {
+			position: absolute;
+			top: 155px;
+			right: 35px;
+			border: none;
+			box-shadow: none;
+			background: none;
+			z-index: 2;
+			width: 30px;
+			height: 30px;
+			padding: 0;
+
+			transform: rotate(45deg);
+			cursor: pointer;
+
+			&:before,
+			&:after {
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%,-50%);
+				position: absolute;
+				display: inline-block;
+				content: "";
+				background-color: #fff;
+				transition: background-color .6s;
+			}
+			&:before {
+				width: 2px;
+				height: 100%;
+			}
+			&:after {
+				width: 100%;
+				height: 2px;
+			}
+		}
+	}
+}

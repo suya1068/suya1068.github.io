@@ -1,0 +1,32 @@
+$row_padding: 28px;
+$main_padding: 10px;
+
+.personal__page {
+    .main__row {
+        padding: $row_padding 0;
+
+        .main-reserve-complete,
+        .main-review,
+        .main-information {
+            padding: $row_padding 0;
+        }
+
+        .main__intro {
+            padding: 20px $main_padding;
+        }
+
+        .ma__itr {
+            border: 1px solid #dedede;
+
+            .itr__ct:nth-of-type(n+2) {
+                border-top: 1px solid #dedede;
+            }
+        }
+
+        .ma__rcmd {
+            .rcmd__ct {
+                padding: 0 $main_padding;
+            }
+        }
+    }
+}

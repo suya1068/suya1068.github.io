@@ -1,0 +1,38 @@
+.aboutTabs-container {
+	//background-color: #fafafa;
+	min-height: calc(100vh - 290px - 88px - 50px);
+	.aboutTabs-tabs {
+		display: flex;
+		flex-direction: row;
+		background-color: #fff;
+	}
+}
+
+.aboutTabs-tabs .tabs {
+	width: calc(100vw / 3);
+	text-align: center;
+	padding: 0.9rem 0.5rem;
+	border-top: 1px solid #e1e1e1;
+	border-bottom: 1px solid #e1e1e1;
+	&.active {
+		position: relative;
+		color: #ffba00;
+
+		&.longer {
+			&:after {
+				width: 70px;
+			}
+		}
+
+		&:after {
+			position: absolute;
+			content: " ";
+			width: 55px;
+			bottom: 0;
+			left: 50%;
+			height: 1px;
+			transform: translateX(-50%);
+			background-color: #ffba00;
+		}
+	}
+}

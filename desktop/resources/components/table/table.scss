@@ -1,0 +1,128 @@
+//////////
+//// 1. table css
+//// 2. pagelist css
+
+//// 1. table css
+.table {
+    min-width: 100%;
+    border: 1px solid #e1e1e1;
+    border-top: 2px solid #000;
+    table-layout: fixed;
+
+    &.style-trans {
+        border: none !important;
+        background-color: transparent !important;
+
+        thead, tbody, tfooter,
+        tr, th, td {
+            border: none !important;
+            background-color: transparent !important;
+        }
+    }
+
+    tr {
+        border-bottom: 1px solid #e1e1e1;
+    }
+
+    th, td {
+        font-size: 14.6px;
+        letter-spacing: -0.7px;
+        color: #000;
+        border-right: 1px solid #e1e1e1;
+
+        &:last-child {
+            border-right: none;
+        }
+    }
+
+    td {
+        padding: 19px;
+        font-weight: normal;
+    }
+
+    thead {
+        background-color: #f1f1f1;
+
+        > tr {
+            > th {
+                padding: 15px 18px;
+                text-align: center;
+                font-weight: 500;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    tbody {
+        background-color: #fff;
+    }
+
+    tfoot {
+
+    }
+
+    &.table-horizontal {
+        text-align: left;
+
+        thead {
+            tr {
+                th {
+                    font-size: 18.9px;
+                    font-weight: bold;
+                    text-align: center;
+                }
+            }
+        }
+        tbody {
+            tr {
+                td {
+                    &:nth-child(odd) {
+                        font-weight: bold;
+                        background-color: #f1f1f1;
+                        vertical-align: middle;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//// 2. pagelist css
+.pagelist {
+    .btn {
+        width: 34px;
+        height: 34px;
+        border-radius: 100%;
+        padding: 0;
+        margin-left: 10px;
+        background-color: #f3f3f3;
+        color: #969696;
+        font-size: 13px;
+        font-weight: normal;
+        line-height: 0.95;
+        letter-spacing: -0.6px;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &.active {
+            background-color: #000;
+            color: #fff;
+        }
+    }
+
+    .pagelist-laquo {
+
+    }
+    .pagelist-lt {
+
+    }
+    .pagelist-gt {
+
+    }
+    .pagelist-raquo {
+
+    }
+}

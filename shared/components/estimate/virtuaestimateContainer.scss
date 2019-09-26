@@ -1,0 +1,61 @@
+//.virtual-estimate__container {
+//    padding: 70px 0 60px;
+//    background-color: #f9f9f9;
+//
+//    .section__title {
+//        font-size: 30px;
+//        font-weight: bold;
+//        letter-spacing: normal;
+//        text-align: center;
+//    }
+//
+//    .virtual-estimate__content {
+//        margin-top: 24px;
+//    }
+//
+//    .virtual-estimate__box {
+//        padding: 40px 60px;
+//        background-color: #fff;
+//    }
+//    .virtual-estimate__button {
+//        margin-top: 40px;
+//        display: flex;
+//        align-items: center;
+//        justify-content: center;
+//
+//        .estimate-btn {
+//            width: 260px;
+//            font-size: 18px;
+//            font-weight: bold;
+//            padding: 17px 0;
+//            border: solid 1px #999999;
+//            color: #999999;
+//
+//            transition: color 0.2s, border 0.2s ease-in-out;
+//
+//            &.active {
+//                cursor: pointer;
+//                color: #000;
+//                border-color: #000;
+//            }
+//
+//            &:nth-child(n + 2) {
+//                margin-left: 10px;
+//            }
+//        }
+//    }
+//
+//    .estimate-overlay {
+//        position: absolute;
+//        top: 50%;
+//        left: 50%;
+//        width: 700px;
+//        height: 60px;
+//        background-color: rgba(0, 0, 0, 0.5);
+//        color: #fff;
+//        border-radius: 9px;
+//        text-align: center;
+//        padding: 18px;
+//        transform: translate(-50%, -50%);
+//    }
+//}

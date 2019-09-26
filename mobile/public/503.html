@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="k0">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>503 - 포스냅 서비스 점검중</title>
+    <meta property="og:type" content="website">
+    <meta name="keywords" content="">
+    <meta property="og:title" content="503 - 포스냅 서비스 점검중">
+    <meta property="og:description" content="보다 안정적인 서비스 제공을 위해 시스템 관련 점검을 진행합니다. 점검시간동안 포스냅 사이트 이용이 제한됩니다.">
+    <meta property="og:site_name" content="Forsnap">
+    <meta property="og:url" content="https://forsnap.com/50x.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://image.forsnap.com/error/50x_img.png">
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="503 - 포스냅 서비스 점검중">
+    <meta property="twitter:description" content="보다 안정적인 서비스 제공을 위해 시스템 관련 점검을 진행합니다. 점검시간동안 포스냅 사이트 이용이 제한됩니다.">
+    <meta property="twitter:site" content="@forsnap">
+    <meta property="twitter:image" content="https://image.forsnap.com/check/ser_visual.png">
+    <!--<link rel="stylesheet" href="https://fonts.googleapis.com/earlyaccess/notosanskr.css">-->
+    <!--<link href="//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet" type="text/css">-->
+    <!-- Google Analytics -->
+    <script>
+        document.cookie = "_ga=; expires=Thu, 01 Jan 1970 00:00:01 GMT; domain=.forsnap.com; path=/";
+        document.cookie = "_gat=; expires=Thu, 01 Jan 1970 00:00:01 GMT; domain=.forsnap.com; path=/";
+
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.crossorigin="anonymous";m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', {
+            trackingId: 'UA-91761764-2',
+            cookieDomain: 'none',
+            name: 'Event'
+        });
+    </script>
+    <!-- End Google Analytics -->
+    <style>
+        html {
+            box-sizing: border-box;
+            /*font-family: "Spoqa Han Sans", Helvetica, AppleSDGothicNeo, Arial, sans-serif;*/
+            font-family: Helvetica, AppleSDGothicNeo, Arial, sans-serif;
+        }
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+        p {
+            margin: 0;
+        }
+        html,
+        body {
+            height: 100%;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #root {
+            position: relative;
+            height: 100%;
+        }
+        .container {
+            position: relative;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            display: table;
+        }
+        .vbox {
+            position: relative;
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+            height: 100%;
+        }
+        .upper_box {
+            height: 50%;
+            background-color: #fafafa;
+            padding: 1rem;
+            width: 100%;
+        }
+
+        .under_box {
+            height: 50%;
+            background-color: #fff;
+            padding: 1rem;
+        }
+        .box {
+            position: relative;
+            display: table-cell;
+            text-align: center;
+        }
+        .box.upper {
+            vertical-align: middle;
+        }
+        .box.upper .message-box {
+            margin-top: 30px;
+        }
+        .box.bottom {
+            vertical-align: middle;
+        }
+
+        .message-box {
+            position: relative;
+        }
+        .message-box__view {
+            position: relative;
+            margin-bottom: 10px;
+        }
+        .message-box__content {
+            font-weight: 500;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.18;
+            letter-spacing: -0.9px;
+            text-align: center;
+        }
+        .message-box__content-title {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .message-box__content-description{
+            font-size: 0.8rem;
+            color: #969696;
+            word-break: keep-all;
+            margin-bottom: 10px;
+        }
+        .message-box_-content-date {
+            font-size: 12px;
+        }
+
+        .picture-box__view {
+            display: inline-block;
+            text-align: center;
+        }
+
+        .picture-box__title {
+            font-size: 0.8rem;
+            letter-spacing: -0.8px;
+            margin-bottom: 15px;
+        }
+
+        .picture-box__view-item {
+            float: left;
+            width: 75px;
+            height: 75px;
+            border: 1px solid #e1e1e1;
+        }
+
+        .picture-box__view-item:nth-child(n + 2) {
+            margin-left: 10px;
+        }
+
+        .picture-box__view-item > img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .button {
+            display: inline-block;
+            width: 240px;
+            height: 50px;
+            line-height: 46px;
+            padding: 0 1.1em;
+            font-weight: 500;
+            font-size: 17px;
+            outline: 0;
+            color: #000;
+            border: 2px solid #000;
+            -webkit-border-radius: 30px 30px 30px 30px;
+            -moz-border-radius: 30px 30px 30px 30px;
+            border-radius: 30px 30px 30px 30px;
+            cursor: pointer;
+            vertical-align: middle;
+            text-decoration: none;
+            letter-spacing: -0.9px;
+            text-align: center;
+            white-space: nowrap;
+            transition: all 0.25s ease-in-out;
+        }
+        .button-group {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="root">
+    <div class="vbox">
+        <div class="upper_box">
+            <div class="container">
+                <div class="box bottom">
+                    <div class="message-box">
+                        <div class="message-box__view">
+                            <img src="http://image.sskim-forsnap.com/check/ser_visual.png" width="140" height="100" alt="503 이미지">
+                        </div>
+                        <div class="message-box__content">
+                            <p class="message-box__content-title">
+                                포스냅 서비스 점검 중입니다.
+                            </p>
+                            <p class="message-box__content-description">
+                                보다 안정적인 서비스 제공을 위해<br /> 시스템 관련 점검을 진행합니다.<br />
+                                점검시간동안 포스냅 사이트 이용이 제한됩니다.
+                            </p>
+                            <p class="message-box_-content-date">
+                                점검일시 3월 29일(목) 04시 ~ 07시
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="under_box">
+            <div class="container">
+                <div class="box upper">
+                    <div class="picture-box">
+                        <p class="picture-box__title">
+                            점검때만 볼 수 있는 운영자 추천 사진촬영 최애 포즈
+                        </p>
+                        <div class="picture-box__view">
+                            <div class="picture-box__view-item">
+                                <img src="http://image.sskim-forsnap.com/check/pose_01.jpg" alt="최애포즈 첫번째">
+                            </div>
+                            <div class="picture-box__view-item">
+                                <img src="http://image.sskim-forsnap.com/check/pose_02.jpg" alt="최애포즈 두번째">
+                            </div>
+                            <div class="picture-box__view-item">
+                                <img src="http://image.sskim-forsnap.com/check/pose_03.jpg" alt="최애포즈 세번째">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <a href="https://www.facebook.com/photogoja/" class="button" id="redirectPage" onclick="onMovePage(e)">더 많은 포즈, 구경 하실래요?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    document.getElementById("redirectPage").onclick = onMovePage;
+
+    function onMovePage(e) {
+        e.preventDefault();
+        ga("Event.send", "event", {
+            eventCategory: "M_공통페이지",
+            eventAction: "포스냅 서비스점검",
+            eventLabel: "모바일"
+        });
+        location.href = e.currentTarget.href;
+    }
+</script>
+</body>
+</html>

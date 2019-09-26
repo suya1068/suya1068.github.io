@@ -1,0 +1,32 @@
+{% extends "template/public.twig" %}
+
+{% block meta_data %}
+    <meta id="product-data" content="{{ products['result'] }}">
+    <meta id="category-data" content="{{ category_list }}">
+    <meta id="params" content="{{ params }}">
+{% endblock %}
+
+{% block template %}
+    {% if products["data"] and products["data"]["list"] %}
+        <h1>상품 리스트</h1>
+        <div class="product_list__portfolio-list portfolio-list product__dist">
+            <div class="portfolio-list__content">
+                {% for o in products["data"]["list"] %}
+                    <a href="/{{ products["is_biz"] ? "portfolio" : "products" }}/{{ o.product_no }}" target="_blank">
+                        <div class="portfolio_item">
+                            <div class="portfolio_item__thumb">
+                                <div class="image-content">
+                                    <img alt="이미지" class="" src="{{ thumb_host }}/normal/crop/504x504{{ o.thumb_img }}" style="width: 242px; height: 242px;">
+                                </div>
+                            </div>
+                            <div class="portfolio_item__info">
+                                <p class="portfolio_item__info-title">{{ o.title }}</p>
+                                <p class="portfolio_item__info-artist"><a href="/@{{ o.nick_name }}">by {{ o.nick_name }}</a></p>
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

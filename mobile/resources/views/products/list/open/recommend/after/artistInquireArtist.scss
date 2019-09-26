@@ -1,0 +1,43 @@
+.after-inquire-artist {
+	background-color: #f1f1f1;
+	padding: 35px 15px;
+	transition: all 0.2s ease-in-out;
+
+	.section-title {
+		font-size: 18px;
+	}
+
+	.exam-title {
+		font-size: 14px;
+		font-weight: bold;
+		text-align: center;
+		padding-top: 5px;
+		margin-bottom: 15px;
+		.required {
+			color: #ff326c;
+		}
+
+		.desc {
+			color: #666;
+		}
+	}
+
+	.inquire-list {
+		margin-top: 14px;
+	}
+
+	.inquire-btn {
+		text-align: center;
+		margin-top: 18px;
+
+		> .button {
+			background-color: #f7b500;
+			font-size: 13px;
+			font-weight: bold;
+			padding: 11px 23px;
+			color: #fff;
+			border-radius: 0;
+			letter-spacing: normal;
+		}
+	}
+}

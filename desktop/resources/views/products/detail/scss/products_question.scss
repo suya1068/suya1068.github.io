@@ -1,0 +1,122 @@
+.popup__products__question {
+    width: 450px;
+    .layout {
+        &__header {
+            display: flex;
+            align-items: center;
+            flex: 1 1 auto;
+            width: 100%;
+            .profile_image {
+                display: inline-block;
+                margin-right: 20px;
+                width: 60px;
+                height: 60px;
+                border-radius: 100%;
+                overflow: hidden;
+                flex: 0 0 60px;
+            }
+            h1 {
+                font-weight: normal;
+                font-size: 1.25em;
+                width: 100%;
+                text-align: left;
+                word-break: keep-all;
+            }
+        }
+
+        &__body {
+            margin-top: 24px;
+
+            &__side{
+                &__left {
+                }
+
+                &__right {
+                }
+            }
+
+            &__main {
+                > :nth-child(n+2) {
+                    margin-top: 15px;
+                }
+            }
+        }
+
+        &__footer {
+        }
+    }
+
+    .question__message {
+        .f__textarea {
+            border: 2px solid #e1e1e1;
+            border-radius: 10px;
+            font-size: 1em;
+        }
+    }
+
+    .question__phone {
+        input {
+            padding: 0.725em;
+            border: 0;
+            border-bottom: 4px solid #000;
+            border-radius: 0;
+            box-shadow: none;
+            font-weight: bold;
+            letter-spacing: 14px;
+            text-align: center;
+        }
+    }
+
+    .question__caption {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        color: #969696;
+        font-size: 13px;
+        margin-top: 10px;
+
+        .icon {
+            display: flex;
+            flex: 0 0 auto;
+            align-items: center;
+            justify-content: center;
+            border-radius: 100%;
+            color: #ff326c;
+            border: 1px solid #ff326c;
+            padding: 7px;
+            margin-right: 3px;
+            height: 0;
+            width: 0;
+            line-height: 0;
+            font-size: 7px;
+            text-indent: -1px;
+        }
+
+        .text {
+            flex: 0 0 auto;
+        }
+    }
+
+    .question__button {
+        width: 100%;
+    }
+
+    .question__info {
+        text-align: left;
+        background: #f1f1f1;
+        padding: 20px;
+        margin-top: 25px !important;
+        line-height: 1.7;
+        border-radius: 10px;
+
+        .title {
+            font-weight: 500;
+            font-size: 13px;
+        }
+
+        .text {
+            font-size: 11px;
+            color: #969696;
+        }
+    }
+}
