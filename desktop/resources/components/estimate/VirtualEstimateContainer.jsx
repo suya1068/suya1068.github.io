@@ -10,11 +10,12 @@ import VirtualEstimateSteps from "./step/VirtualEstimateSteps";
 import VirtualEstimateProgressBar from "./progress/VirtualEstimateProgressBar";
 import VirtualEstimateResult from "./result/VirtualEstimateResult";
 import PopReceiveEmail from "../../views/products/components/open/components/pop/email/PopReceiveEmail";
-import { STEP_KEY } from "./helper/const/base.const";
+import { STEP_KEY, PAGE_TYPE_DATA } from "./helper/const/base.const";
 import * as virtualEstimateHelper from "../../views/products/components/open/components/virtual_estimate/virtualEstimateHelper";
 import { ADVICE_EXTRA_TEXT, PROPERTYS } from "../../views/products/components/open/components/virtual_estimate/virtual_estimate.const";
 import VirtualEstimateHelper from "./helper/VirtualEstimateHelper";
-// import VirtualEstimateSteps from "./step/VirtualEstimateStepsContainer";
+import * as EstimateSession from "shared/components/estimate/helper/extraInfoSession";
+import Icon from "desktop/resources/components/icon/Icon";
 
 export default class VirtualEstimateContainer extends Component {
     constructor(props) {
@@ -22,20 +23,23 @@ export default class VirtualEstimateContainer extends Component {
         this.state = {
             category: props.category,
             step: STEP_KEY.FIRST,
+            device_type: props.device_type,
+            access_type: props.access_type,
+            pageData: PAGE_TYPE_DATA[props.access_type === "portfolio" ? "detail" : props.access_type],
+            stepDist: PAGE_TYPE_DATA[props.access_type === "portfolio" ? "detail" : props.access_type].DIST,
             data: {},
             form: {},
             priceInfo: {},
             hasAlphas: false,
             totalPrice: 0,
             lastStep: null,
-            device_type: "pc",
             agent: cookie.getCookies("FORSNAP_UUID"),
-            access_type: props.access_type,
             flag: false,
             isFirst: true,
-            isAbleMoveStep: false
+            isAbleMoveStep: false,
+            isTest: true,
+            isLoadData: false
         };
-
         // 오픈견적 헬퍼 인스턴스 셋
         this.VirtualHelper = new VirtualEstimateHelper({ category: props.category });
         // 오픈견적 데이터 초기화
@@ -50,6 +54,9 @@ export default class VirtualEstimateContainer extends Component {
         this.receiveEmail = this.receiveEmail.bind(this);
         this.exchangeResultText = this.exchangeResultText.bind(this);
         this.onCheckMoveFlag = this.onCheckMoveFlag.bind(this);
+        //
+        this.onConsultSearchArtist = this.onConsultSearchArtist.bind(this);
+        this.onConsult = this.onConsult.bind(this);
     }
 
     componentWillMount() {
@@ -58,6 +65,75 @@ export default class VirtualEstimateContainer extends Component {
     }
 
     componentDidMount() {
+        const { category } = this.props;
+        const hasVirtualEstimate = EstimateSession.getSessionEstimateData(EstimateSession.EXTRA_INFO_KEY);
+
+        if (!utils.type.isEmpty(hasVirtualEstimate) && category === hasVirtualEstimate.category) {
+            const extraInfo = JSON.parse(hasVirtualEstimate.extra_info);
+            this.setTest(extraInfo, hasVirtualEstimate.estimate_no);
+        }
+    }
+
+    componentWillReceiveProps(nextProps, nextContext) {
+        const { category, estimate_no } = nextProps;
+
+        if (this.state.category !== nextProps.category) {
+            this.setEstimateData(category, true).then(() => {
+                this.setVirtualData(category);
+            });
+        }
+    }
+
+    setTest(extraInfo, estimate_no) {
+        const { lastStep, data, agent, isLoadData } = this.state;
+        this.initActive(data, true);
+
+        this.setState({
+            step: this.VirtualHelper.getUtils().numberToStep(lastStep),
+            // stepData: data[lastStep],
+            form: { ...extraInfo },
+            isResult: true,
+            totalPrice: extraInfo.total_price,
+            data,
+            recommendParams: this.createRecommendArtistParams({
+                form: { ...extraInfo },
+                total_price: extraInfo.total_price,
+                hasAlphas: false,
+                agent
+            }),
+            estimate_no,
+            isTest: false
+        }, () => {
+            this.onChangeStepData(data);
+            if (typeof this.props.receiveTotalPrice === "function") {
+                this.props.receiveTotalPrice(this.state.totalPrice);
+            }
+        });
+    }
+
+    /**
+     * 오픈견적 데이터를 설정합니다.
+     * @param category
+     * @param flag - 초기화 여부
+     * @returns {Promise<VirtualEstimateHelper|VirtualEstimateHelper>}
+     */
+    async setEstimateData(category, flag = false) {
+        if (flag) {
+            this.setState({
+                data: this.initActive(this.state.data)
+            }, () => {
+                this.Steps.receiveInitFlag(true);
+                if (this.VirtualHelper.getUtils().isLastFlag()) {
+                    this.VirtualHelper.getUtils().changeLastFlag(false);
+                }
+                if (typeof this.props.receiveTotalPrice === "function") {
+                    this.props.receiveTotalPrice(0);
+                }
+            });
+        }
+
+        this.VirtualHelper = this.VirtualHelper.exchangeCategory(category);
+        return this.VirtualHelper;
     }
 
     /**
@@ -76,7 +152,9 @@ export default class VirtualEstimateContainer extends Component {
             if (this.VirtualHelper.getUtils().isLastFlag()) {
                 this.VirtualHelper.getUtils().changeLastFlag(false);
             }
-            this.props.receiveTotalPrice(0);
+            if (typeof this.props.receiveTotalPrice === "function") {
+                this.props.receiveTotalPrice(0);
+            }
         });
     }
 
@@ -85,9 +163,9 @@ export default class VirtualEstimateContainer extends Component {
      * @param data
      * @returns {*}
      */
-    initActive(data) {
+    initActive(data, flag = false) {
         const arrKeys = Object.keys(data);
-        arrKeys.map(key => { data[key].ACTIVE = false; return null; });
+        arrKeys.map(key => { data[key].ACTIVE = flag; return null; });
 
         return data;
     }
@@ -95,13 +173,48 @@ export default class VirtualEstimateContainer extends Component {
     /**
      * 오픈견적 데이터 셋
      */
-    setVirtualData() {
+    setVirtualData(category) {
         const step = this.VirtualHelper.getStepProcess();
         this.setState({
+            category,
             data: step.STEP,
+            step: "FIRST",
+            totalPrice: 0,
             form: this.setForm(step.VIRTUAL_PROP),
             priceInfo: this.VirtualHelper.getPriceInfo(),
             lastStep: this.VirtualHelper.getTotalStep()
+        }, () => {
+            const { lastStep, data, isTest, access_type, agent } = this.state;
+            const hasVirtualEstimate = EstimateSession.getSessionEstimateData(EstimateSession.EXTRA_INFO_KEY);
+
+            if (!utils.type.isEmpty(hasVirtualEstimate) && access_type === "main") {
+                console.log("entry");
+                const extraInfo = JSON.parse(hasVirtualEstimate.extra_info);
+                if (hasVirtualEstimate.category === category) {
+                    Object.keys(data).map(key => { data[key].ACTIVE = true; return null; });
+                    this.setState({
+                        step: this.VirtualHelper.getUtils().numberToStep(lastStep),
+                        // stepData: data[lastStep],
+                        form: { ...extraInfo },
+                        totalPrice: extraInfo.total_price,
+                        data,
+                        recommendParams: this.createRecommendArtistParams({
+                            form: { ...extraInfo },
+                            total_price: extraInfo.total_price,
+                            hasAlphas: false,
+                            agent
+                        }),
+                        isLoadData: true,
+                        estimate_no: hasVirtualEstimate.estimate_no
+                    }, () => {
+                        this.onChangeStepData(data);
+                    });
+                }
+            } else {
+                this.setState({
+                    isLoadData: false
+                });
+            }
         });
     }
 
@@ -123,7 +236,7 @@ export default class VirtualEstimateContainer extends Component {
      * @param form
      */
     calculatePrice(form) {
-        const { data, priceInfo } = this.state;
+        const { data, priceInfo, isLoadData } = this.state;
         let hasAlphas = false;
 
         const stepKeyArr = Object.keys(data);
@@ -140,7 +253,7 @@ export default class VirtualEstimateContainer extends Component {
             totalPrice = 0;
         }
 
-        if (totalPrice) {
+        if (totalPrice && !isLoadData) {
             this.onConsultEstimate(totalPrice, hasAlphas);
         }
 
@@ -200,7 +313,7 @@ export default class VirtualEstimateContainer extends Component {
                 // 작가상담용 객체 키, 밸류 값을 치환합니다. (extra_text)
                 const recommendParams = this.createRecommendArtistParams({ form, total_price: totalPrice, hasAlphas, agent });
                 recommendParams.estimate_no = response.data.estimate_no;
-                //EstimateSession.setSessionEstimateData(EstimateSession.EXTRA_INFO_KEY, recommendParams);
+                EstimateSession.setSessionEstimateData(EstimateSession.EXTRA_INFO_KEY, recommendParams);
                 this.gaEvent("견적산출");
                 this.setState({
                     estimate_no: data.estimate_no,
@@ -319,7 +432,7 @@ export default class VirtualEstimateContainer extends Component {
      * @param step(변경할 스텝)
      */
     onChangeStep(step) {
-        const { data, lastStep } = this.state;
+        const { data, lastStep, isTest } = this.state;
         const Steps = this.Steps;
         const isNextReady = Steps.getReadyStepActive();
 
@@ -371,9 +484,11 @@ export default class VirtualEstimateContainer extends Component {
         // // 테스트 코드
         // ableNext = true;
 
+        // console.log("isAbleMoveStep:", this.state.isAbleMoveStep);
+
         if (ableNext) {
             this.gaEvent(`${number}단계`);
-            if (this.state.isFirst && number === 2) {
+            if (this.state.isFirst && number === 2 && isTest) {
                 this.gaEvent("1단계");
             }
 
@@ -389,6 +504,11 @@ export default class VirtualEstimateContainer extends Component {
     onChangeForm(form) {
         this.setState({ form }, () => {
             this.calculatePrice(form);
+            if (this.state.isLoadData) {
+                this.setState({
+                    isLoadData: false
+                });
+            }
         });
     }
 
@@ -505,7 +625,13 @@ export default class VirtualEstimateContainer extends Component {
      * @param label
      */
     gaEvent(label) {
-        const { category } = this.props;
+        const { category, access_type } = this.props;
+        let eCategory = "기업_메인";
+        if (access_type === "list") {
+            eCategory = "기업_리스트";
+        } else if (access_type === "detail") {
+            eCategory = "기업_상세";
+        }
         let action = "";
         switch (category) {
             case "PRODUCT": action = "오픈견적_제품"; break;
@@ -519,21 +645,50 @@ export default class VirtualEstimateContainer extends Component {
             default:
         }
 
-        utils.ad.gaEvent("기업_리스트", action, label);
+        utils.ad.gaEvent(eCategory, action, label);
     }
 
     exchangeResultText(key, form, priceInfo) {
         return this.VirtualHelper.getUtils().exchangeResultText(key, form, priceInfo);
     }
+    /**
+     * 작가 상담
+     */
+    onConsultSearchArtist() {
+        const { estimate_no } = this.state;
+        const { onConsultSearchArtist } = this.props;
+        if (typeof onConsultSearchArtist === "function") {
+            onConsultSearchArtist(estimate_no);
+        }
+    }
+
+    onConsult() {
+        const { onConsult } = this.props;
+        const { totalPrice } = this.state;
+        if (totalPrice) {
+            if (typeof onConsult === "function") {
+                onConsult();
+            }
+        }
+    }
 
     render() {
         const { category } = this.props;
-        const { step, form, data, totalPrice, lastStep, hasAlphas, priceInfo } = this.state;
+        const { step, form, data, totalPrice, lastStep, hasAlphas, priceInfo, access_type } = this.state;
         return (
-            <div className="virtual-estimate__container">
-                <h2 className="section__title">정직한 촬영비용, 포스냅 예상견적으로 확인해 보세요!</h2>
+            <div className={classNames("virtual-estimate__container", access_type)}>
+                {access_type !== "main" &&
+                    <div className="container-head">
+                        <h2 className="section__title">정직한 촬영비용, 포스냅 예상견적으로 확인해 보세요!</h2>
+                        {access_type === "portfolio" &&
+                        <div className="virtual-estimate__close-btn" onClick={this.props.onClose}>
+                            <Icon name="big_black_close" />
+                        </div>
+                        }
+                    </div>
+                }
                 <div className="virtual-estimate__content">
-                    <div className="container">
+                    <div className={access_type === "main" ? "" : "container"}>
                         <div className="virtual-estimate__box">
                             <VirtualEstimateProgressBar
                                 totalStep={lastStep}
@@ -548,6 +703,7 @@ export default class VirtualEstimateContainer extends Component {
                                 totalPrice={totalPrice}
                                 totalStep={lastStep}
                                 category={category}
+                                access_type={access_type}
                                 onChangeForm={this.onChangeForm}
                                 onChangeStepData={this.onChangeStepData}
                                 onChangeStep={this.onChangeStep}
@@ -564,10 +720,20 @@ export default class VirtualEstimateContainer extends Component {
                                 hasAlphas={hasAlphas}
                                 exchangeResultText={this.exchangeResultText}
                             />
-                            <div className="virtual-estimate__button">
-                                <button className="estimate-btn active" onClick={this.onInit}>다시 계산하기</button>
-                                <button className={classNames("estimate-btn", { "active": totalPrice })} onClick={this.onReceiveEmail}>이메일로 견적 발송</button>
-                            </div>
+                            {access_type !== "main" ?
+                                <div className="virtual-estimate__button">
+                                    <button className="estimate-btn active" onClick={this.onInit}>다시 계산하기</button>
+                                    <button
+                                        className={classNames("estimate-btn", { "active": totalPrice })}
+                                        onClick={access_type === "portfolio" ? this.onConsult : this.onReceiveEmail}
+                                    >{access_type === "portfolio" ? "작가에게 무료상담신청" : "이메일로 견적 발송"}</button>
+                                </div> :
+                                <div className="virtual-estimate__button">
+                                    <button className={classNames("estimate-btn", "main-test", { "active": totalPrice })} style={{ width: 360 }} onClick={totalPrice ? this.onConsultSearchArtist : null}>
+                                        {totalPrice ? "이 견적으로 촬영 가능한 작가 확인하기" : "촬영 정보를 선택해주세요"}
+                                    </button>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>

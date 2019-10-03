@@ -5,6 +5,7 @@ import BusinessTab from "../tab/BusinessTab";
 import ArtistInfo from "./artist/ArtistInfo";
 import Review from "./review/Review";
 import ArtistReview from "./exmaple/ArtistReview";
+import AboutArtist from "../artist/AboutArtist";
 
 export default class ProductInformation extends Component {
     constructor(props) {
@@ -17,6 +18,7 @@ export default class ProductInformation extends Component {
         };
         this.onShow = this.onShow.bind(this);
         this.gaEvent = this.gaEvent.bind(this);
+        this.onConsult = this.onConsult.bind(this);
     }
 
     componentWillMount() {
@@ -46,8 +48,15 @@ export default class ProductInformation extends Component {
         }
     }
 
+    onConsult(access_type) {
+        if (typeof this.props.onConsult === "function") {
+            // access_type === "detail_artist" // 상세_작가문의
+            this.props.onConsult(access_type);
+        }
+    }
+
     render() {
-        const { review, career, artistReview, nickName } = this.props;
+        const { review, career, artistReview, nickName, data, region } = this.props;
         return (
             <section className={classNames("product__information")}>
                 <h2 className="sr-only">상품정보</h2>
@@ -55,6 +64,17 @@ export default class ProductInformation extends Component {
                 <div className="tab-clone" />
                 <div className="product__information__content-box">
                     <div className="product__information__content" id="artist_info">
+                        <AboutArtist
+                            intro={data.intro}
+                            nickName={data.nick_name}
+                            isCorp={data.is_corp}
+                            profile={data.profile_img}
+                            region={region}
+                            onConsult={this.onConsult}
+                            gaEvent={this.gaEvent}
+                        />
+                    </div>
+                    <div className="product__information__content" id="career">
                         <ArtistInfo career={career} gaEvent={this.gaEvent} />
                     </div>
                     <div className="product__information__content" id="review">

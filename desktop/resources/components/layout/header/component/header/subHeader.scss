@@ -2,6 +2,8 @@
 	height: 50px;
 	background-color: #fff;
 	border-bottom: 1px solid #e1e1e1;
+    font-family: "Noto Sans KR", "Spoqa Han Sans", Helvetica, AppleSDGothicNeo, Arial, sans-serif;
+
 	.container {
 		height: inherit;
 	}
@@ -45,6 +47,17 @@
 				}
 			}
 		}
+
+        .btn_concept {
+            width: 100px;
+            height: 32px;
+            margin-left: 20px;
+            border-radius: 32px;
+            border: solid 1px #000;
+            font-size: 0.813em;
+            font-weight: 500;
+            text-align: center;
+        }
 	}
 
 	.sub-header__right-content {

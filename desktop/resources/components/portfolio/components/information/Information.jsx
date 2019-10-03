@@ -19,6 +19,7 @@ import ProductsQuestion from "../../../../views/products/detail/components/Produ
 // import ChargeCount from "shared/helper/charge/ChargeCount";
 import ExampleReviewDetail from "desktop/resources/views/products/components/open/components/example_review/ExampleReviewDetail";
 import FirstPhase from "./pop/message/FirstPhase";
+import VirtualEstimateSteps from "desktop/resources/components/estimate/VirtualEstimateContainer";
 
 export default class Information extends Component {
     constructor(props) {
@@ -137,18 +138,30 @@ export default class Information extends Component {
         if (gaEvent) {
             gaEvent("유료_포폴_견적버튼");
         }
+        /*
+       <VirtualEstimate
+            onConsultSearchArtist={this.onConsultOur}
+            onConsultEstimate={this.onConsultEstimate}
+            receiveTotalPrice={this.receiveTotalPrice}
+            gaEvent={this.gaEvent}
+            init={this.init}
+            detailPage
+            modalName={modalName}
+            category={category}
+            onClose={() => PopModal.close(modalName)}
+        />,
+         */
         const modalName = "virtual_estimate_modal";
         // this.gaEvent("견적확인");
         PopModal.createModal(modalName,
-            <VirtualEstimate
-                onConsultSearchArtist={this.onConsultOur}
-                onConsultEstimate={this.onConsultEstimate}
-                receiveTotalPrice={this.receiveTotalPrice}
-                gaEvent={this.gaEvent}
-                init={this.init}
-                detailPage
-                modalName={modalName}
+            <VirtualEstimateSteps
                 category={category}
+                access_type="portfolio"
+                device_type="pc"
+                //estimate_no={estimate_no}
+                //receiveEstimate={receiveEstimate}
+                receiveTotalPrice={this.receiveTotalPrice}
+                onConsult={() => this.onConsult("detail_add")}
                 onClose={() => PopModal.close(modalName)}
             />,
             { modal_close: false, className: modalName }
@@ -365,10 +378,10 @@ export default class Information extends Component {
         p.device_type = "pc";
         p.category = this.props.category;
 
-        if (!totalPrice) {
-            delete p.extra_info;
-            delete p.extra_text;
-        }
+        // if (!totalPrice) {
+        //     delete p.extra_info;
+        //     delete p.extra_text;
+        // }
 
         if (information.product_no) {
             p.product_no = information.product_no;

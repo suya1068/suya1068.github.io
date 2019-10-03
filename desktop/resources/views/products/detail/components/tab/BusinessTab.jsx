@@ -73,12 +73,15 @@ export default class BusinessTab extends Component {
             }
 
             if (rect) {
-                const careerRect = document.getElementById("artist_info");
+                const artistInfo = document.getElementById("artist_info");
+                const careerRect = document.getElementById("career");
                 const reviewRect = document.getElementById("review");
                 const artistReviewRect = document.getElementById("artist_review");
 
-                if (careerRect.getBoundingClientRect() && careerRect.getBoundingClientRect().bottom > 185) {
+                if (artistInfo.getBoundingClientRect() && artistInfo.getBoundingClientRect().bottom > 180) {
                     this.onSelect("artist_info");
+                } else if (careerRect.getBoundingClientRect() && careerRect.getBoundingClientRect().bottom > 180) {
+                    this.onSelect("career");
                 } else if (reviewRect.getBoundingClientRect() && reviewRect.getBoundingClientRect().bottom > 180) {
                     this.onSelect("review");
                 } else if (artistReviewRect.getBoundingClientRect() && artistReviewRect.getBoundingClientRect().bottom > 180) {

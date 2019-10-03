@@ -32,3 +32,50 @@ export const STEP_KEY = {
     THIRD: "THIRD"
 };
 
+const PAGE_KEY = {
+    MAIN: "main",
+    LIST: "list",
+    DETAIL: "detail"
+};
+
+export const PAGE_TYPE_DATA = {
+    [PAGE_KEY.MAIN]: {
+        CODE: PAGE_KEY.MAIN,
+        NAME: "메인",
+        TITLE: "정직한 촬영비용,\n3초만에 확인해보세요!",
+        BUTTON: {
+            TEXT: "이 견적으로 촬영 가능한 작가 확인하기",
+            TYPE: "full"
+        },
+        DIST: {
+            BASE: 60,
+            LAST: 200
+        }
+    },
+    [PAGE_KEY.LIST]: {
+        CODE: PAGE_KEY.LIST,
+        NAME: "리스트",
+        TITLE: "정직한 촬영비,\n포스냅 예상견적으로 확인해 보세요!",
+        BUTTON: {
+            TEXT: "이메일로 견적 발송",
+            TYPE: "half"
+        },
+        DIST: {
+            BASE: -40,
+            LAST: 50
+        }
+    },
+    [PAGE_KEY.DETAIL]: {
+        CODE: PAGE_KEY.DETAIL,
+        NAME: "상세",
+        TITLE: "예상 견적을 확인해보세요.",
+        BUTTON: {
+            TEXT: "위의 견적으로 문의하기",
+            TYPE: "full"
+        },
+        DIST: {
+            BASE: -20,
+            LAST: 40
+        }
+    }
+};

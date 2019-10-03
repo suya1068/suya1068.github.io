@@ -14,11 +14,13 @@ export default class VirtualEstimateContainer extends Component {
             step: props.step,
             form: props.form,
             data: props.data,
+            access_type: props.access_type,
             totalPrice: props.totalPrice,
             totalStep: props.totalStep,
             estimateUtils: props.estimateUtils,
             category: props.category,
             stepData: {},
+            isTest: true,
             isEstimate: false,              // 견적 산출 알림 노출 플래그 값
             isInit: false                   // 다시 계산하기 기능 플래그 값
         };
@@ -43,15 +45,35 @@ export default class VirtualEstimateContainer extends Component {
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-        const { step } = nextProps;
+        const { isTest, access_type, totalStep } = this.state;
+        const { step, data, form } = nextProps;
+
         if (this.props.step !== step) {
             this.setState({
-                stepData: this.props.data[step],
-                form: nextProps.form
+                stepData: data[step],
+                form: nextProps.form,
+                data
             }, () => {
                 this.onSetStep(step);
             });
+        } else if (JSON.stringify(data) !== JSON.stringify(this.state.data)) {
+            this.setState({
+                stepData: data[step],
+                data,
+                form
+            });
         }
+
+        if (isTest && access_type === "list" && JSON.stringify(form) !== JSON.stringify(this.state.form)) {
+            this.setState({
+                form: nextProps.form,
+                stepData: data[step],
+                data,
+                isTest: false
+            });
+        }
+
+        // console.log(this.state, nextProps);
     }
 
     // 다시 시작하기 기능 플래그 저장
@@ -276,10 +298,7 @@ export default class VirtualEstimateContainer extends Component {
         this.setState({
             form: { ...estimateUtils.onCheck(form, propKey, isChecked) }
         }, () => {
-            if (typeof this.props.onChangeForm === "function") {
-                this.props.onChangeForm(this.state.form);
-            }
-            this.onSetStep();
+            this.receiveChangeForm();
         });
     }
 
@@ -299,6 +318,8 @@ export default class VirtualEstimateContainer extends Component {
                 if (typeof this.props.onChangeStepData === "function") {
                     this.props.onChangeStepData(data);
                 }
+            } else if (code === "studio") {
+                data.THIRD.ACTIVE = !!form.note || false;
             }
         }
 
@@ -316,8 +337,7 @@ export default class VirtualEstimateContainer extends Component {
         this.setState({
             form: { ...estimateUtils.onRadio(form, code) }
         }, () => {
-            this.props.onChangeForm(this.state.form);
-            this.onSetStep();
+            this.receiveChangeForm();
         });
     }
 
@@ -427,7 +447,7 @@ export default class VirtualEstimateContainer extends Component {
      * @param form
      * @param flag
      */
-    receiveChangeForm(form) {
+    receiveChangeForm(form = this.state.form) {
         if (typeof this.props.onChangeForm === "function") {
             this.setState({ form }, () => {
                 this.onSetStep();
@@ -616,6 +636,10 @@ export default class VirtualEstimateContainer extends Component {
     render() {
         const { step, form, totalStep, category, estimateUtils } = this.props;
         const { stepData, isEstimate } = this.state;
+
+        if (utils.type.isEmpty(stepData)) {
+            return null;
+        }
 
         return (
             <div className="virtual-estimate__steps">

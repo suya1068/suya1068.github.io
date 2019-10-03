@@ -117,7 +117,7 @@ export default class ProductList extends Component {
         this.receiveEmail = this.receiveEmail.bind(this);
         this.checkState = this.checkState.bind(this);
 
-        this.checkFetch = this.checkFetch.bind(this);
+        // this.checkFetch = this.checkFetch.bind(this);
 
         this.testPosition = this.testPosition.bind(this);
         this.testFetch = this.testFetch.bind(this);
@@ -138,7 +138,9 @@ export default class ProductList extends Component {
                     // 저장된 카테고리와 리스트의 카테고리가 같은 때에만 데이터를 저장한다.
                     if (data.category === category) {
                         this.setState({
-                            receiveEstimate: data.extra_info
+                            receiveEstimate: data.extra_info,
+                            totalPrice: data.extra_info.total_price,
+                            estimate_no
                         });
                     }
                 });
@@ -170,7 +172,7 @@ export default class ProductList extends Component {
     }
 
     scrollPosition(flag = true) {
-        const scrollTarget = document.querySelector(".virtual-estimate");
+        const scrollTarget = document.querySelector(".virtual-estimate__container");
         const targetRect = scrollTarget.getBoundingClientRect();
         const goalScroll = targetRect.top - 120;
         // console.log("glalScroll", targetRect, goalScroll);
@@ -486,10 +488,10 @@ export default class ProductList extends Component {
                             ...recommendParams
                         });
 
-                        if (!totalPrice) {
-                            delete params.extra_info;
-                            delete params.extra_text;
-                        }
+                        // if (!totalPrice) {
+                        //     delete params.extra_info;
+                        //     delete params.extra_text;
+                        // }
 
                         this.setState({
                             user_name: params.user_name,
@@ -585,10 +587,10 @@ export default class ProductList extends Component {
         const { user_phone, user_name, agent, currentCategory, totalPrice, recommendParams, failConsultMsg, device_type } = this.state;
         const baseParams = { user_phone, user_name, ...recommendParams };
         const user = auth.getUser();
-        if (!totalPrice) {
-            baseParams.extra_info = null;
-            baseParams.extra_text = null;
-        }
+        // if (!totalPrice) {
+        //     baseParams.extra_info = null;
+        //     baseParams.extra_text = null;
+        // }
         if (user) {
             baseParams.user_id = user.id;
         }
@@ -708,10 +710,10 @@ export default class ProductList extends Component {
             baseParams.estimate_no = estimate_no;
         }
 
-        if (!totalPrice) {
-            baseParams.extra_info = null;
-            baseParams.extra_text = null;
-        }
+        // if (!totalPrice) {
+        //     baseParams.extra_info = null;
+        //     baseParams.extra_text = null;
+        // }
 
         if (selects.length > 0) {
             Modal.show({ type: MODAL_TYPE.PROGRESS });
@@ -1277,7 +1279,7 @@ export default class ProductList extends Component {
     }
 
     render() {
-        const { params, products, receiveEstimate, artist_list, totalPrice, hasAlphas } = this.state;
+        const { params, products, receiveEstimate, artist_list, totalPrice, hasAlphas, estimate_no } = this.state;
         const category = params.category;
 
         return (
@@ -1292,7 +1294,17 @@ export default class ProductList extends Component {
                         getReceiveList={this.apiGetRecommendArtist}
                         checkState={this.checkState}
                     />
-                    {category === CATEGORY_CODE.BEAUTY ? <ConceptBanner /> : null}
+                    {category !== CATEGORY_CODE.VIDEO_BIZ ?
+                        <ConceptBanner
+                            category={category}
+                            gaEvent={(code, name) => {
+                                if (name) {
+                                    utils.ad.gaEvent("기업_컨셉", `${name}_리스트`, name);
+                                    utils.ad.gaEvent("기업_리스트", "컨셉배너", name);
+                                }
+                            }}
+                        /> : null
+                    }
                     {/*<PreRecommendArtist*/}
                     {/*list={recommendArtists}*/}
                     {/*total_price={totalPrice}*/}
@@ -1322,6 +1334,9 @@ export default class ProductList extends Component {
                         <VirtualEstimateSteps
                             category={category}
                             access_type="list"
+                            device_type="pc"
+                            // estimate_no={estimate_no}
+                            // receiveEstimate={receiveEstimate}
                             receiveTotalPrice={this.receiveTotalPrice}
                         />
                     }

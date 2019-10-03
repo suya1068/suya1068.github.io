@@ -8,13 +8,14 @@ import classNames from "classnames";
 import auth from "forsnap-authentication";
 import utils from "forsnap-utils";
 import api from "forsnap-api";
+import mewtime from "forsnap-mewtime";
 
 import constant from "shared/constant";
 import PopModal from "shared/components/modal/PopModal";
 
 import Buttons from "desktop/resources/components/button/Buttons";
-import DashboardBreadcrumb from "./components/DashboardBreadcrumb";
-import mewtime from "forsnap-mewtime";
+
+import ArtistInquireList from "./components/ArtistInquireList";
 
 class ArtistsMainPage extends Component {
     constructor(props) {
@@ -24,6 +25,7 @@ class ArtistsMainPage extends Component {
             alarm: constant.NOTIFY.ARTISTS_MAIN,
             info: constant.NOTIFY.INFO_MAIN,
             notice: null,
+            advice_order: null,
             isProcess: false,
             today: mewtime()
         };
@@ -95,6 +97,7 @@ class ArtistsMainPage extends Component {
                 const data = response.data;
                 const dataAlarm = data.alarm;
                 const notice = data.notice;
+                const advice_order = data.advice_order;
                 let alarm = this.state.alarm;
                 const info = this.setDashInfo(dataAlarm);
 
@@ -115,7 +118,8 @@ class ArtistsMainPage extends Component {
                     breadcrumb: data.reserve_cnt,
                     alarm,
                     info,
-                    notice
+                    notice,
+                    advice_order
                 }, () => { this.state.isProcess = false; });
             }).catch(error => {
                 this.state.isProcess = false;
@@ -194,7 +198,7 @@ class ArtistsMainPage extends Component {
     }
 
     render() {
-        const { alarm, breadcrumb, notice, info } = this.state;
+        const { alarm, breadcrumb, notice, info, advice_order } = this.state;
 
         return (
             <div className="artists-page-main">
@@ -231,12 +235,6 @@ class ArtistsMainPage extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="artist-content-row">
-                    <h3 className="head-title">촬영관리</h3>
-                    <div className="management-content">
-                        <DashboardBreadcrumb breadcrumb={breadcrumb} onClick={status => this.context.router.push(`/artists/photograph/process/${status.toLowerCase()}`)} />
-                    </div>
-                </div>
                 {notice ?
                     <div className="artist-content-row">
                         <h3 className="head-title">
@@ -262,6 +260,15 @@ class ArtistsMainPage extends Component {
                         </div>
                     </div> : null
                 }
+                <div className="artist-content-row">
+                    <h3 className="head-title">기업고객 전체 문의 접수 현황</h3>
+                    <div className="head-description">포스냅을 통하여 광고상품에 접수된 최근 문의 건입니다.</div>
+                    {advice_order ? <ArtistInquireList advice_order={advice_order} /> : null}
+                    <div className="inquire__info">
+                        고객님의 문의를 빠르고 쉽게 받아보실 수 있는 광고상품을 확인해보세요.
+                        <a href="/artists/charge/list"><button>광고관리 바로가기</button></a>
+                    </div>
+                </div>
             </div>
         );
     }

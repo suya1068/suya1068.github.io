@@ -325,12 +325,6 @@ $app->group("/products", function () {
         $code = strtoupper($code);
         $category_name = "";
 
-        if ($code !== "BEAUTY") {
-            $scheme = !empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] !== "off" ? "https" : "http";
-            $referer = $_SERVER['HTTP_REFERER'];
-            return $response->withStatus(302)->withHeader("Location", $referer ? $referer : $scheme . "://" . $_SERVER["HTTP_HOST"]);
-        }
-
         switch ($code) {
             case "PRODUCT":
                 $category_name = "제품";
@@ -355,6 +349,12 @@ $app->group("/products", function () {
                 break;
             default:
                 break;
+        }
+
+        if (!$category_name) {
+            $scheme = !empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] !== "off" ? "https" : "http";
+            $referer = $_SERVER['HTTP_REFERER'];
+            return $response->withStatus(302)->withHeader("Location", $referer ? $referer : $scheme . "://" . $_SERVER["HTTP_HOST"]);
         }
 
         $seo = get_seo([

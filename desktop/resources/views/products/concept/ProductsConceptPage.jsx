@@ -4,7 +4,6 @@ import ReactDOM from "react-dom";
 
 import api from "forsnap-api";
 import utils from "forsnap-utils";
-import redirect from "forsnap-redirect";
 
 import { CONCEPT_LIST } from "shared/constant/product.const";
 import Modal, { MODAL_TYPE } from "shared/components/modal/Modal";
@@ -15,6 +14,7 @@ import HeaderContainer from "desktop/resources/components/layout/header/HeaderCo
 import Footer from "desktop/resources/components/layout/footer/Footer";
 import ConsultModal from "desktop/resources/components/modal/consult/ConsultModal";
 
+import ProductsConceptTab from "./components/ProductsConceptTab";
 import ProductsConceptSearch from "./components/ProductsConceptSearch";
 import ProductsConceptImages from "./components/ProductsConceptImages";
 import ProductsConceptConsult from "./components/ProductsConceptConsult";
@@ -42,11 +42,13 @@ class ProductsConceptPage extends Component {
 
         this.chargeCount = new ChargeCount();
 
+        this.onSelectTab = this.onSelectTab.bind(this);
         this.onSelectDepth = this.onSelectDepth.bind(this);
         this.onSelectRecommend = this.onSelectRecommend.bind(this);
         this.onShowConsultModal = this.onShowConsultModal.bind(this);
         this.onConsult = this.onConsult.bind(this);
 
+        this.initSelectRecommend = this.initSelectRecommend.bind(this);
         this.artistConsult = this.artistConsult.bind(this);
         this.gaEvent = this.gaEvent.bind(this);
         this.getConceptInfo = this.getConceptInfo.bind(this);
@@ -77,42 +79,13 @@ class ProductsConceptPage extends Component {
     componentDidMount() {
         const { category_code, concept_data } = this.state;
 
-        Modal.show({
-            type: MODAL_TYPE.PROGRESS
-        });
         this.getConceptInfo(category_code)
             .then(data => {
-                Modal.close(MODAL_TYPE.PROGRESS);
-                if (data[category_code]) {
-                    const depth_data = data[category_code];
-                    const depth_info = depth_data.map(o => {
-                        return {
-                            ...o,
-                            depth2: o.depth2.split(",")
-                        };
-                    });
-
+                if (data) {
                     this.setStateData(() => {
-                        return {
-                            depth_data,
-                            depth_info
-                        };
+                        return data;
                     }, () => {
-                        const recommend = concept_data.recommend;
-                        const keys = Object.keys(recommend);
-                        const key = keys ? keys[0] : "";
-                        if (key && recommend[key]) {
-                            this.onSelectRecommend(key, recommend[key].depth2);
-                        }
-                    });
-                }
-            })
-            .catch(error => {
-                Modal.close(MODAL_TYPE.PROGRESS);
-                if (error && error.data) {
-                    Modal.show({
-                        type: MODAL_TYPE.ALERT,
-                        content: utils.linebreak(error.data)
+                        this.initSelectRecommend(concept_data.recommend);
                     });
                 }
             });
@@ -120,6 +93,29 @@ class ProductsConceptPage extends Component {
 
     componentWillUnmount() {
         this.state.isMount = false;
+    }
+
+    onSelectTab(category_code, category_name) {
+        utils.ad.gaEvent("기업_컨셉", "탭선택", category_name);
+        this.getConceptInfo(category_code)
+            .then(data => {
+                if (data) {
+                    window.history.replaceState(null, "", `/products/concept/${category_code.toLowerCase()}`);
+                    this.setStateData(() => {
+                        return {
+                            ...data,
+                            category_code,
+                            category_name,
+                            select: {},
+                            recommend: "",
+                            concept_data: CONCEPT_LIST[category_code]
+                        };
+                    }, () => {
+                        const { concept_data } = this.state;
+                        this.initSelectRecommend(concept_data.recommend);
+                    });
+                }
+            });
     }
 
     onSelectDepth(depth1, depth2) {
@@ -308,6 +304,7 @@ class ProductsConceptPage extends Component {
                 content: <p>포스냅에서는 최대 3명의 작가님께 견적 및 상담 신청이 가능합니다.<br />추가문의를 원하시는 경우 포스냅 전문가 상담 혹은 고객센터로 문의내용을 접수해주세요.</p>
             });
         } else {
+            this.gaEvent("작가문의", "");
             // 작가님께 연락처와 선택하신 컨셉이 바로 전달됩니다.
             Modal.show({
                 type: MODAL_TYPE.CUSTOM,
@@ -352,6 +349,14 @@ class ProductsConceptPage extends Component {
                     });
                 }
             });
+    }
+
+    initSelectRecommend(recommend) {
+        const keys = Object.keys(recommend);
+        const key = keys ? keys[0] : "";
+        if (key && recommend[key]) {
+            this.onSelectRecommend(key, recommend[key].depth2);
+        }
     }
 
     artistConsult(data) {
@@ -423,9 +428,40 @@ class ProductsConceptPage extends Component {
     }
 
     getConceptInfo(category) {
+        Modal.show({
+            type: MODAL_TYPE.PROGRESS
+        });
         return api.products.findConceptInfo({ category })
             .then(response => {
                 return response.data;
+            })
+            .then(data => {
+                Modal.close(MODAL_TYPE.PROGRESS);
+                if (data[category]) {
+                    const depth_data = data[category];
+                    const depth_info = depth_data.map(o => {
+                        return {
+                            ...o,
+                            depth2: o.depth2.split(",")
+                        };
+                    });
+
+                    return {
+                        depth_data,
+                        depth_info
+                    };
+                }
+
+                return null;
+            })
+            .catch(error => {
+                Modal.close(MODAL_TYPE.PROGRESS);
+                if (error && error.data) {
+                    Modal.show({
+                        type: MODAL_TYPE.ALERT,
+                        content: utils.linebreak(error.data)
+                    });
+                }
             });
     }
 
@@ -476,7 +512,7 @@ class ProductsConceptPage extends Component {
     }
 
     render() {
-        const { depth_info, concept_data, select, recommend } = this.state;
+        const { category_code, depth_info, concept_data, select, recommend } = this.state;
 
         if (!concept_data) {
             return null;
@@ -487,11 +523,12 @@ class ProductsConceptPage extends Component {
                 <div className="concept__container">
                     <div className="concept__row">
                         <div className="concept__header">
-                            <div className="title">{concept_data.title}</div>
+                            <div className="title">컨셉 제안</div>
                             <div className="description">{concept_data.description}</div>
                         </div>
                     </div>
                     <div className="concept__row">
+                        <ProductsConceptTab category_code={category_code} onSelectTab={this.onSelectTab} />
                         <ProductsConceptSearch
                             data={depth_info}
                             recommend_list={concept_data.recommend}

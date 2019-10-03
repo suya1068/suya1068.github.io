@@ -28,7 +28,9 @@ import PackagePage from "./product/package/PackagePage";
 import ProductListPage from "./product/ProductListPage";
 import ChatPage from "./chat/ChatPage";
 import ArtistLeave from "./account/ArtistLeave";
-import ChargeProduct from "./product/charge/ChargeProduct";
+
+import ChargeProduct from "./charge/list/ChargeProduct";
+import ChargeQuestionPage from "./charge/question/ChargeQuestionPage";
 
 import PhotographProcessPage from "./photograph/process/PhotographProcessPage";
 import PhotographCompletePage from "./photograph/complete/PhotographCompletePage";
@@ -132,15 +134,28 @@ class Artists extends Component {
                             href: "/artists/product/portfolio",
                             active: "",
                             new: false
-                        },
-                        charge: {
-                            title: "광고관리",
-                            href: "/artists/product/charge",
-                            active: "",
-                            new: true
                         }
                     },
                     new: true
+                },
+                charge: {
+                    title: "광고관리",
+                    key: "charge",
+                    href: "",
+                    sub: {
+                        list: {
+                            title: "광고등록",
+                            key: "list",
+                            href: "/artists/charge/list",
+                            active: ""
+                        },
+                        question: {
+                            title: "문의접수",
+                            key: "question",
+                            href: "/artists/charge/question",
+                            active: ""
+                        }
+                    }
                 },
                 chat: {
                     title: "대화하기",
@@ -550,7 +565,6 @@ ReactDOM.render(
                 <Route path="account/leave" component={ArtistLeave} />
                 <Route path="product/edit" component={PackagePage} />
                 <Route path="product/list" component={ProductListPage} />
-                <Route path="product/charge" component={ChargeProduct} />
                 <Route path="product/portfolio" component={PortFolio} >
                     <IndexRoute component={PortfolioListContainer} />
                     <Route path="list" component={PortfolioListContainer} />
@@ -582,6 +596,8 @@ ReactDOM.render(
                     <Route path="*" component={() => location.replace("/artists")} />
                 </Route>
                 <Route path="board/notice(/:no)" component={NoticePage} />
+                <Route path="charge/list" component={ChargeProduct} />
+                <Route path="charge/question" component={ChargeQuestionPage} />
                 {/*<Route path="studio(/:no)" component={StudioPage} />*/}
                 <Route path="*" component={null} />
             </Route>

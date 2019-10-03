@@ -154,7 +154,7 @@ export default class LastStep extends Component {
                                             width: "100%"
                                         }}
                                     >
-                                        {obj.PROP.map((o, i) => {
+                                        {utils.type.isArray(obj.PROP) && obj.PROP.map((o, i) => {
                                             const optionType = o.TYPE;
                                             const radioType = optionType === "radio";
                                             const selectType = optionType === "select";
@@ -495,7 +495,7 @@ export default class LastStep extends Component {
 
             if (code === "is_exterior" ||
                 code === "inside_cut_compose" ||
-                code === "video_directing" ||
+                code === "video_directing_need" ||
                 code === "is_all_shot" ||
                 code === "actor_casting" ||
                 code === "h_m_casting" ||

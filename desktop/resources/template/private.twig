@@ -44,24 +44,6 @@
 
     <link rel="stylesheet" href="{{ manifest['common.css'] }}" />
     {% block head_assets %}{% endblock %}
-    <script>
-        document.cookie = "_ga=; expires=Thu, 01 Jan 1970 00:00:01 GMT; domain=.forsnap.com; path=/";
-        document.cookie = "_gat=; expires=Thu, 01 Jan 1970 00:00:01 GMT; domain=.forsnap.com; path=/";
-
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.crossorigin="anonymous";m.parentNode.insertBefore(a,m)
-        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-42344-1', { 'cookieDomain': 'none' });
-        ga('require', 'displayfeatures');
-        ga('create', {
-            trackingId: 'UA-234234-2',
-            cookieDomain: 'none',
-            name: 'Event'
-        });
-    </script>
-
     {% if seo.live == true %}
         <!-- Global site tag (gtag.js) - Google Ads: 799191955 -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91761764-3"></script>

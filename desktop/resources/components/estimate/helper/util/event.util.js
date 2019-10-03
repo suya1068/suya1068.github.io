@@ -61,7 +61,7 @@ const calculatePrice = (form, priceInfo) => {
     }
 
     const isAllShot = form[PROPERTYS.IS_ALL_SHOT.CODE] === HAS_PROPERTY.NEED.CODE;
-    const isVideoDirecting = form[PROPERTYS.VIDEO_DIRECTING.CODE] === HAS_PROPERTY.NEED.CODE;
+    const isVideoDirecting = form[PROPERTYS.VIDEO_DIRECTING_NEED.CODE] === HAS_PROPERTY.NEED.CODE;
 
     if (isAllShot && !isVideoDirecting) {
         if (form[PROPERTYS.ALL_SHOT_NEED_NUMBER.CODE]) {
@@ -130,15 +130,15 @@ const exchangeResultText = (key, form, priceInfo) => {
 
     if (key === STEP_KEY.THIRD) {
         const isAllShot = form[PROPERTYS.IS_ALL_SHOT.CODE] === HAS_PROPERTY.NEED.CODE && form[PROPERTYS.ALL_SHOT_NEED_NUMBER.CODE];
-        const isVideoDirecting = form[PROPERTYS.VIDEO_DIRECTING.CODE] === HAS_PROPERTY.NEED.CODE;
+        const isVideoDirecting = form[PROPERTYS.VIDEO_DIRECTING_NEED.CODE] === HAS_PROPERTY.NEED.CODE;
         if (isAllShot && !isVideoDirecting) {
-            resultText = `영상 편집 불필요 / 단체 촬영 필요 ${form[PROPERTYS.ALL_SHOT_NEED_NUMBER.CODE]} 컷 (컷당 50,000)`;
+            resultText = `영상 촬영 불필요 / 단체 촬영 필요 ${form[PROPERTYS.ALL_SHOT_NEED_NUMBER.CODE]} 컷 (컷당 50,000)`;
         } else if (!isAllShot && !isVideoDirecting) {
-            resultText = "영상 편집 불필요 / 단체 촬영 불필요";
+            resultText = "영상 촬영 불필요 / 단체 촬영 불필요";
         } else if (isAllShot && isVideoDirecting) {
-            resultText = `영상 편집 필요 ${form[PROPERTYS.TOTAL_TIME.CODE]} 시간 (시간당 10만원) / 단체 촬영 필요 ${form[PROPERTYS.ALL_SHOT_NEED_NUMBER.CODE]} 컷 (컷당 50,000)`;
+            resultText = `영상 촬영 필요 ${form[PROPERTYS.TOTAL_TIME.CODE]} 시간 (시간당 10만원) / 단체 촬영 필요 ${form[PROPERTYS.ALL_SHOT_NEED_NUMBER.CODE]} 컷 (컷당 50,000)`;
         } else if (!isAllShot && isVideoDirecting) {
-            resultText = `영상 편집 필요 ${form[PROPERTYS.TOTAL_TIME.CODE]} 시간 (시간당 10만원) / 단체 촬영 불필요`;
+            resultText = `영상 촬영 필요 ${form[PROPERTYS.TOTAL_TIME.CODE]} 시간 (시간당 10만원) / 단체 촬영 불필요`;
         }
     }
 
@@ -162,7 +162,7 @@ const onCheck = (form, code, isChecked) => {
         value = isChecked ? needless : need;
     }
 
-    if (code === PROPERTYS.VIDEO_DIRECTING.CODE) {
+    if (code === PROPERTYS.VIDEO_DIRECTING_NEED.CODE) {
         value = isChecked ? needless : need;
     }
 

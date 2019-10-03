@@ -126,7 +126,12 @@ class BusinessPage extends Component {
                     />
                 </div>
                 <div className="main__row row__full">
-                    <ConceptBanner />
+                    <ConceptBanner
+                        gaEvent={() => {
+                            utils.ad.gaEvent("기업_컨셉", "메인배너", "메인배너");
+                            utils.ad.gaEvent("기업_메인", "컨셉배너", "컨셉배너");
+                        }}
+                    />
                 </div>
                 <div className="main__row row__full" style={{ backgroundColor: "#f9f9f9" }}>
                     <MainEstimate />

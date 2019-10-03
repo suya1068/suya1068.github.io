@@ -633,5 +633,19 @@
             color: #fff;
         }
     }
+
+    &__trans__white {
+        background-color: transparent;
+        border-color: #fff;
+        color: #fff;
+
+        &.active,
+        &:active,
+        &:focus,
+        &:hover {
+            background-color: #fff;
+            color: #000;
+        }
+    }
 }
 

@@ -12,7 +12,7 @@ class ProductsConceptImages extends Component {
     }
 
     gaEvent(nick_name) {
-        const { category_code, category_name, depth1, title, gaEvent } = this.props;
+        const { category_name, depth1, title, gaEvent } = this.props;
         gaEvent("포폴더보기", `${category_name}_${depth1}_${title}_${nick_name}`);
     }
 

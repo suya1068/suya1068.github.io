@@ -6,16 +6,16 @@ import PopModal from "shared/components/modal/PopModal";
 import API from "forsnap-api";
 import utils from "forsnap-utils";
 import cookie from "forsnap-cookie";
-import VirtualEstimate from "mobile/resources/views/products/list/open/virtual_estimate/VirtualEstimate";
+// import VirtualEstimate from "mobile/resources/views/products/list/open/virtual_estimate/VirtualEstimate";
+import VirtualEstimateSteps from "shared/components/estimate/VirtualEstimateContainer";
+import classNames from "classnames";
 import {
     ADVICE_EXTRA_TEXT,
     PROPERTYS
 } from "mobile/resources/views/products/list/open/virtual_estimate/virtual_estimate.const";
-import * as virtualEstimateHelper
-    from "mobile/resources/views/products/list/open/virtual_estimate/virtualEstimateHelper";
+import * as virtualEstimateHelper from "mobile/resources/views/products/list/open/virtual_estimate/virtualEstimateHelper";
 import * as EstimateSession from "mobile/resources/views/products/list/open/extraInfoSession";
 import auth from "forsnap-authentication";
-import AboutArtist from "../components/artist/AboutArtist";
 // import Portfolio from "desktop/resources/components/portfolio/PortfolioContainer";
 import Modal, { MODAL_TYPE } from "shared/components/modal/Modal";
 import ExampleReviewDetail from "../../../main/business/example_review/ExampleReviewDetail";
@@ -23,8 +23,7 @@ import ChargeProducts from "../components/charge/ChargeProducts";
 import ConsultModal from "desktop/resources/components/modal/consult/ConsultModal";
 import FirstPhase from "../../../../components/portfolio/components/information/pop/message/FirstPhase";
 import ChargeCount from "shared/helper/charge/ChargeCount";
-import AnotherRecommendArtist
-    from "desktop/resources/views/products/components/open/components/pop/another/AnotherRecommendArtist";
+import AnotherRecommendArtist from "desktop/resources/views/products/components/open/components/pop/another/AnotherRecommendArtist";
 import Portfolio from "desktop/resources/components/portfolio/PortfolioContainer";
 
 export default class ProductDetailBusiness extends Component {
@@ -57,6 +56,10 @@ export default class ProductDetailBusiness extends Component {
         this.composeList = this.composeList.bind(this);
         this.onShowPortfolio = this.onShowPortfolio.bind(this);
         this.setPortfolioData = this.setPortfolioData.bind(this);
+        //
+        this.onConsultContainer = this.onConsultContainer.bind(this);
+        // this.onScroll = this.onScroll.bind(this);
+        // this.onScrollToEstimate = this.onScrollToEstimate.bind(this);
     }
 
     componentWillMount() {
@@ -102,7 +105,13 @@ export default class ProductDetailBusiness extends Component {
         const promise = select_list.map(no => {
             const artist = list.find(o => o.no === no);
             if (artist) {
-                return API.orders.insertArtistOrder(Object.assign(prop, { artist_id: artist.user_id, product_no: artist.product_no }))
+                return API.orders
+                    .insertArtistOrder(
+                        Object.assign(prop, {
+                            artist_id: artist.user_id,
+                            product_no: artist.product_no
+                        })
+                    )
                     .then(() => {
                         this.chargeCount.setCRC();
                         this.setState({
@@ -114,10 +123,9 @@ export default class ProductDetailBusiness extends Component {
             return null;
         });
 
-        Promise.all(promise)
-            .then(() => {
-                this.renderLastPhase();
-            });
+        Promise.all(promise).then(() => {
+            this.renderLastPhase();
+        });
     }
 
     setPortfolioData() {
@@ -227,7 +235,7 @@ export default class ProductDetailBusiness extends Component {
                 return r;
             }, images);
 
-            if (Math.round((list.length / 2)) < vertical_type_count) {
+            if (Math.round(list.length / 2) < vertical_type_count) {
                 axis_type = "y";
             }
         }
@@ -252,13 +260,16 @@ export default class ProductDetailBusiness extends Component {
                 category={data.category}
                 axis_type={axis_type}
                 information={information}
-                active_index={videos.length > 0 ? (index * 1) + 1 : index * 1}
+                active_index={videos.length > 0 ? index * 1 + 1 : index * 1}
                 onClose={() => PopModal.close(modal_name)}
                 gaEvent={this.gaEvent}
             />
         );
 
-        PopModal.createModal(modal_name, content, { modal_close: false, className: modal_name });
+        PopModal.createModal(modal_name, content, {
+            modal_close: false,
+            className: modal_name
+        });
         PopModal.show(modal_name);
     }
 
@@ -270,7 +281,9 @@ export default class ProductDetailBusiness extends Component {
                 <div>
                     <div className="container">
                         <div style={{ color: "#fff", textAlign: "center" }}>
-                            <p style={{ fontSize: 28, marginBottom: 10 }}>작가님께 전달이 완료되었습니다.</p>
+                            <p style={{ fontSize: 28, marginBottom: 10 }}>
+                                작가님께 전달이 완료되었습니다.
+                            </p>
                             <p style={{ fontSize: 18, marginBottom: 30 }}>
                                 빠르게 연락드리겠습니다. 감사합니다.
                             </p>
@@ -286,7 +299,9 @@ export default class ProductDetailBusiness extends Component {
                                     textAlign: "center"
                                 }}
                                 onClick={() => Modal.close()}
-                            >확인</button>
+                            >
+                                확인
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -318,13 +333,13 @@ export default class ProductDetailBusiness extends Component {
         });
     }
 
-
     /**
      * 작가 리뷰 데이터 조회
      * @param id
      */
     apiGetArtistSelfReview(id) {
-        API.products.findArtistSelfReview(id)
+        API.products
+            .findArtistSelfReview(id)
             .then(response => {
                 const data = response.data;
                 this.setState({ artistReview: data.list });
@@ -335,7 +350,8 @@ export default class ProductDetailBusiness extends Component {
     }
 
     apiGetChargeArtistProduct(category) {
-        API.products.findChargeArtist({ category })
+        API.products
+            .findChargeArtist({ category })
             .then(response => {
                 const data = response.data;
                 this.setState({ chargeProducts: data.list });
@@ -349,14 +365,14 @@ export default class ProductDetailBusiness extends Component {
      * 작가 정보 데이터 조회
      */
     apiGetArtistInfo(nick, no) {
-        API.artists.getArtistsIntroPublicNew({ nick_name: nick, product_no: no })
+        API.artists
+            .getArtistsIntroPublicNew({ nick_name: nick, product_no: no })
             .then(response => {
                 const data = response.data;
                 this.setState({
                     career: this.combineCareerData(data.career),
                     region: data.region,
                     review: this.combineReviewData(data.review)
-
                 });
             })
             .catch(error => {
@@ -413,7 +429,9 @@ export default class ProductDetailBusiness extends Component {
                 sns = __SNS__.naver;
                 params = {
                     url: location.href,
-                    title: document.querySelector("meta[property='og:title']").getAttribute("content")
+                    title: document
+                        .querySelector("meta[property='og:title']")
+                        .getAttribute("content")
                 };
                 break;
             }
@@ -429,8 +447,13 @@ export default class ProductDetailBusiness extends Component {
                 break;
         }
 
-        const options = "titlebar=1, resizable=1, scrollbars=yes, width=600, height=550";
-        window.open(`${sns.share_uri}?${utils.query.stringify(params)}`, "sharePopup", options);
+        const options =
+            "titlebar=1, resizable=1, scrollbars=yes, width=600, height=550";
+        window.open(
+            `${sns.share_uri}?${utils.query.stringify(params)}`,
+            "sharePopup",
+            options
+        );
     }
 
     /**
@@ -445,26 +468,27 @@ export default class ProductDetailBusiness extends Component {
                 PopModal.toast("본인 상품은 하트를 등록 할 수 없습니다");
             } else {
                 const process = b => {
-                    const params = [
-                        user.id,
-                        data.product_no
-                    ];
+                    const params = [user.id, data.product_no];
 
                     if (!b) {
-                        PopModal.toast("하트 상품은 <br /> 마이페이지 > 내 하트 목록<br />에서 확인가능합니다.");
+                        PopModal.toast(
+                            "하트 상품은 <br /> 마이페이지 > 내 하트 목록<br />에서 확인가능합니다."
+                        );
                         return API.users.like(...params);
                     }
                     PopModal.toast("하트를 취소하셨습니다.", 1000);
                     return API.users.unlike(...params);
                 };
 
-                process(isLike).then(response => {
-                    data.like_cnt = response.data.like_cnt;
-                    this.setState({
-                        isLike: !isLike,
-                        data
-                    });
-                }).catch(error => PopModal.alert(error.data));
+                process(isLike)
+                    .then(response => {
+                        data.like_cnt = response.data.like_cnt;
+                        this.setState({
+                            isLike: !isLike,
+                            data
+                        });
+                    })
+                    .catch(error => PopModal.alert(error.data));
             }
         }
     }
@@ -492,7 +516,6 @@ export default class ProductDetailBusiness extends Component {
             title: data.title,
             product_no: data.product_no
         };
-
 
         return { ...param };
     }
@@ -533,7 +556,12 @@ export default class ProductDetailBusiness extends Component {
 
         if (totalPrice) {
             // total_price 값이 존재하면 견적산출 api를 호출한다.
-            this.callAPIInsertOrderEstimate(params, { form: _form, totalPrice, hasAlphas, agent });
+            this.callAPIInsertOrderEstimate(params, {
+                form: _form,
+                totalPrice,
+                hasAlphas,
+                agent
+            });
         }
 
         // 견적정보를 state에 저장한다.
@@ -554,13 +582,22 @@ export default class ProductDetailBusiness extends Component {
      * @param agent
      */
     callAPIInsertOrderEstimate(params, { form, totalPrice, hasAlphas, agent }) {
-        virtualEstimateHelper.apiInsertOrderEstimate(params)
+        virtualEstimateHelper
+            .apiInsertOrderEstimate(params)
             .then(response => {
                 const data = response.data;
 
-                const recommendParams = this.createRecommendArtistParams({ form, totalPrice, hasAlphas, agent });
+                const recommendParams = this.createRecommendArtistParams({
+                    form,
+                    totalPrice,
+                    hasAlphas,
+                    agent
+                });
                 recommendParams.estimate_no = response.data.estimate_no;
-                EstimateSession.setSessionEstimateData(EstimateSession.EXTRA_INFO_KEY, recommendParams);
+                EstimateSession.setSessionEstimateData(
+                    EstimateSession.EXTRA_INFO_KEY,
+                    recommendParams
+                );
 
                 this.setState({
                     estimate_no: data.estimate_no,
@@ -568,7 +605,11 @@ export default class ProductDetailBusiness extends Component {
                 });
             })
             .catch(error => {
-                PopModal.alert(error.data ? error.data : "견적을 산출하는데 오류가 발생했습니다.\n문제가 지속될 경우 고객센터에 문의해 주세요.");
+                PopModal.alert(
+                    error.data
+                        ? error.data
+                        : "견적을 산출하는데 오류가 발생했습니다.\n문제가 지속될 경우 고객센터에 문의해 주세요."
+                );
             });
     }
 
@@ -617,21 +658,41 @@ export default class ProductDetailBusiness extends Component {
     exchangeCodeToText(form) {
         return Object.keys(form).reduce((result, key) => {
             const keyUpperCase = key.toUpperCase();
-            const formKeyUpperCase = typeof form[key] === "string" ? form[key].toUpperCase() : form[key];
-            let value = Object.prototype.hasOwnProperty.call(ADVICE_EXTRA_TEXT, formKeyUpperCase) ? ADVICE_EXTRA_TEXT[formKeyUpperCase].NAME : form[key];
+            const formKeyUpperCase =
+                typeof form[key] === "string"
+                    ? form[key].toUpperCase()
+                    : form[key];
+            let value = Object.prototype.hasOwnProperty.call(
+                ADVICE_EXTRA_TEXT,
+                formKeyUpperCase
+            )
+                ? ADVICE_EXTRA_TEXT[formKeyUpperCase].NAME
+                : form[key];
 
             // key가 video_length 이면 텍스트를 치환한다.
             if (key === PROPERTYS.VIDEO_LENGTH.CODE) {
                 switch (value) {
-                    case "1": value = "1분미만"; break;
-                    case "2": value = "1분~3분"; break;
-                    case "3": value = "3분~5분"; break;
-                    case "4+a": value = "5분이상"; break;
-                    default: value = form[key]; break;
+                    case "1":
+                        value = "1분미만";
+                        break;
+                    case "2":
+                        value = "1분~3분";
+                        break;
+                    case "3":
+                        value = "3분~5분";
+                        break;
+                    case "4+a":
+                        value = "5분이상";
+                        break;
+                    default:
+                        value = form[key];
+                        break;
                 }
             }
 
-            return Object.assign(result, { [PROPERTYS[keyUpperCase].NAME]: value });
+            return Object.assign(result, {
+                [PROPERTYS[keyUpperCase].NAME]: value
+            });
         }, {});
     }
 
@@ -656,18 +717,26 @@ export default class ProductDetailBusiness extends Component {
 
     onConsult(access_type) {
         const { data } = this.props;
-        const { totalPrice, information, order_no, crc, device_type } = this.state;
+        const {
+            totalPrice,
+            information,
+            order_no,
+            crc,
+            device_type
+        } = this.state;
         const modal_name = "simple__consult";
-        const estimateData = EstimateSession.getSessionEstimateData(EstimateSession.EXTRA_INFO_KEY);
+        const estimateData = EstimateSession.getSessionEstimateData(
+            EstimateSession.EXTRA_INFO_KEY
+        );
         const p = Object.assign({}, estimateData);
         p.access_type = access_type;
         p.device_type = device_type;
         p.category = data.category;
 
-        if (!totalPrice) {
-            delete p.extra_info;
-            delete p.extra_text;
-        }
+        // if (!totalPrice) {
+        //     delete p.extra_info;
+        //     delete p.extra_text;
+        // }
 
         if (data.product_no) {
             p.product_no = data.product_no;
@@ -707,7 +776,9 @@ export default class ProductDetailBusiness extends Component {
             }
 
             if (sessionStorage.getItem("referer_keyword")) {
-                referParam.referer_keyword = sessionStorage.getItem("referer_keyword");
+                referParam.referer_keyword = sessionStorage.getItem(
+                    "referer_keyword"
+                );
             }
 
             this.setState({
@@ -728,7 +799,15 @@ export default class ProductDetailBusiness extends Component {
             PopModal.closeProgress();
             Modal.show({
                 type: MODAL_TYPE.ALERT,
-                content: <p>포스냅에서는 최대 3명의 작가님께 견적 및 상담 신청이 가능합니다.<br />추가문의를 원하시는 경우 포스냅 전문가 상담 혹은 고객센터로 문의내용을 접수해주세요.</p>,
+                content: (
+                    <p>
+                        포스냅에서는 최대 3명의 작가님께 견적 및 상담 신청이
+                        가능합니다.
+                        <br />
+                        추가문의를 원하시는 경우 포스냅 전문가 상담 혹은
+                        고객센터로 문의내용을 접수해주세요.
+                    </p>
+                ),
                 onSubmit: () => {
                     PopModal.close(modal_name);
                 }
@@ -740,7 +819,8 @@ export default class ProductDetailBusiness extends Component {
                 Object.assign(_params, referParam);
             }
 
-            virtualEstimateHelper.apiInsertArtistOrder(_params)
+            virtualEstimateHelper
+                .apiInsertArtistOrder(_params)
                 .then(response => {
                     PopModal.closeProgress();
                     // setCRC();
@@ -756,13 +836,24 @@ export default class ProductDetailBusiness extends Component {
                     }
                     this.setState({ crc: this.chargeCount.getCRC() });
 
-                    PopModal.createModal(phaseModalName, (
+                    PopModal.createModal(
+                        phaseModalName,
                         <FirstPhase
                             onClose={() => PopModal.close(phaseModalName)}
-                            consultAbleCount={chargeMaxCount - (Number(crc) + 1)}
-                            callBack={() => this.onAnotherRecommend(_params, nextAccessType, modal_name, this.chargeCount.getCRC())}
-                        />)
-                    , { className: phaseModalName, modal_close: false });
+                            consultAbleCount={
+                                chargeMaxCount - (Number(crc) + 1)
+                            }
+                            callBack={() =>
+                                this.onAnotherRecommend(
+                                    _params,
+                                    nextAccessType,
+                                    modal_name,
+                                    this.chargeCount.getCRC()
+                                )
+                            }
+                        />,
+                        { className: phaseModalName, modal_close: false }
+                    );
 
                     PopModal.show(phaseModalName);
                 })
@@ -799,7 +890,14 @@ export default class ProductDetailBusiness extends Component {
                         list: _data.list || [],
                         // title,
                         // desc,
-                        selectArtistSendConsult: select_list => this.onChargeArtistConsult(Object.assign({}, params, { access_type: access }), _data.list, select_list)
+                        selectArtistSendConsult: select_list =>
+                            this.onChargeArtistConsult(
+                                Object.assign({}, params, {
+                                    access_type: access
+                                }),
+                                _data.list,
+                                select_list
+                            )
                     };
 
                     Modal.show({
@@ -807,7 +905,9 @@ export default class ProductDetailBusiness extends Component {
                         name: "another_artist",
                         overflow: false,
                         //full: true,
-                        content: <AnotherRecommendArtist {...prop} count={crc} />
+                        content: (
+                            <AnotherRecommendArtist {...prop} count={crc} />
+                        )
                     });
                 })
                 .catch(error => {
@@ -830,12 +930,34 @@ export default class ProductDetailBusiness extends Component {
 
     gaEvent(action) {
         const { data } = this.props;
-        utils.ad.gaEvent("기업_상세", action, `${data.category}_${data.nick_name}_${data.product_no}`);
+        utils.ad.gaEvent(
+            "기업_상세",
+            action,
+            `${data.category}_${data.nick_name}_${data.product_no}`
+        );
     }
 
     render() {
         const { data } = this.props;
-        const { portfolioData, isLike, career, review, artistReview, region, chargeProducts } = this.state;
+        const {
+            portfolioData,
+            isLike,
+            career,
+            review,
+            artistReview,
+            region,
+            isShowBtn,
+            chargeProducts
+        } = this.state;
+        /*
+        <VirtualEstimate
+            onConsultSearchArtist={this.onConsultContainer}
+            onConsultEstimate={this.onConsultEstimate}
+            gaEvent={this.gaEvent}
+            renewDetail
+            category={data.category}
+        />
+         */
         return (
             <div className="product-detail-business business__detail">
                 <div className="business__detail__content-box">
@@ -857,34 +979,35 @@ export default class ProductDetailBusiness extends Component {
                                         nickName={data.nick_name}
                                         review={review}
                                         career={career}
+                                        data={data}
+                                        region={region}
                                         artistReview={artistReview}
                                         onShow={this.onShowSelfReview}
+                                        onConsult={this.onConsult}
                                         gaEvent={this.gaEvent}
                                     />
                                 </div>
-                                <div className="business__detail__rightSide">
-                                    <VirtualEstimate
-                                        onConsultSearchArtist={this.onConsultContainer}
-                                        onConsultEstimate={this.onConsultEstimate}
-                                        gaEvent={this.gaEvent}
-                                        renewDetail
+                                <div className="business__detail__rightSide" style={{ paddingTop: 30 }}>
+                                    <VirtualEstimateSteps
                                         category={data.category}
-                                    />
-                                    <AboutArtist
-                                        intro={data.intro}
-                                        nickName={data.nick_name}
-                                        isCorp={data.is_corp}
-                                        profile={data.profile_img}
-                                        region={region}
-                                        onConsult={this.onConsultDirectArtist}
-                                        gaEvent={this.gaEvent}
+                                        access_type="detail"
+                                        device_type="mobile"
+                                        arrowType="pc"
+                                        onConsult={this.onConsultContainer}
+                                        //estimate_no={estimate_no}
+                                        //receiveEstimate={receiveEstimate}
+                                        //receiveTotalPrice={this.receiveTotalPrice}
                                     />
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className="business__detail__another-products">
-                        <ChargeProducts list={chargeProducts} category={data.category} gaEvent={this.gaEvent} />
+                        <ChargeProducts
+                            list={chargeProducts}
+                            category={data.category}
+                            gaEvent={this.gaEvent}
+                        />
                     </div>
                 </div>
             </div>

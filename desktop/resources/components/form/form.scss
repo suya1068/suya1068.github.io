@@ -6,7 +6,8 @@ $icon-url: url($dev-host);
 
 // Typography
 
-input, textarea {
+input,
+textarea {
     display: inline-block;
     outline: none;
     border: 2px solid #e1e1e1;
@@ -103,7 +104,6 @@ textarea {
 .input {
     border-radius: 50px;
     height: 50px;
-
 
     &:disabled {
         background: #f6f6f6;
@@ -318,7 +318,7 @@ textarea {
             float: left;
         }
 
-        .radio:nth-child(n+2) {
+        .radio:nth-child(n + 2) {
             margin-left: 24px;
         }
     }
@@ -400,8 +400,8 @@ textarea {
 
         &__inner {
             overflow-y: auto;
-            max-height: 300px;
-            margin: 18px -20px 18px 20px;
+            max-height: inherit;
+            //margin: 18px -20px 18px 20px;
         }
 
         .box-arrow {
@@ -414,7 +414,6 @@ textarea {
             top: -6px;
             border-top: 1px solid #000;
             border-left: 1px solid #000;
-
         }
 
         .fors-select-option {
@@ -424,6 +423,10 @@ textarea {
             padding-bottom: 10px;
             color: #000;
             font-size: 16px;
+
+            &:nth-child(1) {
+                margin-top: 10px;
+            }
 
             &.select {
                 color: #ffba00;

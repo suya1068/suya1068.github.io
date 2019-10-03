@@ -88,8 +88,8 @@ const STEP_PROCESS = {
             RESULT_TEXT: "Step03 에서 추가정보를 입력해주세요.",
             PROP: [
                 {
-                    CODE: PROPERTYS.VIDEO_DIRECTING.CODE,
-                    NAME: PROPERTYS.VIDEO_DIRECTING.NAME,
+                    CODE: PROPERTYS.VIDEO_DIRECTING_NEED.CODE,
+                    NAME: PROPERTYS.VIDEO_DIRECTING_NEED.NAME,
                     CAPTION: "영상촬영 후 편집과 자막이 필요한 경우\n추가비용이 발생할 수 있습니다.",
                     IMAGE: "/estimate/renew/event/image_02_2x.jpg",
                     NUMBER: false,
@@ -139,9 +139,9 @@ const STEP_PROCESS = {
             VALUE: ""
         },
         // 영상 편집 필요여부
-        [PROPERTYS.VIDEO_DIRECTING.CODE]: {
-            CODE: PROPERTYS.VIDEO_DIRECTING.CODE,
-            NAME: PROPERTYS.VIDEO_DIRECTING.NAME,
+        [PROPERTYS.VIDEO_DIRECTING_NEED.CODE]: {
+            CODE: PROPERTYS.VIDEO_DIRECTING_NEED.CODE,
+            NAME: PROPERTYS.VIDEO_DIRECTING_NEED.NAME,
             VALUE: HAS_PROPERTY.NEEDLESS.CODE
         }
     }

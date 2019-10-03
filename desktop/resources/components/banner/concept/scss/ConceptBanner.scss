@@ -3,6 +3,10 @@
     height: 230px;
     font-family: "Noto Sans KR", "Spoqa Han Sans", Helvetica, AppleSDGothicNeo, Arial, sans-serif;
 
+    &.profile_biz {
+        color: #fff;
+    }
+
     .banner__image {
         position: absolute;
         left: 0;

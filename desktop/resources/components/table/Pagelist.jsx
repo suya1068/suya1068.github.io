@@ -22,7 +22,7 @@ class Pagelist extends Component {
     }
 
     render() {
-        const { render } = this.props;
+        const { render, renderLt, renderGt, renderLaquo, renderRaquo } = this.props;
         let page = this.props.page * 1;
         const totalCount = this.props.totalCount * 1;
         const listCount = this.props.listCount * 1;
@@ -48,11 +48,24 @@ class Pagelist extends Component {
         }
 
         const highPage = (range + pageCount);
+        let lt = null;
+        let gt = null;
+        let laquo = null;
+        let raquo = null;
 
-        const lt = isLT ? <Buttons inline={{ className: "pagelist-lt", onClick: () => callBack(range + 1, range * listCount) }}>&lt;</Buttons> : null;
-        const gt = isGT ? <Buttons inline={{ className: "pagelist-gt", onClick: () => callBack(highPage + 1, highPage * listCount) }}>&gt;</Buttons> : null;
-        const laquo = isLT ? <Buttons inline={{ className: "pagelist-laquo", onClick: () => callBack(1, 0) }}>&lt;&lt;</Buttons> : null;
-        const raquo = isGT ? <Buttons inline={{ className: "pagelist-raquo", onClick: () => callBack(totalPage, (totalPage - 1) * listCount) }}>&gt;&gt;</Buttons> : null;
+        if (isLT) {
+            lt = typeof renderLt === "function" ? renderLt(() => callBack(range + 1, range * listCount)) : <Buttons inline={{ className: "pagelist-lt", onClick: () => callBack(range + 1, range * listCount) }}>&lt;</Buttons>;
+            laquo = typeof renderLaquo === "function" ? renderLaquo(() => callBack(1, 0)) : <Buttons inline={{ className: "pagelist-laquo", onClick: () => callBack(1, 0) }}>&lt;&lt;</Buttons>;
+        }
+
+        if (isGT) {
+            gt = typeof renderGt === "function"
+                ? renderGt(() => callBack(highPage + 1, highPage * listCount))
+                : <Buttons inline={{ className: "pagelist-gt", onClick: () => callBack(highPage + 1, highPage * listCount) }}>&gt;</Buttons>;
+            raquo = typeof renderRaquo === "function"
+                ? renderRaquo(() => callBack(totalPage, (totalPage - 1) * listCount))
+                : <Buttons inline={{ className: "pagelist-raquo", onClick: () => callBack(totalPage, (totalPage - 1) * listCount) }}>&gt;&gt;</Buttons>;
+        }
 
         for (let i = range; i < (range + pageCount); i += 1) {
             const num = i + 1;
@@ -83,7 +96,11 @@ Pagelist.propTypes = {
     pageCount: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
     isJump: PropTypes.bool,
     callBack: PropTypes.oneOfType([PropTypes.func, PropTypes.string]).isRequired,
-    render: PropTypes.func
+    render: PropTypes.func,
+    renderLt: PropTypes.func,
+    renderGt: PropTypes.func,
+    renderLaquo: PropTypes.func,
+    renderRaquo: PropTypes.func
 };
 
 Pagelist.defaultProps = {

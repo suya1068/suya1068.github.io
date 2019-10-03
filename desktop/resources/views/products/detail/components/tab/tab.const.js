@@ -2,16 +2,22 @@ export const TAB_KEYS = {
     PRICE: "price",
     REVIEW: "review",
     INFO: "info",
+    CAREER: "career",
     PORTFOLIO: "portfolio",
     ARTIST_INFO: "artist_info",
     ARTIST_REVIEW: "artist_review"
 };
 
 export const BUSINESS_TAB_DATA = {
-    [TAB_KEYS.INFO]: {
-        title: "작가경력",
+    [TAB_KEYS.ARTIST_INFO]: {
+        title: "작가소개",
         type: TAB_KEYS.ARTIST_INFO,
         active: true
+    },
+    [TAB_KEYS.CAREER]: {
+        title: "작가경력",
+        type: TAB_KEYS.CAREER,
+        active: false
     },
     [TAB_KEYS.REVIEW]: {
         title: "후기",

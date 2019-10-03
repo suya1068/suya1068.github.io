@@ -1,3 +1,5 @@
+@import "shared/components/estimate/style/style_mobile.scss";
+
 // 기업상세 레이아웃 style
 .product-detail-business {
 	background-color: #f9f9f9;
@@ -30,7 +32,26 @@
 	}
 
 	&__rightSide {
-		width: 330px;
+		width: 345px;
+
+		.scroll-btn {
+			width: 100%;
+			cursor: default;
+			font-size: 18px;
+			font-weight: bold;
+			padding: 12px 0;
+			color: #fff;
+			background-color: #fff;
+			visibility: hidden;
+			transition: all 0.2s ease-in-out;
+
+			&.show {
+				visibility: visible;
+				cursor: pointer;
+				background-color: #fcae2f;
+				color: #fff;
+			}
+		}
 	}
 
 	// 컨텐츠 박스 로우

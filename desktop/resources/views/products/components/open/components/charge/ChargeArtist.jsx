@@ -71,7 +71,7 @@ export default class ChargeArtist extends Component {
 
         // const { renderList } = this.state;
         return (
-            <section className="product_list__charge-artist charge-artist" style={{ paddingTop: category === "PRODUCT" ? "50px" : "20px" }}>
+            <section className="product_list__charge-artist charge-artist" style={{ paddingTop: "50px" }}>
                 <div className="container">
                     <div className="charge-artist__head">
                         <div className="container">

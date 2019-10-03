@@ -84,6 +84,10 @@ export default class SubHeader extends Component {
                                 </div>
                             );
                         })}
+                        {!enter ?
+                            <a href="/products/concept/product" onClick={() => utils.ad.gaEvent("기업_컨셉", "GNB버튼", "GNB버튼")}><button className="btn_concept">빠른컨셉검색</button></a>
+                            : null
+                        }
                     </div>
                     <div className="sub-header__right-content">
                         {!isArtist && !enter &&

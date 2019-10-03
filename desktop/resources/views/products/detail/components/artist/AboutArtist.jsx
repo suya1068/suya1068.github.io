@@ -4,7 +4,6 @@ import Img from "shared/components/image/Img";
 import utils from "forsnap-utils";
 import classNames from "classnames";
 import MoreBtn from "../../business/component/more/MoreBtn";
-import Stickyfill from "stickyfilljs";
 
 export default class AboutArtist extends Component {
     constructor(props) {
@@ -19,17 +18,17 @@ export default class AboutArtist extends Component {
         this.onMore = this.onMore.bind(this);
         this.onConsult = this.onConsult.bind(this);
         this.gaEvent = this.gaEvent.bind(this);
-        this.onScroll = this.onScroll.bind(this);
-        this.onScrollToEstimate = this.onScrollToEstimate.bind(this);
+        // this.onScroll = this.onScroll.bind(this);
+        // this.onScrollToEstimate = this.onScrollToEstimate.bind(this);
     }
 
     componentWillMount() {
-        window.addEventListener("scroll", this.onScroll);
+        // window.addEventListener("scroll", this.onScroll);
     }
 
     componentDidMount() {
-        const stickyEle = document.getElementsByClassName("about-artist")[0];
-        this.stickyFill = new Stickyfill.Sticky(stickyEle);
+        // const stickyEle = document.getElementsByClassName("about-artist")[0];
+        // this.stickyFill = new Stickyfill.Sticky(stickyEle);
 
         setTimeout(() => {
             if (this.refDetailContent) {
@@ -49,25 +48,25 @@ export default class AboutArtist extends Component {
         }, 400);
     }
 
-    onScroll(e) {
-        const target = document.querySelector("#virtual_estimate");
-        const targetBound = target.getBoundingClientRect();
+    // onScroll(e) {
+        // const target = document.querySelector("#virtual_estimate");
+        // const targetBound = target.getBoundingClientRect();
+        //
+        // if (targetBound.bottom < (60 + 50 + 60)) {
+        //     this.setState({ isShowBtn: true });
+        // } else {
+        //     this.setState({ isShowBtn: false });
+        // }
+    // }
 
-        if (targetBound.bottom < (60 + 50 + 60)) {
-            this.setState({ isShowBtn: true });
-        } else {
-            this.setState({ isShowBtn: false });
-        }
-    }
-
-    onScrollToEstimate(e) {
-        this.gaEvent("유료_하단견적_문의");
-        const target = document.querySelector("#virtual_estimate");
-        const targetBound = target.getBoundingClientRect();
-        // console.log(targetBound);
-
-        scrollBy(0, targetBound.top - 120);
-    }
+    // onScrollToEstimate(e) {
+    //     this.gaEvent("유료_하단견적_문의");
+    //     const target = document.querySelector("#virtual_estimate");
+    //     const targetBound = target.getBoundingClientRect();
+    //     // console.log(targetBound);
+    //
+    //     scrollBy(0, targetBound.top - 120);
+    // }
 
     /**
      * ga이벤트 전달
@@ -118,17 +117,29 @@ export default class AboutArtist extends Component {
                 <div className="about-artist__inner">
                     <div className="about-artist__content">
                         <div className="about-artist__content__inner">
-                            <div className="about-artist__content__profile">
-                                <p className="about-artist__iscorp">{isCorp === "Y" ? "세금계산서가능" : ""}</p>
-                                <div className="artist__profile">
-                                    <Img image={{ src: profile, content_width: 90, content_height: 90 }} />
-                                </div>
-                                <p className="photographer">photographer</p>
-                                <p className="artist__nickname">{nickName}</p>
-                            </div>
                             <div className="about-artist__content__region">
-                                <p className="region-title">촬영가능지역</p>
-                                <p className="regions">{Array.isArray(region) && region.length > 0 ? region.join(", ") : "촬영가능지역이 설정되어있지 않습니다."}</p>
+                                <div className="regions">
+                                    <p className="region-title">촬영가능지역</p>
+                                    <p className="regions">{Array.isArray(region) && region.length > 0 ? region.join(", ") : "촬영가능지역이 설정되어있지 않습니다."}</p>
+                                </div>
+                                <div className="corp">
+                                    <p className="isCorp">세금계산서</p>
+                                    <p className="about-artist__iscorp">{isCorp === "Y" ? "가능" : "불가능"}</p>
+                                </div>
+                            </div>
+                            <div className="about-artist__content__profile">
+                                <div className="artist__profile">
+                                    <div className="profile-image-container">
+                                        <Img image={{ src: profile, content_width: 90, content_height: 90 }} />
+                                    </div>
+                                    <div className="artist__graphy">
+                                        <p className="photographer">photographer</p>
+                                        <p className="artist__nickname">{nickName}</p>
+                                    </div>
+                                </div>
+                                <div className="artist__send">
+                                    <button className="artist__consult-btn" onClick={() => this.onConsult("detail_artist")}>작가에게 무료상담신청</button>
+                                </div>
                             </div>
                             <div
                                 className="about-artist__content__comment"
@@ -143,28 +154,19 @@ export default class AboutArtist extends Component {
                             }
                         </div>
                     </div>
-                    <div className="about-artist__content__outer">
-                        <button className="artist__consult-btn" onClick={() => this.onConsult("detail_artist")}>작가에게 무료상담신청</button>
-                    </div>
                 </div>
-                <div className="about-artist__outer">
-                    <div className="info-row">
-                        <p className="dot" />
-                        <p className="info-text">견적이나 촬영에 대한 안내뿐만아니라, 추가포트폴리오
-                            를 요청하거나 촬영에 대한 전반적인 안내도 가능합니다.</p>
-                    </div>
-                    <div className="info-row">
-                        <p className="dot" />
-                        <p className="info-text">문의를 남기시면 상담만 담당하는 직원이 아닌 직접
-                            촬영을 진행하시는 작가님께서 연락을 드립니다.</p>
-                    </div>
-                </div>
-                <div style={{ width: "100%", marginTop: 50 }}>
-                    <button
-                        onClick={isShowBtn ? this.onScrollToEstimate : null}
-                        className={classNames("scroll-btn", { "show": isShowBtn })}
-                    >견적계산하기</button>
-                </div>
+                {/*<div className="about-artist__outer">*/}
+                    {/*<div className="info-row">*/}
+                        {/*<p className="dot" />*/}
+                        {/*<p className="info-text">견적이나 촬영에 대한 안내뿐만아니라, 추가포트폴리오*/}
+                            {/*를 요청하거나 촬영에 대한 전반적인 안내도 가능합니다.</p>*/}
+                    {/*</div>*/}
+                    {/*<div className="info-row">*/}
+                        {/*<p className="dot" />*/}
+                        {/*<p className="info-text">문의를 남기시면 상담만 담당하는 직원이 아닌 직접*/}
+                            {/*촬영을 진행하시는 작가님께서 연락을 드립니다.</p>*/}
+                    {/*</div>*/}
+                {/*</div>*/}
             </div>
         );
     }

@@ -1,0 +1,83 @@
+.charge-artist__select {
+
+    .charge-artist__column {
+        &:nth-child(n+2) {
+            margin-top: 15px;
+        }
+    }
+
+    .table {
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 0;
+
+        thead {
+            background-color: transparent;
+
+            th {
+                color: #666;
+            }
+        }
+
+        tbody {
+        }
+
+        tfoot {
+            tr {
+                border-bottom: 0;
+            }
+
+            .pagelist {
+
+                .pagelist-num {
+                    width: auto;
+                    height: auto;
+                    padding-bottom: 1px;
+                    background-color: transparent;
+                    color: #999;
+                    font-weight: bold;
+                    border: 0;
+                    border-bottom: 2px solid transparent;
+                    border-radius: 0;
+
+                    &:nth-of-type(n+2) {
+                        margin-left: 20px;
+                    }
+
+                    &.active {
+                        color: #000;
+                        border-bottom-color: #000;
+                    }
+                }
+            }
+        }
+
+        th,
+        td {
+            min-height: 50px;
+            padding: 15px;
+            border-right: 0;
+            vertical-align: middle;
+            font-size: 0.875em;
+            font-weight: bold;
+            line-height: normal;
+        }
+
+        .check__box {
+            .check__icon {
+                width: 24px;
+                height: 24px;
+                background-color: #cdcdcd;
+                border-color: #cdcdcd;
+                border-radius: 3px;
+            }
+
+            &.checked {
+                .check__icon {
+                    background-color: #f7b500;
+                    border-color: #f7b500;
+                }
+            }
+        }
+    }
+}

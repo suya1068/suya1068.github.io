@@ -23,11 +23,14 @@ export default class VirtualEstimateResult extends Component {
 
     renderText() {
         const { form, data, priceInfo, exchangeResultText } = this.props;
+        // console.log(">>>>>>>>>>>>>>>>>>>:", form);
         const rowArr = Object.keys(data);
 
         return rowArr.map(key => {
             const stepEntity = data[key];
             const resultText = exchangeResultText(key, form, priceInfo);
+
+            // console.log("resultTest:", resultText);
 
             return (
                 <div className="step-row" key={`step__row__${key}`}>

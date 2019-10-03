@@ -488,16 +488,21 @@
         .artist-container-center {
             position: relative;
             width: 100%;
-            min-height: 100%;
             min-width: $artist-page-center-width;
+            min-height: 100%;
             background-color: #fafafa;
             overflow-x: auto;
 
             .center-container {
-                width: 958px;
+                width: 100%;
                 min-height: 100%;
                 padding: $artist-page-center-padding-tb $artist-page-center-padding-lr;
                 margin: 0 auto;
+
+                > div {
+                    width: 958px;
+                    margin: 0 auto;
+                }
 
                 .quotation__request {
                     padding: 0;
@@ -537,10 +542,9 @@
 
             .artist-content-row {
                 .head-title {
-                    font-size: 18.9px;
-                    font-weight: 500;
-                    letter-spacing: -0.9px;
-                    margin-bottom: 20px;
+                    font-size: 1.375em;
+                    font-weight: bold;
+                    letter-spacing: -1.15px;
 
                     > span {
                         margin-left: 11px;
@@ -555,9 +559,17 @@
                     }
                 }
 
+                .head-description {
+                    margin-top: 5px;
+                    color: #333333;
+                    font-size: 1.125em;
+                    letter-spacing: -0.94px;
+                }
+
                 .grid-list {
                     display: inline-block;
                     width: 100%;
+                    margin-top: 20px;
                     margin-bottom: 40px;
 
                     .grid-conetnt {
@@ -635,6 +647,64 @@
                 .management-content {
                     text-align: center;
                 }
+
+                .board__notice {
+                    margin-top: 20px;
+                }
+
+                .artist__inquire__list {
+                    margin-top: 20px;
+
+                    .inquire__item {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        height: 120px;
+                        padding: 0 24px;
+                        background-color: #fff;
+                        border: 1px solid #c9c9c9;
+                        border-radius: 6px;
+
+                        .title {
+                            font-size: 1.125em;
+                            font-weight: bold;
+                            line-height: normal;
+                            letter-spacing: -0.36px;
+                        }
+
+                        .name {
+                            margin-top: 11px;
+                            letter-spacing: -0.83px;
+                        }
+
+                        .phone {
+                            margin-top: 2px;
+                            letter-spacing: -0.83px;
+                        }
+                    }
+                }
+
+                .inquire__info {
+                    margin-top: 25px;
+                    font-weight: 500;
+                    line-height: normal;
+                    letter-spacing: -0.83px;
+                    color: #888;
+
+                    button {
+                        width: 160px;
+                        height: 34px;
+                        margin-left: 20px;
+                        background-color: #ffffff;
+                        border-radius: 5px;
+                        border: solid 1px #e1e1e1;
+                        font-size: 0.875em;
+                        font-weight: bold;
+                        line-height: normal;
+                        letter-spacing: normal;
+                        cursor: pointer;
+                    }
+                }
             }
 
             .dashboard__breadcrumb {
@@ -689,7 +759,9 @@
             display: flex;
             flex: 1 1 auto;
             width: 100%;
+            margin-top: 20px;
             margin-bottom: 40px;
+
             .info-box {
                 display: table;
                 width: 330px;
